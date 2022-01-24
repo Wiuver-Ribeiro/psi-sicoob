@@ -7,7 +7,7 @@
   <link rel="shortcut icon" href="<?php echo $base . '/assets/icons/scs.ico'; ?>" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/reset.css' ?>" />
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/header.css' ?>" />
+  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/header.css' ?>" />
   <title>PSI - Sicoob Centro-sul</title>
 </head>
 
