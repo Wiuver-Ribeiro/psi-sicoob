@@ -1,3 +1,2 @@
+<!-- Inclusão do header -->
 <?php $render('header'); ?>
-
-Opa, <?=$nome;?>
