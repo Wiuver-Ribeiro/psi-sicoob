@@ -1,9 +1,40 @@
-main section.container-principal {
+main section.container{
   width: 100%;
   max-width: 1192px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin: 0 auto;
 }
+
+
+main section.container .title-principal {
+  font-size:3.5rem; 
+  line-height:3.5rem; 
+  margin:1.5rem 0rem;
+}
+
+main section.container a {
+  text-decoration: none;
+  display: inline-block;
+  margin-top:1rem;
+}
+
+main section.container a {
+  background-image:linear-gradient(to right, #649bff, #0070fa, #649bff);
+  padding: 1rem 2.5rem;
+  border-radius: 0.45rem; 
+  color: #fff;
+  transition: all ease 0.5s;
+}
+main section.container a:hover {
+  background-image:linear-gradient(to right, #649bff, #4391f0, #649bff);
+
+}
+
+main section.container .doctor {
+  display: flex;
+  justify-content: flex-end;
+}
+
