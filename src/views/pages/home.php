@@ -85,5 +85,38 @@
       </div>
       <!---GRID-ITEMS-->
     </div>
+  </section> <!--Serviços-->
+
+  <section id="psi" class="container">
+    <div class="informacoes-principais">
+      <h1 class="title-principal" style="text-align: center; font-size:3rem;margin-bottom:2rem;">Nossos Psicólogos</h1>
+      <div class="grid-psi">
+        <div class="grid-psi-info">
+          <img src="<?php echo $base.'/assets/pictures/1.jpg';?> " alt="">
+          <span>Dra Adriana Galvão</span>
+        </div>
+        <div class="grid-psi-info">
+          <img src="<?php echo $base.'/assets/pictures/2.jpg';?> " alt="">
+          <span>Dr Manoel Corte</span>
+        </div>
+        <div class="grid-psi-info">
+          <img src="<?php echo $base.'/assets/pictures/3.jpg';?> " alt="">
+          <span>Dra Cecília Nascimento</span>
+        </div>
+        <div class="grid-psi-info">
+          <img src="<?php echo $base.'/assets/pictures/4.jpg';?> " alt="">
+          <span>Dr Matheus Novaes</span>
+        </div>
+        <div class="grid-psi-info">
+          <img src="<?php echo $base.'/assets/pictures/5.jpg';?> " alt="">
+          <span>Dra Maria Conceição</span>
+        </div>
+        <div class="grid-psi-info">
+          <img src="<?php echo $base.'/assets/pictures/6.jpg';?> " alt="">
+          <span>Dr Francísco Benício</span>
+        </div>
+      </div>
+    </div>
   </section>
 </main>
+<script src="<?php echo $base.'/assets/js/script.js'; ?>"></script>
