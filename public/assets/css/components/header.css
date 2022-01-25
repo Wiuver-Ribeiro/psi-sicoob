@@ -9,12 +9,11 @@
   align-items:center;
   margin: 0 auto;
 
-  /* Deixar menu fixado no topo da página 
-  position: fixed;
+  /* Deixar menu fixado no topo da página  */
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0; 
-  */
+  /* left: 0;
+  right: 0;    */
 }
 .container-header  a {
   text-decoration: none;

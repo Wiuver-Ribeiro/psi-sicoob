@@ -15,15 +15,15 @@
   <header>
     <div class="container-header">
       <div class="logo">
-       <img src="<?php echo $base . '/assets/icons/logo.png' ?>" alt="Logo PSI-Sicoob Centro-sul">
+       <img src="<?php echo $base . '/assets/icons/logo-sicoob.png' ?>" alt="Logo PSI-Sicoob Centro-sul" width="30px" style="object-fit:contain">
        Psi-Sicoob Centro-sul
       </div>
       <nav class="menu">
         <ul>
           <li><a href="<?php echo $base . '/' ?>">Home</a></li>
-          <li><a href="<?php echo $base . '/sobre'?>">Sobre</a></li>
-          <li><a href="#services">Serviços</a></li>
-          <li><a href="#psi">Psicologos</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#psi">Psicólogos</a></li>
         </ul>
       </nav>
       <div class="menu-area">
