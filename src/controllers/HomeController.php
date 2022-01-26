@@ -6,7 +6,9 @@ use \core\Controller;
 class HomeController extends Controller {
 
     public function index() {
-        $this->render('home', ['nome' => 'Bonieky']);
+        //Passando parametros na rota
+        // $this->render('home', ['nome' => 'Bonieky']);
+        $this->render('home');
     }
 
     public function sobre() {

@@ -28,8 +28,9 @@
           <li><a href="#psi">Psicólogos</a></li>
         </ul>
       </nav>
+      <?php echo $base; ?>
       <div class="menu-area">
-        <a href="#sigin" class="button-blue">Entrar</a>
+        <a href="" class="button-blue">Entrar</a>
         <a href="#sigup">Registrar</a>
       </div>
     </div>

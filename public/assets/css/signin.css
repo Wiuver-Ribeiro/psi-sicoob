@@ -1,0 +1,21 @@
+.container {
+ display: grid;
+  grid-auto-columns: 1fr 1fr;
+  grid-template-rows: 100vh;
+  grid-template-areas: "image form"; 
+
+  width: 100%;
+  max-width: 1000px;
+  margin: auto auto;
+  align-items: center;
+  justify-content: center;
+  background-color: purple;
+}
+
+.box-image {
+  grid-area:image;
+}
+
+.box-form {
+  grid-area: form;
+}
