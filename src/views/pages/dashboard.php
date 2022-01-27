@@ -15,10 +15,10 @@
 
 <body>
   <?php $render('sidebar'); ?>
+  <?php $render('navbar'); ?>
   <main class="main-container">
     <h1>Hello World!</h1>
   </main>
-  <?php $render('navbar'); ?>
 
 
 </body>
