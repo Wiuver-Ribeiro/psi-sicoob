@@ -25,3 +25,42 @@
   object-fit: cover;
  
 }
+
+/* BOX-SIDEBAR */
+.box-sidebar {
+  display:flex;
+  flex-direction: column;
+  padding: 10px;
+  justify-items: center;
+  /* align-items: center; */
+}
+.box-sidebar  span {
+  display: block;
+  margin:1rem 0rem;
+  font-size:10px;
+}
+
+.box-sidebar ul li{
+  list-style: none;
+  padding: 18px 10px; 
+  cursor: pointer;
+  color: #888;
+}
+
+.box-sidebar ul li {
+  display:flex;
+
+  text-decoration: none;
+  color: #888;
+  font-size: 14px;
+}
+.box-sidebar ul li a {
+  text-decoration:none;
+  color: #888;
+}
+
+.box-sidebar ul li:hover{
+  background-color: #F1F1F1;
+  color: #04A9F5;
+}
+
