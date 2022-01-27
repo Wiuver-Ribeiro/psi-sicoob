@@ -8,17 +8,18 @@
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/reset.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
+  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/dashboard.css'; ?>">
 
   <title>PSI | Dashboard</title>
 </head>
 
 <body>
   <?php $render('sidebar'); ?>
-  <?php $render('navbar'); ?>
-
-  <main class="container">
+  <main class="main-container">
     <h1>Hello World!</h1>
   </main>
+  <?php $render('navbar'); ?>
+
 
 </body>
 

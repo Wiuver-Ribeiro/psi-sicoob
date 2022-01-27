@@ -1,0 +1,7 @@
+.main-container {
+  width: calc(100vw - 260px);
+  height: calc(100vh - 70px);
+  margin-left: auto;
+  margin-top: auto;
+  background-color: red;
+}
