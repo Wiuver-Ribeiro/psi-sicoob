@@ -1,0 +1,27 @@
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background: #FFF;
+  position: fixed;
+  left: 0;
+}
+
+.sidebar .logo {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+  justify-content: center;
+  font-size:14px;
+  padding:20px 15px;
+  background-color:#04A9F5;
+  color: #fff;
+  cursor:pointer;
+  font-weight: 500;
+}
+
+.sidebar .logo img {
+  width: 30px;  
+  height: 30px;
+  object-fit: cover;
+ 
+}
