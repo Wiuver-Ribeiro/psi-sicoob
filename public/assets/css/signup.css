@@ -17,8 +17,8 @@ main {
   justify-content:center;
 
   width: 100%;
-  max-width: 800px;
-  height: 420px;
+  max-width: 770px;
+  height: 480px;
   margin: auto auto;
   box-shadow: 1px 1px 5px #bbb;
 }
@@ -67,24 +67,23 @@ main {
   border-radius: 0.25rem;
   transition: all 0.3s;
   border: 1px solid rgba(0,0,0,.125);
-  font-size:1rem;
-  color:#999;
+  font-size:14px;
 }
 .box-form .form-group  input:focus {
   border-color: #007bff;
   box-shadow: 2px 2px 3px #a8d2ff;
 }
-.box-form .form-group:nth-child(3),
-.box-form .form-group:nth-child(4) {
+
+.box-form .form-group:nth-child(5) {
   display:grid;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-}
+} 
 
 .box-form .form-group button {
   width:100px;
-  height:40px;
+  height:43px;
   padding: 10px 20px;
   outline:none;
   background-color:#04a9f5;
@@ -92,9 +91,9 @@ main {
   color: #fff;
   border-radius: 0.45rem;
   cursor: pointer;
-  margin-bottom: 2rem;
   transition: background-color 0.2s;
   font-size: 1rem;
+  box-shadow: 1px 1px 5px #888;
 }
 
 .box-form .form-group button:hover {
