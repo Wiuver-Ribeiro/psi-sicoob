@@ -1,9 +1,55 @@
-.main-container {
-  height:100vh;
-  margin: 0 auto;
-  background-color: red;
+main .main-container {
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-content:center;
+  align-items:center;
+  flex-direction: column;
+  margin-left: 19%;
+  /* margin-bottom: auto; */
+  height:calc(100vh - 70px);
+  background-color: #F4F7FA;
 }
 
-.main-container h1 {
-  color: #000;
+main .content-appointment {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  grid-gap: 3rem;
+  margin-top: 4rem;
+  margin: 4rem  auto 0 auto;
+}
+
+main .content-appointment .appointment-info {
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  width: 300px;
+  height: 150px;
+  background: #FFF;
+  box-shadow:1px 1px 3px #ddd;
+  padding: 20px 25px;
+}
+
+main .content-appointment .appointment-info i {
+  align-self: flex-end;
+  color: #CDEEFD;
+}
+
+main .content-appointment .appointment-info .appointment-scheduled {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-between;
+}
+
+main .content-appointment .appointment-info .appointment-scheduled  > span:first-child {
+  font-size:1.7rem;
+}
+
+main .content-appointment .appointment-info .appointment-scheduled > span:last-child{
+  font-weight: 500;
+  color: #888;
+  margin-top: 2rem;
+  font-size: 1.2rem;
 }

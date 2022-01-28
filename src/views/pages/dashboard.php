@@ -14,11 +14,41 @@
 </head>
 
 <body>
-  <?php $render('sidebar'); ?>
   <?php $render('navbar'); ?>
-  <main class="main-container">
-    <h1>Hello World!</h1>
+  <?php $render('sidebar'); ?>
+  <main>
+    <div class="main-container">
+      <div class="content-appointment">
+        <div class="appointment-info">
+        <i class="fas fa-calendar-day fa-6x"></i>
+          <div class="appointment-scheduled">
+            <span>2</span>
+            <span class="text-appointments">Pendentes</span>
+          </div> <!--appointment-info-->
+        </div> <!--appointment-info-->
+        <div class="appointment-info">
+        <i class="fas fa-calendar-check fa-6x"></i>
+          <div class="appointment-scheduled">
+            <span>10</span>
+            <span class="text-appointments">Marcados</span>
+          </div> <!--appointment-info-->
+        </div> <!--appointment-info-->
+        <div class="appointment-info">
+        <i class="fas fa-clock fa-6x"></i>
+          <div class="appointment-scheduled">
+            <span>5</span>
+            <span class="text-appointments">Terminados</span>
+          </div> <!--appointment-info-->
+        </div> <!--appointment-info-->
+      </div> <!--content-appointment-->
+
+      <table>
+        <caption>Agendamentos Pendentes</caption>
+      </table>
+
+    </div>  <!--main-container-->
   </main>
+
 
 
 </body>
