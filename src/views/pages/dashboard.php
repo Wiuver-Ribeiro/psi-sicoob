@@ -42,9 +42,58 @@
         </div> <!--appointment-info-->
       </div> <!--content-appointment-->
 
-      <table>
-        <caption>Agendamentos Pendentes</caption>
-      </table>
+      <div class="table-content">
+          <table width="100%">
+            <div class="box-search">
+              <span>Agendamentos Pendentes</span>
+              <input type="text" placeholder="Pesquise...">
+            </div>
+            <thead>
+              <tr>
+                <td>Paciente</td>
+                <td>Psicologos</td>
+                <td>Início</td>
+                <td>Término</td>
+                <td>Confirmar</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Wiuver Afonso Ribeiro</td>
+                <td>Dra Lara Kamilly G de Paiva</td>
+                <td>14:30</td>
+                <td>15:30</td>
+                <td>
+                  <button title="Confirmar">
+                  <i class="fas fa-check-square fa-2x"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Cleiton Antonio Gonçalves</td>
+                <td>Dr Vlastemuller O de Paiva</td>
+                <td>08:30</td>
+                <td>10:30</td>
+                <td>
+                  <button title="Confirmar">
+                  <i class="fas fa-check-square fa-2x"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Ana Julia Ribeiro</td>
+                <td>Dra Lara Kamilly G de Paiva</td>
+                <td>12:00</td>
+                <td>13:00</td>
+                <td>
+                  <button title="Confirmar">
+                  <i class="fas fa-check-square fa-2x"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
 
     </div>  <!--main-container-->
   </main>
