@@ -9,7 +9,7 @@
     <ul>
       <li><a href="<?php echo $base.'/dashboard';?>"><i class="fas fa-home" style="margin-right: 1rem"></i>Dashboard</a></li>
       <li><a href="<?php echo $base.'/appointments'; ?>"><i class="fas fa-calendar" style="color:#01A9AC; margin-right:1rem;"></i>Agendamentos</a></li>
-      <li><a href="<?php echo $base.'/doctors'; ?>"><i class="fas fa-user-friends" style="color:#9595DF; margin-right:1rem;"></i>Médicos</a></li>
+      <li><a href="<?php echo $base.'/doctors'; ?>"><i class="fas fa-user-friends" style="color:#9595DF; margin-right:1rem;"></i>Psicólogos</a></li>
       <li><i class="fas fa-user-alt" style="color:#8DC9E8; margin-right:1rem;"></i>Pacientes</li>
       <li><i class="fas fa-lock" style="color:#F4C22B; margin-right:1rem;"></i>Administradores</li>
       <li><i class="fas fa-cog" style="color:#4DC6FA; margin-right:1rem;" style="color:#1CA9F5; margin-right:1rem;"></i>Configuração</li>

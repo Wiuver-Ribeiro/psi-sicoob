@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="<?php echo $base . '/assets/icons/scs.ico'; ?>" type="image/x-icon" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/reset.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
@@ -33,21 +35,28 @@
               <img src="<?php echo $base.'/assets/icons/avatar-lara.jpg'; ?>" alt="" >
               <div class="doctor-info">
                 <span>Dra. Lara Kamilly G de Paiva</span>
-                <span>Geral</span>
+                <span>Psicologia Geral</span>
               </div>
           </div> <!---doctor-box-->
           <div class="doctor-box">
               <img src="<?php echo $base.'/assets/icons/avatar-fabiano.jpg'; ?>" alt="">
               <div class="doctor-info">
                 <span>Dr. Fabiano Porfirio Ribeiro</span>
-                <span>Ortopedista</span>
+                <span>Psicanálise</span>
               </div>
           </div> <!---doctor-box-->
           <div class="doctor-box">
-              <img src="<?php echo $base.'/assets/icons/avatar-julia.jpg'; ?>" alt="">
+              <img src="<?php echo $base.'/assets/icons/avatar-wiuver.jpg'; ?>" alt="">
               <div class="doctor-info">
-                <span>Dra. Julia Gabriela Silva</span>
-                <span>Oftamologista</span>
+                <span>Dr. Wiuver Afonso Ribeiro</span>
+                <span>Psicologia do Desevolvimento</span>
+              </div>
+          </div> <!---doctor-box-->
+          <div class="doctor-box">
+              <img src="<?php echo $base.'/assets/icons/avatar-eduardo.jpeg'; ?>" alt="">
+              <div class="doctor-info">
+                <span>Dr. Eduardo Nascimento</span>
+                <span>Psicologia da Saude</span>
               </div>
           </div> <!---doctor-box-->
         </div> <!---grid-doctors-->
