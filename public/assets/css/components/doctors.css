@@ -1,0 +1,87 @@
+.default {
+  margin: 70px 2rem;
+}
+
+.default h3 {
+  text-align: left;
+  font-weight: 500;
+}
+/* CONTENT-PSI */
+.content-psi {
+  background: rgb(254, 254, 254);
+  padding: 2rem 1.5rem;
+  margin-top: 2rem;
+  /* margin: 2rem; */
+  box-shadow:1px 1px 5px #fff;
+}
+
+.content-psi-header {
+  display: flex;
+  justify-content:space-between;
+  margin-bottom: 1rem;
+  padding-bottom:1rem;
+  border-bottom: 1px solid #888;
+}
+
+
+.content-psi-header button {
+  background-color: #fff;
+  border: 1px solid #0AABF5;
+  padding:10px 15px;
+  cursor: pointer;
+  border-radius:0.25rem;
+  transition:background-color .3s ease-in-out;
+  color: #0AABF5;
+}
+
+.content-psi-header button:hover {
+  background-color: #0AABF5;
+  color: #fff;
+}
+
+/* GRID DOS PSI */
+.grid-doctors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-doctors .doctor-box  {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-direction:row;
+  background:#FFF;
+  align-items: center;
+  padding: 1rem;
+  box-shadow:1px 1px 3px #ddd;
+  transform: scale(0.9);
+  transition:all 0.4s ease-in-out;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* DOCTOR-BOX SCALE */
+.grid-doctors .doctor-box:hover {
+  transform: scale(1);
+}
+
+.grid-doctors .doctor-box img{
+  width:100px;
+  height:100px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.grid-doctors .doctor-box .doctor-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.grid-doctors .doctor-box .doctor-info span:last-child {
+  color: #888;
+  margin-top: 14px;
+}

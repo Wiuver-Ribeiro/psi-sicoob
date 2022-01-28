@@ -59,11 +59,13 @@ nav .box-acoes i:hover {
 .dropdown:hover .dropdown-content {
   display: flex;
   justify-content:space-between;
+  z-index: 999;
 }
 
 .dropdown .dropdown-content ul {
   display: flex;
   flex-direction: column;
+  z-index: 999;
   
 }
 
@@ -87,6 +89,8 @@ nav .box-acoes i:hover {
 .dropdown .dropdown-content ul li:hover {
   background-color: #CDEEFD;
   cursor: pointer;
+  z-index: 999;
+
 }
 
 /* AVATAR-DROPDOWN */
