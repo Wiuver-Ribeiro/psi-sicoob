@@ -27,7 +27,7 @@
           <div class="content-psi-header">
           <h4 style="font-weight:500">Todos os psicólogos</h4>
           <button>
-          <i class="fas fa-user-plus"></i>
+          <a href="<?php echo $base.'/doctors/create';?>" style="color:blue;"><i class="fas fa-user-plus"></i></a>
           </button>
           </div>
         <div class="grid-doctors">

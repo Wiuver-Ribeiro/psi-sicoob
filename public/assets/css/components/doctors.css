@@ -20,7 +20,7 @@
   justify-content:space-between;
   margin-bottom: 1rem;
   padding-bottom:1rem;
-  border-bottom: 1px solid #888;
+  border-bottom: 1px solid #ddd;
 }
 
 
@@ -84,4 +84,67 @@
 .grid-doctors .doctor-box .doctor-info span:last-child {
   color: #888;
   margin-top: 14px;
+}
+
+/* CREATE */
+
+.grid-doctors._create {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  /* background:red; */
+  width: 100%;
+}
+
+
+.grid-doctors._create img {
+  border: 6px solid #FFF;
+  box-shadow: 1px 1px 10px #888;
+  background-color: #04a9f5;
+}
+
+.grid-doctors._create form .field-input {
+  margin: 1rem 0;
+  width: 1000px;
+}
+
+.grid-doctors._create form .field-input input {
+  width: 100%;
+  height:40px;
+  padding:10px 20px;
+  outline:none;
+  background: #F4F7FA;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  transition: all ease-in-out .3s;
+}
+
+.grid-doctors._create form .field-input input:focus {
+  border-color: #83bfff;
+  box-shadow: 2px 2px 5px #a8d2ff;
+}
+
+.grid-doctors._create form .field-input input::placeholder {
+  color: #888;
+}
+
+.grid-doctors._create form .field-input button {
+  width: 100%;
+  height:40px;
+  padding:10px 20px;
+  outline:none;
+  background: #FFF;
+  border: 1px solid #83bfff;
+  border-radius: 0.25rem;
+  transition: all ease-in-out .3s;
+  cursor:pointer;
+  color: #04a9f5;
+  transition: all ease-in-out .3s;
+}
+
+.grid-doctors._create form .field-input button:hover {
+  background-color: #04a9f5;
+  color: #FFF;
 }

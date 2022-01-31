@@ -8,6 +8,18 @@ class UserController extends Controller {
     $this->render('signin');
   }
 
+  public function createDoctor() {
+    $this->render('/admin/doctors-create');
+  }
+
+  public function createPatient() {
+    $this->render('/admin/patients-create');
+  }
+
+  public function createAdmin() {
+    $this->render('/admin/admins-create');
+  }
+
 
 
 

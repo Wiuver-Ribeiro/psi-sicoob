@@ -7,3 +7,7 @@
   body {
    background: #F1F9FF;
   }
+
+  .active {
+    background-color: green;
+  }

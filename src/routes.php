@@ -23,3 +23,9 @@ $router->get('/patients', 'PatientController@index');
 
 //USerController
 $router->get('/admins', 'UserController@admins');
+$router->get('/doctors/create', 'UserController@createDoctor');
+$router->get('/patients/create', 'UserController@createPatient');
+$router->get('/admins/create', 'UserController@createAdmin');
+
+//AppointmentController
+$router->get('/appointments', 'AppointmentController@index');
