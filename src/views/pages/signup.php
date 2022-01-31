@@ -21,7 +21,7 @@
       </div>
       <div class="box-form">
         <h1>Registrar</h1>
-        <form action="#">
+        <form action="<?php echo $base.'/dashboard';?>">
           <div class="form-group">
             <input type="text" placeholder="Nome">
           </div>
@@ -36,7 +36,7 @@
           </div>
 
             <div class="form-group">
-            <button type="button">Registrar</button>
+            <button type="submit">Registrar</button>
           </div>
           <div class="form-group">
             <span>

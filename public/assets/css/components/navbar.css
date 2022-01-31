@@ -47,7 +47,7 @@ nav .box-acoes i:hover {
   display: none;
   position: absolute;
   background-color: #FFF;
-  /* width: 180px; */
+  width: 200px;
   height: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 
@@ -91,6 +91,11 @@ nav .box-acoes i:hover {
   cursor: pointer;
   z-index: 999;
 
+}
+
+.dropdown .dropdown-content ul li  a {
+  text-decoration: none;
+  color: #888;
 }
 
 /* AVATAR-DROPDOWN */

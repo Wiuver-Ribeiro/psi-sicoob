@@ -30,8 +30,8 @@
       </nav>
     
       <div class="menu-area">
-        <a href="" class="button-blue">Entrar</a>
-        <a href="#sigup">Registrar</a>
+        <a href="<?php echo $base.'/signin';?>" class="button-blue">Entrar</a>
+        <a href="<?php echo $base.'/signup';?>">Registrar</a>
       </div>
     </div>
   </header>

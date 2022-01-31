@@ -21,7 +21,7 @@
       </div>
       <div class="box-form">
         <h1>Login</h1>
-        <form action="#">
+        <form action="<?php echo $base.'/dashboard';?>">
           <div class="form-group">
             <input type="text" placeholder="E-mail">
           </div>
@@ -29,7 +29,7 @@
             <input type="password" placeholder="Senha">
           </div>
           <div class="form-group">
-            <button type="button">Login</button>
+            <button type="submit">Login</button>
           </div>
           <div class="form-group">
             <span>
