@@ -3,8 +3,8 @@ namespace src\controllers;
 
 use \core\Controller;
 
-class HomeController extends Controller {
+class PatientController extends Controller {
   public function index() {
-    $this->render('patients');
+    $this->render('/admin/patients');
   }
 }

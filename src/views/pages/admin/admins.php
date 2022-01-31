@@ -11,9 +11,9 @@
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/dashboard.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/doctors.css'; ?>">
+  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/admins.css'; ?>">
 
-  <title>PSI | Doctors </title>
+  <title>PSI | Administradores</title>
 </head>
 
 <body>
@@ -22,10 +22,10 @@
   <main>
     <div class="main-container">
       <section class="default">
-        <h3 style="text-align:left">Psicólogos</h3>
+        <h3 style="text-align:left">Usuários</h3>
         <div class="content-psi">
           <div class="content-psi-header">
-          <h4 style="font-weight:500">Todos os psicólogos</h4>
+          <h4 style="font-weight:500">Todos os usuários</h4>
           <button>
           <i class="fas fa-user-plus"></i>
           </button>
