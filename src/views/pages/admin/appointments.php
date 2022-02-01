@@ -1,9 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link href='<?php echo $base . '/assets/fullcalendar/packages/core/main.css'; ?>' rel='stylesheet' />
+  <link href='<?php echo $base . '/assets/fullcalendar/packages/daygrid/main.css'; ?>' rel='stylesheet' />
+
   <link rel="shortcut icon" href="<?php echo $base . '/assets/icons/scs.ico'; ?>" type="image/x-icon" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,35 +24,40 @@
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/dashboard.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/admins.css'; ?>">
 
-  <title>PSI | Administradores</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="<? echo $base . '/assets/css_bootstrap/bootstrap.min.css'; ?>">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="<?php echo $base . '/assets/css_bootstrap/style.css'; ?>">
+
+  <title>PSI | Appointments</title>
 </head>
 
 <body>
   <?php $render('navbar'); ?>
   <?php $render('sidebar'); ?>
-  <main>
-    <div class="main-container">
-      <section class="default">
-        <h3 style="text-align:left">Agendamentos</h3>
-        <div class="content-psi">
-          <div class="content-psi-header">
-          <h4 style="font-weight:500">Todos os Agendamentos</h4>
-          <button>
-          <i class="fas fa-user-plus"></i>
-          </button>
-          </div>
-        <div class="grid-doctors">
-            
-        </div> <!---grid-doctors-->
-        </div> <!---content-psi--->
-      </section>
-    </div>
-    <!--main-container-->
-  </main>
+
+  <div class="content">
+    <div id='calendar'></div>
+  </div>
 
 
+
+  <script src="<?php echo $base . '/assets/js/jquery-3.3.1.min.js'; ?>"></script>
+  <script src="<?php echo $base . '/assets/js/popper.min.js' ?>"></script>
+  <script src="<?php echo $base . '/assets/js/bootstrap.min.js' ?>"></script>
+
+  <script src="<?php echo $base . '/assets/fullcalendar/packages/core/main.js'; ?>"> </script>
+  <script src="<?php echo $base . '/assets/fullcalendar/packages/core/locales/pt-br.js'; ?>"> </script>
+  <script src="<?php echo $base . '/asssets/fullcalendar/packages/interaction/main.js'; ?>"> </script>
+  <script src="<?php echo $base . '/assets/fullcalendar/packages/daygrid/main.js'; ?>"> </script>
+
+
+  <script src="<?php echo $base . '/assets/js/script.js' ?>"></script>
+  <script src="<?php echo $base . '/assets/js/main.js' ?>"></script>
+<script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>
 
 </body>
 
 </html>
-<script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>
