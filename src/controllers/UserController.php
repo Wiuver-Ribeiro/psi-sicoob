@@ -20,6 +20,10 @@ class UserController extends Controller {
     $this->render('/admin/admins-create');
   }
 
+  public function config() {
+    $this->render('/admin/config');
+  }
+
 
 
 
