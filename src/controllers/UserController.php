@@ -24,9 +24,6 @@ class UserController extends Controller {
     $this->render('/admin/config');
   }
 
-
-
-
   //Função responsável por chamar a vi
   public function admins() {
     $this->render('/admin/admins');

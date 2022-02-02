@@ -1,0 +1,8 @@
+#calendar {
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: "Poppins",sans-serif;
+}
+#calendar .fc-daygrid-day-frame .fc-scrollgrid-sync-inner {
+  padding:10px;
+}
