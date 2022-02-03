@@ -3,8 +3,13 @@
 
 <head>
   <meta charset='utf-8' />
+  <link rel="shortcut icon" href="<?php echo $base . '/assets/icons/scs.ico'; ?>" type="image/x-icon" />
 
-  <Link rel='stylesheet' href="<?php echo $base . '/assets/css/reset.css'; ?>">
+  <title>PSI | Agendamentos</title>
+  <link rel="stylesheet" href="<?php echo $base . '/assets/css/reset.css'; ?>">
+  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
+  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
+  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/dashboard.css'; ?>">
   <link href="<?php echo $base . '/assets/css/lib/main.min.css'; ?>" rel='stylesheet' />
   <link href="<?php echo $base . '/assets/css/lib/appointments.min.css'; ?>" rel='stylesheet' />
 
@@ -21,9 +26,9 @@
 </head>
 
 <body>
-
+  <?php $render('navbar'); ?>
+  <?php $render('sidebar'); ?>
   <div id='calendar'></div>
-
   <!-- Modal -->
   <div class="modal fade" id="visualizar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -48,6 +53,7 @@
       </div>
     </div>
   </div>
+  <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>
 
 </body>
 

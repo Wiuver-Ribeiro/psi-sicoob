@@ -1,5 +1,5 @@
 <!-- NAVBAR -->
-<nav class="navbar">
+<nav class="navbar nav-bootstrap">
   <div class="box-acoes">
     <div class="dropdown">
       <i class="fas fa-cog "></i>

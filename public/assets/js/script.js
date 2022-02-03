@@ -10,17 +10,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //Busca dos banco de dados
     // events: 'list_events.php',
-    events: [{
+    events: [
+    {
       id: 1,
-      title: 'Surprise',
-      start: '2022-02-02',
-      end: '2022-02-02'
-    }, 
+      title: 'Boleto ',
+      start: '2022-02-10 09:00',
+      end: '2022-02-10 12:00'
+    },
     {
       id: 2,
       title: 'Pagar Fatura',
-      start: '2022-02-12',
-      end: '2022-02-12'
+      start: '2022-02-12 09:00',
+      end: '2022-02-12 12:00'
     },
    ],
 
