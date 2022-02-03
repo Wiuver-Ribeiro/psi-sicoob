@@ -84,3 +84,23 @@ function DataHora(evento, objeto) {
       event.returnValue = false;
   }
 }
+
+
+
+// Manipulação da DOM
+const btn = document.querySelector('#menu-mobile-icone');
+const menu = document.querySelector('.menu-mobile');
+const logo = document.querySelector('.logo-text');
+const sidebar = document.querySelector('.box-sidebar');
+
+
+btn.addEventListener('click',() => {
+  menu.style.width = "80px";
+  menu.style.transition = "ease-in-out .4s";
+
+  //Menu opções
+    sidebar.style.display = 'none';
+
+  //Logo 
+  logo.style.display = "none";
+})

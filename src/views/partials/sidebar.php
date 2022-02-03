@@ -1,7 +1,8 @@
-<aside class="sidebar">
+<aside class="sidebar menu-mobile">
   <div class="logo">
-    <img src="<?php echo $base.'/assets/icons/icon_app.png';?>" alt="Logo">
-    PSI - Sicoob Centro-sul
+    <img src="<?php echo $base.'/assets/icons/icon_app.png';?>" class="img-logo" alt="Logo">
+    <span class="logo-text">PSI - Sicoob Centro-sul</span>
+    <i class="fas fa-bars fa-lg" id="menu-mobile-icone" ></i>
   </div>
 
   <div class="box-sidebar">
@@ -17,3 +18,4 @@
     </ul>
   </div>
 </aside>
+<script src="<?php echo $base.'/asssets/js/script.js';?>"></script>

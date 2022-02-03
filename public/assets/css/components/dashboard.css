@@ -16,8 +16,8 @@ main .content-appointment {
   grid-template-columns: 1fr 1fr 1fr;
 
   grid-gap: 3rem;
-  margin-top: 4rem;
-  margin: 4rem  auto 0 auto;
+  margin-top: 2rem;
+  margin: 0rem  auto 0 auto;
 }
 
 main .content-appointment .appointment-info {
@@ -42,6 +42,9 @@ main .content-appointment .appointment-info .appointment-scheduled {
   align-items: center;
   justify-content:space-between;
 }
+main .content-appointment .appointment-info .appointment-scheduled > span {
+  font-size: 2rem;
+}
 
 main .content-appointment .appointment-info .appointment-scheduled  > span:first-child {
   font-size:1.7rem;
@@ -59,7 +62,7 @@ main .content-appointment .appointment-info .appointment-scheduled > span:last-c
 .table-content {
   width: 100%;
   max-width: 996px;
-  margin: 0 auto;
+  margin: 0 0 5rem 3.4rem;
   background-color: #fff;
   box-shadow:1px 1px 2px #ddd;
   padding:15px 20px;
