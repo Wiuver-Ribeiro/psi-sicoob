@@ -19,10 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     {
       id: 2,
-      title: 'Pagar Fatura',
-      start: '2022-02-12 14:00',
-      end: '2022-02-12 12:00',
-      color: '#8B0000'
+      title: 'Pagar Fatura ',
+      start: '2022-02-20 10:00',
+      end: '2022-02-20 12:00'
     },
    ],
 
@@ -94,13 +93,13 @@ const logo = document.querySelector('.logo-text');
 const sidebar = document.querySelector('.box-sidebar');
 
 
-btn.addEventListener('click',() => {
-  menu.style.width = "80px";
-  menu.style.transition = "ease-in-out .4s";
+// btn.addEventListener('click',() => {
+//   menu.style.width = "80px";
+//   menu.style.transition = "ease-in-out .4s";
 
-  //Menu opções
-    sidebar.style.display = 'none';
+//   //Menu opções
+//     sidebar.style.display = 'none';
 
-  //Logo 
-  logo.style.display = "none";
-})
+//   //Logo 
+//   logo.style.display = "none";
+// })
