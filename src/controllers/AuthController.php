@@ -11,4 +11,6 @@ class AuthController extends Controller {
   public function logout() {
     $this->redirect('/signin');
   }
+
+  
 }

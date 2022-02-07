@@ -28,4 +28,12 @@ class UserController extends Controller {
   public function admins() {
     $this->render('/admin/admins');
   }
+
+  public function login($email, $password) {
+    if(empty($email) && empty($password)) {
+      echo "Dados vázios...";
+    } else {
+      $this->redirect('/signin');
+    }
+  }
 }

@@ -21,7 +21,7 @@
       </div>
       <div class="box-form">
         <h1>Login</h1>
-        <form action="<?php echo $base.'/dashboard';?>">
+        <form action="<?php echo $base.'/user';?>">
           <div class="form-group">
             <input type="text" placeholder="E-mail">
           </div>

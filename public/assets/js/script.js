@@ -93,15 +93,14 @@ const logo = document.querySelector('.logo-text');
 const link = document.querySelectorAll('.link-menu');
 const sidebar = document.querySelector('.sidebar');
 
+
 btn.addEventListener('click', () => {
   menu.style.width = "80px";
   menu.style.transition = "ease-in-out .4s";
 
+  logo.style.display = "none";
   //Menu opções
     for(i = 0; i < link.length; i++) {
       link[i].style.overflow = 'hidden';
     }
-
-  //Logo 
-  logo.style.display = "none";;
 })
