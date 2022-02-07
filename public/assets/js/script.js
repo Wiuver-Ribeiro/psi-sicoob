@@ -90,16 +90,18 @@ function DataHora(evento, objeto) {
 const btn = document.querySelector('#menu-mobile-icone');
 const menu = document.querySelector('.menu-mobile');
 const logo = document.querySelector('.logo-text');
-const sidebar = document.querySelector('.box-sidebar');
+const link = document.querySelectorAll('.link-menu');
+const sidebar = document.querySelector('.sidebar');
 
+btn.addEventListener('click', () => {
+  menu.style.width = "80px";
+  menu.style.transition = "ease-in-out .4s";
 
-// btn.addEventListener('click',() => {
-//   menu.style.width = "80px";
-//   menu.style.transition = "ease-in-out .4s";
+  //Menu opções
+    for(i = 0; i < link.length; i++) {
+      link[i].style.overflow = 'hidden';
+    }
 
-//   //Menu opções
-//     sidebar.style.display = 'none';
-
-//   //Logo 
-//   logo.style.display = "none";
-// })
+  //Logo 
+  logo.style.display = "none";;
+})

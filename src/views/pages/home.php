@@ -1,6 +1,6 @@
 <!--Inclusão do header -->
-<?php $render('header'); ?>
 
+<?php $render('header'); ?>
 
 <main class="container-main">
   <section id="principal" class="container">
@@ -10,7 +10,7 @@
       <p class="descricao-principal">Aqui na PSI, você encontra os melhores psicólogos da região, <br> com atendimento diferenciado e um
         agendamento muito fácil.
       </p>
-      <a href="#">AGENDE SUA CONSULTA</a>
+      <a href="<?php echo $base;?>/signin">AGENDE SUA CONSULTA</a>
     </div>
 
     <div class="doctor">
@@ -120,5 +120,7 @@
   </section>
 </main>
 <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>
-<script src="<?php echo $base.'/assets/js/script.js'; ?>"></script>
+<script src="<?php echo $base.'/assets/js/script.js'; ?>">
+
+</script>
 <?php $render('footer'); ?>
