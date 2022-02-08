@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
       info.jsEvent.preventDefault();
       $('#visualizar #id').text(info.event.id);
       $('#visualizar #title').text(info.event.title);
-      $('#visualizar #title').text(info.event.color);
       $('#visualizar #start').text(info.event.start.toLocaleString());
       $('#visualizar #end').text(info.event.end.toLocaleString());
       $('#visualizar').modal('show');
@@ -38,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
         select: function(info) {
       // alert('Início do Evento: '+ info.start.toLocaleString());
       $('#cadastrar #title').val(info.title);
-      $('#cadastrar #title').val(info.color);
       $('#cadastrar #start').val(info.start.toLocaleString());
       $('#cadastrar #end').val(info.end.toLocaleString());
       $('#cadastrar').modal('show');
@@ -103,4 +101,13 @@ btn.addEventListener('click', () => {
     for(i = 0; i < link.length; i++) {
       link[i].style.overflow = 'hidden';
     }
+})
+
+// MODAIS DOS PSI
+
+$(document).ready(function() {
+  $('#trigger').click(function() {
+      $('#agendar $title').text('Dr Wiuver A Ribeiro');
+      $('#agendar').modal('show');
+  });
 })

@@ -34,20 +34,18 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Detalhes do Evento</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Detalhes da Consulta</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <dl class="row">
-            <dt class="col-sm-3">ID do Evento:</dt>
+            <dt class="col-sm-3">ID da Consulta:</dt>
             <dd class="col-sm-9" id="id"></dd>
-            <dt class="col-sm-3">Cor do Evento:</dt>
-            <dd class="col-sm-9" id="color"></dd>
-            <dt class="col-sm-3">Título do Evento:</dt>
+            <dt class="col-sm-3">Nome do Doutor:</dt>
             <dd class="col-sm-9" id="title"></dd>
-            <dt class="col-sm-3">Início do Evento:</dt>
+            <dt class="col-sm-3">Início da Consulta:</dt>
             <dd class="col-sm-9" id="start"></dd>
-            <dt class="col-sm-3">Fim do Evento:</dt>
+            <dt class="col-sm-3">Fim da Consulta:</dt>
             <dd class="col-sm-9" id="end"></dd>
           </dl>
         </div>
@@ -66,41 +64,23 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form method="post" action="#">
             <div class="row mb-3">
-              <label for="title" class="col-sm-2 col-form-label">Título do Evento:</label>
+              <label for="title" class="col-sm-2 col-form-label">Nome do Doutor:</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="title" name="title">
               </div>
             </div>
             <div class="row mb-3">
-              <label for="title" class="col-sm-2 col-form-label">Cor do Evento:</label>
+              <label for="start" class="col-sm-2 col-form-label">Início da Consulta:</label>
               <div class="col-sm-10">
-                <select name="color" class="form-control" id="color">
-                  <option>Selecione</option>
-                  <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
-                  <option style="color:#0071c5;" value="#0071c5">Azul Turquesa</option>
-                  <option style="color:#FF4500;" value="#FF4500">Laranja</option>
-                  <option style="color:#8B4513;" value="#8B4513">Marrom</option>
-                  <option style="color:#1C1C1C;" value="#1C1C1C">Preto</option>
-                  <option style="color:#436EEE;" value="#436EEE">Royal Blue</option>
-                  <option style="color:#A020F0;" value="#A020F0">Roxo</option>
-                  <option style="color:#40E0D0;" value="#40E0D0">Turquesa</option>
-                  <option style="color:#228B22;" value="#228B22">Verde</option>
-                  <option style="color:#8B0000;" value="#8B0000">Vermelho</option>
-                </select>
+                <input type="datetime-local" class="form-control" id="start" name="start" onkeypress="DataHora(event, this)">
               </div>
             </div>
             <div class="row mb-3">
-              <label for="start" class="col-sm-2 col-form-label">Início do Evento:</label>
+              <label for="end" class="col-sm-2 col-form-label">Fim do Consulta:</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="start" name="start" onkeypress="DataHora(event, this)">
-              </div>
-            </div>
-            <div class="row mb-3">
-              <label for="end" class="col-sm-2 col-form-label">Fim do Evento:</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="end" name="end" onkeypress="DataHora(event, this)">
+                <input type="datetime-local" class="form-control" id="end" name="end" onkeypress="DataHora(event, this)">
               </div>
             </div>
             <div class="row mb-3">
