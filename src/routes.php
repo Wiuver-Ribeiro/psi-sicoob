@@ -27,7 +27,7 @@ $router->get('/doctors/create', 'UserController@createDoctor');
 $router->get('/patients/create', 'UserController@createPatient');
 $router->get('/admins/create', 'UserController@createAdmin');
 $router->get('/config', 'UserController@config');
-$router->post('/user', 'UserController@login');
+$router->post('/signin', 'UserController@login');
 
 //AppointmentController
 $router->get('/appointments', 'AppointmentController@index');

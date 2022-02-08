@@ -12,3 +12,7 @@
     background-color: green;
   }
 
+  ol, ul {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+  }

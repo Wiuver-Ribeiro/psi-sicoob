@@ -6,7 +6,7 @@ class Config {
 
     const DB_DRIVER = 'mysql';
     const DB_HOST = 'localhost';
-    const DB_DATABASE = 'eventos';
+    const DB_DATABASE = 'psi';
     CONST DB_USER = 'root';
     const DB_PASS = '';
 
