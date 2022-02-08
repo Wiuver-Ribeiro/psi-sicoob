@@ -1,4 +1,5 @@
 <!-- NAVBAR -->
+
 <nav class="navbar nav-bootstrap">
   <div class="box-acoes">
     <div class="dropdown">
@@ -8,7 +9,10 @@
           <div class="avatar-dropdown">
             <div class="avatar-dropdown-info">
               <img src="<?php echo $base . '/assets/icons/default.png'; ?>" alt="" width="25px" height="25px">
-              Admin
+              <?php 
+              $newName = explode(" ",$_SESSION['logado'][0]['name']);
+              echo $newName[0];
+              ?>
             </div>
           </div>
           <li>
@@ -22,7 +26,7 @@
             Configurações
           </li>
           <li>
-            <a href="<?php echo $base . '/signin'; ?>">
+            <a href="<?php echo $base . '/logout'; ?>">
               <i class="fas fa-sign-out-alt fa-sm"></i>
               Logout
             </a>

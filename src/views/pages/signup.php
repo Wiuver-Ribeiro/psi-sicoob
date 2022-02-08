@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="<?php echo $base . '/assets/icons/scs.ico'; ?>" type="image/x-icon" />
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/reset.css' ?>" />
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/signup.css' ?>" />
   <title>PSI | Registrar</title>
@@ -21,18 +21,25 @@
       </div>
       <div class="box-form">
         <h1>Registrar</h1>
-        <form action="<?php echo $base.'/dashboard';?>">
+        <!-- SESSÕES -->
+        <?php 
+          if(isset($_SESSION['erro'])) {
+            echo $_SESSION['erro'];
+            $_SESSION['erro'] = '';
+          }
+        ?>
+        <form method="POST" action="<?php echo $base.'/signup';?>">
           <div class="form-group">
-            <input type="text" placeholder="Nome">
+            <input type="text" name="name" placeholder="Nome" autocomplete="off">
           </div>
           <div class="form-group">
-            <input type="text" placeholder="E-mail">
+            <input type="text" name="email" placeholder="E-mail" autocomplete="off">
           </div>
           <div class="form-group">
-            <input type="password" placeholder="Senha">
+            <input type="password" name="password" placeholder="Senha" autocomplete="off">
           </div>
           <div class="form-group">
-            <input type="password" placeholder="Confirmar senha">
+            <input type="password" name="confirm_password" placeholder="Confirmar senha" autocomplete="off">
           </div>
 
             <div class="form-group">
@@ -48,6 +55,8 @@
       </div>
     </div>
   </main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

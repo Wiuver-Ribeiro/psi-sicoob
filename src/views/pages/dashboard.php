@@ -1,4 +1,8 @@
+<?php
 
+ use \src\controllers\UserController; 
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
