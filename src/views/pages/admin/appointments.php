@@ -1,4 +1,8 @@
+<?php
+  use \src\controllers\AppointmentController;
 
+  AppointmentController::listAllEvents();
+?>
 
 <!DOCTYPE html>
 <html>

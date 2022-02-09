@@ -2,6 +2,7 @@
 namespace src\controllers;
 
 use \core\Controller;
+use \src\models\Appointment;
 
 class AppointmentController extends Controller {
   public function index() {
@@ -12,14 +13,15 @@ class AppointmentController extends Controller {
     $this->redirect('/signin');
   }
 
-  public function listAllEvents() {
-    require __DIR__.'../../../core/Database.php';
-    $sql = $pdo->prepare("SELECT * FROM events");
-    $sql->execute();
+  public static function listAllEvents() {
+    
+    $data = Appointment::select()->get();
+    print_r($data);
+    die();
     
     $eventos = [];
 
-    while($row_events = $sql->fetch(\PDO::FETCH_ASSOC)) {
+    while($row_events = $data) {
       $id = $row_events['id'];
       $title = $row_events['title'];
       $start = $row_events['start'];
@@ -34,6 +36,10 @@ class AppointmentController extends Controller {
     }
 
     echo json_encode($eventos);
+
+  }
+
+  public function getAllAppointments() {
 
   }
 }
