@@ -1,5 +1,10 @@
 <?php 
   $type = $_SESSION['logado'][0]['type'];
+  use \src\controllers\DoctorController;
+
+  $doctors = DoctorController::getAllDoctors();
+ 
+
 ?>
 
 
@@ -42,34 +47,15 @@
             </button>" : "";?>
           </div>
         <div class="grid-doctors" >
-          <div class="doctor-box" data-bs-toggle="modal" data-bs-target="#agendar">
-              <img src="<?php echo $base.'/assets/icons/avatar-lara.jpg'; ?>" alt="" >
-              <div class="doctor-info">
-                <span>Dra. Lara Kamilly G de Paiva</span>
-                <span>Psicologia Geral</span>
-              </div>
-          </div> <!---doctor-box-->
+          <?php foreach($doctors as $allDoctors): ?>
           <div class="doctor-box" data-bs-toggle="modal" data-bs-target="#agendar">
               <img src="<?php echo $base.'/assets/icons/avatar-fabiano.jpg'; ?>" alt="">
               <div class="doctor-info">
-                <span>Dr. Fabiano Porfirio Ribeiro</span>
-                <span>Psicanálise</span>
+                <span><?php echo $allDoctors['name'];?></span>
+                <span><?php echo $allDoctors['speciality'];?></span>
               </div>
           </div> <!---doctor-box-->
-          <div class="doctor-box" data-bs-toggle="modal" data-bs-target="#agendar">
-              <img src="<?php echo $base.'/assets/icons/avatar-wiuver.jpg'; ?>" alt="">
-              <div class="doctor-info">
-                <span>Dr. Wiuver Afonso Ribeiro</span>
-                <span>Psicologia do Desevolvimento</span>
-              </div>
-          </div> <!---doctor-box-->
-          <div class="doctor-box" data-bs-toggle="modal" data-bs-target="#agendar">
-              <img src="<?php echo $base.'/assets/icons/avatar-eduardo.jpeg'; ?>" alt="">
-              <div class="doctor-info">
-                <span>Dr. Eduardo Nascimento</span>
-                <span>Psicologia da Saude</span>
-              </div>
-          </div> <!---doctor-box-->
+          <?php endforeach; ?> <!--endforeach-->
         </div> <!---grid-doctors-->
         </div> <!---content-psi--->
       </section>
@@ -95,13 +81,13 @@
               <div class="row mb-3">
                 <label for="start" class="col-sm-2 col-form-label">Início da Consulta:</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="start" name="start" onkeypress="DataHora(event, this)">
+                  <input type="datetime-local" class="form-control" id="start" name="start" onkeypress="DataHora(event, this)">
                 </div>
               </div>
               <div class="row mb-3">
                 <label for="end" class="col-sm-2 col-form-label">Fim da Consulta:</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="end" name="end" onkeypress="DataHora(event, this)">
+                  <input type="datetime-local" class="form-control" id="end" name="end" onkeypress="DataHora(event, this)">
                 </div>
               </div>
               <div class="row mb-3">
