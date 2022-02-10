@@ -10,6 +10,7 @@ $router->get('/signup', "HomeController@signup");
 
 //AuthController
 $router->get('/logout', "AuthController@logout");
+$router->post('/doctors/create', 'AuthController@create');
 
 //DashboardController
 $router->get('/dashboard', 'DashboardController@index');

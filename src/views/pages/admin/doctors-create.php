@@ -29,20 +29,24 @@
           </div>
         <div class="grid-doctors _create">  
             <!-- <div class="box-doctor"> -->
-              <img src="<?php echo $base.'/assets/icons/default.png'; ?>" alt="" width="190px" height="190px" style="border-radius:50%">
-            <!-- </div> -->
-            <form action="#" method="POST">
+              <!-- </div> -->
+              <img src="<?php echo $base.'/assets/icons/default.png'; ?>"  alt="" width="190px" height="190px" style="border-radius:50%">
+              <form action="<?php echo $base.'/doctors/create';?>" method="POST">
+ 
+             <div class="field-input">
+             <input  class="form-control" type="file" name="avatar" >
+             </div>
               <div class="field-input">
-                <input type="text" placeholder="Nome">
+                <input type="text" placeholder="Nome" autocomplete="off" name="name">
               </div>
               <div class="field-input">
-                <input type="text" placeholder="E-mail">
+                <input type="email" placeholder="E-mail" autocomplete="off" name="email">
               </div>
               <div class="field-input">
-                <input type="password" placeholder="Senha">
+                <input type="password" placeholder="Senha" autocomplete="off" name="password">
               </div>
               <div class="field-input">
-                <input type="text" placeholder="Especialização">
+                <input type="text" placeholder="Especialização" autocomplete="off" name="speciality">
               </div>
               <div class="field-input">
                 <button type="submit">Enviar</button>

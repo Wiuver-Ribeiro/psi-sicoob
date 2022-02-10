@@ -29,6 +29,11 @@
         echo $_SESSION['login'];
         $_SESSION['login'] = '';
       }
+
+      use \src\controllers\AppointmentController;
+
+      $appointments = AppointmentController::listAllEvents();
+
       ?>
       <div class="content-appointment">
         <div class="appointment-info">
@@ -73,25 +78,30 @@
               <td>Paciente</td>
               <td>Psicologos</td>
               <td>Início</td>
-              <td>Término</td>
+              <td>Fim</td>
+              <td>Status</td>
               <td>Confirmar</td>
             </tr>
           </thead>
           <tbody>
+            <?php
+            
+        foreach ($appointments as $allAppointments) : ?>
+              <tr>
+                <td><?php echo $allAppointments['patient_id']; ?></td>
+                <td><?php echo $allAppointments['psi_id']; ?></td>
+                <td><?php echo $allAppointments['start']; ?></td>
+                <td><?php echo $allAppointments['end']; ?></td>
+                <td><?php echo $allAppointments['status']; ?></td>
+                <td>
+                  <button title='Confirmar'>
+                    <i class='fas fa-check-square fa-2x'></i>
+                  </button>
+                </td>
+              </tr>
+
             <?php 
-            $t = 1;
-            echo ($t > 0) ? "<tr>
-      
-      <td>Wiuver Afonso Ribeiro</td>
-      <td>Dra Lara Kamilly G de Paiva</td>
-      <td>14:30</td>
-      <td>15:30</td>
-      <td>
-        <button title='Confirmar'>
-        <i class='fas fa-check-square fa-2x'></i>
-        </button>
-      </td>
-    </tr>" : ""; ?>
+          endforeach; ?>
 
           </tbody>
         </table>

@@ -86,7 +86,6 @@ class UserController extends Controller {
               "name" => $name, 
               "email" => $email,
               "password" => $password,
-              "confirm_password" => $confirm_password,
             ])->execute();
             $this->redirect('/dashboard');
           }

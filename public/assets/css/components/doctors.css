@@ -121,6 +121,10 @@
   transition: all ease-in-out .3s;
 }
 
+.grid-doctors._create form .field-input input[type="file"] {
+  border:none;
+}
+
 .grid-doctors._create form .field-input input:focus {
   border-color: #83bfff;
   box-shadow: 2px 2px 5px #a8d2ff;
