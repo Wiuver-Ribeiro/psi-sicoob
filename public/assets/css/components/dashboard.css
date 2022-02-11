@@ -6,8 +6,8 @@ main .main-container {
   align-items:center;
   flex-direction: column;
   width: calc(100% - 270px);
+  height: calc(100vh - 80px);
   margin-left:270px;
-  height:calc(100vh - 70px);
   background: #0A0906;
 }
 
@@ -15,7 +15,6 @@ main .content-appointment {
   display:flex;
   justify-content:space-evenly;
   align-items:center;
-  margin-top: 2rem;
 }
 
 main .content-appointment .appointment-info {
@@ -29,7 +28,6 @@ main .content-appointment .appointment-info {
   padding: 20px 25px;
   border-radius:8px;
   cursor: pointer;
-  content:"Cards";
 }
 
 main .content-appointment .appointment-info i {
@@ -64,11 +62,11 @@ main .content-appointment .appointment-info .appointment-scheduled > span:last-c
 .table-content {
   width: 100%;
   max-width: 1070px;
-  margin: 0px auto 50px auto;
-  background-color: #fff;
-  box-shadow:1px 1px 2px #ddd;
-  padding:15px 20px;
-  border-radius: 0.45rem;
+  margin: 0 auto;
+  background-color: #131212;
+  border: 1px solid;
+  padding: 20px 10px;
+  border-radius: 5px;
   border-spacing: 0 0.5rem;
 }
 
@@ -76,22 +74,27 @@ main .content-appointment .appointment-info .appointment-scheduled > span:last-c
 .box-search {
   display: flex;
   justify-content:space-between;
-  margin-bottom: 1rem;
 }
 
 .box-search span {
-  font-size:1.1rem;
-  border-bottom: 1px solid #888;
+  font-size:18px;
+  border-bottom: 4px solid #04D361;
+  margin-bottom:20px;
+  color: #737380;
+  font-weight: bold;
+
 }
 
 .box-search input {
   width: 250px;
-  height:35px;
-  padding: 12px;
+  height:40px;
+  padding: 10px 20px;
+  color: #737380;
   outline: none;
   transition: border-color .4s;
-  border-radius:0.25rem;
+  border-radius:5px;
   border: 1px solid #ddd;
+  margin-bottom: 20px;
 }
 .box-search input:focus {
   border: 2px solid #CDEEFD;
@@ -107,7 +110,7 @@ table  tbody tr td {
 }
 
 table tbody tr:nth-child(odd) {
-  background-color: #eee;
+  background-color: #282830;
  
 }
 
@@ -133,16 +136,20 @@ table  tr td:nth-child(1),
 table tbody tr td  button {
   border: none;
   cursor: pointer;
+  background: transparent;
 }
 table tbody tr td i {
-  color: green;
+  color: #04D361;
+  background:transform !important;
 }
 
 .table-content table thead tr  {
-  color: #888;
+  color: #737380;
+  font-size: 15px;
   text-align: left;
-  font-weight: 500;
+  font-weight: 600;
 }
+/* .table-content table thead tr  */
 
 table tbody tr td img {
   width: 50px;

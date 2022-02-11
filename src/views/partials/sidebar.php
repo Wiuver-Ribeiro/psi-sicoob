@@ -5,7 +5,7 @@
 <aside class="sidebar menu-mobile">
   <div class="logo">
     <img src="<?php echo $base.'/assets/icons/icon_app.png';?>" class="img-logo" alt="Logo">
-    <span class="logo-text">PSI - Sicoob Centro-sul</span>
+    <span class="logo-text">Sicoob Centro-sul</span>
     <i class="fas fa-bars fa-lg" id="menu-mobile-icone" ></i>
   </div>
 

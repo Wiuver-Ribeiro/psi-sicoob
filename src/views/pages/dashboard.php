@@ -70,13 +70,13 @@
         <table width="100%">
           <div class="box-search">
             <span>Agendamentos Pendentes</span>
-            <input type="text" placeholder="Pesquise...">
+            <input type="text" placeholder="Procure um agendamento">
           </div>
           <thead>
             <tr>
 
               <td>Paciente</td>
-              <td>Psicologos</td>
+              <td>Psicólogo</td>
               <td>Início</td>
               <td>Fim</td>
               <td>Status</td>
@@ -94,7 +94,7 @@
                 <td><?php echo $allAppointments['end']; ?></td>
                 <td><?php echo $allAppointments['status']; ?></td>
                 <td>
-                  <button title='Confirmar'>
+                  <button class="confirm" title='Confirmar'>
                     <i class='fas fa-check-square fa-2x'></i>
                   </button>
                 </td>
