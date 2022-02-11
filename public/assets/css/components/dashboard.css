@@ -5,19 +5,17 @@ main .main-container {
   justify-content:center;
   align-items:center;
   flex-direction: column;
-  margin-left: 20%;
-  /* margin-bottom: auto; */
+  width: calc(100% - 270px);
+  margin-left:270px;
   height:calc(100vh - 70px);
-  background-color: #F4F7FA;
+  background: #0A0906;
 }
 
 main .content-appointment {
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-
-  grid-gap: 3rem;
+  display:flex;
+  justify-content:space-evenly;
+  align-items:center;
   margin-top: 2rem;
-  margin: 0rem  auto 0 auto;
 }
 
 main .content-appointment .appointment-info {
@@ -26,9 +24,12 @@ main .content-appointment .appointment-info {
   justify-content: space-between;
   width: 300px;
   height: 150px;
-  background: #FFF;
-  box-shadow:1px 1px 3px #ddd;
+  background: #131212;
+  border:1px solid #29292e;
   padding: 20px 25px;
+  border-radius:8px;
+  cursor: pointer;
+  content:"Cards";
 }
 
 main .content-appointment .appointment-info i {
@@ -41,6 +42,7 @@ main .content-appointment .appointment-info .appointment-scheduled {
   flex-direction: column;
   align-items: center;
   justify-content:space-between;
+  color: #b5b5b5;
 }
 main .content-appointment .appointment-info .appointment-scheduled > span {
   font-size: 2rem;
@@ -61,14 +63,13 @@ main .content-appointment .appointment-info .appointment-scheduled > span:last-c
 
 .table-content {
   width: 100%;
-  max-width: 996px;
-  margin: 0 0 5rem 3.4rem;
+  max-width: 1070px;
+  margin: 0px auto 50px auto;
   background-color: #fff;
   box-shadow:1px 1px 2px #ddd;
   padding:15px 20px;
   border-radius: 0.45rem;
   border-spacing: 0 0.5rem;
-  margin-left:9%;
 }
 
 /* BOX-SEARCH-TABLE */

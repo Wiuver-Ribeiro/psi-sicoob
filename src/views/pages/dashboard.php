@@ -36,7 +36,7 @@
 
       ?>
       <div class="content-appointment">
-        <div class="appointment-info">
+        <div class="appointment-info" title="Pendentes">
           <i class="fas fa-calendar-day fa-6x"></i>
           <div class="appointment-scheduled">
             <span>2</span>
@@ -45,7 +45,7 @@
           <!--appointment-info-->
         </div>
         <!--appointment-info-->
-        <div class="appointment-info">
+        <div class="appointment-info" title="Marcados">
           <i class="fas fa-calendar-check fa-6x"></i>
           <div class="appointment-scheduled">
             <span>10</span>
@@ -54,7 +54,7 @@
           <!--appointment-info-->
         </div>
         <!--appointment-info-->
-        <div class="appointment-info">
+        <div class="appointment-info" title="Terminados">
           <i class="fas fa-clock fa-6x"></i>
           <div class="appointment-scheduled">
             <span>5</span>

@@ -1,7 +1,7 @@
 .sidebar {
-  /* width: 260px; */
+  width: 270px;
   height: 100vh;
-  background: #FFF;
+  background: #282830;
   position: fixed;
   top: 0;
   left: 0;
@@ -9,6 +9,7 @@
 
 .sidebar .logo {
   display: grid;
+  height: 80px;
   grid-template-columns:40px 4fr 2fr;
   align-items: center;
   justify-content: center;
@@ -62,10 +63,11 @@
 .box-sidebar ul li a {
   text-decoration:none;
   color: #888;
+  transition: all ease-in-out .3s;
 }
 
 .box-sidebar ul li:hover{
-  background-color: #F1F1F1;
+  background-color: #333333;
   color: #04A9F5;
 }
 
