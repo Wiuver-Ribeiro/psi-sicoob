@@ -1,15 +1,17 @@
-<?php 
-  $type = $_SESSION['logado'][0]['type'];
-  use \src\controllers\DoctorController;
+<?php
+$type = $_SESSION['logado'][0]['type'];
 
-  $doctors = DoctorController::getAllDoctors();
- 
+use \src\controllers\DoctorController;
+
+$doctors = DoctorController::getAllDoctors();
+
 
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,24 +42,28 @@
         <h3 style="text-align:left">Psicólogos</h3>
         <div class="content-psi">
           <div class="content-psi-header">
-          <h4 style="font-weight:500">Todos os psicólogos</h4>
-          <?php 
+            <h4 style="font-weight:500">Todos os psicólogos</h4>
+            <?php
             echo ($type == 'admin') ? "<button>
             <a href='$base/doctors/create' style='color:blue;'><i class='fas fa-user-plus'></i></a>
-            </button>" : "";?>
+            </button>" : ""; ?>
           </div>
-        <div class="grid-doctors" >
-          <?php foreach($doctors as $allDoctors): ?>
-          <div class="doctor-box" data-bs-toggle="modal" data-bs-target="#agendar">
-              <img src="<?php echo $base.'/assets/icons/avatar-fabiano.jpg'; ?>" alt="">
-              <div class="doctor-info">
-                <span><?php echo $allDoctors['name'];?></span>
-                <span><?php echo $allDoctors['speciality'];?></span>
+          <div class="grid-doctors">
+            <?php foreach ($doctors as $allDoctors) : ?>
+              <div class="doctor-box" data-bs-toggle="modal" data-bs-target="#agendar">
+                <img src="<?php echo $base . '/assets/icons/avatar-fabiano.jpg'; ?>" alt="">
+                <div class="doctor-info">
+                  <span><?php echo $allDoctors['name']; ?></span>
+                  <span><?php echo $allDoctors['speciality']; ?></span>
+                </div>
               </div>
-          </div> <!---doctor-box-->
-          <?php endforeach; ?> <!--endforeach-->
-        </div> <!---grid-doctors-->
-        </div> <!---content-psi--->
+              <!---doctor-box-->
+            <?php endforeach; ?>
+            <!--endforeach-->
+          </div>
+          <!---grid-doctors-->
+        </div>
+        <!---content-psi--->
       </section>
     </div>
     <!--main-container-->
@@ -77,7 +83,7 @@
                   <input type="text" class="form-control" id="title" name="title">
                 </div>
               </div>
- 
+
               <div class="row mb-3">
                 <label for="start" class="col-sm-2 col-form-label">Início da Consulta:</label>
                 <div class="col-sm-10">
@@ -104,7 +110,7 @@
 
 
 
-  
+
   <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>
 </body>
 
