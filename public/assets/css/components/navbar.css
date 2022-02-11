@@ -10,7 +10,7 @@ nav {
   
   height:80px;
   margin-left: 270px;
-  background:#131212;
+  background:#0A0906;
 
   display: flex;
   grid-template-columns: 1fr;
@@ -49,14 +49,14 @@ nav .box-acoes i:hover {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #FFF;
+  background: #131212;
   width: 200px;
   height: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   right: 0;
   z-index: 999;
   margin-left: -9rem;
-  border-radius: 0.45rem;
+  
 }
 
 .dropdown:hover .dropdown-content {
@@ -79,7 +79,7 @@ nav .box-acoes i:hover {
   list-style: none;
   padding: 1rem 20px;
   transition: background-color 0.3s;
-  color: #888;
+  color: #737380;
   text-align: left;
 }
 
@@ -90,7 +90,7 @@ nav .box-acoes i:hover {
 
 
 .dropdown .dropdown-content ul li:hover {
-  background-color: #CDEEFD;
+  background:#0A0906;
   cursor: pointer;
   z-index: 999;
 
@@ -103,8 +103,9 @@ nav .box-acoes i:hover {
 
 /* AVATAR-DROPDOWN */
 .avatar-dropdown {
+  width: 100%;
   background-color: #04A9F5;
-  padding: 1rem 0;
+  padding: 15px 0;
 
 } 
 .avatar-dropdown-info {
