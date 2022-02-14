@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/dashboard.css'; ?>">
 
-
+ 
   <title>PSI | Dashboard</title>
 </head>
 

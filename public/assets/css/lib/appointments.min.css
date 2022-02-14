@@ -1,11 +1,13 @@
 body {
-  background-color: #F4F7FA !important;
+  background-color: #FFF !important;
 }
 
 #calendar {
-  max-width: 900px;
+  width: calc(100% - 270px);
+  max-width: 1070px;
   margin-top:2rem;
-  margin-left:20rem;
+  margin-bottom:2rem;
+  margin-left:350px;
   font-family: "Poppins",sans-serif;
 }
 #calendar .fc-daygrid-day-frame .fc-scrollgrid-sync-inner {
