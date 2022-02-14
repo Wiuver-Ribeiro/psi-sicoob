@@ -5,14 +5,14 @@
 .default h3 {
   text-align: left;
   font-weight: 500;
+  color: #fff;
 }
 /* CONTENT-PSI */
 .content-psi {
-  background: rgb(254, 254, 254);
+  background: #131310;
   padding: 2rem 1.5rem;
   margin-top: 2rem;
-  /* margin: 2rem; */
-  box-shadow:1px 1px 5px #fff;
+  border-radius: 8px;
 }
 
 .content-psi-header {
@@ -23,10 +23,14 @@
   border-bottom: 1px solid #888;
 }
 
+.content-psi-header h4 {
+  color: #FFF;
+}
+
 
 .content-psi-header button {
-  background-color: #fff;
-  border: 1px solid #0AABF5;
+  background-color: #04d361;
+  border: none;
   padding:10px 15px;
   cursor: pointer;
   border-radius:0.25rem;
@@ -37,6 +41,10 @@
 .content-psi-header button:hover {
   background-color: #0AABF5;
   color: #fff;
+}
+
+.content-psi-header button  i {
+  color: #FFF;
 }
 
 /* GRID DOS PSI */
@@ -52,10 +60,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   flex-direction:row;
-  background:#FFF;
+  background:rgb(32,32,36);
   align-items: center;
   padding: 1rem;
-  box-shadow:1px 1px 3px #ddd;
+  border-radius:8px;
   transform: scale(0.9);
   transition:all 0.4s ease-in-out;
   cursor: pointer;
@@ -65,7 +73,6 @@
 /* DOCTOR-BOX SCALE */
 .grid-doctors .doctor-box:hover {
   transform: scale(1);
-  box-shadow: 4px 4px 4px #ccc;
 }
 
 .grid-doctors .doctor-box img{
@@ -80,6 +87,10 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+.grid-doctors .doctor-box .doctor-info span:first-child {
+  color: #e1e1e6;
 }
 
 .grid-doctors .doctor-box .doctor-info span:last-child {

@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/reset.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/dashboard.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/doctors.css'; ?>">
+  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/patient-create.css'; ?>">
 
   <title>PSI | Patients </title>
 </head>
