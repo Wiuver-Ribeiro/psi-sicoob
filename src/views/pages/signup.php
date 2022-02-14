@@ -22,12 +22,6 @@
       <div class="box-form">
         <h1>Registrar</h1>
         <!-- SESSÕES -->
-        <?php 
-          if(isset($_SESSION['erro'])) {
-            echo $_SESSION['erro'];
-            $_SESSION['erro'] = '';
-          }
-        ?>
         <form method="POST" action="<?php echo $base.'/signup';?>">
           <div class="form-group">
             <input type="text" name="name" placeholder="Nome" autocomplete="off">

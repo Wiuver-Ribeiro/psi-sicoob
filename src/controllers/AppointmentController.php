@@ -21,8 +21,4 @@ class AppointmentController extends Controller {
     return $data;
       
   }
-
-  public function getAllAppointments() {
-
-  }
 }

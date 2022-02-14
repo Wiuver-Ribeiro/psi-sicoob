@@ -24,12 +24,7 @@
       <div class="box-form">
          
                        <!-- SESSÕES -->
-    <?php
-      if(isset($_SESSION['erro'])) {
-        echo $_SESSION['erro'];
-        $_SESSION['erro'] = "";
-      }
-    ?>
+
         <h1>Login</h1>
 
 
