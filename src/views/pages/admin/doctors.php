@@ -1,13 +1,3 @@
-<?php
-$type = $_SESSION['logado'][0]['type'];
-
-use \src\controllers\DoctorController;
-
-$doctors = DoctorController::getAllDoctors();
-
-
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,22 +33,20 @@ $doctors = DoctorController::getAllDoctors();
         <div class="content-psi">
           <div class="content-psi-header">
             <h4 style="font-weight:500">Todos os psicólogos</h4>
-            <?php
-            echo ($type == 'admin') ? "<button>
-            <a href='$base/doctors/create' style='color:blue;'><i class='fas fa-user-plus'></i></a>
-            </button>" : ""; ?>
+           
+           <button>
+            <a href='<?php echo $base."/doctors/create";?>' style='color:blue;'><i class='fas fa-user-plus'></i></a>
+            </button>
           </div>
           <div class="grid-doctors">
-            <?php foreach ($doctors as $allDoctors) : ?>
               <div class="doctor-box" data-bs-toggle="modal" data-bs-target="#agendar">
                 <img src="<?php echo $base . '/assets/icons/avatar-fabiano.jpg'; ?>" alt="">
                 <div class="doctor-info">
-                  <span><?php echo $allDoctors['name']; ?></span>
-                  <span><?php echo $allDoctors['speciality']; ?></span>
+                  <span> Fabiano Porfirio Ribeiro</span>
+                  <span>Clinico Geral</span>
                 </div>
               </div>
               <!---doctor-box-->
-            <?php endforeach; ?>
             <!--endforeach-->
           </div>
           <!---grid-doctors-->

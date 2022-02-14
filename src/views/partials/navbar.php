@@ -9,10 +9,6 @@
           <div class="avatar-dropdown">
             <div class="avatar-dropdown-info">
               <img src="<?php echo $base . '/assets/icons/default.png'; ?>" alt="" width="25px" height="25px">
-              <?php 
-              $newName = explode(" ",$_SESSION['logado'][0]['name']);
-              echo $newName[0];
-              ?>
             </div>
           </div>
           <li>

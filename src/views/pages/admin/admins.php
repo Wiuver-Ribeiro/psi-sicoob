@@ -25,42 +25,40 @@
         <h3 style="text-align:left">Usuários</h3>
         <div class="content-psi">
           <div class="content-psi-header">
-          <h4 style="font-weight:500">Todos os usuários</h4>
-          <button>
-          <a href="<?php echo $base.'/admins/create';?>" style="color:blue;"><i class="fas fa-user-plus"></i></a>
-          </button>
+            <h4 style="font-weight:500">Todos os usuários</h4>
+            <button>
+              <a href="<?php echo $base . '/admins/create'; ?>" style="color:blue;"><i class="fas fa-user-plus"></i></a>
+            </button>
           </div>
-        <div class="grid-doctors">
-          <div class="doctor-box">
-              <img src="<?php echo $base.'/assets/icons/avatar-lara.jpg'; ?>" alt="" >
+          <div class="grid-doctors">
+            <div class="doctor-box">
+              <img src="<?php echo $base . '/assets/icons/avatar-lara.jpg'; ?>" alt="">
               <div class="doctor-info">
                 <span>Dra. Lara Kamilly G de Paiva</span>
                 <span>Psicologia Geral</span>
               </div>
-          </div> <!---doctor-box-->
-          <div class="doctor-box">
-              <img src="<?php echo $base.'/assets/icons/avatar-fabiano.jpg'; ?>" alt="">
+            </div>
+            <!---doctor-box-->
+            <div class="doctor-box">
+              <img src="<?php echo $base . '/assets/icons/avatar-fabiano.jpg'; ?>" alt="">
               <div class="doctor-info">
                 <span>Dr. Fabiano Porfirio Ribeiro</span>
                 <span>Psicanálise</span>
               </div>
-          </div> <!---doctor-box-->
-          <div class="doctor-box">
-              <img src="<?php echo $base.'/assets/icons/avatar-wiuver.jpg'; ?>" alt="">
-              <div class="doctor-info">
-                <span>Dr. Wiuver Afonso Ribeiro</span>
-                <span>Psicologia do Desevolvimento</span>
-              </div>
-          </div> <!---doctor-box-->
-          <div class="doctor-box">
-              <img src="<?php echo $base.'/assets/icons/avatar-eduardo.jpeg'; ?>" alt="">
+            </div>
+            <!---doctor-box-->
+            <div class="doctor-box">
+              <img src="<?php echo $base . '/assets/icons/avatar-eduardo.jpeg'; ?>" alt="">
               <div class="doctor-info">
                 <span>Dr. Eduardo Nascimento</span>
                 <span>Psicologia da Saude</span>
               </div>
-          </div> <!---doctor-box-->
-        </div> <!---grid-doctors-->
-        </div> <!---content-psi--->
+            </div>
+            <!---doctor-box-->
+          </div>
+          <!---grid-doctors-->
+        </div>
+        <!---content-psi--->
       </section>
     </div>
     <!--main-container-->
@@ -71,5 +69,5 @@
 </body>
 
 </html>
-<script src="<?php echo $base;?>/assets/js/script.s"></script>
+<script src="<?php echo $base; ?>/assets/js/script.s"></script>
 <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>

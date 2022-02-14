@@ -1,7 +1,4 @@
 
-<?php
-ini_set('display_errors', 0 );
-error_reporting(0);?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,22 +25,13 @@ error_reporting(0);?>
   <main>
     <div class="main-container">
       <!-- SESSÕES -->
-      <?php
-      if (isset($_SESSION['login'])) {
-        echo $_SESSION['login'];
-        $_SESSION['login'] = '';
-      }
 
-      use \src\controllers\AppointmentController;
 
-      // $appointments = AppointmentController::listAllEvents();
-
-      ?>
       <div class="content-appointment">
         <div class="appointment-info" title="Pendentes">
           <i class="fas fa-calendar-day fa-6x"></i>
           <div class="appointment-scheduled">
-            <span>2</span>
+            <span>0</span>
             <span class="text-appointments">Pendentes</span>
           </div>
           <!--appointment-info-->
@@ -52,7 +40,7 @@ error_reporting(0);?>
         <div class="appointment-info" title="Marcados">
           <i class="fas fa-calendar-check fa-6x"></i>
           <div class="appointment-scheduled">
-            <span>10</span>
+            <span></span>
             <span class="text-appointments">Marcados</span>
           </div>
           <!--appointment-info-->
@@ -61,7 +49,7 @@ error_reporting(0);?>
         <div class="appointment-info" title="Terminados">
           <i class="fas fa-clock fa-6x"></i>
           <div class="appointment-scheduled">
-            <span>5</span>
+            <span></span>
             <span class="text-appointments">Terminados</span>
           </div>
           <!--appointment-info-->
@@ -88,24 +76,20 @@ error_reporting(0);?>
             </tr>
           </thead>
           <tbody>
-            <?php
-            
-        foreach ($appointments as $allAppointments) : ?>
-              <tr>
-                <td><?php echo $allAppointments['patient_id']; ?></td>
-                <td><?php echo $allAppointments['psi_id']; ?></td>
-                <td><?php echo $allAppointments['start']; ?></td>
-                <td><?php echo $allAppointments['end']; ?></td>
-                <td><?php echo $allAppointments['status']; ?></td>
-                <td>
-                  <button class="confirm" title='Confirmar'>
-                    <i class='fas fa-check-square fa-2x'></i>
-                  </button>
-                </td>
-              </tr>
 
-            <?php 
-          endforeach; ?>
+
+            <tr>
+              <td>Wiuver Afonso Ribeiro</td>
+              <td>Lara Kamilly Garcia de Paiva</td>
+              <td>14/02/2022</td>
+              <td>14/02/2022</td>
+              <td>Confirmado</td>
+              <td>
+                <button class="confirm" title='Confirmar'>
+                  <i class='fas fa-check-square fa-2x'></i>
+                </button>
+              </td>
+            </tr>
 
           </tbody>
         </table>
