@@ -1,3 +1,7 @@
+
+<?php
+ini_set('display_errors', 0 );
+error_reporting(0);?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +36,7 @@
 
       use \src\controllers\AppointmentController;
 
-      $appointments = AppointmentController::listAllEvents();
+      // $appointments = AppointmentController::listAllEvents();
 
       ?>
       <div class="content-appointment">
