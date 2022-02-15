@@ -10,11 +10,13 @@ class DashboardController extends Controller {
     $data  = $agendamento->todosAgendamentos();
     $pendentes  = $agendamento->agendamentosPendentes();
     $marcados  = $agendamento->agendamentosMarcados();
-    // return $dados;
+    $cancelados = $agendamento->agendamentosCancelados();
+    //Renderiza todos os dados na template
     $this->render('dashboard', [
       "agendamento" => $data,
       "pendentes" =>  $pendentes,
-      "marcados" => $marcados
+      "marcados" => $marcados,
+      "cancelados" => $cancelados
     ]);
   }
 }

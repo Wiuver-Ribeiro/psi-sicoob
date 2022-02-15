@@ -58,7 +58,7 @@
         <div class="appointment-info" title="Terminados">
           <i class="fas fa-clock fa-6x"></i>
           <div class="appointment-scheduled">
-            <span></span>
+            <span><?php echo $cancelados['cancelados']; ?></span>
             <span class="text-appointments">Terminados</span>
           </div>
           <!--appointment-info-->

@@ -3,7 +3,6 @@ namespace src\models;
 use \core\Model;
 
 class Appointment extends Model {
-  public $info;
 
   public function todosAgendamentos() {
     include '../connnect.php';
@@ -21,7 +20,6 @@ class Appointment extends Model {
     return $dados;
   }
 
-
   public function agendamentosPendentes() {
     include '../connnect.php';;
     $sql = $pdo->prepare("SELECT COUNT(*) as 'pendentes', status FROM agendamentos WHERE status = 'pendente' ORDER BY status");
@@ -30,9 +28,19 @@ class Appointment extends Model {
     $dados = $sql->fetch(\PDO::FETCH_ASSOC);
     return $dados;
   }
+
   public function agendamentosMarcados() {
     include '../connnect.php';;
     $sql = $pdo->prepare("SELECT COUNT(*) as 'marcados', status FROM agendamentos WHERE status = 'confirmado' ORDER BY status");
+    $sql->execute();
+
+    $dados = $sql->fetch(\PDO::FETCH_ASSOC);
+    return $dados;
+  }
+
+  public function agendamentosCancelados() {
+    include '../connnect.php';;
+    $sql = $pdo->prepare("SELECT COUNT(*) as 'cancelados', status FROM agendamentos WHERE status = 'cancelados' ORDER BY status");
     $sql->execute();
 
     $dados = $sql->fetch(\PDO::FETCH_ASSOC);
