@@ -7,6 +7,7 @@ use \src\models\Appointment;
 class AppointmentController extends Controller {
   public function index() {
     $this->render('/admin/appointments');
+
   }
 
   public function logout() {

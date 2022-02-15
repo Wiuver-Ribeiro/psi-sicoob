@@ -1,4 +1,13 @@
 
+<?php
+  // echo "<pre>";
+
+  // print_r($agendamento); die();
+  // foreach ($agendamento as $agendamentos) {
+  //   echo $agendamentos['inicio'];
+  // }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +40,7 @@
         <div class="appointment-info" title="Pendentes">
           <i class="fas fa-calendar-day fa-6x"></i>
           <div class="appointment-scheduled">
-            <span>0</span>
+            <span><?php echo $pendentes['pendentes']; ?></span>
             <span class="text-appointments">Pendentes</span>
           </div>
           <!--appointment-info-->
@@ -40,7 +49,7 @@
         <div class="appointment-info" title="Marcados">
           <i class="fas fa-calendar-check fa-6x"></i>
           <div class="appointment-scheduled">
-            <span></span>
+            <span><?php echo $marcados['marcados']; ?></span>
             <span class="text-appointments">Marcados</span>
           </div>
           <!--appointment-info-->
@@ -77,24 +86,23 @@
           </thead>
           <tbody>
 
-
+  <?php foreach ($agendamento as $agendamentos): ?>
             <tr>
-              <td>Wiuver Afonso Ribeiro</td>
-              <td>Lara Kamilly Garcia de Paiva</td>
-              <td>14/02/2022</td>
-              <td>14/02/2022</td>
-              <td>Confirmado</td>
+              <td><?php echo ($agendamentos['nome'] && $agendamentos['tipo'] = 'paciente') ? $agendamentos['nome'] : '';?></td>
+              <td><?php  echo ($agendamentos['nome'] && $agendamentos['tipo'] = 'psi') ? $agendamentos['nome'] : '';?></td>
+              <td><?php echo $agendamentos['inicio'];?></td>
+              <td><?php echo $agendamentos['fim'];?></td>
+              <td><?php echo $agendamentos['status'];?></td>
               <td>
                 <button class="confirm" title='Confirmar'>
                   <i class='fas fa-check-square fa-2x'></i>
                 </button>
               </td>
             </tr>
-
+<?php endforeach; ?>
           </tbody>
         </table>
       </div>
-
     </div>
     <!--main-container-->
   </main>
