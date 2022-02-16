@@ -17,8 +17,8 @@ main {
   justify-content:center;
 
   width: 100%;
-  max-width: 770px;
-  height: 480px;
+  max-width: 870px;
+  height:550px;
   margin: auto auto;
   box-shadow: 1px 1px 5px #bbb;
 }
@@ -35,7 +35,6 @@ main {
 .box-form {
   display:grid;
   grid-template-columns: 1fr;
-  /* grid-template-rows: 1fr; */
   align-items: center;
   justify-content: center;
   margin: 0 auto;
@@ -74,7 +73,29 @@ main {
   box-shadow: 2px 2px 3px #a8d2ff;
 }
 
-.box-form .form-group:nth-child(5) {
+.box-form .form-group  input:last-child {
+  width: 250px;
+}
+
+.box-form .form-group  input[type="file"] {
+  display: none;
+}
+
+.box-form .form-group label {
+  padding: 10px 20px;
+  width: 250px;
+  background: #F4F7FA;
+  text-align: center;
+
+  cursor: pointer;
+  outline: none;
+  border-radius: 0.25rem;
+  transition: all 0.3s;
+  border: 1px solid rgba(0,0,0,.125);
+  font-size:14px;
+}
+
+.box-form .form-group:nth-child(6) {
   display:grid;
   align-items: center;
   justify-content: center;

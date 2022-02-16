@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <?php
-  print_r($todosPacientes); die();
+  // print_r($todosPacientes); die();
 ?>
 <head>
   <meta charset="UTF-8">
@@ -43,24 +43,16 @@
                 </tr>
               </thead>
               <tbody>
+                <?php foreach ($todosPacientes as $paciente): ?>
                 <tr>
-                  <td>Avatar</td>
-                  <td>Wiuver Afonso Ribeiro</td>
-                  <td>wiuver.ribeiro@gmail.com</td>
-                  <td><a href="#"><i class="fas fa-user-edit"></i></a></td>
+                  <td>
+                    <img src="<?php echo $base.'/assets/icons/'.$paciente['avatar'];?>" alt="">
+                  </td>
+                  <td><?php echo $paciente['nome']; ?></td>
+                  <td><?php echo $paciente['email']; ?></td>
+                  <td><a href='<?php echo $base."/{$paciente['idusuario']}";?>'><i class="fas fa-user-edit"></i></a></td>
                 </tr>
-                <tr>
-                  <td>Avatar</td>
-                  <td>Lara Kamilly Garcia de Paiva</td>
-                  <td>lara.ribeiro@gmail.com</td>
-                  <td><a href="#"><i class="fas fa-user-edit"></i></a></td>
-                </tr>
-                <tr>
-                  <td>Avatar</td>
-                  <td>Fabiano Porfirio Ribeiro</td>
-                  <td>fabinaopfr@gmail.com</td>
-                  <td><a href="#"><i class="fas fa-user-edit"></i></a></td>
-                </tr>
+                <?php endforeach; ?>
               </tbody>
             </table>
           </div>

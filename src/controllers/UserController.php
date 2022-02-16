@@ -26,9 +26,38 @@ class UserController extends Controller {
     $this->render('/admin/config');
   }
 
-  //Função responsável por chamar a vi
+  //Função responsável por chamar a view administrador
   public function admins() {
     $this->render('/admin/admins');
   }
 
+    //Função responsável para destruir a sessão logado e deslogar da aplicação.
+  public function logout() {
+    unset($_SESSION['logado']);
+    session_destroy();
+    $this->redirect('/signin');
+  }
+
+  /*
+    Sempre que tem um uma rota que chama um Controller 
+      que irá chamar um método de um Model específico
+  */
+  public function login() {
+    $usuario = new User(); //Intanciando um novo objeto
+   $logado =  $usuario->login(); //Chamando um método do Model estanciado.
+    if($logado) {
+      $this->redirect('/dashboard');
+    } 
+    $this->redirect('/signin');
+  }
+
+  public function register() {
+    $usuario = new User();
+    $register = $usuario->register();
+    if($register) {
+      $this->redirect('/signin');
+    } else {
+      $this->redirect('/signup');
+    }
+  }
 }

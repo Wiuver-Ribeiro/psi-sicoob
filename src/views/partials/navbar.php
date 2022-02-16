@@ -1,5 +1,10 @@
 <!-- NAVBAR -->
-
+<?php 
+use \src\models\USer;
+  $usuario = new User();
+  $info = $usuario->dadosLogado();  
+  // echo $info['avatar']; die();
+?>
 <nav class="navbar nav-bootstrap">
   <div class="box-acoes">
     <div class="dropdown">
@@ -8,7 +13,8 @@
         <ul>
           <div class="avatar-dropdown">
             <div class="avatar-dropdown-info">
-              <img src="<?php echo $base . '/assets/icons/default.png'; ?>" alt="" width="25px" height="25px">
+              <img src="<?php echo $base . '/assets/icons/'.$info['avatar']; ?>" alt="" width="40px" height="40px">
+            <span><?php echo $info['nome']; ?> </span>
             </div>
           </div>
           <li>

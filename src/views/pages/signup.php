@@ -22,18 +22,29 @@
       <div class="box-form">
         <h1>Registrar</h1>
         <!-- SESSÕES -->
+        <?php 
+          if(isset($_SESSION['email'])) {
+            echo $_SESSION['email'];
+            unset($_SESSION['email']);
+          }
+        ?>
         <form method="POST" action="<?php echo $base.'/signup';?>">
+        
           <div class="form-group">
-            <input type="text" name="name" placeholder="Nome" autocomplete="off">
+            <label for="avatar">Enviar avatar</label>
+            <input type="file" name="avatar" id="avatar" placeholder="Avatar" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <input type="text" name="nome" placeholder="Nome" autocomplete="off">
           </div>
           <div class="form-group">
             <input type="text" name="email" placeholder="E-mail" autocomplete="off">
           </div>
           <div class="form-group">
-            <input type="password" name="password" placeholder="Senha" autocomplete="off">
+            <input type="password" name="senha" placeholder="Senha" autocomplete="off">
           </div>
           <div class="form-group">
-            <input type="password" name="confirm_password" placeholder="Confirmar senha" autocomplete="off">
+            <input type="password" name="confirmSenha" placeholder="Confirmar senha" autocomplete="off">
           </div>
 
             <div class="form-group">

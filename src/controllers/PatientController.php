@@ -9,7 +9,7 @@ class PatientController extends Controller {
     $pacientes = new Patient();
     $todosPacientes = $pacientes->todosPacientes();
     $this->render('/admin/patients', [
-      "pacientes" => $todosPacientes,
+      "todosPacientes" => $todosPacientes,
     ]);
   }
 

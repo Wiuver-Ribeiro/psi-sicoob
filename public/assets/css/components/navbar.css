@@ -109,13 +109,16 @@ nav .box-acoes i:hover {
 
 } 
 .avatar-dropdown-info {
-  display: flex;
+  display: grid;
+  grid-template-columns: 80px 1fr;
   align-items: center;
   color: #FFF;
-  
 }
 .avatar-dropdown-info img {
+  /* width: 100%; */
   margin: 0 1rem;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 /* NAVBAR--BOOTSTRAP */

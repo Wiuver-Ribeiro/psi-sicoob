@@ -1,13 +1,3 @@
-
-<?php
-  // echo "<pre>";
-
-  // print_r($agendamento); die();
-  // foreach ($agendamento as $agendamentos) {
-  //   echo $agendamentos['inicio'];
-  // }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 

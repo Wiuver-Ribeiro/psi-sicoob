@@ -9,11 +9,13 @@ $router->get('/signin', "HomeController@signin");
 $router->get('/signup', "HomeController@signup");
 
 //AuthController
-$router->get('/logout', "AuthController@logout");
+
 $router->post('/doctors/create', 'AuthController@create');
+
 
 //DashboardController
 $router->get('/dashboard', 'DashboardController@index');
+
 
 //DoctorController
 $router->get('/doctors', 'DoctorController@index');
@@ -30,6 +32,9 @@ $router->get('/admins/create', 'UserController@createAdmin');
 $router->get('/config', 'UserController@config');
 $router->post('/signin', 'UserController@login');
 $router->post('/signup', 'UserController@register');
+
+$router->get('/logout', 'UserController@logout');
+
 
 //AppointmentController
 $router->get('/appointments', 'AppointmentController@index');

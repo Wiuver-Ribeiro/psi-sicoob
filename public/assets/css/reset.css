@@ -16,3 +16,9 @@
     padding-left: 0rem !important;
     padding-right: 0rem !important;
   }
+
+  .alert {
+    position:absolute;
+    top: 12%;
+    left:56%;
+  }

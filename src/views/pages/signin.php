@@ -24,6 +24,12 @@
       <div class="box-form">
          
                        <!-- SESSÕES -->
+        <?php 
+          if(isset($_SESSION['email'])) {
+            echo $_SESSION['email'];
+            unset($_SESSION['email']);
+          }
+        ?>
 
         <h1>Login</h1>
 
@@ -33,7 +39,7 @@
             <input type="email" placeholder="E-mail" name="email" autocomplete="off">
           </div>
           <div class="form-group">
-            <input type="password" placeholder="Senha" name="password" autocomplete="off">
+            <input type="password" placeholder="Senha" name="senha" autocomplete="off">
           </div>
           <div class="form-group">
             <button type="submit">Login</button>
