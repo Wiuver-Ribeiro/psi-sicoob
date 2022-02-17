@@ -3,6 +3,7 @@ main .main-container {
   width: calc(100% - 270px);
   margin-left:270px;
   background: #0A0906;
+  padding-bottom: 20px;
 }
 
 .default {

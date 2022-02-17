@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/reset.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/doctors.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/patient-create.css'; ?>">
 
   <title>PSI | Patients </title>
@@ -33,19 +32,22 @@
             <!-- </div> -->
             <form action="#" method="POST">
               <div class="field-input">
-                <input type="text" placeholder="Nome">
+                <input type="file" name="avatar" accept="image/png image/jpg image/jpeg" >
               </div>
               <div class="field-input">
-                <input type="text" placeholder="E-mail">
+                <input type="text" placeholder="Nome" autocomplete="off" name="nome">
               </div>
               <div class="field-input">
-                <input type="password" placeholder="Senha">
+                <input type="email" placeholder="E-mail" autocomplete="off" name="email">
               </div>
               <div class="field-input">
-                <input type="text" placeholder="CPF">
+                <input type="password" placeholder="Senha" autocomplete="off" name="senha">
               </div>
               <div class="field-input">
-                <button type="submit">Enviar</button>
+                <input type="text" placeholder="(64) 99999-9999" autocomplete="off" name="telefone">
+              </div>
+              <div class="field-input">
+                <button type="submit">Cadastrar</button>
               </div>
             </form>
         </div> <!---grid-doctors-->

@@ -12,6 +12,6 @@ class PatientController extends Controller {
       "todosPacientes" => $todosPacientes,
     ]);
   }
-
+  
 
 }

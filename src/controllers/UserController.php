@@ -4,6 +4,7 @@ namespace src\controllers;
 
 use \core\Controller;
 use \src\models\User;
+use \src\models\Patient;
 
 class UserController extends Controller {
   public function index() {
@@ -15,6 +16,8 @@ class UserController extends Controller {
   }
 
   public function createPatient() {
+    $paciente = new Patient();
+    $paciente->registrarPaciente();
     $this->render('/admin/patients-create');
   }
 

@@ -13,4 +13,9 @@ class Patient extends Model {
     $dados = $sql->fetchAll();
     return $dados;
   }
+
+  public function registrarPaciente() {
+    require '../connnect.php';
+    
+  }
 }
