@@ -24,7 +24,7 @@ class User extends Model {
     $sql = $pdo->prepare("SELECT nome, email, avatar FROM usuarios WHERE tipo = 'admin'");
     $sql->execute();
     
-    $dados = $sql->fetch(\PDO::FETCH_ASSOC);
+    $dados = $sql->fetchAll(\PDO::FETCH_ASSOC);
     return $dados;
   }
 
@@ -60,7 +60,7 @@ class User extends Model {
   public function verificaLogin($email) {
     include '../connnect.php';
 
-    $sql = $pdo->prepare("SELECT email, senha FROM usuarios WHERE email = :email ");
+    $sql = $pdo->prepare("SELECT email FROM usuarios WHERE email = :email ");
     $sql->bindParam(':email', $email);
     $sql->execute();
     if($sql->rowCount() > 0) {
@@ -76,7 +76,6 @@ class User extends Model {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-    $confirmSenha = $_POST['confirmSenha'];
 
     if($this->verificaLogin($email)) {
       require '../connnect.php';
@@ -98,5 +97,30 @@ class User extends Model {
       return true;
     }
 
+  }
+
+  public function registerAdministrador() {
+    require '../connnect.php';
+
+    $avatar = $_POST['avatar'];
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    if($this->verificaLogin($email)) {
+      $_SESSION['email'] = "<div class='alert alert-danger' role='alert'> Usuário com esse <b>e-mail</b> já cadastrado!</div>";
+      return false;
+    }
+    $sql = $pdo->prepare("INSERT INTO usuarios (nome, email, senha, avatar, tipo) 
+                        VALUES (:nome, :email, :senha, :avatar, 'admin')");
+    $sql->bindParam(':nome',$nome);
+    $sql->bindParam(':email',$email);
+    $sql->bindParam(':senha',$senha);
+    $sql->bindParam(':avatar',$avatar);
+    // $sql->bindParam(':avatar','admin');
+    $sql->execute();
+
+    $_SESSION['email'] = "<div class='alert alert-success' role='alert'> Administrador cadastrado!</div>";
+    return true;
   }
 }

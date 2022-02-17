@@ -3,6 +3,7 @@ main .main-container {
   width: calc(100% - 270px);
   margin-left:270px;
   background: #0A0906;
+  font-size: 86%;
 }
 
 .default {
@@ -162,4 +163,15 @@ main .main-container {
 .grid-doctors._create form .field-input button:hover {
   background-color: #04a9f5;
   color: #FFF;
+}
+
+/* Estilização do alert */
+.alert-danger ,
+.alert-success {
+  position:absolute !important;
+  width: 350px;
+  background-color: pink;
+  z-index: 99999;
+  left: 48%;
+  top: 20%;
 }

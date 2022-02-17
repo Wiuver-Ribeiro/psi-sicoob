@@ -28,7 +28,13 @@ class UserController extends Controller {
 
   //Função responsável por chamar a view administrador
   public function admins() {
-    $this->render('/admin/admins');
+    $usuario = new User();
+    $admins = $usuario->todosAdministradores();
+    $this->render('/admin/admins',
+      [
+        "administradores" => $admins,
+      ]
+    );
   }
 
     //Função responsável para destruir a sessão logado e deslogar da aplicação.
@@ -59,5 +65,16 @@ class UserController extends Controller {
     } else {
       $this->redirect('/signup');
     }
+  }
+
+  public function registerAdministrador() {
+    $usuario = new User();
+    $register = $usuario->registerAdministrador();
+    if($register) {
+      $this->redirect('/admins/create');
+    } else {
+      $this->redirect('/admins/create');
+    }
+    
   }
 }

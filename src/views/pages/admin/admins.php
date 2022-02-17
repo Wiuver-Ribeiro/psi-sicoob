@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/reset.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/dashboard.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/admins.css'; ?>">
 
   <title>PSI | Administradores</title>
@@ -31,29 +30,15 @@
             </button>
           </div>
           <div class="grid-doctors">
-            <div class="doctor-box">
-              <img src="<?php echo $base . '/assets/icons/avatar-lara.jpg'; ?>" alt="">
-              <div class="doctor-info">
-                <span>Dra. Lara Kamilly G de Paiva</span>
-                <span>Psicologia Geral</span>
+            <?php foreach ($administradores as $administrador): ?>
+              <div class="doctor-box">
+                <img src="<?php echo $base . '/assets/icons/'.$administrador['avatar']; ?>" alt="">
+                <div class="doctor-info">
+                  <span><?php echo $administrador['nome'];?></span>
+                  <span><?php echo $administrador['email']; ?></span>
+                </div>
               </div>
-            </div>
-            <!---doctor-box-->
-            <div class="doctor-box">
-              <img src="<?php echo $base . '/assets/icons/avatar-fabiano.jpg'; ?>" alt="">
-              <div class="doctor-info">
-                <span>Dr. Fabiano Porfirio Ribeiro</span>
-                <span>Psicanálise</span>
-              </div>
-            </div>
-            <!---doctor-box-->
-            <div class="doctor-box">
-              <img src="<?php echo $base . '/assets/icons/avatar-eduardo.jpeg'; ?>" alt="">
-              <div class="doctor-info">
-                <span>Dr. Eduardo Nascimento</span>
-                <span>Psicologia da Saude</span>
-              </div>
-            </div>
+              <?php endforeach; ?>
             <!---doctor-box-->
           </div>
           <!---grid-doctors-->
