@@ -40,10 +40,10 @@
             <!-- <div class="box-doctor"> -->
               <img src="<?php echo $base.'/assets/icons/'.$administrador['avatar']; ?>" alt="" width="190px" height="190px" style="border-radius:50%">
             <!-- </div> -->
-            <form action="<?php echo $base.'/admins/create';?>" method="POST">
+            <form action="<?php echo $base.'/admins/edit/'.$administrador['idusuario'];?>" method="POST">
               <div class="field-input">
                 <label for="#avatar" style="color:#ccc;">Selecione um Avatar</label>
-                <input type="file" id="avatar"  name="avatar" accept="image/png, image/jpeg, image/jpg"  multiple>
+                <input type="file" id="avatar"  name="avatar" accept="image/png, image/jpeg, image/jpg"  value="<?php echo $administrador['avatar'];?>" multiple>
               </div>
               <div class="field-input">
                 <input type="text" name="nome" placeholder="Nome" value="<?php echo $administrador['nome'];?>" autocomplete="off">
@@ -51,16 +51,8 @@
               <div class="field-input">
                 <input type="email" name="email" placeholder="E-mail" value="<?php echo $administrador['email'];?>" autocomplete="off">
               </div>
-              <div class="field-input">
-                <select class="form-control" name="tipo" id="tipo">
-                  <option>Escolha o tipo:</option>
-                  <option value="admin">Administrador</option>
-                  <option value="paciente">Paciente</option>
-                  <option value="psi">Psicólogo</option>
-                </select>
-              </div>
               <div class="field-input _action">
-                <button type="submit" id="deletar">Excluir Administrador</button>
+                <a href="<?php echo $base;?>" id="deletar">Excluir Administrador</a>
                 <button type="submit" id="editar" >Editar Administrador</button>
               </div>
             </form>

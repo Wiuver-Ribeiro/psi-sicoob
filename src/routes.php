@@ -32,6 +32,9 @@ $router->get('/patients/create', 'UserController@createPatient');
 $router->get('/admins/create', 'UserController@createAdmin');
 $router->post('/admins/create', 'UserController@registerAdministrador');
 $router->get('/admins/edit/{id}', 'UserController@editAdmin');
+$router->post('/admins/edit/{id}', 'UserController@editarAdministrador');
+$router->post('/admins/delete/{id}', 'UserController@deletarAdministrador');
+
 
 
 $router->get('/config', 'UserController@config');

@@ -185,11 +185,35 @@ main .main-container {
   justify-content: space-evenly;
 }
 
+.grid-doctors._create form .field-input._action a {
+  width: 350px;
+  height:40px;
+  padding:10px 20px;
+  outline:none;
+  background: #FFF;
+  border: 1px solid #83bfff;
+  border-radius: 0.25rem;
+  transition: all ease-in-out .3s;
+  cursor:pointer;
+  color: #04a9f5;
+  transition: all ease-in-out .3s;
+  text-align: center;
+}
 .grid-doctors._create form .field-input._action button {
   width: 350px;
+  height:40px;
+  padding:10px 20px;
+  outline:none;
+  background: #FFF;
+  border: 1px solid #83bfff;
+  border-radius: 0.25rem;
+  transition: all ease-in-out .3s;
+  cursor:pointer;
+  color: #04a9f5;
+  transition: all ease-in-out .3s;
 }
 
-.grid-doctors._create form .field-input._action button#deletar {
+.grid-doctors._create form .field-input._action a#deletar {
   background-color:#C5211C;
   border: none;
   color: #FFF;
@@ -202,7 +226,7 @@ main .main-container {
 }
 
 /* HOVERS */
-.grid-doctors._create form .field-input._action button#deletar:hover {
+.grid-doctors._create form .field-input._action a#deletar:hover {
   background-color:#bd2c26;
 }
 

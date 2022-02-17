@@ -124,7 +124,7 @@ class User extends Model {
     return true;
   }
 
-  public function editarAdministrador($id) {
+  public function busqueAdministradorPorID($id) {
    require '../connnect.php';
     // var_dump($id); die();
    $sql = $pdo->prepare("SELECT idusuario, nome, email, avatar FROM  usuarios WHERE idusuario = :id ");
@@ -133,5 +133,26 @@ class User extends Model {
 
    $dados = $sql->fetch(\PDO::FETCH_ASSOC);
     return $dados;
+  }
+
+  public function editarAdministrador($id) {
+    require '../connnect.php';
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $avatar = ($_POST['avatar'] == "") ?  : $_POST['avatar'];
+
+    $sql = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email, avatar = :avatar WHERE idusuario = :id");
+    $sql->bindValue(':nome', $nome);
+    $sql->bindValue(':email', $email);
+    $sql->bindValue(':avatar', $avatar);
+    $sql->bindValue(':id', $id['id']);
+    $sql->execute();
+
+    return true;
+
+  }
+
+  public function deletarAdministrador() {
+    
   }
 }
