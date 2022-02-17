@@ -21,10 +21,10 @@
   <main>
     <div class="main-container">
       <section class="default">
-        <h3 style="text-align:left">Usuários</h3>
+        <h3 style="text-align:left">Administradores</h3>
         <div class="content-psi">
           <div class="content-psi-header">
-            <h4 style="font-weight:500">Todos os usuários</h4>
+            <h4 style="font-weight:500">Todos os Administradores</h4>
             <button>
               <a href="<?php echo $base . '/admins/create'; ?>" style="color:blue;"><i class="fas fa-user-plus"></i></a>
             </button>

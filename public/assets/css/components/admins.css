@@ -3,7 +3,7 @@ main .main-container {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr ;
   width: calc(100% - 270px);
-  height: calc(100vh - 80px);
+  /* height: calc(100vh - 80px); */
   margin-left:270px;
   background: #0A0906;
 }
@@ -89,7 +89,7 @@ main .main-container {
 .grid-doctors .doctor-box img{
   width:100px;
   height:100px;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 50%;
 }
 

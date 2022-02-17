@@ -71,7 +71,7 @@ class UserController extends Controller {
     $usuario = new User();
     $register = $usuario->registerAdministrador();
     if($register) {
-      $this->redirect('/admins/create');
+      $this->redirect('/admins');
     } else {
       $this->redirect('/admins/create');
     }
