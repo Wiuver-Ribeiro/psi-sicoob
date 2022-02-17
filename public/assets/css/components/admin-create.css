@@ -115,6 +115,7 @@ main .main-container {
   border: 6px solid #FFF;
   box-shadow: 1px 1px 10px #888;
   background-color: #04a9f5;
+  object-fit: cover;
 }
 
 .grid-doctors._create form .field-input {
@@ -131,6 +132,8 @@ main .main-container {
   border: 1px solid #ccc;
   border-radius: 0.25rem;
   transition: all ease-in-out .3s;
+  font-size: 14px;
+  color: #888;
 }
 
 .grid-doctors._create form .field-input input[type="file"] {
@@ -174,4 +177,35 @@ main .main-container {
   z-index: 99999;
   left: 48%;
   top: 20%;
+}
+
+/* Estilização do box action [Editar] [Atualizar] Administrador */
+.field-input._action {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.grid-doctors._create form .field-input._action button {
+  width: 350px;
+}
+
+.grid-doctors._create form .field-input._action button#deletar {
+  background-color:#C5211C;
+  border: none;
+  color: #FFF;
+}
+
+.grid-doctors._create form .field-input._action button#editar  {
+  background-color: #04D361;
+  color: #FFF;
+  border: none;
+}
+
+/* HOVERS */
+.grid-doctors._create form .field-input._action button#deletar:hover {
+  background-color:#bd2c26;
+}
+
+.grid-doctors._create form .field-input._action button#editar:hover {
+  background-color: #13ee76;
 }

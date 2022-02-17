@@ -21,6 +21,15 @@ class UserController extends Controller {
   public function createAdmin() {
     $this->render('/admin/admins-create');
   }
+  public function editAdmin($id) {
+    $usuario = new User();
+    $admin = $usuario->editarAdministrador($id);
+    $this->render('/admin/admins-edit',
+      [
+        "administrador" => $admin,
+      ]
+  );
+  }
 
   public function config() {
     $this->render('/admin/config');

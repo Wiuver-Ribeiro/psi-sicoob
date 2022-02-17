@@ -21,7 +21,7 @@ class User extends Model {
 
   public function todosAdministradores() {
     require '../connnect.php';
-    $sql = $pdo->prepare("SELECT nome, email, avatar FROM usuarios WHERE tipo = 'admin'");
+    $sql = $pdo->prepare("SELECT idusuario, nome, email, avatar FROM usuarios WHERE tipo = 'admin'");
     $sql->execute();
     
     $dados = $sql->fetchAll(\PDO::FETCH_ASSOC);
@@ -122,5 +122,16 @@ class User extends Model {
 
     $_SESSION['email'] = "<div class='alert alert-success' role='alert'> Administrador cadastrado!</div>";
     return true;
+  }
+
+  public function editarAdministrador($id) {
+   require '../connnect.php';
+    // var_dump($id); die();
+   $sql = $pdo->prepare("SELECT idusuario, nome, email, avatar FROM  usuarios WHERE idusuario = :id ");
+   $sql->bindParam(':id', $id['id']);
+   $sql->execute();
+
+   $dados = $sql->fetch(\PDO::FETCH_ASSOC);
+    return $dados;
   }
 }

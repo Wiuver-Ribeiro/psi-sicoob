@@ -28,8 +28,12 @@ $router->get('/patients', 'PatientController@index');
 $router->get('/admins', 'UserController@admins');
 $router->get('/doctors/create', 'UserController@createDoctor');
 $router->get('/patients/create', 'UserController@createPatient');
+
 $router->get('/admins/create', 'UserController@createAdmin');
 $router->post('/admins/create', 'UserController@registerAdministrador');
+$router->get('/admins/edit/{id}', 'UserController@editAdmin');
+
+
 $router->get('/config', 'UserController@config');
 $router->post('/signin', 'UserController@login');
 $router->post('/signup', 'UserController@register');

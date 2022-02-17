@@ -31,7 +31,7 @@
           </div>
           <div class="grid-doctors">
             <?php foreach ($administradores as $administrador): ?>
-              <div class="doctor-box">
+              <div class="doctor-box" name="id" onclick="location.href='http://localhost/psi-sicoob/public/admins/edit/<?php echo $administrador['idusuario'];?>'">
                 <img src="<?php echo $base . '/assets/icons/'.$administrador['avatar']; ?>" alt="">
                 <div class="doctor-info">
                   <span><?php echo $administrador['nome'];?></span>
