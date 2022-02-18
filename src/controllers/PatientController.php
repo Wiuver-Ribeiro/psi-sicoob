@@ -17,9 +17,9 @@ class PatientController extends Controller {
     $paciente = new Patient();
     $pacienteCadastrado = $paciente->registrarPaciente();
     if($pacienteCadastrado) {
-      $this->render('/admin/patients');
+      $this->redirect('/patients');
     } else {
-      $this->redirect('/admin/patients/create');
+      $this->redirect('/patients/create');
     }
   }
 
@@ -36,9 +36,9 @@ class PatientController extends Controller {
     $editPaciente = $paciente->editarPaciente($id);
 
     if($editPaciente) {
-      $this->render('/patients');
+      $this->redirect('/patients');
     } else {
-      $this->render('/patients/create');
+      $this->redirect('/patients/create');
     }
   }
 

@@ -3,7 +3,7 @@
   width: calc(100% - 270px);
   margin-left:270px;
   background: #0A0906;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 
@@ -86,7 +86,6 @@
 
 .table-content table tbody tr:nth-child(odd) {
   background-color:#282830;
-  border-radius: 8px;
 }
 
 .table-content table thead tr td {
@@ -95,9 +94,10 @@
 
 
 .table-content table tbody tr td{
-  padding: 5px 10px;
+  /* padding: 10px; */
   color: #FFF;
   margin: 20px 0;
+  padding: 3px 0px 3px 5px;
 }
 
 .table-content table tbody tr td img {

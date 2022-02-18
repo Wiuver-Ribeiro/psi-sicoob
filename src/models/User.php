@@ -139,17 +139,24 @@ class User extends Model {
     require '../connnect.php';
     $nome = $_POST['nome'];
     $email = $_POST['email'];
-    $avatar = ($_POST['avatar'] == "") ?  : $_POST['avatar'];
+    $avatar = $_POST['avatar'];
 
-    $sql = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email, avatar = :avatar WHERE idusuario = :id");
-    $sql->bindValue(':nome', $nome);
-    $sql->bindValue(':email', $email);
-    $sql->bindValue(':avatar', $avatar);
-    $sql->bindValue(':id', $id['id']);
-    $sql->execute();
-
-    return true;
-
+    if(empty($avatar)) {
+      $sql = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email WHERE idusuario = :id");
+      $sql->bindValue(':nome', $nome);
+      $sql->bindValue(':email', $email);
+      $sql->bindValue(':id', $id['id']);
+      $sql->execute();
+        return true;
+    } else {
+      $sql = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email, avatar = :avatar WHERE idusuario = :id");
+      $sql->bindValue(':nome', $nome);
+      $sql->bindValue(':email', $email);
+      $sql->bindValue(':avatar', $avatar);
+      $sql->bindValue(':id', $id['id']);
+      $sql->execute();
+        return true;
+    }
   }
 
   public function deletarAdministrador() {

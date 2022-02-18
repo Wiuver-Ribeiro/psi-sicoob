@@ -70,14 +70,25 @@ class Patient extends Model {
     $email = $_POST['email'];
     $avatar = $_POST['avatar'];
 
-    $sql = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email, avatar = :avatar
-      WHERE idusario = :id");
-    $sql->bindValue(':nome', $nome);
-    $sql->bindValue(':email', $email);
-    $sql->bindValue(':avatar', $avatar);
-    $sql->execute();
+    if(empty($avatar)) {
+      $sql = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email
+        WHERE idusuario = :id");
+      $sql->bindValue(':nome', $nome);
+      $sql->bindValue(':email', $email);
+      $sql->bindValue(':id', $id['id']);
+      $sql->execute();
+    }else {
+      $sql = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email, avatar = :avatar
+        WHERE idusuario = :id");
+      $sql->bindValue(':nome', $nome);
+      $sql->bindValue(':email', $email);
+      $sql->bindValue(':avatar', $avatar);
+      $sql->bindValue(':id', $id['id']);
+      $sql->execute();
+    }
+
 
     $_SESSION['email'] = "<div class='alert alert-danger' role='alert'> Usuário cadastrado com sucesso! </div>";
-    
+    return true;
   }
 }

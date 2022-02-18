@@ -25,12 +25,12 @@ $router->get('/doctors', 'DoctorController@index');
 $router->get('/patients', 'PatientController@index');
 $router->post('/patients/create', 'PatientController@createPatient');
 $router->get('/patients/edit/{id}', 'PatientController@editPaciente');
-// $router->get('/patients/edit/{id}', 'PatientController@editPaciente');
+$router->post('/patients/edit/{id}', 'PatientController@editarPaciente');
+$router->get('/patients/create', 'UserController@createPatient');
 
 //USerController
 $router->get('/admins', 'UserController@admins');
 $router->get('/doctors/create', 'UserController@createDoctor');
-$router->get('/patients/create', 'UserController@createPatient');
 
 $router->get('/admins/create', 'UserController@createAdmin');
 $router->post('/admins/create', 'UserController@registerAdministrador');
