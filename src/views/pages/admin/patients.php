@@ -50,7 +50,7 @@
                   </td>
                   <td><?php echo $paciente['nome']; ?></td>
                   <td><?php echo $paciente['email']; ?></td>
-                  <td><a href='<?php echo $base."/{$paciente['idusuario']}";?>'><i class="fas fa-user-edit"></i></a></td>
+                  <td><a href='<?php echo $base."/patients/edit/".$paciente['idusuario'];?>'><i class="fas fa-user-edit"></i></a></td>
                 </tr>
                 <?php endforeach; ?>
               </tbody>

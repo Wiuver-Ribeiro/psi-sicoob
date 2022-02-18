@@ -16,8 +16,6 @@ class UserController extends Controller {
   }
 
   public function createPatient() {
-    $paciente = new Patient();
-    $paciente->registrarPaciente();
     $this->render('/admin/patients-create');
   }
 
@@ -102,4 +100,5 @@ class UserController extends Controller {
       $this->redirect('/admins/edit');
     }
   }
+
 }
