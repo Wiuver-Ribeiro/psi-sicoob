@@ -1,5 +1,4 @@
 
-
 <aside class="sidebar menu-mobile">
   <div class="logo">
     <img src="<?php echo $base.'/assets/icons/icon_app.png';?>" class="img-logo" alt="Logo">

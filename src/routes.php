@@ -26,6 +26,8 @@ $router->get('/patients', 'PatientController@index');
 $router->post('/patients/create', 'PatientController@createPatient');
 $router->get('/patients/edit/{id}', 'PatientController@editPaciente');
 $router->post('/patients/edit/{id}', 'PatientController@editarPaciente');
+$router->post('/patients/delete/{id}', 'PatientController@deletarPaciente');
+
 $router->get('/patients/create', 'UserController@createPatient');
 
 //USerController
@@ -36,11 +38,12 @@ $router->get('/admins/create', 'UserController@createAdmin');
 $router->post('/admins/create', 'UserController@registerAdministrador');
 $router->get('/admins/edit/{id}', 'UserController@editAdmin');
 $router->post('/admins/edit/{id}', 'UserController@editarAdministrador');
-$router->post('/admins/delete/{id}', 'UserController@deletarAdministrador');
+
 
 
 
 $router->get('/config', 'UserController@config');
+
 $router->post('/signin', 'UserController@login');
 $router->post('/signup', 'UserController@register');
 

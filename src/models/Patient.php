@@ -91,4 +91,9 @@ class Patient extends Model {
     $_SESSION['email'] = "<div class='alert alert-danger' role='alert'> Usuário cadastrado com sucesso! </div>";
     return true;
   }
+
+  public function deletarPaciente() {
+    // require '../connnect.php';
+    echo "Deletando registro";
+  }
 }

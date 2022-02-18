@@ -34,7 +34,11 @@ class UserController extends Controller {
   }
 
   public function config() {
-    $this->render('/admin/config');
+    $usuario = new User();
+    $usuarioLogado = $usuario->dadosLogado();
+    $this->render('/admin/config', [
+      "usuarioLogado" => $usuarioLogado
+    ]);
   }
 
   //Função responsável por chamar a view administrador

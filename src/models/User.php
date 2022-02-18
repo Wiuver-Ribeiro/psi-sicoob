@@ -39,7 +39,7 @@ class User extends Model {
   public function login() {
     include '../connnect.php';
     $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $senha = md5($_POST['senha']);
 
     $sql = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email AND senha = :senha");
     $sql->bindParam(':email', $email);
@@ -75,7 +75,7 @@ class User extends Model {
     $avatar = $_POST['avatar'];
     $nome = $_POST['nome'];
     $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $senha = md5($_POST['senha']);
 
     if($this->verificaLogin($email)) {
       require '../connnect.php';
@@ -159,7 +159,4 @@ class User extends Model {
     }
   }
 
-  public function deletarAdministrador() {
-    
-  }
 }

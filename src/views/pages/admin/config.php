@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/dashboard.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/doctors.css'; ?>">
+  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/config.css'; ?>">
 
   
 
@@ -27,15 +27,21 @@
         <h3 style="text-align:left">Configuração</h3>
         <div class="content-psi">
           <div class="content-psi-header">
-          <h4 style="font-weight:500">Admin</h4>
+          <h4 style="font-weight:500"><?php echo $usuarioLogado['nome']; ?></h4>
           </div>
         <div class="grid-doctors _create">  
             <!-- <div class="box-doctor"> -->
-              <img src="<?php echo $base.'/assets/icons/default.png'; ?>" alt="" width="190px" height="190px" style="border-radius:50%">
+              <img src="<?php echo $base.'/assets/icons/'.$usuarioLogado['avatar']; ?>" alt="" width="190px" height="190px" style="border-radius:50%">
             <!-- </div> -->
             <form action="#" method="POST">
               <div class="field-input">
-                <input type="text" placeholder="Nome" value="Admin">
+                <input type="text" placeholder="Nome" value="<?php echo $usuarioLogado['nome']; ?>">
+              </div>
+              <div class="field-input">
+                <input type="text" placeholder="Email" value="<?php echo $usuarioLogado['email']; ?>">
+              </div>
+              <div class="field-input">
+                <input type="password" placeholder="Senha" value="<?php echo $usuarioLogado['senha']; ?>">
               </div>
               <div class="field-input">
                 <button type="submit">Enviar</button>
