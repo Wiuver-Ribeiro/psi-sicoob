@@ -3,7 +3,7 @@
 use \src\models\USer;
   $usuario = new User();
   $info = $usuario->dadosLogado();  
-  // echo $info['avatar']; die();
+
 ?>
 <nav class="navbar nav-bootstrap">
   <div class="box-acoes">
@@ -21,11 +21,13 @@ use \src\models\USer;
             <a href="<?php echo $base.'/appointments';?>">
               <i class="fas fa-calendar fa-sm"></i>
               Agendamentos
+            </a>
           </li>
-          </a>
           <li>
-            <i class="fas fa-cog fa-sm"></i>
-            Configurações
+            <a href="<?php echo $base.'/config';?>">
+              <i class="fas fa-cog fa-sm"></i>
+              Configurações
+            </a>
           </li>
           <li>
             <a href="<?php echo $base . '/logout'; ?>">
