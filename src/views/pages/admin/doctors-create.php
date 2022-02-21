@@ -13,12 +13,24 @@
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/doctor-create.css'; ?>">
 
   <title>PSI | Doctors </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 <body>
   <?php $render('navbar'); ?>
   <?php $render('sidebar'); ?>
   <main>
+
+  <!-- SESSÕES -->
+
+  <?php
+    if(isset($_SESSION['email'])) {
+      echo $_SESSION['email'];
+      $_SESSION['email'] = '';
+      unset($_SESSION['email']);
+    }
+  ?>
     <div class="main-container">
       <section class="default">
         <h3 style="text-align:left">Psicólogos</h3>
@@ -36,19 +48,22 @@
              <input  class="form-control" type="file" name="avatar" >
              </div>
               <div class="field-input">
-                <input type="text" placeholder="Nome" autocomplete="off" name="name">
+                <input type="text" placeholder="Nome" autocomplete="off" name="nome">
               </div>
               <div class="field-input">
                 <input type="email" placeholder="E-mail" autocomplete="off" name="email">
               </div>
               <div class="field-input">
-                <input type="password" placeholder="Senha" autocomplete="off" name="password">
+                <input type="password" placeholder="Senha" autocomplete="off" name="senha">
               </div>
               <div class="field-input">
-                <input type="text" placeholder="Especialização" autocomplete="off" name="speciality">
+                <input type="text" onkeypress="$(this).mask('00/000.000')" placeholder="CRP: " autocomplete="off" name="crp">
               </div>
               <div class="field-input">
-                <button type="submit">Enviar</button>
+                <input type="text" placeholder="Especialização" autocomplete="off" name="especialidade">
+              </div>
+              <div class="field-input">
+                <button type="submit">Cadastrar</button>
               </div>
             </form>
         </div> <!---grid-doctors-->
@@ -64,4 +79,6 @@
 
 </html>
 <script src="<?php echo $base;?>/assets/js/script.s"></script>
+<script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>   
+
 <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>

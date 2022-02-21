@@ -88,7 +88,7 @@ main .main-container {
 .grid-doctors .doctor-box img{
   width:100px;
   height:100px;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 50%;
 }
 
@@ -101,7 +101,7 @@ main .main-container {
 
 .grid-doctors .doctor-box .doctor-info span:last-child {
   color: #888;
-  margin-top: 14px;
+  margin-top: 12px;
 }
 
 /* CREATE */
@@ -121,6 +121,7 @@ main .main-container {
   border: 6px solid #FFF;
   box-shadow: 1px 1px 10px #888;
   background-color: #04a9f5;
+  object-fit: cover;
 }
 
 .grid-doctors._create form .field-input {

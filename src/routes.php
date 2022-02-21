@@ -33,6 +33,8 @@ $router->get('/patients/create', 'UserController@createPatient');
 //USerController
 $router->get('/admins', 'UserController@admins');
 $router->get('/doctors/create', 'UserController@createDoctor');
+$router->post('/doctors/create', 'DoctorController@createDoctor');
+
 
 $router->get('/admins/create', 'UserController@createAdmin');
 $router->post('/admins/create', 'UserController@registerAdministrador');

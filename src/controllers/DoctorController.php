@@ -7,13 +7,21 @@ use \src\models\Doctor;
 class DoctorController extends Controller {
   public function index() {
     /// /admin/nome_pasta
-    $this->render('/admin/doctors');
+    $psicologo =  new Doctor();
+    $todosPSI = $psicologo->todosPsicologos();
+    $this->render('/admin/doctors', [
+      "psicologo" => $todosPSI,
+    ]);
   }
 
-  public static function getAllDoctors() {
-    $data = Doctor::select('users.name, doctors.speciality')->join('users', 'users.iduser', '=', 'doctors.user_id')->where('users.type','ps')->get();
-    return $data;
-  
-    
+  public function createDoctor() {
+    $psicologo = new Doctor();
+    $psi = $psicologo->registrarPsicologo();
+   if($psi) {
+     $this->redirect('/doctors');
+   } else {
+     $this->redirect('/doctors/create');
+   }
   }
+
 }

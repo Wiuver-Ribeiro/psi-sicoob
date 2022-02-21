@@ -25,6 +25,11 @@
 <body>
   <?php $render('navbar'); ?>
   <?php $render('sidebar'); ?>
+
+  <?php 
+    // print_r($psicologo); die();
+  ?>
+
   <main>
     <div class="main-container">
       <section class="default">
@@ -38,13 +43,16 @@
             </button>
           </div>
           <div class="grid-doctors">
+            <?php foreach ($psicologo as $psicologos): ?>
               <div class="doctor-box" data-bs-toggle="modal" data-bs-target="#agendar">
-                <img src="<?php echo $base . '/assets/icons/avatar-fabiano.jpg'; ?>" alt="">
+                <img src="<?php echo $base . '/assets/icons/'.$psicologos['avatar']  ?>" alt="Avatar">
                 <div class="doctor-info">
-                  <span> Fabiano Porfirio Ribeiro</span>
-                  <span>Clinico Geral</span>
+                  <span> <?php echo $psicologos['nome']; ?></span>
+                  <span style="color:#888;">CRP: <?php echo $psicologos['crp']; ?></span>
+                  <span><?php echo $psicologos['especialidade']; ?></span>
                 </div>
               </div>
+              <?php endforeach; ?>
               <!---doctor-box-->
             <!--endforeach-->
           </div>
