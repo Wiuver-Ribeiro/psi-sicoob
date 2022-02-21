@@ -8,7 +8,7 @@ class Doctor extends Model {
   public function todosPsicologos() {
     require '../connnect.php';
 
-    $sql = $pdo->prepare("SELECT u.nome, u.avatar, p.crp, p.especialidade
+    $sql = $pdo->prepare("SELECT u.idusuario, u.nome, u.avatar, p.crp, p.especialidade
                   FROM usuarios as u INNER JOIN psi as p ON (u.idusuario = p.id_usuario) ");
     $sql->execute();
 
@@ -54,4 +54,50 @@ class Doctor extends Model {
       
     }
   }
+
+  public function busquePsicologoPorID($id) {
+    require '../connnect.php';
+    $sql = $pdo->prepare("SELECT * FROM usuarios as u 
+      INNER JOIN psi as p ON (u.idusuario = p.id_usuario) WHERE id_usuario = :id");
+    $sql->bindParam(':id',$id['id']);
+    $sql->execute();
+
+    $dados = $sql->fetch(\PDO::FETCH_ASSOC);
+    return $dados;
+  }
+
+  public function editarPsicologo($id) {
+    require '../connnect.php';
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $crp = $_POST['crp'];
+    $especialidade = $_POST['especialidade'];
+    $avatar = $_POST['avatar'];
+
+    if(empty($avatar)) {
+      $sql = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email, crp = :crp, especialidade = :especialidade, editado_em = now() as u INNER JOIN psi as p ON (u.idusuario = p.id_usuario) ");
+      $sql->bindValue(':nome',$nome);
+      $sql->bindValue(':email',$email);
+      $sql->bindValue(':crp',$crp);
+      $sql->bindValue(':especialidade',$especialidade);
+      $sql->execute();
+      $_SESSION['email'] = "<div class='alert alert-success' role='alert'> Usuário alterado com sucesso! </div>";
+      return true;
+    } else {
+      $sql = $pdo->prepare("UPDATE usuarios SET u.nome = :nome, u.email = :email, p.crp = :crp, p.especialidade = :especialidade, u.avatar = :avatar, u.editado_em = now(), p.editado_em = now() FROM usuarios  u INNER JOIN psi  p ON u.idusuario =:idPK = p.id_usuario =:idFK");
+
+      $sql->bindValue(':nome',$nome);
+      $sql->bindValue(':email',$email);
+      $sql->bindValue(':crp',$crp);
+      $sql->bindValue(':especialidade',$especialidade);
+      $sql->bindValue(':avatar',$avatar);
+      $sql->bindValue(':idPK', $id['id']);
+      $sql->bindValue(':idFK', $id['id']);
+      $sql->execute();
+      
+    $_SESSION['email'] = "<div class='alert alert-success' role='alert'> Usuário alterado com sucesso! </div>";
+    return true;
+    }
+  }
+
 }

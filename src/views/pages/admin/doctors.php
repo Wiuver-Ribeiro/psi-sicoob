@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -26,10 +25,6 @@
   <?php $render('navbar'); ?>
   <?php $render('sidebar'); ?>
 
-  <?php 
-    // print_r($psicologo); die();
-  ?>
-
   <main>
     <div class="main-container">
       <section class="default">
@@ -37,23 +32,22 @@
         <div class="content-psi">
           <div class="content-psi-header">
             <h4 style="font-weight:500">Todos os psicólogos</h4>
-           
-           <button>
-            <a href='<?php echo $base."/doctors/create";?>' style='color:blue;'><i class='fas fa-user-plus'></i></a>
+            <button>
+              <a href='<?php echo $base . "/doctors/create"; ?>' style='color:blue;'><i class='fas fa-user-plus'></i></a>
             </button>
           </div>
           <div class="grid-doctors">
-            <?php foreach ($psicologo as $psicologos): ?>
-              <div class="doctor-box" data-bs-toggle="modal" data-bs-target="#agendar">
-                <img src="<?php echo $base . '/assets/icons/'.$psicologos['avatar']  ?>" alt="Avatar">
+            <?php foreach ($psicologo as $psicologos) : ?>
+              <div class="doctor-box" onclick="location.href='http://localhost/psi-sicoob/public/doctors/edit/<?php echo $psicologos['idusuario'];?>'">
+                <img src="<?php echo $base . '/assets/icons/' . $psicologos['avatar']  ?>" alt="Avatar">
                 <div class="doctor-info">
                   <span> <?php echo $psicologos['nome']; ?></span>
                   <span style="color:#888;">CRP: <?php echo $psicologos['crp']; ?></span>
                   <span><?php echo $psicologos['especialidade']; ?></span>
                 </div>
               </div>
-              <?php endforeach; ?>
               <!---doctor-box-->
+            <?php endforeach; ?>
             <!--endforeach-->
           </div>
           <!---grid-doctors-->
@@ -62,45 +56,6 @@
       </section>
     </div>
     <!--main-container-->
-    <!-- MODAIS PARA MARCAR CONSULTA -->
-    <div class="modal fade" id="agendar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Agendar Consulta</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form method="POST" action="#">
-              <div class="row mb-3">
-                <label for="title" class="col-sm-2 col-form-label">Doutor:</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="title" name="title">
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="start" class="col-sm-2 col-form-label">Início da Consulta:</label>
-                <div class="col-sm-10">
-                  <input type="datetime-local" class="form-control" id="start" name="start" onkeypress="DataHora(event, this)">
-                </div>
-              </div>
-              <div class="row mb-3">
-                <label for="end" class="col-sm-2 col-form-label">Fim da Consulta:</label>
-                <div class="col-sm-10">
-                  <input type="datetime-local" class="form-control" id="end" name="end" onkeypress="DataHora(event, this)">
-                </div>
-              </div>
-              <div class="row mb-3">
-                <div class="col-sm-10">
-                  <button type="submit" class="btn btn-success">Agendar Consulta</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
   </main>
 
 

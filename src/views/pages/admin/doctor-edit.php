@@ -31,40 +31,43 @@
       $_SESSION['email'] = '';
       unset($_SESSION['email']);
     }
+
+    // print_r($psicologo); die();
   ?>
     <div class="main-container">
       <section class="default">
         <h3 style="text-align:left">Psicólogos</h3>
         <div class="content-psi">
           <div class="content-psi-header">
-          <h4 style="font-weight:500">Novo  Psicólogo</h4>
+          <h4 style="font-weight:500">Editar  Psicólogo</h4>
           </div>
         <div class="grid-doctors _create">  
             <!-- <div class="box-doctor"> -->
               <!-- </div> -->
-              <img src="<?php echo $base.'/assets/icons/default.png'; ?>"  alt="" width="190px" height="190px" style="border-radius:50%">
-              <form action="<?php echo $base.'/doctors/create';?>" method="POST">
+              <img src="<?php echo $base.'/assets/icons/'.$psicologo['avatar']; ?>"  alt="" width="190px" height="190px" style="border-radius:50%">
+              <form action="<?php echo $base.'/doctors/edit/'.$psicologo['idusuario']; ?>" method="POST">
  
              <div class="field-input">
              <input  class="form-control" type="file" name="avatar" >
              </div>
               <div class="field-input">
-                <input type="text" placeholder="Nome" autocomplete="off" name="nome">
+                <input type="text" placeholder="Nome" autocomplete="off" name="nome" value="<?php echo $psicologo['nome'] ?>">
               </div>
               <div class="field-input">
-                <input type="email" placeholder="E-mail" autocomplete="off" name="email">
+                <input type="email" placeholder="E-mail" autocomplete="off" name="email" value="<?php echo $psicologo['email'] ?>">
+              </div>
+              <!-- <div class="field-input">
+                <input type="password" placeholder="Senha" autocomplete="off" name="senha" value="<?php echo $psicologo['senha'] ?>">
+              </div> -->
+              <div class="field-input">
+                <input type="text" onkeypress="$(this).mask('00/000.000')" placeholder="CRP: " autocomplete="off" name="crp" value="<?php echo $psicologo['crp'] ?>">
               </div>
               <div class="field-input">
-                <input type="password" placeholder="Senha" autocomplete="off" name="senha">
+                <input type="text" placeholder="Especialização" autocomplete="off" name="especialidade" value="<?php echo $psicologo['especialidade'] ?>"> 
               </div>
-              <div class="field-input">
-                <input type="text" onkeypress="$(this).mask('00/000.000')" placeholder="CRP: " autocomplete="off" name="crp">
-              </div>
-              <div class="field-input">
-                <input type="text" placeholder="Especialização" autocomplete="off" name="especialidade">
-              </div>
-              <div class="field-input">
-                <button type="submit">Cadastrar</button>
+              <div class="field-input action">
+                <a href="<?php echo $base.'/doctos/edit/'.$psicologo['idusuario']; ?>" id="deletar">Excluir psicólogo</a>
+                <button id="editar" type="submit">Editar Psicólogo</button>
               </div>
             </form>
         </div> <!---grid-doctors-->

@@ -19,6 +19,9 @@ $router->get('/dashboard', 'DashboardController@index');
 
 //DoctorController
 $router->get('/doctors', 'DoctorController@index');
+$router->post('/doctors/create', 'DoctorController@createDoctor');
+$router->get('/doctors/edit/{id}', 'DoctorController@editDoctor');
+$router->post('/doctors/edit/{id}', 'DoctorController@editarDoctor');
 
 
 //PatientController
@@ -33,7 +36,6 @@ $router->get('/patients/create', 'UserController@createPatient');
 //USerController
 $router->get('/admins', 'UserController@admins');
 $router->get('/doctors/create', 'UserController@createDoctor');
-$router->post('/doctors/create', 'DoctorController@createDoctor');
 
 
 $router->get('/admins/create', 'UserController@createAdmin');

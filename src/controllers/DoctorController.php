@@ -24,4 +24,23 @@ class DoctorController extends Controller {
    }
   }
 
+  public function editDoctor($id) {
+    $psicologo = new Doctor();
+   $editPsicologo =  $psicologo->busquePsicologoPorID($id);
+
+    $this->render('/admin/doctor-edit', [
+      "psicologo" => $editPsicologo,
+    ]);
+  }
+
+  public function editarDoctor($id) {
+    $psicologo = new Doctor();
+    $editPsicologo = $psicologo->editarPsicologo($id);
+
+    if($editPsicologo) {
+      $this->redirect('/doctors');
+    } else {
+      $this->redirect('/doctors/edit');
+    }
+  }
 }
