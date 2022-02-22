@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/patients.css'; ?>">
 
-  <title>PSI | Patients</title>
+  <title>PSI | Paciente</title>
 </head>
 
 <body>

@@ -1,17 +1,15 @@
 main .main-container {
-  display:grid;
-  grid-template-columns: 1fr;
-  /* height:calc(100vh - 80px); */
+  display: grid;
   width: calc(100% - 270px);
   margin-left:270px;
   background: #0A0906;
+  font-size: 86%;
+  height: 100vh;
 }
 
-
-
-
 .default {
-  margin: 70px 2rem;
+  max-width:1070px;
+  margin: 0 auto;
 }
 
 .default h3 {
@@ -30,7 +28,6 @@ main .main-container {
 .content-psi-header {
   display: flex;
   justify-content:space-between;
-  margin-bottom: 1rem;
   padding-bottom:1rem;
   border-bottom: 1px solid #29292e;
   color: #e1e1e6;
@@ -68,7 +65,7 @@ main .main-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   flex-direction:row;
-  background: #202024;
+  background: #151419;
   color: #fff;
   align-items: center;
   padding: 1rem;
@@ -112,8 +109,6 @@ main .main-container {
 
   justify-content: center;
   align-items: center;
-  /* background:red; */
-  width: 100%;
 }
 
 
@@ -134,10 +129,12 @@ main .main-container {
   height:40px;
   padding:10px 20px;
   outline:none;
-  background: #F4F7FA;
-  border: 1px solid #ccc;
+  background: rgb(32,32,36);
+  border: none;
   border-radius: 0.25rem;
   transition: all ease-in-out .3s;
+  font-size: 14px;
+  color: #888;
 }
 
 .grid-doctors._create form .field-input input[type="file"] {
@@ -145,8 +142,8 @@ main .main-container {
 }
 
 .grid-doctors._create form .field-input input:focus {
-  border-color: #83bfff;
-  box-shadow: 2px 2px 5px #a8d2ff;
+  border-color: #04d361;
+  border:3px solid #04d361;
 }
 
 .grid-doctors._create form .field-input input::placeholder {
@@ -155,6 +152,56 @@ main .main-container {
 
 .grid-doctors._create form .field-input button {
   width: 100%;
+  height:40px;
+  padding:10px 20px;
+  outline:none;
+  background: #04D361;
+  border: none;
+  border-radius: 0.25rem;
+  transition: all ease-in-out .3s;
+  cursor:pointer;
+  color: #FFF;
+  transition: all ease-in-out .3s;
+}
+
+.grid-doctors._create form .field-input button:hover {
+  background-color: #04a9f5;
+  color: #FFF;
+}
+
+/* Estilização do alert */
+.alert-danger ,
+.alert-success {
+  position:absolute !important;
+  width: 350px;
+  background-color: pink;
+  z-index: 99999;
+  left: 48%;
+  top: 20%;
+}
+
+/* Estilização do box action [Editar] [Atualizar] Administrador */
+.field-input._action {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.grid-doctors._create form .field-input._action a {
+  width: 350px;
+  height:40px;
+  padding:10px 20px;
+  outline:none;
+  background: #FFF;
+  border: 1px solid #83bfff;
+  border-radius: 0.25rem;
+  transition: all ease-in-out .3s;
+  cursor:pointer;
+  color: #04a9f5;
+  transition: all ease-in-out .3s;
+  text-align: center;
+}
+.grid-doctors._create form .field-input._action button {
+  width: 350px;
   height:40px;
   padding:10px 20px;
   outline:none;
@@ -167,7 +214,23 @@ main .main-container {
   transition: all ease-in-out .3s;
 }
 
-.grid-doctors._create form .field-input button:hover {
-  background-color: #04a9f5;
+.grid-doctors._create form .field-input._action a#deletar {
+  background-color:#C5211C;
+  border: none;
   color: #FFF;
+}
+
+.grid-doctors._create form .field-input._action button#editar  {
+  background-color: #04D361;
+  color: #FFF;
+  border: none;
+}
+
+/* HOVERS */
+.grid-doctors._create form .field-input._action a#deletar:hover {
+  background-color:#bd2c26;
+}
+
+.grid-doctors._create form .field-input._action button#editar:hover {
+  background-color: #13ee76;
 }

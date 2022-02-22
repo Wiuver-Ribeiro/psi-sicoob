@@ -128,8 +128,8 @@ main .main-container {
   height:40px;
   padding:10px 20px;
   outline:none;
-  background: #F4F7FA;
-  border: 1px solid #ccc;
+  background: rgb(32,32,36);
+  border: none;
   border-radius: 0.25rem;
   transition: all ease-in-out .3s;
   font-size: 14px;
@@ -154,12 +154,12 @@ main .main-container {
   height:40px;
   padding:10px 20px;
   outline:none;
-  background: #FFF;
-  border: 1px solid #83bfff;
+  background: #04d361;
+  border: none;
   border-radius: 0.25rem;
   transition: all ease-in-out .3s;
   cursor:pointer;
-  color: #04a9f5;
+  color: #FFF;
   transition: all ease-in-out .3s;
 }
 

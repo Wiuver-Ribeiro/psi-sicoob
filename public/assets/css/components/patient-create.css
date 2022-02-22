@@ -127,14 +127,16 @@ main .main-container {
   height:40px;
   padding:10px 20px;
   outline:none;
-  background: #F4F7FA;
-  border: 1px solid #ccc;
+  background: rgb(32,32,36);
+  border: none;
   border-radius: 0.25rem;
   transition: all ease-in-out .3s;
+  color: #b5b5b5;
 }
 
 .grid-doctors._create form .field-input input[type="file"] {
   border:none;
+  color: #888;
 }
 
 .grid-doctors._create form .field-input input:focus {
@@ -151,12 +153,12 @@ main .main-container {
   height:40px;
   padding:10px 20px;
   outline:none;
-  background: #FFF;
-  border: 1px solid #83bfff;
+  background: #04d361;
+  border: none;
   border-radius: 0.25rem;
   transition: all ease-in-out .3s;
   cursor:pointer;
-  color: #04a9f5;
+  color: #FFF;
   transition: all ease-in-out .3s;
 }
 
