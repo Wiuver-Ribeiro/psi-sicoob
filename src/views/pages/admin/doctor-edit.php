@@ -26,11 +26,11 @@
   <!-- SESSÕES -->
 
   <?php
-    if(isset($_SESSION['email'])) {
-      echo $_SESSION['email'];
-      $_SESSION['email'] = '';
-      unset($_SESSION['email']);
-    }
+    // if(isset($_SESSION['email'])) {
+    //   echo $_SESSION['email'];
+    //   $_SESSION['email'] = '';
+    //   unset($_SESSION['email']);
+    // }
 
     // print_r($psicologo); die();
   ?>

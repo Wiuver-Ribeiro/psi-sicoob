@@ -75,24 +75,27 @@ class Doctor extends Model {
     $avatar = $_POST['avatar'];
 
     if(empty($avatar)) {
-      $sql = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email, crp = :crp, especialidade = :especialidade, editado_em = now() as u INNER JOIN psi as p ON (u.idusuario = p.id_usuario) ");
+      $sql = $pdo->prepare("UPDATE usuarios as u INNER JOIN  psi as p ON (u.idusuario = p.id_usuario)
+      SET u.nome = :nome, u.email =  :email, p.crp = :crp, p.especialidade = :especialidade, u.editado_em = now(), p.editado_em = now() WHERE idusuario = :idusuario");
       $sql->bindValue(':nome',$nome);
       $sql->bindValue(':email',$email);
       $sql->bindValue(':crp',$crp);
       $sql->bindValue(':especialidade',$especialidade);
+      $sql->bindValue(':idusuario',$id['id']);
       $sql->execute();
       $_SESSION['email'] = "<div class='alert alert-success' role='alert'> Usuário alterado com sucesso! </div>";
       return true;
     } else {
-      $sql = $pdo->prepare("UPDATE usuarios SET u.nome = :nome, u.email = :email, p.crp = :crp, p.especialidade = :especialidade, u.avatar = :avatar, u.editado_em = now(), p.editado_em = now() FROM usuarios  u INNER JOIN psi  p ON u.idusuario =:idPK = p.id_usuario =:idFK");
+      $sql = $pdo->prepare("UPDATE usuarios as u INNER JOIN psi as p ON (u.idusuario = p.id_usuario)
+          SET u.nome = :nome, u.email = :email, p.crp = :crp, p.especialidade = :especialidade, u.avatar = :avatar WHERE idusuario = :idusuario
+      ");
 
       $sql->bindValue(':nome',$nome);
       $sql->bindValue(':email',$email);
       $sql->bindValue(':crp',$crp);
       $sql->bindValue(':especialidade',$especialidade);
       $sql->bindValue(':avatar',$avatar);
-      $sql->bindValue(':idPK', $id['id']);
-      $sql->bindValue(':idFK', $id['id']);
+      $sql->bindValue(':idusuario', $id['id']);
       $sql->execute();
       
     $_SESSION['email'] = "<div class='alert alert-success' role='alert'> Usuário alterado com sucesso! </div>";
