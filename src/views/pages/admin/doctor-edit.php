@@ -24,16 +24,6 @@
   <main>
 
   <!-- SESSÕES -->
-
-  <?php
-    // if(isset($_SESSION['email'])) {
-    //   echo $_SESSION['email'];
-    //   $_SESSION['email'] = '';
-    //   unset($_SESSION['email']);
-    // }
-
-    // print_r($psicologo); die();
-  ?>
     <div class="main-container">
       <section class="default">
         <h3 style="text-align:left">Psicólogos</h3>
@@ -83,6 +73,8 @@
 
 </html>
 <script src="<?php echo $base;?>/assets/js/script.s"></script>
+<script src="<?php echo $base . '/assets/js/personalizado.js'; ?>"></script>
+
 <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>   
 
 <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>

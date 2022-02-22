@@ -97,6 +97,7 @@
   <!--VISUALIZAR-->
 
 
+  <script src="<?php echo $base . '/assets/js/personalizado.js'; ?>"></script>
 
   <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>
 
