@@ -105,9 +105,3 @@ btn.addEventListener('click', () => {
 
 // MODAIS DOS PSI
 
-$(document).ready(function() {
-  $('#trigger').click(function() {
-      $('#agendar $title').text('Dr Wiuver A Ribeiro');
-      $('#agendar').modal('show');
-  });
-})

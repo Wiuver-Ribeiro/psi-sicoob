@@ -25,10 +25,11 @@
          
                        <!-- SESSÕES -->
         <?php 
-          if(isset($_SESSION['email'])) {
-            echo $_SESSION['email'];
-            unset($_SESSION['email']);
+          if(isset($_SESSION['erro'])) {
+            echo $_SESSION['erro'];
+            unset($_SESSION['erro']);
           }
+          // $_SESSION['erro']
         ?>
 
         <h1>Login</h1>

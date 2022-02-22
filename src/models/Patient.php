@@ -71,14 +71,14 @@ class Patient extends Model {
     $avatar = $_POST['avatar'];
 
     if(empty($avatar)) {
-      $sql = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email
+      $sql = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email, editado_em = now()
         WHERE idusuario = :id");
       $sql->bindValue(':nome', $nome);
       $sql->bindValue(':email', $email);
       $sql->bindValue(':id', $id['id']);
       $sql->execute();
     }else {
-      $sql = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email, avatar = :avatar
+      $sql = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email, avatar = :avatar, editado_em = now()
         WHERE idusuario = :id");
       $sql->bindValue(':nome', $nome);
       $sql->bindValue(':email', $email);

@@ -22,3 +22,9 @@
     top: 12%;
     left:56%;
   }
+
+  .alert.alert-danger {
+    position:absolute;
+    top: 15%;
+    left:50%;
+  }

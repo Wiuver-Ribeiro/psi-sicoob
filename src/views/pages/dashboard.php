@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+
+use \src\models\USer;
+
+$usuario = new User();
+$info = $usuario->dadosLogado();
+
+?>
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +20,6 @@
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/dashboard.css'; ?>">
-
 
   <title>PSI | Dashboard</title>
 </head>
@@ -76,30 +84,31 @@
           </thead>
           <tbody>
 
-  <?php foreach ($agendamento as $agendamentos): ?>
-            <tr>
-              <td><?php echo ($agendamentos['nome'] && $agendamentos['tipo'] = 'paciente') ? $agendamentos['nome'] : '';?></td>
-              <td><?php  echo ($agendamentos['nome'] && $agendamentos['tipo'] = 'psi') ? $agendamentos['nome'] : '';?></td>
-              <td><?php echo $agendamentos['inicio'];?></td>
-              <td><?php echo $agendamentos['fim'];?></td>
-              <td><?php echo $agendamentos['status'];?></td>
-              <td>
-                <button class="confirm" title='Confirmar'>
-                  <i class='fas fa-check-square fa-2x'></i>
-                </button>
-              </td>
-            </tr>
-<?php endforeach; ?>
+            <?php foreach ($agendamento as $agendamentos) : ?>
+              <tr>
+                <td><?php echo ($agendamentos['nome'] && $agendamentos['tipo'] = 'paciente') ? $agendamentos['nome'] : ''; ?></td>
+                <td><?php echo ($agendamentos['nome'] && $agendamentos['tipo'] = 'psi') ? $agendamentos['nome'] : ''; ?></td>
+                <td><?php echo $agendamentos['inicio']; ?></td>
+                <td><?php echo $agendamentos['fim']; ?></td>
+                <td><?php echo $agendamentos['status']; ?></td>
+                <td>
+                  <button class="confirm" title='Confirmar'>
+                    <i class='fas fa-check-square fa-2x'></i>
+                  </button>
+                </td>
+              </tr>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </div>
     </div>
     <!--main-container-->
   </main>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>
 <script src="<?php echo $base . '/assets/js/script.js'; ?>"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>

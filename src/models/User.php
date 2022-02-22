@@ -54,6 +54,9 @@ class User extends Model {
       return true;
       exit;
     } 
+    $_SESSION['erro'] = '<div class="alert alert-danger" role="alert">
+        E-mail ou senha incorretos. Por favor tente outra vez...
+      </div>';
     return false;
   }
 
@@ -80,17 +83,16 @@ class User extends Model {
     if($this->verificaLogin($email)) {
       require '../connnect.php';
 
-      $_SESSION['email'] = "<div class='alert alert-danger' role='alert'> Usuário com esse <b>e-mail</b> já cadastrado!</div>";
+      $_SESSION['email'] = "<div  class='alert alert-danger' role='alert' style='position:absolute; top:10%; left:53%;'> Usuário com esse <b>e-mail</b> já cadastrado!</div>";
       return false;
     } else {
         $sql = $pdo->prepare("INSERT INTO usuarios (nome, email, senha, avatar, criado_em) VALUES (
-          :nome, :email, :senha, :avatar, :data
+          :nome, :email, :senha, :avatar, now()
         )");
         $sql->bindParam(':nome', $nome);
         $sql->bindParam(':email', $email);
         $sql->bindParam(':senha', $senha);
         $sql->bindParam(':avatar', $avatar);
-        $sql->bindParam(':data', $data);
         $sql->execute();
 
       $_SESSION['email'] = "<div class='alert alert-success' role='alert'>Usuário cadastrado com sucesso!</div>";
@@ -111,13 +113,12 @@ class User extends Model {
       $_SESSION['email'] = "<div class='alert alert-danger' role='alert'> Usuário com esse <b>e-mail</b> já cadastrado!</div>";
       return false;
     }
-    $sql = $pdo->prepare("INSERT INTO usuarios (nome, email, senha, avatar, tipo) 
-                        VALUES (:nome, :email, :senha, :avatar, 'admin')");
+    $sql = $pdo->prepare("INSERT INTO usuarios (nome, email, senha, avatar, tipo, criado_em) 
+                        VALUES (:nome, :email, :senha, :avatar, 'admin', now() )");
     $sql->bindParam(':nome',$nome);
     $sql->bindParam(':email',$email);
     $sql->bindParam(':senha',$senha);
     $sql->bindParam(':avatar',$avatar);
-    // $sql->bindParam(':avatar','admin');
     $sql->execute();
 
     $_SESSION['email'] = "<div class='alert alert-success' role='alert'> Administrador cadastrado!</div>";
