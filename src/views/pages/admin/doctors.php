@@ -1,3 +1,11 @@
+<?php
+
+use \src\models\USer;
+
+$usuario = new User();
+$info = $usuario->dadosLogado();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -18,7 +26,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="<?php echo $base . '/assets/js/script.js'; ?>"></script>
 
-  <title>PSI | Doctors </title>
+  <title>PSI | Psicólogos </title>
 </head>
 
 <body>
@@ -32,13 +40,15 @@
         <div class="content-psi">
           <div class="content-psi-header">
             <h4 style="font-weight:500">Todos os psicólogos</h4>
-            <button>
-              <a href='<?php echo $base . "/doctors/create"; ?>' style='color:blue;'><i class='fas fa-user-plus'></i></a>
-            </button>
+
+            <?php echo ($info['tipo'] == "admin") ? "<button>
+              <a href='" . $base . "/doctors/create' style='color:blue;'><i class='fas fa-user-plus'></i></a>
+            </button>" : "" ?>
           </div>
           <div class="grid-doctors">
+          <!-- onclick="location.href='http://localhost/psi-sicoob/public/doctors/edit/ -->
             <?php foreach ($psicologo as $psicologos) : ?>
-              <div class="doctor-box" onclick="location.href='http://localhost/psi-sicoob/public/doctors/edit/<?php echo $psicologos['idusuario'];?>'">
+              <div class="doctor-box" onclick="location.href='http://localhost/psi-sicoob/public/doctors/edit/<?php echo $psicologos['idusuario']; ?>'">
                 <img src="<?php echo $base . '/assets/icons/' . $psicologos['avatar']  ?>" alt="Avatar">
                 <div class="doctor-info">
                   <span> <?php echo $psicologos['nome']; ?></span>

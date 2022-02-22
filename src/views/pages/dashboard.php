@@ -7,7 +7,6 @@ use \src\models\USer;
 
 $usuario = new User();
 $info = $usuario->dadosLogado();
-
 ?>
 
 <head>

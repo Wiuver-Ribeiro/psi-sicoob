@@ -1,3 +1,12 @@
+<?php
+
+use \src\models\USer;
+
+$usuario = new User();
+$info = $usuario->dadosLogado();
+?>
+
+
 
 <aside class="sidebar menu-mobile">
   <div class="logo">
@@ -13,9 +22,10 @@
       <li class="tab"><a title="Agendamentos" class="link-menu" href="<?php echo $base .'/appointments'; ?>" onclick="activeTab('appointments')" ><i class="fas fa-calendar" style="color:#01A9AC; margin-right:1rem;"></i><hidden>Agendamentos</hidden></a></li>
       <li class="tab"><a title="Psicólogos" class="link-menu" href="<?php echo $base .'/doctors'; ?>" onclick="activeTab('doctors')" ><i class="fas fa-user-friends" style="color:#9595DF; margin-right:1rem;"></i>Psicólogos</a></li>
       
-      <li class='tab'><a title='Pacientes' class='link-menu' href='<?php echo $base."/patients";?> '><i class='fas fa-user-alt' style='color:#8DC9E8; margin-right:1rem;'></i>Pacientes</a></li>
+      <?php echo ($info['tipo'] == 'admin') ? "<li class='tab'><a title='Pacientes' class='link-menu' href='".$base."/patients '><i class='fas fa-user-alt' style='color:#8DC9E8; margin-right:1rem;'></i>Pacientes</a></li>" : "" ?>
+     
+      <?php echo ($info['tipo'] == 'admin') ? "<li class='tab'><a title='Admnistradores' class='link-menu' href=' ".$base."/admins'><i class='fas fa-lock' style='color:#F4C22B; margin-right:1rem;'></i>Administradores</a></li>" : "" ?>
       
-      <li class='tab'><a title='Admnistradores' class='link-menu' href='<?php echo $base."/admins";?>'><i class='fas fa-lock' style='color:#F4C22B; margin-right:1rem;'></i>Administradores</a></li>
     
       <li class="tab"><a title="Configurações" class="link-menu" href="<?php echo $base .'/config'; ?>"><i class="fas fa-cog" style="color:#4DC6FA; margin-right:1rem;" style="color:#1CA9F5; margin-right:1rem;"></i>Configuração</a></li>
       <li class="tab"><a title="Sair" class="link-menu" href="<?php echo $base .'/logout'; ?>" onclick="activeTab('logout')" ><i class="fas fa-power-off" style="color:#FF6D8F; margin-right:1rem;"></i>Logout</a></li>

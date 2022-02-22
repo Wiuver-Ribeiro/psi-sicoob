@@ -17,7 +17,7 @@ main .content-appointment .appointment-info {
   display:flex;
   align-items:center;
   justify-content: space-between;
-  width: 300px;
+  width: 370px;
   height: 150px;
   background: #131212;
   border:1px solid #29292e;
@@ -57,7 +57,7 @@ main .content-appointment .appointment-info .appointment-scheduled > span:last-c
 
 .table-content {
   width: 100%;
-  max-width: 1070px;
+  max-width: 1170px;
   margin: 0px auto 50px auto;
   background-color: #131212;
   border: 1px solid;
