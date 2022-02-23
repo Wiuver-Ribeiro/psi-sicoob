@@ -3,10 +3,10 @@ namespace src\controllers;
 
 use \core\Controller;
 use \src\models\Doctor;
+use \src\models\User;
 
 class DoctorController extends Controller {
   public function index() {
-    /// /admin/nome_pasta
     $psicologo =  new Doctor();
     $todosPSI = $psicologo->todosPsicologos();
     $this->render('/admin/doctors', [
@@ -15,6 +15,13 @@ class DoctorController extends Controller {
   }
 
   public function createDoctor() {
+
+    $usuario = new User();  
+    
+    if(!$usuario->logado ()) {
+      $this->redirect('/signin');
+    }
+
     $psicologo = new Doctor();
     $psi = $psicologo->registrarPsicologo();
    if($psi) {
@@ -25,6 +32,13 @@ class DoctorController extends Controller {
   }
 
   public function editDoctor($id) {
+        
+    $usuario = new User();
+    
+    if(!$usuario->logado ()) {
+      $this->redirect('/signin');
+    }
+
     $psicologo = new Doctor();
    $editPsicologo =  $psicologo->busquePsicologoPorID($id);
 

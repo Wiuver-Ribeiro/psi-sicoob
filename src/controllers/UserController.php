@@ -12,19 +12,44 @@ class UserController extends Controller {
   }
 
   public function createDoctor() {
+    
+    $usuario = new User();
+    
+    if(!$usuario->logado ()) {
+      $this->redirect('/signin');
+    }
+
     $this->render('/admin/doctors-create');
   }
 
   public function createPatient() {
+    
+    $usuario = new User();
+    
+    if(!$usuario->logado ()) {
+      $this->redirect('/signin');
+    }
+
     $this->render('/admin/patients-create');
   }
 
   public function createAdmin() {
+    
+    $usuario = new User();
+    
+    if(!$usuario->logado ()) {
+      $this->redirect('/signin');
+    }
+
     $this->render('/admin/admins-create');
   } 
 
   public function editAdmin($id) {
     $usuario = new User();
+    if(!$usuario->logado ()) {
+      $this->redirect('/signin');
+    }
+
     $admin = $usuario->busqueAdministradorPorID($id);
     $this->render('/admin/admins-edit',
       [
@@ -36,6 +61,11 @@ class UserController extends Controller {
   public function config() {
     $usuario = new User();
     $usuarioLogado = $usuario->dadosLogado();
+
+    if(!$usuario->logado ()) {
+      $this->redirect('/signin');
+    }
+
     $this->render('/admin/config', [
       "usuarioLogado" => $usuarioLogado
     ]);
@@ -44,6 +74,11 @@ class UserController extends Controller {
   //Função responsável por chamar a view administrador
   public function admins() {
     $usuario = new User();
+
+    if(!$usuario->logado ()) {
+      $this->redirect('/signin');
+    }
+
     $admins = $usuario->todosAdministradores();
     $this->render('/admin/admins',
       [

@@ -33,6 +33,9 @@ class User extends Model {
     if($_SESSION['logado'] && !empty($_SESSION['logado'])) {
       return true;
     } 
+    $_SESSION['restrita'] = "<div style='position: absolute; top:15%; left:52%'class='alert alert-danger' role='alert'>
+            Área <b>restrita!</b> Contate seus administradores.
+          </div>";
     return false;
   }
 

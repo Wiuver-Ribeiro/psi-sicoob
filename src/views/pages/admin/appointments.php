@@ -1,4 +1,10 @@
+<?php
 
+use \src\models\USer;
+
+$usuario = new User();
+$info = $usuario->logado();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -29,6 +35,8 @@
 <body>
   <?php $render('navbar'); ?>
   <?php $render('sidebar'); ?>
+  <!-- SESSÕES -->
+
   <div id='calendar'></div>
   <!-- Modal Visualizar -->
   <div class="modal fade" id="visualizar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

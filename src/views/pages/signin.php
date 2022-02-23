@@ -29,7 +29,11 @@
             echo $_SESSION['erro'];
             unset($_SESSION['erro']);
           }
-          // $_SESSION['erro']
+          if(isset($_SESSION['restrita'])) {
+            echo $_SESSION['restrita'];
+            $_SESSION['restrita'] = '';
+            unset($_SESSION['restrita']);
+          } 
         ?>
 
         <h1>Login</h1>

@@ -23,6 +23,12 @@ document.addEventListener('DOMContentLoaded', function() {
       start: '2022-02-20 10:00',
       end: '2022-02-20 12:00'
     },
+    {
+      id: 3,
+      title: 'Reunião IF ',
+      start: '2022-02-24 08:00',
+      end: '2022-02-24 12:00'
+    },
    ],
 
     //Fim
