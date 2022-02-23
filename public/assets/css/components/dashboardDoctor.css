@@ -69,9 +69,9 @@ main .content-appointment .appointment-info .appointment-scheduled > span:last-c
 .container .leftside ,
   .container .rightside {
     background: #131212;
-    padding: 30px 20px 10px 20px;
     border:1px solid #29292e;
     border-radius: 8px;
+    overflow: hidden;
   }
 
 .container .leftside {
@@ -84,8 +84,97 @@ main .content-appointment .appointment-info .appointment-scheduled > span:last-c
   margin-left: 24px;
 }
 
+.container .leftside .title,
+.container .rightside .title {
+  height:50px;
+  padding: 10px 0 10px 0;
+  border-left:  4px solid #04D361;
+  padding: 20px 25px;
+  border-bottom: 1px solid #29292e;
+}
+
 .container .leftside h5,
 .container .rightside h5 {
   color: #888;
-  border-bottom: 1px solid #888;
+}
+
+/* CSS DA TABELA */
+.container .leftside table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 25px;
+  text-align: left;
+}
+.container .leftside table  thead tr,
+  .container .leftside table  tbody tr {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center;
+    padding: 5px;
+    text-align: left ;
+
+}
+
+.container .leftside table  thead tr{
+  width: 100%;
+  color: #888;
+  border-bottom: 1px solid #29292e;
+}
+
+.container .leftside table  tbody  tr {
+  color: #f5f5f5;
+}
+
+/* BUG quebra de layput da tabela */
+/* .container .leftside table  thead tr td,
+  .container .leftside table  tbody tr td {
+ 
+} */
+
+/* status [confirmado, pendente, cancelado */
+
+/* Pendente [gambiarra] */
+.container .leftside table tbody tr td.pendente {
+  color: #ffa500;
+}
+
+/* Pendente [gambiarra]  */
+.container .leftside table tbody tr td.pendente > div.ball {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffa500;
+}
+
+/* Confirmado [gambiarra] */
+.container .leftside table tbody tr td.confirmado {
+  color: #00ff00;
+}
+
+/* Confirmado [gambiarra] */
+.container .leftside table tbody tr td.confirmado > div.ball {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #00ff00;
+}
+/* Cancelado [gambiarra] */
+.container .leftside table tbody tr td.cancelado {
+  color: #f00;
+}
+
+/* Cancelado [gambiarra] */
+.container .leftside table tbody tr td.cancelado > div.ball {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #f00;
+}
+
+/* Gambiarra esconder palavra */
+.container .leftside table tbody tr > td.overflow-word {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

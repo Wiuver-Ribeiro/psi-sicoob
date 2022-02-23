@@ -65,10 +65,44 @@ $info = $usuario->dadosLogado();
 
       <div class="container">
         <div class="leftside">
+          <div class="title">
           <h5>Próximos Atendimentos</h5>
+          </div>
+          <table width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <td>Paciente</td>
+                <td>Data</td>
+                <td>Status</td>
+                <td>Cor</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="overflow-word">Wiuver A Ribeiro</td>
+                <td colspan="2">24/02 11:00</td>
+                <td class="pendente">Pendente</td>
+                <td class="pendente"><div class="ball"></div></td>
+              </tr>
+              <tr>
+                <td>Avatar</td>
+                <td>24/02 11:00</td>
+                <td class="confirmado">Confirmado</td>
+                <td class="confirmado"><div class="ball"></div></td>
+              </tr>
+              <tr>
+                <td>Avatar</td>
+                <td>24/02 11:00</td>
+                <td class="cancelado">Cancelado</td>
+                <td class="cancelado"><div class="ball"></div></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="rightside">
+          <div class="title">
           <h5>Últimas Consultas</h5>
+          </div>
         </div>
       </div>
     <!--main-container-->
