@@ -18,15 +18,24 @@ class DashboardController extends Controller {
   
   if(!$usuario->logado ()) {
     $this->redirect('/signin');
-  }
 
-    //Renderiza todos os dados na template
+  } else if ($usuario->logado() && ($info['tipo'] == "admin" || $info['tipo'] == "paciente")) {
+    
     $this->render('dashboard', [
       "agendamento" => $data,
       "pendentes" =>  $pendentes,
       "marcados" => $marcados,
       "cancelados" => $cancelados,
       "info" => $info,
-    ]);
+     ]);
+    } else if ($usuario->logado() && $info['tipo'] == "psi") {
+      $this->render('dashboardDoctor', [
+        "agendamento" => $data,
+        "pendentes" =>  $pendentes,
+        "marcados" => $marcados,
+        "cancelados" => $cancelados,
+        "info" => $info,
+      ]);
   }
-}
+  }
+} 

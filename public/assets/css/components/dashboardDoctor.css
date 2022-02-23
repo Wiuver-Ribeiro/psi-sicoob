@@ -1,0 +1,91 @@
+main .main-container {
+  display:grid;
+  grid-template-columns: 1fr;
+  /* grid-template-rows: 1fr ; */
+  width: calc(100% - 270px);
+  margin-left:270px;
+  background: #0A0906;
+  padding: 10px;
+}
+
+main .content-appointment {
+  display:flex;
+  justify-content:space-evenly;
+  margin: 50px 0 25px 0;
+}
+
+main .content-appointment .appointment-info {
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  width: 370px;
+  height: 150px;
+  background: #131212;
+  border:1px solid #29292e;
+  padding: 20px 25px;
+  border-radius:8px;
+  cursor: pointer;
+}
+
+main .content-appointment .appointment-info i {
+  align-self: flex-end;
+  color: #CDEEFD;
+}
+
+main .content-appointment .appointment-info .appointment-scheduled {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-between;
+  color: #b5b5b5;
+}
+main .content-appointment .appointment-info .appointment-scheduled > span {
+  font-size: 2rem;
+}
+
+main .content-appointment .appointment-info .appointment-scheduled  > span:first-child {
+  font-size:1.7rem;
+}
+
+main .content-appointment .appointment-info .appointment-scheduled > span:last-child{
+  font-weight: 500;
+  color: #888;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
+/* TABLE-CONTENT */
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  display:flex;
+  justify-content:space-between;
+  height: 500px;
+
+  margin-bottom:20px;
+}
+
+.container .leftside ,
+  .container .rightside {
+    background: #131212;
+    padding: 30px 20px 10px 20px;
+    border:1px solid #29292e;
+    border-radius: 8px;
+  }
+
+.container .leftside {
+  flex: 1;
+}
+
+.container .rightside {
+  /* flex: 1; */
+  width: 368px;
+  margin-left: 24px;
+}
+
+.container .leftside h5,
+.container .rightside h5 {
+  color: #888;
+  border-bottom: 1px solid #888;
+}
