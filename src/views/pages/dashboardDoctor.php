@@ -78,20 +78,31 @@ $info = $usuario->dadosLogado();
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="overflow-word ">Wiuver A Ribeiro</td>
+              <tr onclick="location.href=''">
+                <td class="overflow-word ">
+                  <img src="<?php echo $base.'/assets/icons/wiuver-avatar.jpg';?>" alt="Avatar">
+                  Wiuver A Ribeiro
+                </td>
                 <td>24/02 11:00</td>
                 <td class="pendente">Pendente</td>
                 <td class="pendente"><div class="ball"></div></td>
               </tr>
               <tr>
-                <td class="overflow-word ">Lara Kamilly Garcia de Paiva</td>
+                <td class="overflow-word ">
+                <img src="<?php echo $base.'/assets/icons/avatar-lara.jpg';?>" alt="Avatar">
+
+                  Lara Kamilly Garcia de Paiva
+                </td>
                 <td>24/02 11:00</td>
                 <td class="confirmado">Confirmado</td>
                 <td class="confirmado"><div class="ball"></div></td>
               </tr>
               <tr>
-                <td class="overflow-word ">Fabiano Porfirio Ribeiro</td>
+                <td class="overflow-word ">
+                <img src="<?php echo $base.'/assets/icons/avatar-fabiano.jpg';?>" alt="Avatar">
+
+                  Fabiano Porfirio Ribeiro
+                </td>
                 <td>24/02 11:00</td>
                 <td class="cancelado">Cancelado</td>
                 <td class="cancelado"><div class="ball"></div></td>
@@ -102,6 +113,17 @@ $info = $usuario->dadosLogado();
         <div class="rightside">
           <div class="title">
           <h5>Últimas Consultas</h5>
+          </div>
+          <div style="border-left:none;" class="title">
+            <h6 style="color: #888">Paciente</h6>
+              <div class="patient-container">
+                <img src="<?php echo $base.'/assets/icons/avatar-lara.jpg'; ?>" alt="Avatar">
+                <h6>Lara Kamilly Garcia de Paiva</h6>
+              </div>
+              <div class="patient-container">
+                <img src="<?php echo $base.'/assets/icons/avatar-ana.jpg'; ?>" alt="Avatar">
+                <h6>Aysla Ribeiro Garcia de Paiva</h6>
+              </div>
           </div>
         </div>
       </div>
