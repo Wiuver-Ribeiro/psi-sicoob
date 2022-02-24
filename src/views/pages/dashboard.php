@@ -7,6 +7,7 @@ use \src\models\USer;
 
 $usuario = new User();
 $info = $usuario->dadosLogado();
+
 ?>
 
 <head>
@@ -27,7 +28,8 @@ $info = $usuario->dadosLogado();
 
 
   <?php $render('navbar'); ?>
-  <?php $render('sidebar'); ?>
+  <?php $render('sidebar');
+  ?>
   <main>
     <div class="main-container">
       <!-- SESSÕES -->

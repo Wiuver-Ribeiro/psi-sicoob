@@ -34,7 +34,10 @@ $info = $usuario->logado();
 
 <body>
   <?php $render('navbar'); ?>
-  <?php $render('sidebar'); ?>
+  <?php $render('sidebar'); 
+  
+  // require __DIR__.'../../../../../public/assets/js/eventos.php';
+  ?>
   <!-- SESSÕES -->
 
   <div id='calendar'></div>
@@ -50,12 +53,14 @@ $info = $usuario->logado();
           <dl class="row">
             <dt class="col-sm-3">ID da Consulta:</dt>
             <dd class="col-sm-9" id="id"></dd>
+            <dt class="col-sm-3">Nome do Paciente:</dt>
+            <dd class="col-sm-9" id="paciente"></dd>
             <dt class="col-sm-3">Nome do Doutor:</dt>
-            <dd class="col-sm-9" id="title"></dd>
+            <dd class="col-sm-9" id="psi"></dd>
             <dt class="col-sm-3">Início da Consulta:</dt>
-            <dd class="col-sm-9" id="start"></dd>
+            <dd class="col-sm-9" id="inicio"></dd>
             <dt class="col-sm-3">Fim da Consulta:</dt>
-            <dd class="col-sm-9" id="end"></dd>
+            <dd class="col-sm-9" id="fim"></dd>
           </dl>
         </div>
       </div>
