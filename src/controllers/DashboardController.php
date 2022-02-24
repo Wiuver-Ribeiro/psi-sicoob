@@ -19,7 +19,7 @@ class DashboardController extends Controller {
   if(!$usuario->logado ()) {
     $this->redirect('/signin');
 
-  } else if ($usuario->logado() && ($info['tipo'] == "admin" || $info['tipo'] == "paciente")) {
+  } else if ($usuario->logado() && $info['tipo'] == "admin" ) {
     
     $this->render('dashboard', [
       "agendamento" => $data,
@@ -36,6 +36,14 @@ class DashboardController extends Controller {
         "cancelados" => $cancelados,
         "info" => $info,
       ]);
+  } else if ($usuario->logado() && $info['tipo'] == "paciente") {
+    $this->render('dashboardPatient', [
+      "agendamento" => $data,
+      "pendentes" =>  $pendentes,
+      "marcados" => $marcados,
+      "cancelados" => $cancelados,
+      "info" => $info,
+    ]);
   }
   }
 } 
