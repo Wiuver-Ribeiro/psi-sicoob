@@ -202,7 +202,7 @@ main .content-appointment .appointment-info .appointment-scheduled > span:last-c
   margin-top:15px;
 }
 
-.container .rightside .action  button {
+.container .rightside .action  a {
   display:flex;
   align-items:center;
   justify-content: center;
@@ -213,14 +213,16 @@ main .content-appointment .appointment-info .appointment-scheduled > span:last-c
   transition: .2s ease-in-out;
   color: #888;
   border-radius:4px;
+
+  text-decoration: none;
 }
-.container .rightside .action  button:hover {
+.container .rightside .action  a:hover {
   /* background:#00ff00; */
   background:#04D361;
   border: none;
   color: #fff;
 }
 
-.container .rightside .action  button i {
+.container .rightside .action  a i {
   margin-right: 10px;
 }

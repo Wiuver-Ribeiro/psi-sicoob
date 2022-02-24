@@ -133,10 +133,10 @@ $info = $usuario->dadosLogado();
                 <h6>Emanuelly Ribeiro Ferreira</h6>
               </div>
               <div class="action">
-                <button title="Agendar consulta">
+                <a href="<?php echo $base.'/appointments' ; ?>" title="Agendar consulta">
                <i class="fas fa-plus-circle fa-sm"></i>
                   Agendar Consulta
-                </button>
+                </a>
               </div>
           </div>
         </div>
