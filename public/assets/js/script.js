@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
   
@@ -6,23 +7,22 @@ document.addEventListener('DOMContentLoaded', function() {
     editable: true,
     selectable: true,
     businessHours: true,
-   dayMaxEvents: true, // allow "more" link when too many events
-
-    //Busca dos banco de dados
+   dayMaxEvents: true, 
 
   //   events: [
   //   {
   //     id: 1,
   //     title: 'Boleto ',
-  //     start: '2022-02-10 09:00',
+  //     start: '2022-02-20 09:00',
   //     end: '2022-02-10 12:00'
   //   },
   //  ],
    
   
   //  Busca dos agendamentos do banco de dados
-  // events: 'C:/xampp/htdocs/psi-sicoob/src/eventos',
-  events: 'http://localhost/psi-sicoob/src/eventos.php',
+  // events: '../../../src/eventos.php',
+  events: 'http://localhost/psi-sicoob/public/loadAppointments',
+ 
   extraParams: function() {
     return {
       cachebuster: new Date().valueOf()
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
   calendar.render();
 });
 
-
+// console.log(routeEvents('loadEvents'));
 
 //Mascara para o campo data e hora
 function DataHora(evento, objeto) {
@@ -86,10 +86,3 @@ function DataHora(evento, objeto) {
       event.returnValue = false;
   }
 }
-
-
-
-
-
-// MODAIS DOS PSI
-

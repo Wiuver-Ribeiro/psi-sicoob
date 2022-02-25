@@ -1,10 +1,27 @@
 <?php
 
 use \src\models\USer;
+// use \src\models\Appointment;
+
 
 $usuario = new User();
+// $agendamento = new Appointment();
 $info = $usuario->logado();
+
+
+require __DIR__ . '../../../../../connnect.php';
+
+
+
+$sql = $pdo->prepare("SELECT idagendamentos, id_paciente, id_psi, inicio, fim FROM agendamentos");
+$sql->execute();
+
+
+$eventos = array();
+
+
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -28,19 +45,94 @@ $info = $usuario->logado();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="<?php echo $base . '/assets/js/script.js'; ?>"></script>
+
 
 </head>
 
 <body>
   <?php $render('navbar'); ?>
-  <?php $render('sidebar'); 
-  
-  require __DIR__.'../../../../eventos.php';
+  <?php $render('sidebar');
+
   ?>
   <!-- SESSÕES -->
 
-  <div id='calendar'></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        locale: 'pt-br',
+        editable: true,
+        selectable: true,
+        businessHours: true,
+        dayMaxEvents: true,
+
+        //   events: [
+        //   {
+        //     id: 1,
+        //     title: 'Boleto ',
+        //     start: '2022-02-20 09:00',
+        //     end: '2022-02-10 12:00'
+        //   },
+        //  ],
+
+
+        //  Busca dos agendamentos do banco de dados
+        // events: '../../../src/eventos.php',
+        events: [
+          <?php
+              while ($row_events  = $sql->fetchAll(\PDO::FETCH_ASSOC)) 
+              { ?>
+                {
+                  id: <?php echo $row_events['idagendamentos'];?>,
+                  paciente: <?php echo $row_events['id_paciente'];?>,
+                  psi: <?php echo $row_events['id_psi'];?>,
+                  inicio: <?php echo $row_events['inicio'];?>,
+                  fim: <?php echo $row_events['fim'];?>,
+              
+                },
+                <?php } ?> 
+        
+
+        ],
+
+        extraParams: function() {
+          return {
+            cachebuster: new Date().valueOf()
+          };
+
+        },
+
+        eventClick: function(info) {
+          info.jsEvent.preventDefault();
+          $('#visualizar #id').text(info.event.id);
+          $('#visualizar #paciente').text(info.event.paciente);
+          $('#visualizar #psi').text(info.event.psi);
+          $('#visualizar #inicio').text(info.event.inicio.toLocaleString());
+          $('#visualizar #fim').text(info.event.fim.toLocaleString());
+          $('#visualizar').modal('show');
+        },
+
+        select: function(info) {
+          $('#cadastrar #title').val(info.title);
+          $('#cadastrar #start').val(info.start.toLocaleString());
+          $('#cadastrar #end').val(info.end.toLocaleString());
+          $('#cadastrar').modal('show');
+
+
+        }
+      }, );
+      calendar.render();
+    });
+  </script>
+
+
+
+
+
+
+  <div id='calendar' data-route-load-events="<?php echo "{{route('loadAppointments')}}";
+                                              ?>"></div>
   <!-- Modal Visualizar -->
   <div class="modal fade" id="visualizar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">

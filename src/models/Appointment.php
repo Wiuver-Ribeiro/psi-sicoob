@@ -47,4 +47,14 @@ class Appointment extends Model {
     return $dados;
   }
 
+
+  public function agendamentos() {
+    require '../connnect.php';
+
+    $sql = $pdo->prepare("SELECT * FROM agendamentos");
+    $sql->execute();
+    
+    $eventos = $sql->fetch(\PDO::FETCH_ASSOC);
+    return json_encode($eventos);
+  }
 }

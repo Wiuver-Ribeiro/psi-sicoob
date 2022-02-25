@@ -56,3 +56,4 @@ $router->get('/logout', 'UserController@logout');
 
 //AppointmentController
 $router->get('/appointments', 'AppointmentController@index');
+$router->get('/loadAppointments', 'EventController@loadEvents');
