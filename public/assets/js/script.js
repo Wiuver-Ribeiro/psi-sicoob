@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
     locale: 'pt-br',
     editable: true,
     selectable: true,
-    //businessHours: true,
-   // dayMaxEvents: true, // allow "more" link when too many events
+    businessHours: true,
+   dayMaxEvents: true, // allow "more" link when too many events
 
     //Busca dos banco de dados
 
@@ -17,19 +17,12 @@ document.addEventListener('DOMContentLoaded', function() {
   //     start: '2022-02-10 09:00',
   //     end: '2022-02-10 12:00'
   //   },
-  //   {
-  //     id: 2,
-  //     title: 'Pagar Fatura ',
-  //     start: '2022-02-20 10:00',
-  //     end: '2022-02-20 12:00'
-  //   },
-
   //  ],
    
   
   //  Busca dos agendamentos do banco de dados
-  events: '../eventos.php',
- 
+  // events: 'C:/xampp/htdocs/psi-sicoob/src/eventos',
+  events: 'http://localhost/psi-sicoob/src/eventos.php',
   extraParams: function() {
     return {
       cachebuster: new Date().valueOf()
@@ -37,14 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
    
   },
 
-    //Fim
     eventClick: function(info) {
-      // info.jsEvent.preventDefault();
-      // $('#visualizar #id').text(info.event.id);
-      // $('#visualizar #title').text(info.event.title);
-      // $('#visualizar #start').text(info.event.start.toLocaleString());
-      // $('#visualizar #end').text(info.event.end.toLocaleString());
-      // $('#visualizar').modal('show');
       info.jsEvent.preventDefault();
       $('#visualizar #id').text(info.event.id);
       $('#visualizar #paciente').text(info.event.paciente);
@@ -53,8 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
       $('#visualizar #fim').text(info.event.fim.toLocaleString());
       $('#visualizar').modal('show');
     },
+
         select: function(info) {
-      // alert('Início do Evento: '+ info.start.toLocaleString());
       $('#cadastrar #title').val(info.title);
       $('#cadastrar #start').val(info.start.toLocaleString());
       $('#cadastrar #end').val(info.end.toLocaleString());

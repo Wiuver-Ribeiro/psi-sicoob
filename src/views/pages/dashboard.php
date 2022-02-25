@@ -49,7 +49,7 @@ $info = $usuario->dadosLogado();
           <i class="fas fa-calendar-check fa-6x"></i>
           <div class="appointment-scheduled">
             <span><?php echo $marcados['marcados']; ?></span>
-            <span class="text-appointments">Marcados</span>
+            <span class="text-appointments">Confirmados</span>
           </div>
           <!--appointment-info-->
         </div>

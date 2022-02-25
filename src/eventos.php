@@ -1,5 +1,5 @@
 <?php
-require __DIR__.'../../../../connnect.php';
+ require __DIR__.'../../connnect.php';
 
 
 
@@ -7,14 +7,22 @@ $sql = $pdo->prepare("SELECT idagendamentos, id_paciente, id_psi, inicio, fim FR
 $sql->execute();
 
 
-$eventos = [];
+$eventos = array();
 
 while($row_events  = $sql->fetch(\PDO::FETCH_ASSOC)) {
+  // $e = array();
+
   $id = $row_events['idagendamentos'];
   $paciente = $row_events['id_paciente'];
   $psi = $row_events['id_psi'];
   $inicio = $row_events['inicio'];
   $fim = $row_events['fim'];
+
+  // $e['id'] = $row_events['idagendamentos'];
+  // $e['paciente'] = $row_events['id_paciente'];
+  // $e['psi'] = $row_events['id_psi'];
+  // $e['inicio'] = $row_events['inicio'];
+  // $e['fim'] = $row_events['fim'];
 
   $eventos[] = [
     'id' => $id,
@@ -23,6 +31,8 @@ while($row_events  = $sql->fetch(\PDO::FETCH_ASSOC)) {
     'inicio' => $inicio,
     'fim' => $fim,
   ];
+
+  // $events = array_push($eventos, $e);
 }
 
 echo json_encode($eventos);
