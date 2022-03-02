@@ -8,7 +8,9 @@ class EventController extends Controller {
   public function loadEvents() {
     $agendamento = new Appointment();
    $allAgendamentos =  $agendamento->agendamentos();
-  
+    $this->redirect('/loadAppointments', [
+      "agendamento" => $allAgendamentos,
+    ]);
   }
 
 

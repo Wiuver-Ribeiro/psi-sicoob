@@ -8,6 +8,7 @@ use \src\models\User;
 class AppointmentController extends Controller {
   public function index() {
     $usuario = new User();
+
     if(!$usuario->logado ()) {
       $this->redirect('/signin');
     }
