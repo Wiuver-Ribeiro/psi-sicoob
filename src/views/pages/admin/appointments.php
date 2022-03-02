@@ -95,7 +95,11 @@ $info = $usuario->logado();
           <dl class="row">
             <dt class="col-sm-3">ID da Consulta:</dt>
             <dd class="col-sm-9" id="id"></dd>
-             <dt class="col-sm-3">Nome do Evento:</dt>
+            <dt class="col-sm-3">Paciente</dt>
+            <dd class="col-sm-9" id="id">Wiuver Afonso Ribeiro</dd>
+            <dt class="col-sm-3">Psicólogo</dt>
+            <dd class="col-sm-9" id="id">Lara Kamilly Garcia de Paiva</dd>
+             <dt class="col-sm-3">Consulta:</dt>
             <dd class="col-sm-9" id="title"></dd>
             <dt class="col-sm-3">Início da Consulta:</dt>
             <dd class="col-sm-9" id="start"></dd>
@@ -104,6 +108,10 @@ $info = $usuario->logado();
             <dt class="col-sm-3">Status da Consulta:</dt>
             <dd class="col-sm-9" id="status"></dd>
           </dl>
+          <div class=" d-flex column justify-content-between">
+            <button class="btn btn-danger">Excluir</button>
+            <button class="btn btn-success">Salvar Alterações</button>
+          </div>
         </div>
       </div>
     </div>
