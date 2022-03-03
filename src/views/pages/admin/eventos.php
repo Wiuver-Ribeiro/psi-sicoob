@@ -42,7 +42,6 @@ while($dados  = $sql->fetch(\PDO::FETCH_ASSOC)) {
   $start = $dados['inicio'];
   $end = $dados['fim'];
   $status = $dados['status'];
-  // $color = $dados['color'];
   $description = $dados['descricao'];
 
   $eventos[] = [
@@ -53,7 +52,6 @@ while($dados  = $sql->fetch(\PDO::FETCH_ASSOC)) {
     'start' => $start,
     'end' => $end,
     'status' => $status,
-    // 'color' => $color,
     'description' => $description
   ];
 

@@ -123,7 +123,8 @@ $info = $usuario->logado();
             <dd class="col-sm-9" id="status"></dd>
             <dt class="col-sm-3">Descrição:</dt>
             <dd class="col-sm-8" id="description">
-              <textarea readonly  class="form-control" name="descricao" id="description" cols="30" rows="10"></textarea>
+              <textarea readonly  class="form-control" name="descricao"  cols="30" rows="10">
+              </textarea>
             </dd>
           </dl>
           <div class=" d-flex column justify-content-between">
