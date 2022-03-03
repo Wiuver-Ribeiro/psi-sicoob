@@ -28,3 +28,72 @@ body {
 ul, ol{
   padding-left:0rem !important;
 }
+
+.avatar-doctor-card {
+  width: 50px;
+  border-radius:50%  !important;
+  object-fit:cover;
+}
+
+.grid-doctors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-doctors .doctor-box  {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  flex-direction:row;
+  background: #FFFFFF;
+  color: #202024;
+  align-items: center;
+  padding: 1rem;
+  border-radius:8px;
+  border: 1px solid #b5b5b5;
+  box-shadow: 3px 3px 5px #b5b5b5;
+  transform: scale(0.9);
+  transition:all 0.4s ease-in-out;
+  cursor: pointer;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+
+
+.grid-doctors .doctor-box img{
+  width:80px;
+  height:80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.grid-doctors .doctor-box .doctor-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+}
+
+.grid-doctors .doctor-box .doctor-info span:first-child {
+  display: flex;
+  width:180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.grid-doctors .doctor-box .doctor-info span:last-child {
+  color: #888;
+  margin-top: 12px;
+}
+
+
+.avatar-img {
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  object-fit: cover;
+}

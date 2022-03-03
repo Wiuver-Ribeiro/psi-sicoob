@@ -25,6 +25,7 @@ $info = $usuario->logado();
   <link href="<?php echo $base . '/assets/css/lib/appointments.min.css'; ?>" rel='stylesheet' />
 
   <script src="<?php echo $base . '/assets/css/lib/main.js'; ?>"></script>
+  <script src="<?php echo $base . '/assets/css/lib/pt-br.js'; ?>"></script>
   <script src="<?php echo $base . '/assets/css/lib/locales-all.min.js'; ?>"></script>
 
   <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script> -->
@@ -33,7 +34,6 @@ $info = $usuario->logado();
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.10.1/locales-all.min.js,npm/fullcalendar@5.10.2/main.min.js"></script>
-
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -44,7 +44,16 @@ $info = $usuario->logado();
         initialView: 'dayGridMonth',
         editable: true,
         selectable: true,
-        dayMaxEvents: true, 
+        dayMaxEvents: true,
+        buttonText: {
+          prev: 'Anterior',
+          next: 'Próximo',
+          today: 'Hoje',
+          month: 'Mês',
+          week: 'Semana',
+          day: 'Dia',
+          list: 'Lista',
+        },
 
         //Buscando dados do banco de dados
         events: {
@@ -56,20 +65,24 @@ $info = $usuario->logado();
           $('#cadastrar').modal('show');
         },
 
-    eventClick: function(info) {
-      info.jsEvent.preventDefault();
-      $('#visualizar #id').text(info.event.id);
-      $('#visualizar #title').text(info.event.title);
-      $('#visualizar #start').text(info.event.start.toLocaleString());
-      $('#visualizar #end').text(info.event.end);
-      $('#visualizar #status').text(info.event.status);
-      $('#visualizar').modal('show');
-    },
+        eventClick: function(info) {
+          info.jsEvent.preventDefault();
+          $('#visualizar #id').text(info.event.id);
+          $('#visualizar #title').text(info.event.title);
+          $('#visualizar #start').text(info.event.start.toLocaleString());
+          $('#visualizar #end').text(info.event.end);
+          $('#visualizar #status').text(info.event.status);
+          $('#visualizar').modal('show');
+        },
+
+
 
       });
+
       calendar.render();
       calendar.updateSize()
     });
+
   </script>
 
 </head>
@@ -77,7 +90,6 @@ $info = $usuario->logado();
 <body>
   <?php $render('navbar'); ?>
   <?php $render('sidebar');
-  
   ?>
   <!-- SESSÕES -->
 
@@ -99,7 +111,7 @@ $info = $usuario->logado();
             <dd class="col-sm-9" id="id">Wiuver Afonso Ribeiro</dd>
             <dt class="col-sm-3">Psicólogo</dt>
             <dd class="col-sm-9" id="id">Lara Kamilly Garcia de Paiva</dd>
-             <dt class="col-sm-3">Consulta:</dt>
+            <dt class="col-sm-3">Consulta:</dt>
             <dd class="col-sm-9" id="title"></dd>
             <dt class="col-sm-3">Início da Consulta:</dt>
             <dd class="col-sm-9" id="start"></dd>
@@ -109,7 +121,7 @@ $info = $usuario->logado();
             <dd class="col-sm-9" id="status"></dd>
           </dl>
           <div class=" d-flex column justify-content-between">
-            <button class="btn btn-danger">Excluir</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="close-modal">Fechar</button>
             <button class="btn btn-success">Salvar Alterações</button>
           </div>
         </div>
@@ -120,7 +132,7 @@ $info = $usuario->logado();
 
 
   <!-- Modal Cadastrar -->
-  <div class="modal fade" id="cadastrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade bd-example-modal-lg" id="cadastrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -129,35 +141,63 @@ $info = $usuario->logado();
         </div>
         <div class="modal-body">
           <form method="post" action="#">
-            <div class="row mb-3">
-              <label for="title" class="col-sm-2 col-form-label">Nome do Doutor:</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="title" name="title">
-              </div>
-            </div>
-            <div class="row mb-3">
-              <label for="start" class="col-sm-2 col-form-label">Início da Consulta:</label>
-              <div class="col-sm-10">
-                <input type="datetime-local" class="form-control" id="start" name="start" onkeypress="DataHora(event, this)">
-              </div>
-            </div>
-            <div class="row mb-3">
-              <label for="end" class="col-sm-2 col-form-label">Fim do Consulta:</label>
-              <div class="col-sm-10">
-                <input type="datetime-local" class="form-control" id="end" name="end" onkeypress="DataHora(event, this)">
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-sm-10">
-                <button type="submit" class="btn btn-success">Agendar</button>
-              </div>
+            <div class="grid-doctors mb10">
+              <?php foreach ($psi as $psicologo) : ?>
+                <div class="doctor-box" id="doctor-btn" onclick="$('#agendar').modal('show',function(e){$('#cadastrar').modal('hide')})">
+                  <input type="hidden" value="<?php echo $psicologo['idusuario']; ?>">
+                  <img src="<?php echo $base . '/assets/icons/' . $psicologo['avatar'] ?>" alt="Avatar do Psicólogo">
+                  <div class="doctor-info">
+                    <span><?php echo $psicologo['nome']; ?></span>
+                    <span style="color:#888;"><?php echo $psicologo['crp']; ?></span>
+                    <span><?php echo $psicologo['especialidade']; ?></span>
+                  </div>
+                </div> <!-- doctor-box-->
+              <?php endforeach; ?>
             </div>
           </form>
         </div>
       </div>
     </div>
   </div>
-  <!--VISUALIZAR-->
+
+
+  <!-- MODAL DE TESTE -->
+  <div class="modal fade" id="agendar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Pacientes Disponíveis</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Avatar</th>
+                <th scope="col">Nome</th>
+                <th colspan="2" scope="col">agendar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($paciente as $pacientes) : ?>
+              <tr>
+                <th scope="row">
+                  <img style="width:50px; height:50px; border-radius:50%; object-fit:cover;" class="avatar-img" src="<?php echo $base.'/assets/icons/'.$pacientes['avatar'] ?>" alt="Avatar do Paciente">
+                </th>
+                <td colspan="2"><?php echo $pacientes['nome'] ?></td>
+                <td><button class="btn btn-success"><i class="fas fa-check"></i></button></td>
+              </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
+          <div class=" d-flex column justify-content-between">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="close-modal">Fechar</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
