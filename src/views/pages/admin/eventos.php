@@ -28,7 +28,7 @@
 
 // }
 
-$sql = $pdo->prepare("SELECT idagendamentos, title, id_psi, id_paciente, inicio, fim, color, status FROM agendamentos");
+$sql = $pdo->prepare("SELECT idagendamentos, title, id_psi, id_paciente, inicio, fim, color, status, descricao FROM agendamentos");
 $sql->execute();
 
 
@@ -42,7 +42,8 @@ while($dados  = $sql->fetch(\PDO::FETCH_ASSOC)) {
   $start = $dados['inicio'];
   $end = $dados['fim'];
   $status = $dados['status'];
-  $color = $dados['color'];
+  // $color = $dados['color'];
+  $description = $dados['descricao'];
 
   $eventos[] = [
     'id' => $id,
@@ -52,7 +53,8 @@ while($dados  = $sql->fetch(\PDO::FETCH_ASSOC)) {
     'start' => $start,
     'end' => $end,
     'status' => $status,
-    'color' => $color,
+    // 'color' => $color,
+    'description' => $description
   ];
 
 }

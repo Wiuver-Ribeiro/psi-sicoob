@@ -67,11 +67,13 @@ $info = $usuario->logado();
 
         eventClick: function(info) {
           info.jsEvent.preventDefault();
-          $('#visualizar #id').text(info.event.id);
+          $('#visualizar #psi').text(info.event.psi);
+          $('#visualizar #paciente').text(info.event.paciente);
           $('#visualizar #title').text(info.event.title);
           $('#visualizar #start').text(info.event.start.toLocaleString());
-          $('#visualizar #end').text(info.event.end);
+          $('#visualizar #end').text(info.event.end.toLocaleString());
           $('#visualizar #status').text(info.event.status);
+          $('#visualizar #description').text(info.event.description);
           $('#visualizar').modal('show');
         },
 
@@ -82,6 +84,10 @@ $info = $usuario->logado();
       calendar.render();
       calendar.updateSize()
     });
+    $('#cadastrar').on('hidden.bs.modal', function (e) {
+  // abre o outro modal  aqui...
+    $('#agendar').modal('show');
+})
 
   </script>
 
@@ -105,20 +111,22 @@ $info = $usuario->logado();
         </div>
         <div class="modal-body">
           <dl class="row">
-            <dt class="col-sm-3">ID da Consulta:</dt>
-            <dd class="col-sm-9" id="id"></dd>
             <dt class="col-sm-3">Paciente</dt>
-            <dd class="col-sm-9" id="id">Wiuver Afonso Ribeiro</dd>
+            <dd class="col-sm-9" id="psi"></dd>
             <dt class="col-sm-3">Psicólogo</dt>
-            <dd class="col-sm-9" id="id">Lara Kamilly Garcia de Paiva</dd>
+            <dd class="col-sm-9" id="paciente"></dd>
             <dt class="col-sm-3">Consulta:</dt>
             <dd class="col-sm-9" id="title"></dd>
             <dt class="col-sm-3">Início da Consulta:</dt>
             <dd class="col-sm-9" id="start"></dd>
             <dt class="col-sm-3">Fim da Consulta:</dt>
-            <dd class="col-sm-9" id="fim"></dd>
+            <dd class="col-sm-9" id="end"></dd>
             <dt class="col-sm-3">Status da Consulta:</dt>
             <dd class="col-sm-9" id="status"></dd>
+            <dt class="col-sm-3">Descrição:</dt>
+            <dd class="col-sm-8" id="description">
+              <textarea readonly  class="form-control" name="descricao" id="description" cols="30" rows="10"></textarea>
+            </dd>
           </dl>
           <div class=" d-flex column justify-content-between">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="close-modal">Fechar</button>
@@ -136,14 +144,14 @@ $info = $usuario->logado();
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Agendar Consulta</h5>
+          <h5 class="modal-title" style="text-align:center;" id="exampleModalLabel">Psicólogos Disponíveis</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form method="post" action="#">
             <div class="grid-doctors mb10">
               <?php foreach ($psi as $psicologo) : ?>
-                <div class="doctor-box" id="doctor-btn" onclick="$('#agendar').modal('show',function(e){$('#cadastrar').modal('hide')})">
+                <div class="doctor-box" id="doctor-btn">
                   <input type="hidden" value="<?php echo $psicologo['idusuario']; ?>">
                   <img src="<?php echo $base . '/assets/icons/' . $psicologo['avatar'] ?>" alt="Avatar do Psicólogo">
                   <div class="doctor-info">
@@ -161,7 +169,7 @@ $info = $usuario->logado();
   </div>
 
 
-  <!-- MODAL DE TESTE -->
+  <!-- MODAL DE  USUÁRIOS-->
   <div class="modal fade" id="agendar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -175,7 +183,7 @@ $info = $usuario->logado();
               <tr>
                 <th scope="col">Avatar</th>
                 <th scope="col">Nome</th>
-                <th colspan="2" scope="col">agendar</th>
+                <th colspan="2" scope="col">Agendar</th>
               </tr>
             </thead>
             <tbody>
@@ -184,7 +192,7 @@ $info = $usuario->logado();
                 <th scope="row">
                   <img style="width:50px; height:50px; border-radius:50%; object-fit:cover;" class="avatar-img" src="<?php echo $base.'/assets/icons/'.$pacientes['avatar'] ?>" alt="Avatar do Paciente">
                 </th>
-                <td colspan="2"><?php echo $pacientes['nome'] ?></td>
+                <td colspan="2" style="line-height:45px; text-align: center;"><?php echo $pacientes['nome'] ?></td>
                 <td><button class="btn btn-success"><i class="fas fa-check"></i></button></td>
               </tr>
               <?php endforeach; ?>
@@ -197,7 +205,7 @@ $info = $usuario->logado();
         </div>
       </div>
     </div>
-  </div>
+  </div> <!--MODAL DE USUÁRIOS-->
 
 
 

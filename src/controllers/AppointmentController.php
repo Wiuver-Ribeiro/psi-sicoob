@@ -2,7 +2,6 @@
 namespace src\controllers;
 
 use \core\Controller;
-use \src\models\Appointment;
 use \src\models\User;
 use \src\models\Doctor;
 use \src\models\Patient;
