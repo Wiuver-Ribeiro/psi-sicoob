@@ -28,11 +28,9 @@ $info = $usuario->logado();
   <script src="<?php echo $base . '/assets/css/lib/pt-br.js'; ?>"></script>
   <script src="<?php echo $base . '/assets/css/lib/locales-all.min.js'; ?>"></script>
 
-  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script> -->
+ 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
   <script src="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.10.1/locales-all.min.js,npm/fullcalendar@5.10.2/main.min.js"></script>
 
   <script>
@@ -67,8 +65,8 @@ $info = $usuario->logado();
 
         eventClick: function(info) {
           info.jsEvent.preventDefault();
-          $('#visualizar #psi').text(info.event.psi);
-          $('#visualizar #paciente').text(info.event.paciente);
+          $('#visualizar #psi').text('Dra Lara Kamilly Garcia de Paiva');
+          $('#visualizar #paciente').text('Wiuver Afonso Ribeiro');
           $('#visualizar #title').text(info.event.title);
           $('#visualizar #start').text(info.event.start.toLocaleString());
           $('#visualizar #end').text(info.event.end.toLocaleString());
