@@ -152,3 +152,9 @@ table tbody tr td img {
   height: 50px;
   border-radius:50%;
 }
+
+.table-content table tbody tr td a.confirm {
+  text-decoration: none !important;
+  cursor: pointer;
+  margin-left:20px;
+}

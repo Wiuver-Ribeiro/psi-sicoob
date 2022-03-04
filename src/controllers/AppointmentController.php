@@ -35,4 +35,16 @@ class AppointmentController extends Controller {
     $this->redirect('/signin');
   }
 
+  public function cancelAppointment($id) {
+    $agendamento = new Appointment();
+    if($agendamento->cancelarAgendamento($id)) {
+      $_SESSION['sucesso'] =  "<div class='alert alert-success' role='alert'>'Consulta cancelada com sucesso</div>";
+      $this->redirect('/dashboard');
+
+    } else {
+      $_SESSION['sucesso'] =  "<div class='alert alert-danger' role='alert'>'Erro ao cancelar consulta com sucesso</div>";
+      $this->redirect('/dashboard');
+    }
+  }
+
 }

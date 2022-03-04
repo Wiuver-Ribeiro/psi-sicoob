@@ -33,6 +33,13 @@ $info = $usuario->dadosLogado();
   <main>
     <div class="main-container">
       <!-- SESSÕES -->
+      <?php
+        if(isset($_SESSION['sucesso'])) {
+          echo $_SESSION['sucesso'];
+          unset($_SESSION['sucesso']);
+          $_SESSION['sucesso']  = '';
+        }
+      ?>
 
 
       <div class="content-appointment">
@@ -79,7 +86,7 @@ $info = $usuario->dadosLogado();
               <td>Psicólogo</td>
               <td>Início</td>
               <td>Fim</td>
-              <td>Cancelar</td>
+              <td>Confirmar/Cancelar</td>
             </tr>
           </thead>
           <tbody>
@@ -90,10 +97,13 @@ $info = $usuario->dadosLogado();
                 <td><?php echo$agendamentos['Medico']; ?></td>
                 <td><?php echo $agendamentos['inicio']; ?></td>
                 <td><?php echo $agendamentos['fim']; ?></td>
-                <td>
-                  <button class="confirm" title='Cancelar Consulta'>
+                <td colspan="2">
+                  <a href="<?php echo $base.'/appointments/confirm/'.$agendamentos['idagendamento']; ?>" class="confirm" title='Confirmar Consulta'>
+                    <i style="color:green;" class='fas fa-check fa-2x'></i>
+                  </a>
+                  <a href="<?php echo $base.'/appointments/cancel/'.$agendamentos['idagendamento']; ?>" class="confirm" title='Cancelar Consulta'>
                     <i style="color:#f00;" class='fas fa-ban fa-2x'></i>
-                  </button>
+                  </a>
                 </td>
               </tr>
             <?php endforeach; ?>

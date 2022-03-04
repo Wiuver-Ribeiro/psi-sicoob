@@ -7,7 +7,7 @@ class Appointment extends Model {
   public function todosAgendamentos() {
     include '../connnect.php';
     $sql = $pdo->prepare("
-    SELECT a.idagendamentos, u1.nome as 'Paciente', u2.nome as 'Medico', a.inicio, a.fim, a.status 
+    SELECT a.idagendamentos as 'idagendamento', u1.nome as 'Paciente', u2.nome as 'Medico', a.inicio, a.fim, a.status 
     FROM agendamentos as a 
         INNER JOIN  pacientes as pac ON (a.id_paciente = pac.idpaciente)
         INNER JOIN  usuarios as u1 ON (u1.idusuario = pac.id_usuario)
@@ -51,5 +51,14 @@ class Appointment extends Model {
   public function cadastrarAgendamento() {
     require '../connnect.php';
     echo "Cadastrando nova consulta";
+  }
+
+  public function cancelarAgendamento($id) {
+    require '../connnect.php';
+    $sql = $pdo->prepare("UPDATE agendamentos SET status = ? WHERE idagendamentos = ?");
+    $sql->bindValue(1, 'cancelados');
+    $sql->bindValue(2, $id['id']);
+    $sql->execute();
+    return true;
   }
 }
