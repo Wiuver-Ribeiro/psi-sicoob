@@ -65,8 +65,9 @@ $info = $usuario->logado();
 
         eventClick: function(info) {
           info.jsEvent.preventDefault();
-          $('#visualizar #psi').text('Dra Lara Kamilly Garcia de Paiva');
-          $('#visualizar #paciente').text('Wiuver Afonso Ribeiro');
+          $('#visualizar #idagenda').text(info.event.id);
+          $('#visualizar #paciente').text(info.event.paciente);
+          $('#visualizar #psicologo').text(info.event.psicologo);
           $('#visualizar #title').text(info.event.title);
           $('#visualizar #start').text(info.event.start.toLocaleString());
           $('#visualizar #end').text(info.event.end.toLocaleString());
@@ -82,10 +83,7 @@ $info = $usuario->logado();
       calendar.render();
       calendar.updateSize()
     });
-    $('#cadastrar').on('hidden.bs.modal', function (e) {
-  // abre o outro modal  aqui...
-    $('#agendar').modal('show');
-})
+
 
   </script>
 
@@ -109,10 +107,13 @@ $info = $usuario->logado();
         </div>
         <div class="modal-body">
           <dl class="row">
+
+            <dt class="col-sm-3">ID Consulta</dt>
+            <dd class="col-sm-9" id="idagenda"></dd>
             <dt class="col-sm-3">Paciente</dt>
-            <dd class="col-sm-9" id="psi"></dd>
-            <dt class="col-sm-3">Psicólogo</dt>
             <dd class="col-sm-9" id="paciente"></dd>
+            <dt class="col-sm-3">Psicólogo</dt>
+            <dd class="col-sm-9" id="psicologo"></dd>
             <dt class="col-sm-3">Consulta:</dt>
             <dd class="col-sm-9" id="title"></dd>
             <dt class="col-sm-3">Início da Consulta:</dt>
@@ -150,7 +151,7 @@ $info = $usuario->logado();
           <form method="post" action="#">
             <div class="grid-doctors mb10">
               <?php foreach ($psi as $psicologo) : ?>
-                <div class="doctor-box" id="doctor-btn">
+                <div class="doctor-box" id="doctor-btn"  onclick="$('#agendar').modal('show', $('#cadastrar').modal('hide'))">
                   <input type="hidden" value="<?php echo $psicologo['idusuario']; ?>">
                   <img src="<?php echo $base . '/assets/icons/' . $psicologo['avatar'] ?>" alt="Avatar do Psicólogo">
                   <div class="doctor-info">
@@ -191,8 +192,8 @@ $info = $usuario->logado();
                 <th scope="row">
                   <img style="width:50px; height:50px; border-radius:50%; object-fit:cover;" class="avatar-img" src="<?php echo $base.'/assets/icons/'.$pacientes['avatar'] ?>" alt="Avatar do Paciente">
                 </th>
-                <td colspan="2" style="line-height:45px; text-align: center;"><?php echo $pacientes['nome'] ?></td>
-                <td><button class="btn btn-success"><i class="fas fa-check"></i></button></td>
+                <td colspan="2" style="line-height:45px;"><?php echo $pacientes['nome'] ?></td>
+                <td><button onclick="$('#marcar').modal('show')" class="btn btn-success"><i class="fas fa-check"></i></button></td>
               </tr>
               <?php endforeach; ?>
             </tbody>

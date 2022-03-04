@@ -5,6 +5,7 @@ use \core\Controller;
 use \src\models\User;
 use \src\models\Doctor;
 use \src\models\Patient;
+use \src\models\Appointment;
 
 class AppointmentController extends Controller {
   public function index() {
@@ -23,6 +24,11 @@ class AppointmentController extends Controller {
       "paciente" => $todosPaciente,
     ]);
 
+  }
+
+  public function createAppointment() {
+    $agendamento = new Appointment();
+    $agendamento->cadastrarAgendamento();
   }
 
   public function logout() {

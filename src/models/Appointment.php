@@ -6,14 +6,13 @@ class Appointment extends Model {
 
   public function todosAgendamentos() {
     include '../connnect.php';
-    $sql = $pdo->prepare("SELECT u.nome AS 'nome', u.tipo, a.inicio, a.fim, a.status 
-    FROM usuarios AS u INNER JOIN psi AS ps ON (u.idusuario = ps.id_usuario)
-      INNER JOIN agendamentos AS a ON (a.id_psi = ps.idpsi) WHERE u.tipo = 'psi'
-    UNION 
-    SELECT u.nome AS 'nome',u.tipo, a.inicio, a.fim, a.status 
-    FROM usuarios AS u INNER JOIN pacientes AS p ON (u.idusuario = p.id_usuario)
-      INNER JOIN agendamentos AS a ON (a.id_paciente = p.idpaciente) WHERE u.tipo = 'paciente';
-    ");
+    $sql = $pdo->prepare("
+    SELECT a.idagendamentos, u1.nome as 'Paciente', u2.nome as 'Medico', a.inicio, a.fim, a.status 
+    FROM agendamentos as a 
+        INNER JOIN  pacientes as pac ON (a.id_paciente = pac.idpaciente)
+        INNER JOIN  usuarios as u1 ON (u1.idusuario = pac.id_usuario)
+        INNER JOIN  psi as psi ON(a.id_psi = psi.idpsi)
+        INNER JOIN  usuarios as u2 ON (psi.id_usuario = u2.idusuario)");
     $sql->execute();
 
     $dados = $sql->fetchAll(\PDO::FETCH_ASSOC);
@@ -70,5 +69,10 @@ class Appointment extends Model {
     }
     
     echo json_encode($eventos);
+  }
+
+  public function cadastrarAgendamento() {
+    require '../connnect.php';
+    echo "Cadastrando nova consulta";
   }
 }

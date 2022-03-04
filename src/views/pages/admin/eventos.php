@@ -28,7 +28,22 @@
 
 // }
 
-$sql = $pdo->prepare("SELECT idagendamentos, title, id_psi, id_paciente, inicio, fim, color, status, descricao FROM agendamentos");
+$sql = $pdo->prepare(
+  "SELECT 
+    a.idagendamentos, 
+    a.title,
+    u1.nome as 'paciente', 
+    u2.nome as 'medico', 
+    a.inicio, 
+    a.fim, 
+    a.status,
+    a.descricao
+      FROM agendamentos as a 
+        INNER JOIN  pacientes as pac ON (a.id_paciente = pac.idpaciente)
+        INNER JOIN  usuarios as u1 ON (u1.idusuario = pac.id_usuario)
+        INNER JOIN  psi as psi ON(a.id_psi = psi.idpsi)
+        INNER JOIN  usuarios as u2 ON (psi.id_usuario = u2.idusuario)"
+);
 $sql->execute();
 
 
@@ -37,8 +52,8 @@ $eventos = array();
 while($dados  = $sql->fetch(\PDO::FETCH_ASSOC)) {
   $id = $dados['idagendamentos'];
   $title = $dados['title'];
-  $psi = $dados['id_psi'];
-  $paciente = $dados['id_paciente'];
+  $psi = $dados['medico'];
+  $paciente = $dados['paciente'];
   $start = $dados['inicio'];
   $end = $dados['fim'];
   $status = $dados['status'];
@@ -47,12 +62,12 @@ while($dados  = $sql->fetch(\PDO::FETCH_ASSOC)) {
   $eventos[] = [
     'id' => $id,
     'title' => $title,
-    'psi' => $psi,
+    'psicologo' => $psi,
     'paciente' => $paciente,
     'start' => $start,
     'end' => $end,
     'status' => $status,
-    'description' => $description
+    'descricao' => $description
   ];
 
 }

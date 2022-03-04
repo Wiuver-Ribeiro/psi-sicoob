@@ -87,8 +87,8 @@ $info = $usuario->dadosLogado();
 
             <?php foreach ($agendamento as $agendamentos) : ?>
               <tr>
-                <td><?php echo ($agendamentos['nome'] && $agendamentos['tipo'] = 'paciente') ? $agendamentos['nome'] : ''; ?></td>
-                <td><?php echo ($agendamentos['nome'] && $agendamentos['tipo'] = 'psi') ? $agendamentos['nome'] : ''; ?></td>
+                <td><?php echo $agendamentos['Paciente']; ?></td>
+                <td><?php echo$agendamentos['Medico']; ?></td>
                 <td><?php echo $agendamentos['inicio']; ?></td>
                 <td><?php echo $agendamentos['fim']; ?></td>
                 <td><?php echo $agendamentos['status']; ?></td>
