@@ -79,8 +79,7 @@ $info = $usuario->dadosLogado();
               <td>Psicólogo</td>
               <td>Início</td>
               <td>Fim</td>
-              <td>Status</td>
-              <td>Confirmar</td>
+              <td>Cancelar</td>
             </tr>
           </thead>
           <tbody>
@@ -91,10 +90,9 @@ $info = $usuario->dadosLogado();
                 <td><?php echo$agendamentos['Medico']; ?></td>
                 <td><?php echo $agendamentos['inicio']; ?></td>
                 <td><?php echo $agendamentos['fim']; ?></td>
-                <td><?php echo $agendamentos['status']; ?></td>
                 <td>
-                  <button class="confirm" title='Confirmar'>
-                    <i class='fas fa-check-square fa-2x'></i>
+                  <button class="confirm" title='Cancelar Consulta'>
+                    <i style="color:#f00;" class='fas fa-ban fa-2x'></i>
                   </button>
                 </td>
               </tr>

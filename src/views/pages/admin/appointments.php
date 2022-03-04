@@ -28,7 +28,7 @@ $info = $usuario->logado();
   <script src="<?php echo $base . '/assets/css/lib/pt-br.js'; ?>"></script>
   <script src="<?php echo $base . '/assets/css/lib/locales-all.min.js'; ?>"></script>
 
- 
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.10.1/locales-all.min.js,npm/fullcalendar@5.10.2/main.min.js"></script>
@@ -59,8 +59,9 @@ $info = $usuario->logado();
           method: 'POST',
         },
 
-        dateClick: function() {
+        select: function(start) {
           $('#cadastrar').modal('show');
+          $('#marcar_consulta #inicio').val(start);
         },
 
         eventClick: function(info) {
@@ -83,8 +84,6 @@ $info = $usuario->logado();
       calendar.render();
       calendar.updateSize()
     });
-
-
   </script>
 
 </head>
@@ -124,7 +123,7 @@ $info = $usuario->logado();
             <dd class="col-sm-9" id="status"></dd>
             <dt class="col-sm-3">Descrição:</dt>
             <dd class="col-sm-8" id="description">
-              <textarea readonly  class="form-control" name="descricao"  cols="30" rows="10">
+              <textarea readonly class="form-control" name="descricao" cols="30" rows="10">
               </textarea>
             </dd>
           </dl>
@@ -151,7 +150,7 @@ $info = $usuario->logado();
           <form method="post" action="#">
             <div class="grid-doctors mb10">
               <?php foreach ($psi as $psicologo) : ?>
-                <div class="doctor-box" id="doctor-btn"  onclick="$('#agendar').modal('show', $('#cadastrar').modal('hide'))">
+                <div class="doctor-box" id="doctor-btn" onclick="$('#agendar').modal('show', $('#cadastrar').modal('hide'))">
                   <input type="hidden" value="<?php echo $psicologo['idusuario']; ?>">
                   <img src="<?php echo $base . '/assets/icons/' . $psicologo['avatar'] ?>" alt="Avatar do Psicólogo">
                   <div class="doctor-info">
@@ -188,13 +187,13 @@ $info = $usuario->logado();
             </thead>
             <tbody>
               <?php foreach ($paciente as $pacientes) : ?>
-              <tr>
-                <th scope="row">
-                  <img style="width:50px; height:50px; border-radius:50%; object-fit:cover;" class="avatar-img" src="<?php echo $base.'/assets/icons/'.$pacientes['avatar'] ?>" alt="Avatar do Paciente">
-                </th>
-                <td colspan="2" style="line-height:45px;"><?php echo $pacientes['nome'] ?></td>
-                <td><button onclick="$('#marcar').modal('show')" class="btn btn-success"><i class="fas fa-check"></i></button></td>
-              </tr>
+                <tr>
+                  <th scope="row">
+                    <img style="width:50px; height:50px; border-radius:50%; object-fit:cover;" class="avatar-img" src="<?php echo $base . '/assets/icons/' . $pacientes['avatar'] ?>" alt="Avatar do Paciente">
+                  </th>
+                  <td colspan="2" style="line-height:45px;"><?php echo $pacientes['nome'] ?></td>
+                  <td><button onclick="$('#marcar_consulta').modal('show', $('#agendar').modal('hide'))" class="btn btn-success"><i class="fas fa-check"></i></button></td>
+                </tr>
               <?php endforeach; ?>
             </tbody>
           </table>
@@ -205,7 +204,54 @@ $info = $usuario->logado();
         </div>
       </div>
     </div>
-  </div> <!--MODAL DE USUÁRIOS-->
+  </div>
+  <!--MODAL DE USUÁRIOS-->
+
+  <!-- MODAL PARA MARCAR AS CONSULTAS -->
+  <div class="modal" id="marcar_consulta" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Detalhamento da Consulta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group mb20">
+            <label for="first-name">Paciente</label>
+            <input class="form-control" type="text" value="Wiuver Afonso Ribeiro">
+          </div>
+          <div class="form-group mb20">
+            <label for="first-name">Psicólogo</label>
+            <input class="form-control" type="text" value="Dra Lara Kamilly Garcia de Paiva | Clinica Geral">
+          </div>
+          
+
+          <div class="form-group mb20">
+            <label for="first-name">Início:</label>
+            <input class="form-control" type="datetime-local" id="inicio">
+          </div>
+          <div class="form-group mb20">
+            <label for="first-name">Fim:</label>
+            <input class="form-control" type="datetime-local" id="fim"> 
+          </div>
+
+          <div class="form-group mb20">
+            <label for="first-name">Detalhes:</label>
+            <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="5"></textarea>
+          </div>
+          
+
+
+
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-success">Agendar Consulta</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 

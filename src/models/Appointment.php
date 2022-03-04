@@ -47,29 +47,6 @@ class Appointment extends Model {
   }
 
 
-  public function agendamentos() {
-    require '../connnect.php';
-
-    $sql = $pdo->prepare("SELECT idagendamentos, id_paciente, id_psi, inicio, fim FROM agendamentos");
-    $sql->execute();
-    
-    
-    $eventos = array();
-    
-    while($dados = $sql->fetch(\PDO::FETCH_ASSOC)) {
-     $events = array();
-
-      $events['id'] = $dados['idagendamentos'];
-      $events['paciente'] = $dados['id_paciente'];
-      $events['psi'] = $dados['id_psi'];
-      $events['start'] = $dados['inicio'];
-      $events['end'] = $dados['fim'];
-
-      array_push($eventos, $events);
-    }
-    
-    echo json_encode($eventos);
-  }
 
   public function cadastrarAgendamento() {
     require '../connnect.php';

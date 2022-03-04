@@ -1,7 +1,9 @@
 <?php
  require __DIR__.'../../../../../connnect.php';
 
-
+// $date = new DateTime();
+// echo $date->format('d-m-Y H:i:s');
+// die();
 
 // $sql = $pdo->prepare("SELECT id, title, start, end, color, status FROM consultas");
 // $sql->execute();
