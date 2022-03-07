@@ -33,8 +33,9 @@ function DataHora(evento, objeto) {
 
 // Pesquisar no banco de dados 
 
-$(function() {
-    $('#pesquisa').keyup(function() {
+
+    $('#pesquisa').keyup(function(e) {
+        e.preventDefault();
         var pesquisa = $(this).val();
 
         //verificar se tem algo digitado
@@ -42,7 +43,9 @@ $(function() {
             var dados = {
                 palavra: pesquisa,
             }
-            $.post('', dados)
+            $.post('http://localhost/psi-sicoob/src/models/Appointment.php', dados, function(retorna){
+                $('#resultado').html(retorna);
+            })
         }
     })
-})
+

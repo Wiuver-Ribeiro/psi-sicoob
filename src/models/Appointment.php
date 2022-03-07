@@ -46,8 +46,6 @@ class Appointment extends Model {
     return $dados;
   }
 
-
-
   public function cadastrarAgendamento() {
     require '../connnect.php';
     echo "Cadastrando nova consulta";
@@ -71,4 +69,26 @@ class Appointment extends Model {
     $sql->execute();
     return true;
   }
+
+  public function buscarAgendamentosPorNome() {
+    require '../connnect.php';
+
+    $usuarios = $_POST['palavra'];
+
+    $sql = $pdo->prepare("SELECT a.idagendamentos as 'idagendamento', u1.nome as 'Paciente', u2.nome as 'Medico', a.inicio, a.fim, a.status 
+    FROM agendamentos as a 
+        INNER JOIN  pacientes as pac ON (a.id_paciente = pac.idpaciente)
+        INNER JOIN  usuarios as u1 ON (u1.idusuario = pac.id_usuario)
+        INNER JOIN  psi as psi ON(a.id_psi = psi.idpsi)
+        INNER JOIN  usuarios as u2 ON (psi.id_usuario = u2.idusuario) WHERE LIKE '%$usuarios%' LIMIT 20");
+  $sql->execute();
+
+  $dados = $sql->fetch(\PDO::FETCH_ASSOC);
+
+  if(($dados) && ($dados->rowCount() != 0)) {
+    echo "<li>".$dados['Paciente']."</li>";
+  } else {
+    echo "Nenhum usuário encontrado";
+  }
+}
 }

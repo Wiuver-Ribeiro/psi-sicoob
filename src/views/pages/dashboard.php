@@ -22,6 +22,10 @@ $info = $usuario->dadosLogado();
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/dashboard.css'; ?>">
 
   <title>PSI | Dashboard</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script src="<?php echo $base . '/assets/js/script.js'; ?>"></script>
+
 </head>
 
 <body>
@@ -78,11 +82,13 @@ $info = $usuario->dadosLogado();
         <table width="100%">
           <div class="box-search">
             <span>Agendamentos Pendentes</span>
-            <input type="text" id="pesquisa" placeholder="Procure um agendamento">
+            <form action="<?php echo $base.'/appointments/search/'?>" method="post">
+            <input type="text" id="pesquisa" placeholder="Procure um agendamento"autocomplete="off">
+            </form>
           </div>
           <thead>
             <tr>
-
+            <!-- appointments -->
               <td>Paciente</td>
               <td>Psicólogo</td>
               <td>Início</td>
@@ -115,6 +121,7 @@ $info = $usuario->dadosLogado();
 
           </tbody>
         </table>
+        <div id="resultado" style="background-color:red"></div>
       </div>
     </div>
     <!--main-container-->
@@ -122,7 +129,6 @@ $info = $usuario->dadosLogado();
 </body>
 
 </html>
-<script src="<?php echo $base . '/assets/js/script.js'; ?>"></script>
 <script src="<?php echo $base . '/assets/js/personalizado.js'; ?>"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

@@ -63,6 +63,12 @@ class AppointmentController extends Controller {
     }
   }
 
+  public function searchUsers() {
+    $agendamento = new Appointment();
+    $agendamento->buscarAgendamentosPorNome();
+    $this->redirect('/dashboard');
+  }
+
 
 
 }
