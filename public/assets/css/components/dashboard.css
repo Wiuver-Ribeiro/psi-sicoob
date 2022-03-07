@@ -1,8 +1,9 @@
 main .main-container {
   display:grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr ;
+  grid-template-rows: 1fr 3fr;
   width: calc(100% - 270px);
+  height: 100vh;
   margin-left:270px;
   background: #0A0906;
 }
@@ -10,7 +11,6 @@ main .main-container {
 main .content-appointment {
   display:flex;
   justify-content:space-evenly;
-  margin: 50px 0 25px 0;
 }
 
 main .content-appointment .appointment-info {
@@ -54,7 +54,9 @@ main .content-appointment .appointment-info .appointment-scheduled > span:last-c
 }
 
 /* TABLE-CONTENT */
-
+table {
+  position: relative !important;
+}
 .table-content {
   width: 100%;
   max-width: 1170px;
@@ -64,6 +66,7 @@ main .content-appointment .appointment-info .appointment-scheduled > span:last-c
   padding: 20px 10px;
   border-radius: 5px;
   border-spacing: 0 0.5rem;
+  position:relative;
 }
 
 /* BOX-SEARCH-TABLE */
@@ -157,4 +160,16 @@ table tbody tr td img {
   text-decoration: none !important;
   cursor: pointer;
   margin-left:20px;
+}
+
+
+/* Alerta sobre não ter agendamentos pendentes */
+span.sem-consulta { 
+  background: rgb(32,32,36);
+  color: #707070;
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  padding: 20px 40px;
+  border-radius:8px;
 }

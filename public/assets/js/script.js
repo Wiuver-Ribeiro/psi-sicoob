@@ -30,3 +30,19 @@ function DataHora(evento, objeto) {
       event.returnValue = false;
   }
 }
+
+// Pesquisar no banco de dados 
+
+$(function() {
+    $('#pesquisa').keyup(function() {
+        var pesquisa = $(this).val();
+
+        //verificar se tem algo digitado
+        if(pesquisa != "") {
+            var dados = {
+                palavra: pesquisa,
+            }
+            $.post('', dados)
+        }
+    })
+})

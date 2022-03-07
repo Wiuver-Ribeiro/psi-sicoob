@@ -39,6 +39,7 @@ $info = $usuario->dadosLogado();
           unset($_SESSION['sucesso']);
           $_SESSION['sucesso']  = '';
         }
+        
       ?>
 
 
@@ -77,7 +78,7 @@ $info = $usuario->dadosLogado();
         <table width="100%">
           <div class="box-search">
             <span>Agendamentos Pendentes</span>
-            <input type="text" placeholder="Procure um agendamento">
+            <input type="text" id="pesquisa" placeholder="Procure um agendamento">
           </div>
           <thead>
             <tr>
@@ -91,22 +92,27 @@ $info = $usuario->dadosLogado();
           </thead>
           <tbody>
 
-            <?php foreach ($agendamento as $agendamentos) : ?>
-              <tr>
-                <td><?php echo $agendamentos['Paciente']; ?></td>
-                <td><?php echo$agendamentos['Medico']; ?></td>
-                <td><?php echo $agendamentos['inicio']; ?></td>
-                <td><?php echo $agendamentos['fim']; ?></td>
-                <td colspan="2">
-                  <a href="<?php echo $base.'/appointments/confirm/'.$agendamentos['idagendamento']; ?>" class="confirm" title='Confirmar Consulta'>
-                    <i style="color:green;" class='fas fa-check fa-2x'></i>
-                  </a>
-                  <a href="<?php echo $base.'/appointments/cancel/'.$agendamentos['idagendamento']; ?>" class="confirm" title='Cancelar Consulta'>
-                    <i style="color:#f00;" class='fas fa-ban fa-2x'></i>
-                  </a>
-                </td>
-              </tr>
-            <?php endforeach; ?>
+            <?php 
+            if(empty($agendamento)) {
+              echo "<span class='sem-consulta'>Sem consultas pendentes no momento!</span>";
+            } else {
+              foreach ($agendamento as $agendamentos) :?>
+                <tr>
+                  <td><?php echo $agendamentos['Paciente']; ?></td>
+                  <td><?php echo$agendamentos['Medico']; ?></td>
+                  <td><?php echo $agendamentos['inicio']; ?></td>
+                  <td><?php echo $agendamentos['fim']; ?></td>
+                  <td colspan="2">
+                    <a href="<?php echo $base.'/appointments/confirm/'.$agendamentos['idagendamento']; ?>" class="confirm" title='Confirmar Consulta'>
+                      <i style="color:green;" class='fas fa-check fa-2x'></i>
+                    </a>
+                    <a href="<?php echo $base.'/appointments/cancel/'.$agendamentos['idagendamento']; ?>" class="confirm" title='Cancelar Consulta'>
+                      <i style="color:#f00;" class='fas fa-ban fa-2x'></i>
+                    </a>
+                  </td>
+                </tr>
+              <?php endforeach;} ?>
+
           </tbody>
         </table>
       </div>

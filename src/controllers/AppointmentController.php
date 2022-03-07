@@ -37,14 +37,32 @@ class AppointmentController extends Controller {
 
   public function cancelAppointment($id) {
     $agendamento = new Appointment();
-    if($agendamento->cancelarAgendamento($id)) {
-      $_SESSION['sucesso'] =  "<div class='alert alert-success' role='alert'>'Consulta cancelada com sucesso</div>";
+    $editAgendamento = $agendamento->cancelarAgendamento($id);
+
+    if($editAgendamento) {
+      $_SESSION['sucesso'] =  "<div class='alert alert-success' role='alert'  style='position:absolute; left:50%;top:30%;z-index:999;'>Consulta cancelada com sucesso</div>";
       $this->redirect('/dashboard');
 
     } else {
-      $_SESSION['sucesso'] =  "<div class='alert alert-danger' role='alert'>'Erro ao cancelar consulta com sucesso</div>";
+      $_SESSION['sucesso'] =  "<div class='alert alert-danger' role='alert'  style='position:absolute; left:50%;top:30%;z-index:999;'>Erro ao cancelar consulta com sucesso</div>";
       $this->redirect('/dashboard');
     }
   }
+  public function confirmAppointment($id) {
+    
+    $agendamento = new Appointment();
+    $editAgendamento = $agendamento->confirmarAgendamento($id);
+
+    if($editAgendamento) {
+      $_SESSION['sucesso'] =  "<div class='alert alert-success' role='alert' style='position:absolute; left:50%;top:30%;z-index:999;'>Consulta confirmada com sucesso</div>";
+      $this->redirect('/dashboard');
+
+    } else {
+      $_SESSION['sucesso'] =  "<div class='alert alert-danger' role='alert' style='position:absolute; left:50%;top:20%;z-index:999;'>Erro ao confirmar consulta com sucesso</div>";
+      $this->redirect('/dashboard');
+    }
+  }
+
+
 
 }

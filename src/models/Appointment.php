@@ -12,7 +12,7 @@ class Appointment extends Model {
         INNER JOIN  pacientes as pac ON (a.id_paciente = pac.idpaciente)
         INNER JOIN  usuarios as u1 ON (u1.idusuario = pac.id_usuario)
         INNER JOIN  psi as psi ON(a.id_psi = psi.idpsi)
-        INNER JOIN  usuarios as u2 ON (psi.id_usuario = u2.idusuario)");
+        INNER JOIN  usuarios as u2 ON (psi.id_usuario = u2.idusuario) where  a.status = 'pendente' ");
     $sql->execute();
 
     $dados = $sql->fetchAll(\PDO::FETCH_ASSOC);
@@ -39,7 +39,7 @@ class Appointment extends Model {
 
   public function agendamentosCancelados() {
     include '../connnect.php';;
-    $sql = $pdo->prepare("SELECT COUNT(*) as 'cancelados', status FROM agendamentos WHERE status = 'cancelados' ORDER BY status");
+    $sql = $pdo->prepare("SELECT COUNT(*) as 'cancelados', status FROM agendamentos WHERE status = 'cancelado' ORDER BY status");
     $sql->execute();
 
     $dados = $sql->fetch(\PDO::FETCH_ASSOC);
@@ -56,7 +56,17 @@ class Appointment extends Model {
   public function cancelarAgendamento($id) {
     require '../connnect.php';
     $sql = $pdo->prepare("UPDATE agendamentos SET status = ? WHERE idagendamentos = ?");
-    $sql->bindValue(1, 'cancelados');
+    $sql->bindValue(1, 'cancelado');
+    $sql->bindValue(2, $id['id']);
+    $sql->execute();
+    return true;
+  }
+
+
+  public function confirmarAgendamento($id) {
+    require '../connnect.php';
+    $sql = $pdo->prepare("UPDATE agendamentos SET status = ? WHERE idagendamentos = ?");
+    $sql->bindValue(1, 'confirmado');
     $sql->bindValue(2, $id['id']);
     $sql->execute();
     return true;
