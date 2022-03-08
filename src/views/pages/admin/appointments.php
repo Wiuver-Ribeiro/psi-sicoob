@@ -85,7 +85,7 @@ $info = $usuario->logado();
         },
         
         select: function(info) {
-          $('#cadastrar').modal('show');
+          $('#marcar_consulta').modal('show');
           
         },
 
@@ -156,72 +156,9 @@ $info = $usuario->logado();
 
 
   <!-- Modal Cadastrar -->
-  <div class="modal fade bd-example-modal-lg" id="cadastrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" style="text-align:center;" id="exampleModalLabel">Psicólogos Disponíveis</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form method="post" action="#">
-            <div class="grid-doctors mb10">
-              <?php foreach ($psi as $psicologo) : ?>
-                <div class="doctor-box doctor-btn" id="doctor-btn"  onclick="getPatient()" >
-                  <input type="hidden" value="<?php echo $psicologo['idusuario']; ?>">
-                  <img src="<?php echo $base . '/assets/icons/' . $psicologo['avatar'] ?>" alt="Avatar do Psicólogo">
-                  <div class="doctor-info">
-                    <span id="psi_data"><?php echo $psicologo['nome']; ?></span>
-                    <span style="color:#888;"><?php echo $psicologo['crp']; ?></span>
-                    <span><?php echo $psicologo['especialidade']; ?></span>
-                  </div>
-                </div> <!-- doctor-box-->
-              <?php endforeach; ?>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
-  <!-- MODAL DE  USUÁRIOS-->
-  <div class="modal fade" id="agendar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Pacientes Disponíveis</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Avatar</th>
-                <th scope="col">Nome</th>
-                <th colspan="2" scope="col">Agendar</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php foreach ($paciente as $pacientes) : ?>
-                <tr>
-                  <th scope="row">
-                    <img style="width:50px; height:50px; border-radius:50%; object-fit:cover;" class="avatar-img" src="<?php echo $base . '/assets/icons/' . $pacientes['avatar'] ?>" alt="Avatar do Paciente">
-                  </th>
-                  <td colspan="2" style="line-height:45px;" id="nome_paciente"><?php echo $pacientes['nome'] ?></td>
-                  <td><button onclick="cadastrarAgendamento($('#nome_paciente').text())"  class="btn btn-success"><i class="fas fa-check"></i></button></td>
-                </tr>
-              <?php endforeach; ?>
-            </tbody>
-          </table>
-          <div class=" d-flex column justify-content-between">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="close-modal">Fechar</button>
 
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <!--MODAL DE USUÁRIOS-->
 
   <!-- MODAL PARA MARCAR AS CONSULTAS -->
