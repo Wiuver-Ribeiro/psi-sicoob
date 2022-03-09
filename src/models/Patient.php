@@ -8,7 +8,10 @@ class Patient extends Model {
   public function todosPacientes() {
     include '../connnect.php';
 
-    $sql = $pdo->prepare("SELECT idusuario, nome, email, avatar FROM usuarios WHERE tipo = 'paciente' ");
+    $sql = $pdo->prepare("SELECT 
+         p.idpaciente, u.nome, u.email, u.avatar 
+           FROM 
+          usuarios AS u INNER JOIN   pacientes AS p ON (u.idusuario = p.id_usuario);");
     $sql->execute();
 
     $dados = $sql->fetchAll();

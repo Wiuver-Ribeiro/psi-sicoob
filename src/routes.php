@@ -60,3 +60,4 @@ $router->get('/appointments/create', 'AppointmentController@createAppointment');
 $router->get('/appointments/cancel/{id}', 'AppointmentController@cancelAppointment');
 $router->get('/appointments/confirm/{id}', 'AppointmentController@confirmAppointment');
 $router->get('/appointments/search/{usuario}', 'AppointmentController@searchUsers');
+$router->post('/appointments/register', 'AppointmentController@registerAppointment');

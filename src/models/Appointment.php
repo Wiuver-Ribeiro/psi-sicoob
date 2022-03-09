@@ -3,6 +3,8 @@ namespace src\models;
 use \core\Model;
 
 class Appointment extends Model {
+  
+
 
   public function todosAgendamentos() {
     include '../connnect.php';
@@ -81,14 +83,102 @@ class Appointment extends Model {
         INNER JOIN  usuarios as u1 ON (u1.idusuario = pac.id_usuario)
         INNER JOIN  psi as psi ON(a.id_psi = psi.idpsi)
         INNER JOIN  usuarios as u2 ON (psi.id_usuario = u2.idusuario) WHERE LIKE '%$usuarios%' LIMIT 20");
-  $sql->execute();
+    $sql->execute();
 
-  $dados = $sql->fetch(\PDO::FETCH_ASSOC);
+    $dados = $sql->fetch(\PDO::FETCH_ASSOC);
 
-  if(($dados) && ($dados->rowCount() != 0)) {
-    echo "<li>".$dados['Paciente']."</li>";
-  } else {
-    echo "Nenhum usuário encontrado";
+    if(($dados) && ($dados->rowCount() != 0)) {
+      echo "<li>".$dados['Paciente']."</li>";
+    } else {
+      echo "Nenhum usuário encontrado";
+    }
   }
-}
+
+
+  public function converterData($data_inicio, $data_final) {
+    $data_hora = array();
+    //Convertendo a data e hora atual para formato americano, para cadastrar no banco de dados
+    $dataInicio = str_replace('/', '-', $data_inicio);
+    $dataHoraInicioConv = date('Y-m-d H:i:s', strtotime($dataInicio));
+
+    $dataFinal = str_replace('/', '-', $data_final);
+    $dataHoraFinalConv = date('Y-m-d H:i:s', strtotime($dataFinal));
+
+    $data_hora = [
+      "dataInicio" => $dataHoraInicioConv,
+      "dataFinal" => $dataHoraFinalConv,
+    ];
+    return $data_hora;
+  }
+
+  public function verificaConsulta($dataHora) {
+    require '../connnect.php';
+
+    $sql = $pdo->prepare("SELECT inicio FROM agendamentos WHERE inicio = :inicio  AND fim = :fim");
+    $sql->bindValue(":inicio", $dataHora['dataInicio']); 
+    $sql->bindValue(":fim", $dataHora['dataFinal']);
+
+    $sql->execute();
+
+    if($sql->rowCount() > 0) {
+      return true;
+    } else {
+     
+      return false;
+    }
+  }
+
+  public function marcarConsulta() {
+    require '../connnect.php';
+
+    $titulo = $_POST['titulo'];
+    $inicio = $_POST['inicio'];
+    $final = $_POST['final'];
+    $psi = $_POST['psi'];
+    $paciente = $_POST['paciente'];
+    $descricao = $_POST['descricao'];
+    
+    $data_horaConv = $this->converterData($inicio, $final);
+   
+    if($this->verificaConsulta($data_horaConv)) {
+     return false;
+    } else {
+      $sql = $pdo->prepare("INSERT INTO 
+        agendamentos 
+          (title, id_psi, id_paciente, inicio, fim, status, descricao) 
+            VALUES (:titulo, :psi,:paciente, :inicio,:fim,'pendente',:descricao)");
+
+      $sql->bindParam(':titulo', $titulo);
+      $sql->bindParam(':psi', $psi);
+      $sql->bindParam(':paciente', $paciente);
+      $sql->bindParam(':inicio', $data_horaConv['dataInicio']);
+      $sql->bindParam(':fim', $data_horaConv['dataFinal']);
+      $sql->bindParam(':descricao', $descricao);
+      $sql->execute();
+
+      return true;
+    }
+
+  }
+
+  public function minhasConsultas($info) {
+    require '../connnect.php';
+    $sql = $pdo->prepare("SELECT 
+    u.nome, 
+    u.avatar, 
+    a.inicio, 
+    a.status
+    FROM usuarios AS u INNER JOIN pacientes AS p ON (u.idusuario = p.id_usuario)
+                       INNER JOIN agendamentos AS a ON (a.id_paciente = p.idpaciente) 
+                       INNER JOIN psi AS ps ON (ps.idpsi = a.id_psi) 
+                        where ps.idpsi = :idlogado ");
+
+    $sql->bindValue(':idlogado', $info['idusuario']);
+    $sql->execute();
+
+    $dados = $sql->fetchAll(\PDO::FETCH_ASSOC);
+
+    return $dados;
+
+  }
 }

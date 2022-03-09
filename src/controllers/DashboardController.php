@@ -13,8 +13,11 @@ class DashboardController extends Controller {
     $marcados  = $agendamento->agendamentosMarcados();
     $cancelados = $agendamento->agendamentosCancelados();
 
+    
     $usuario = new User();
     $info = $usuario->dadosLogado();
+
+    $minhasConsultas = $agendamento->minhasConsultas($info);
   
   if(!$usuario->logado ()) {
     $this->redirect('/signin');
@@ -35,6 +38,7 @@ class DashboardController extends Controller {
         "marcados" => $marcados,
         "cancelados" => $cancelados,
         "info" => $info,
+        "consultas" => $minhasConsultas,
       ]);
   } else if ($usuario->logado() && $info['tipo'] == "paciente") {
     $this->render('dashboardPatient', [

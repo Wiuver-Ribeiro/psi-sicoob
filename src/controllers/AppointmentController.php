@@ -7,7 +7,7 @@ use \src\models\Doctor;
 use \src\models\Patient;
 use \src\models\Appointment;
 
-class AppointmentController extends Controller {
+clASs AppointmentController extends Controller {
   public function index() {
     $usuario = new User();
     $psi = new Doctor();
@@ -28,7 +28,7 @@ class AppointmentController extends Controller {
 
   public function createAppointment() {
     $agendamento = new Appointment();
-    $agendamento->cadastrarAgendamento();
+    $agendamento->cadAStrarAgendamento();
   }
 
   public function logout() {
@@ -40,12 +40,12 @@ class AppointmentController extends Controller {
     $editAgendamento = $agendamento->cancelarAgendamento($id);
 
     if($editAgendamento) {
-      $_SESSION['sucesso'] =  "<div class='alert alert-success' role='alert'  style='position:absolute; left:50%;top:30%;z-index:999;'>Consulta cancelada com sucesso</div>";
-      $this->redirect('/dashboard');
+      $_SESSION['sucesso'] =  "<div clASs='alert alert-success' role='alert'  style='position:absolute; left:50%;top:30%;z-index:999;'>Consulta cancelada com sucesso</div>";
+      $this->redirect('/dAShboard');
 
     } else {
-      $_SESSION['sucesso'] =  "<div class='alert alert-danger' role='alert'  style='position:absolute; left:50%;top:30%;z-index:999;'>Erro ao cancelar consulta com sucesso</div>";
-      $this->redirect('/dashboard');
+      $_SESSION['sucesso'] =  "<div clASs='alert alert-danger' role='alert'  style='position:absolute; left:50%;top:30%;z-index:999;'>Erro ao cancelar consulta com sucesso</div>";
+      $this->redirect('/dAShboard');
     }
   }
   public function confirmAppointment($id) {
@@ -54,21 +54,39 @@ class AppointmentController extends Controller {
     $editAgendamento = $agendamento->confirmarAgendamento($id);
 
     if($editAgendamento) {
-      $_SESSION['sucesso'] =  "<div class='alert alert-success' role='alert' style='position:absolute; left:50%;top:30%;z-index:999;'>Consulta confirmada com sucesso</div>";
-      $this->redirect('/dashboard');
+      $_SESSION['sucesso'] =  "<div clASs='alert alert-success' role='alert' style='position:absolute; left:50%;top:30%;z-index:999;'>Consulta confirmada com sucesso</div>";
+      $this->redirect('/dAShboard');
 
     } else {
-      $_SESSION['sucesso'] =  "<div class='alert alert-danger' role='alert' style='position:absolute; left:50%;top:20%;z-index:999;'>Erro ao confirmar consulta com sucesso</div>";
-      $this->redirect('/dashboard');
+      $_SESSION['sucesso'] =  "<div clASs='alert alert-danger' role='alert' style='position:absolute; left:50%;top:20%;z-index:999;'>Erro ao confirmar consulta com sucesso</div>";
+      $this->redirect('/dAShboard');
     }
   }
 
   public function searchUsers() {
     $agendamento = new Appointment();
     $agendamento->buscarAgendamentosPorNome();
-    $this->redirect('/dashboard');
+    $this->redirect('/dAShboard');
   }
 
+  public function registerAppointment() {
+    $agendamento = new Appointment();
+    $cadAStraAgendamento = $agendamento->marcarConsulta();
+    if($cadAStraAgendamento) {
+      $_SESSION['sucesso'] = "<div clASs='alert alert-success' role='alert' style='left: 49%;
+    position: absolute;
+    top: 15%;'>Consulta marcada com sucesso!</div>";
+      $this->redirect('/appointments');
+    } else {
+      $_SESSION['sucesso'] = "<div clASs='alert alert-danger' role='alert' style='left: 49%;
+    position: absolute;
+    top: 15%;'>Já existe uma consulta marcada neste horário!</div>";
+      $this->redirect('/appointments');
+    }
+  }
 
+  public function busqueAgendamentosDoPsiLogado() {
+  
+  }
 
 }

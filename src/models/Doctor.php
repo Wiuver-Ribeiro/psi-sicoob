@@ -8,7 +8,7 @@ class Doctor extends Model {
   public function todosPsicologos() {
     require '../connnect.php';
 
-    $sql = $pdo->prepare("SELECT u.idusuario, u.nome, u.avatar, p.crp, p.especialidade
+    $sql = $pdo->prepare("SELECT p.idpsi, u.nome, u.avatar, p.crp, p.especialidade
                   FROM usuarios as u INNER JOIN psi as p ON (u.idusuario = p.id_usuario) ");
     $sql->execute();
 
