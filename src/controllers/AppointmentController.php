@@ -41,11 +41,11 @@ clASs AppointmentController extends Controller {
 
     if($editAgendamento) {
       $_SESSION['sucesso'] =  "<div clASs='alert alert-success' role='alert'  style='position:absolute; left:50%;top:30%;z-index:999;'>Consulta cancelada com sucesso</div>";
-      $this->redirect('/dAShboard');
+      $this->redirect('/dashboard');
 
     } else {
       $_SESSION['sucesso'] =  "<div clASs='alert alert-danger' role='alert'  style='position:absolute; left:50%;top:30%;z-index:999;'>Erro ao cancelar consulta com sucesso</div>";
-      $this->redirect('/dAShboard');
+      $this->redirect('/dashboard');
     }
   }
   public function confirmAppointment($id) {
@@ -55,18 +55,18 @@ clASs AppointmentController extends Controller {
 
     if($editAgendamento) {
       $_SESSION['sucesso'] =  "<div clASs='alert alert-success' role='alert' style='position:absolute; left:50%;top:30%;z-index:999;'>Consulta confirmada com sucesso</div>";
-      $this->redirect('/dAShboard');
+      $this->redirect('/dashboard');
 
     } else {
       $_SESSION['sucesso'] =  "<div clASs='alert alert-danger' role='alert' style='position:absolute; left:50%;top:20%;z-index:999;'>Erro ao confirmar consulta com sucesso</div>";
-      $this->redirect('/dAShboard');
+      $this->redirect('/dashboard');
     }
   }
 
   public function searchUsers() {
     $agendamento = new Appointment();
     $agendamento->buscarAgendamentosPorNome();
-    $this->redirect('/dAShboard');
+    $this->redirect('/dashboard');
   }
 
   public function registerAppointment() {
@@ -84,9 +84,4 @@ clASs AppointmentController extends Controller {
       $this->redirect('/appointments');
     }
   }
-
-  public function busqueAgendamentosDoPsiLogado() {
-  
-  }
-
 }

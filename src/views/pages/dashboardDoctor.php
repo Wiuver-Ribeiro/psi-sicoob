@@ -29,7 +29,7 @@ $info = $usuario->dadosLogado();
   <?php $render('navbar'); ?>
   <?php $render('sidebar'); 
   // // echo "<pre>";
-  // print_r($consultas);
+  // print_r($pendentes);
   // die();
   ?>
   <main>

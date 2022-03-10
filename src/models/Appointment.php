@@ -181,4 +181,58 @@ class Appointment extends Model {
     return $dados;
 
   }
+
+  public function minhasConsultasMarcadas($info) {
+    include '../connnect.php';;
+
+    $id = $info['idusuario'];
+
+    $sql = $pdo->prepare("SELECT COUNT(*) AS 'marcados', status
+    FROM agendamentos AS ag INNER JOIN psi AS p ON (ag.id_psi = p.idpsi) 
+        INNER JOIN pacientes AS pac ON (pac.idpaciente = ag.id_paciente)
+            INNER JOIN  usuarios AS u ON (u.idusuario = pac.id_usuario)
+      WHERE (p.idpsi = ? AND ag.status = 'confirmados') ");
+    $sql->bindValue(1, $id);
+    $sql->execute();  
+
+
+    $dados = $sql->fetch(\PDO::FETCH_ASSOC);
+    return $dados;
+  }
+  public function minhasConsultasPendentes($info) {
+    include '../connnect.php';;
+
+    $id = $info['idusuario'];
+
+    $sql = $pdo->prepare("SELECT COUNT(*) AS 'pendentes', status
+    FROM agendamentos AS ag INNER JOIN psi AS p ON (ag.id_psi = p.idpsi) 
+        INNER JOIN pacientes AS pac ON (pac.idpaciente = ag.id_paciente)
+            INNER JOIN  usuarios AS u ON (u.idusuario = pac.id_usuario)
+      WHERE (p.idpsi = ? AND ag.status = 'pendentes') ");
+    $sql->bindValue(1, $id);
+    $sql->execute();  
+
+
+    $dados = $sql->fetch(\PDO::FETCH_ASSOC);
+    return $dados;
+  }
+  public function minhasConsultasCanceladas($info) {
+    include '../connnect.php';;
+
+    $id = $info['idusuario'];
+
+    $sql = $pdo->prepare("SELECT COUNT(*) AS 'cancelados', status
+    FROM agendamentos AS ag INNER JOIN psi AS p ON (ag.id_psi = p.idpsi) 
+        INNER JOIN pacientes AS pac ON (pac.idpaciente = ag.id_paciente)
+            INNER JOIN  usuarios AS u ON (u.idusuario = pac.id_usuario)
+      WHERE (p.id_usuario = ? AND ag.status = 'cancelados') ");
+    $sql->bindValue(1, $id);
+    $sql->execute();  
+
+
+    $dados = $sql->fetch(\PDO::FETCH_ASSOC);
+    return $dados;
+  }
+
+
 }
