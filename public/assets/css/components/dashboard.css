@@ -3,7 +3,7 @@ main .main-container {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 3fr;
   width: calc(100% - 270px);
-  height: 100vh;
+  /* height: 100vh; */
   margin-left:270px;
   background: #0A0906;
 }
@@ -11,6 +11,8 @@ main .main-container {
 main .content-appointment {
   display:flex;
   justify-content:space-evenly;
+  /* background-color: red; */
+  margin-bottom: 50px;
 }
 
 main .content-appointment .appointment-info {

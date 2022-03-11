@@ -4,9 +4,11 @@
 <?php
 
 use \src\models\USer;
+use \src\models\Appointment;
 
 $usuario = new User();
 $info = $usuario->dadosLogado();
+ $agendamento = new Appointment();
 ?>
 
 <head>
@@ -28,9 +30,16 @@ $info = $usuario->dadosLogado();
 
   <?php $render('navbar'); ?>
   <?php $render('sidebar'); 
-  // // echo "<pre>";
-  // print_r($pendentes);
+  // echo "<pre>";
+  // var_dump([
+  //   'Pendentes:' => $pendentes['pendentes'],
+  //   'Marcados:' => $marcados['marcados'],
+  //   'Cancelados:' => $cancelados['cancelados'],
+  // ]);
   // die();
+
+  // echo "<pre>";
+  //  var_dump($ultimosPacientes); die();
   ?>
   <main>
     <div class="main-container">
@@ -103,14 +112,12 @@ $info = $usuario->dadosLogado();
           </div>
           <div style="border-left:none;" class="title">
             <h6 style="color: #888">Paciente</h6>
+            <?php foreach ($ultimosPacientes as $pacientes): ?>
               <div class="patient-container">
-                <img src="<?php echo $base.'/assets/icons/avatar-lara.jpg'; ?>" alt="Avatar">
-                <h6>Lara Kamilly Garcia de Paiva</h6>
+                <img src="<?php echo $base.'/assets/icons/'.$pacientes['avatar']; ?>" alt="Avatar">
+                <h6><?php echo $pacientes['nome']; ?></h6>
               </div>
-              <div class="patient-container">
-                <img src="<?php echo $base.'/assets/icons/avatar-ana.jpg'; ?>" alt="Avatar">
-                <h6>Aysla Ribeiro Garcia de Paiva</h6>
-              </div>
+              <?php endforeach; ?>
           </div>
         </div>
       </div>

@@ -44,7 +44,7 @@ $sql = $pdo->prepare(
         INNER JOIN  pacientes as pac ON (a.id_paciente = pac.idpaciente)
         INNER JOIN  usuarios as u1 ON (u1.idusuario = pac.id_usuario)
         INNER JOIN  psi as psi ON(a.id_psi = psi.idpsi)
-        INNER JOIN  usuarios as u2 ON (psi.id_usuario = u2.idusuario) where a.status = 'pendente' "
+        INNER JOIN  usuarios as u2 ON (psi.id_usuario = u2.idusuario) where a.status = 'pendentes' "
 );
 $sql->execute();
 

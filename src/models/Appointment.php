@@ -14,7 +14,7 @@ class Appointment extends Model {
         INNER JOIN  pacientes as pac ON (a.id_paciente = pac.idpaciente)
         INNER JOIN  usuarios as u1 ON (u1.idusuario = pac.id_usuario)
         INNER JOIN  psi as psi ON(a.id_psi = psi.idpsi)
-        INNER JOIN  usuarios as u2 ON (psi.id_usuario = u2.idusuario) where  a.status = 'pendente' ");
+        INNER JOIN  usuarios as u2 ON (psi.id_usuario = u2.idusuario) where  a.status = 'pendentes' ");
     $sql->execute();
 
     $dados = $sql->fetchAll(\PDO::FETCH_ASSOC);
@@ -23,7 +23,7 @@ class Appointment extends Model {
 
   public function agendamentosPendentes() {
     include '../connnect.php';;
-    $sql = $pdo->prepare("SELECT COUNT(*) as 'pendentes', status FROM agendamentos WHERE status = 'pendente' ORDER BY status");
+    $sql = $pdo->prepare("SELECT COUNT(*) as 'pendentes', status FROM agendamentos WHERE status = 'pendentes' ORDER BY status");
     $sql->execute();
 
     $dados = $sql->fetch(\PDO::FETCH_ASSOC);
@@ -32,7 +32,7 @@ class Appointment extends Model {
 
   public function agendamentosMarcados() {
     include '../connnect.php';;
-    $sql = $pdo->prepare("SELECT COUNT(*) as 'marcados', status FROM agendamentos WHERE status = 'confirmado' ORDER BY status");
+    $sql = $pdo->prepare("SELECT COUNT(*) as 'marcados', status FROM agendamentos WHERE status = 'confirmados' ORDER BY status");
     $sql->execute();
 
     $dados = $sql->fetch(\PDO::FETCH_ASSOC);
@@ -41,7 +41,7 @@ class Appointment extends Model {
 
   public function agendamentosCancelados() {
     include '../connnect.php';;
-    $sql = $pdo->prepare("SELECT COUNT(*) as 'cancelados', status FROM agendamentos WHERE status = 'cancelado' ORDER BY status");
+    $sql = $pdo->prepare("SELECT COUNT(*) as 'cancelados', status FROM agendamentos WHERE status = 'cancelados' ORDER BY status");
     $sql->execute();
 
     $dados = $sql->fetch(\PDO::FETCH_ASSOC);
@@ -111,6 +111,7 @@ class Appointment extends Model {
     return $data_hora;
   }
 
+
   public function verificaConsulta($dataHora) {
     require '../connnect.php';
 
@@ -146,7 +147,7 @@ class Appointment extends Model {
       $sql = $pdo->prepare("INSERT INTO 
         agendamentos 
           (title, id_psi, id_paciente, inicio, fim, status, descricao) 
-            VALUES (:titulo, :psi,:paciente, :inicio,:fim,'pendente',:descricao)");
+            VALUES (:titulo, :psi,:paciente, :inicio,:fim,'pendentes',:descricao)");
 
       $sql->bindParam(':titulo', $titulo);
       $sql->bindParam(':psi', $psi);
@@ -177,7 +178,6 @@ class Appointment extends Model {
     $sql->execute();
 
     $dados = $sql->fetchAll(\PDO::FETCH_ASSOC);
-
     return $dados;
 
   }
@@ -234,5 +234,23 @@ class Appointment extends Model {
     return $dados;
   }
 
+  public function meusUltimosPacientes($info) { 
+    require '../connnect.php';
+
+    $sql = $pdo->prepare("SELECT 
+    u.nome, 
+    u.avatar
+    FROM usuarios AS u INNER JOIN pacientes AS p ON (u.idusuario = p.id_usuario)
+                       INNER JOIN agendamentos AS a ON (a.id_paciente = p.idpaciente) 
+                       INNER JOIN psi AS ps ON (ps.idpsi = a.id_psi) 
+                        where ps.idpsi = :idlogado ORDER BY idagendamentos DESC");
+
+    $sql->bindValue(':idlogado', $info['idusuario']);
+    $sql->execute();
+
+    $dados = $sql->fetchAll(\PDO::FETCH_ASSOC);
+
+    return $dados;
+  }
 
 }
