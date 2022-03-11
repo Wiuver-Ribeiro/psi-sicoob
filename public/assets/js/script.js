@@ -1,3 +1,59 @@
+//FULL CALLENDAR
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+
+      locale: 'pt-br',
+      initialView: 'dayGridMonth',
+      editable: true,
+      selectable: true,
+      dayMaxEvents: true,
+      buttonText: {
+        prev: 'Anterior',
+        next: 'Próximo',
+        today: 'Hoje',
+        month: 'Mês',
+        week: 'Semana',
+        day: 'Dia',
+        list: 'Lista',
+      },
+
+      //Buscando dados do banco de dados
+      events: {
+        url: 'http://localhost/psi-sicoob/src/views/pages/admin/eventos.php',
+        method: 'POST',
+      },
+
+      eventClick: function(info) {
+        info.jsEvent.preventDefault();
+        $('#visualizar #idagenda').text(info.event.id);
+        $('#visualizar #pac').text(info.event.paciente);         
+        $('#visualizar #pac').text(info.event.extendedProps.pac);
+        $('#visualizar #psi').text(info.event.extendedProps.psi);
+        $('#visualizar #title').text(info.event.title);
+        $('#visualizar #start').text(info.event.started.toLocaleString());
+        $('#visualizar #end').text(info.event.started.toLocaleString());
+        $('#visualizar #status').text(info.event.status);
+        $('#visualizar #description').text(info.event.extendedProps.descricao);
+        $('#visualizar').modal('show');
+      },
+
+      select: function(info) {
+        $('#marcar_consulta').modal('show');
+        $('#inicio').val(info.start.toLocaleString());
+        $('#fim').val(info.start.toLocaleString());
+      },
+
+
+
+    });
+
+    calendar.render();
+    calendar.updateSize()
+  });
+
+
+
 //Mascara para o campo data e hora
 function DataHora(evento, objeto) {
   var keypress = (window.event) ? event.keyCode : evento.which;
@@ -31,21 +87,4 @@ function DataHora(evento, objeto) {
   }
 }
 
-// Pesquisar no banco de dados 
-
-
-    $('#pesquisa').keyup(function(e) {
-        e.preventDefault();
-        var pesquisa = $(this).val();
-
-        //verificar se tem algo digitado
-        if(pesquisa != "") {
-            var dados = {
-                palavra: pesquisa,
-            }
-            $.post('http://localhost/psi-sicoob/src/models/Appointment.php', dados, function(retorna){
-                $('#resultado').html(retorna);
-            })
-        }
-    })
 

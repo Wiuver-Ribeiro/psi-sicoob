@@ -1,11 +1,9 @@
 <?php
-
 use \src\models\USer;
 
 $usuario = new User();
 $info = $usuario->logado();
-// echo "<pre>";
-//   print_r($paciente); die();
+
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +13,7 @@ $info = $usuario->logado();
   <meta charset='utf-8' />
   <link rel="shortcut icon" href="<?php echo $base . '/assets/icons/scs.ico'; ?>" type="image/x-icon" />
 
+  <script src="<?php echo $base . '/assets/js/script.js'; ?>"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <title>PSI | Agendamentos</title>
@@ -33,72 +32,9 @@ $info = $usuario->logado();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.10.1/locales-all.min.js,npm/fullcalendar@5.10.2/main.min.js"></script>
-  <script src="<?php echo $base . '/assets/js/script.js'; ?>"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
+  <!-- <script>
 
-        locale: 'pt-br',
-        initialView: 'dayGridMonth',
-        editable: true,
-        selectable: true,
-        dayMaxEvents: true,
-        buttonText: {
-          prev: 'Anterior',
-          next: 'Próximo',
-          today: 'Hoje',
-          month: 'Mês',
-          week: 'Semana',
-          day: 'Dia',
-          list: 'Lista',
-        },
-        businessHours: [{
-            daysOfWeek: [1, 2, 3, 4, 5],
-            startTime: '08:00',
-            endTime: '13:00'
-          },
-          {
-            daysOfWeek: [1, 2, 3, 4, 5],
-            startTime: '14:00',
-            endTime: '19:00'
-          }
-        ],
-
-        //Buscando dados do banco de dados
-        events: {
-          url: 'http://localhost/psi-sicoob/src/views/pages/admin/eventos.php',
-          method: 'POST',
-        },
-
-        eventClick: function(info) {
-          info.jsEvent.preventDefault();
-          $('#visualizar #idagenda').text(info.event.id);
-          $('#visualizar #pac').text(info.event.paciente);         
-          $('#visualizar #pac').text(info.event.extendedProps.pac);
-          $('#visualizar #psi').text(info.event.extendedProps.psi);
-          $('#visualizar #title').text(info.event.title);
-          $('#visualizar #start').text(info.event.started.toLocaleString());
-          $('#visualizar #end').text(info.event.started.toLocaleString());
-          $('#visualizar #status').text(info.event.status);
-          $('#visualizar #description').text(info.event.extendedProps.descricao);
-          $('#visualizar').modal('show');
-        },
-
-        select: function(info) {
-          $('#marcar_consulta').modal('show');
-          $('#inicio').val(info.start.toLocaleString());
-          $('#fim').val(info.start.toLocaleString());
-        },
-
-
-
-      });
-
-      calendar.render();
-      calendar.updateSize()
-    });
-  </script>
+  </script> -->
 
 </head>
 
@@ -106,6 +42,7 @@ $info = $usuario->logado();
   <?php $render('navbar'); ?>
   <?php $render('sidebar');
   ?>
+
   <!-- SESSÕES -->
   <?php
     if(isset($_SESSION['sucesso'])) {
@@ -141,7 +78,10 @@ $info = $usuario->logado();
             <dt class="col-sm-3">Fim da Consulta:</dt>
             <dd class="col-sm-9" id="end"></dd>
             <dt class="col-sm-3">Status da Consulta:</dt>
-            <dd class="col-sm-9" id="status"></dd>
+            <!-- <dd class="col-sm-9" id="status"></dd> -->
+            <select name="status" id="status">
+              <option></option>
+            </select>
             <dt class="col-sm-3">Descrição:</dt>
             <dd class="col-sm-8" >
               <textarea readonly class="form-control" id="description" name="descricao" cols="30" rows="10">
