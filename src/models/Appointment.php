@@ -48,11 +48,6 @@ class Appointment extends Model {
     return $dados;
   }
 
-  public function cadastrarAgendamento() {
-    require '../connnect.php';
-    echo "Cadastrando nova consulta";
-  }
-
   public function cancelarAgendamento($id) {
     require '../connnect.php';
     $sql = $pdo->prepare("UPDATE agendamentos SET status = ? WHERE idagendamentos = ?");
@@ -66,7 +61,7 @@ class Appointment extends Model {
   public function confirmarAgendamento($id) {
     require '../connnect.php';
     $sql = $pdo->prepare("UPDATE agendamentos SET status = ? WHERE idagendamentos = ?");
-    $sql->bindValue(1, 'confirmado');
+    $sql->bindValue(1, 'confirmados');
     $sql->bindValue(2, $id['id']);
     $sql->execute();
     return true;
@@ -129,6 +124,7 @@ class Appointment extends Model {
     }
   }
 
+
   public function marcarConsulta() {
     require '../connnect.php';
 
@@ -162,8 +158,11 @@ class Appointment extends Model {
 
   }
 
+
   public function minhasConsultas($info) {
     require '../connnect.php';
+
+    // print_r($info['idusuario']); die();
     $sql = $pdo->prepare("SELECT 
     u.nome, 
     u.avatar, 
@@ -172,7 +171,7 @@ class Appointment extends Model {
     FROM usuarios AS u INNER JOIN pacientes AS p ON (u.idusuario = p.id_usuario)
                        INNER JOIN agendamentos AS a ON (a.id_paciente = p.idpaciente) 
                        INNER JOIN psi AS ps ON (ps.idpsi = a.id_psi) 
-                        where ps.idpsi = :idlogado ");
+                        where ps.id_usuario = :idlogado ");
 
     $sql->bindValue(':idlogado', $info['idusuario']);
     $sql->execute();
@@ -181,6 +180,7 @@ class Appointment extends Model {
     return $dados;
 
   }
+
 
   public function minhasConsultasMarcadas($info) {
     include '../connnect.php';;
@@ -191,7 +191,7 @@ class Appointment extends Model {
     FROM agendamentos AS ag INNER JOIN psi AS p ON (ag.id_psi = p.idpsi) 
         INNER JOIN pacientes AS pac ON (pac.idpaciente = ag.id_paciente)
             INNER JOIN  usuarios AS u ON (u.idusuario = pac.id_usuario)
-      WHERE (p.idpsi = ? AND ag.status = 'confirmados') ");
+      WHERE (p.id_usuario = ? AND ag.status = 'confirmados') ");
     $sql->bindValue(1, $id);
     $sql->execute();  
 
@@ -199,6 +199,8 @@ class Appointment extends Model {
     $dados = $sql->fetch(\PDO::FETCH_ASSOC);
     return $dados;
   }
+
+
   public function minhasConsultasPendentes($info) {
     include '../connnect.php';;
 
@@ -208,7 +210,7 @@ class Appointment extends Model {
     FROM agendamentos AS ag INNER JOIN psi AS p ON (ag.id_psi = p.idpsi) 
         INNER JOIN pacientes AS pac ON (pac.idpaciente = ag.id_paciente)
             INNER JOIN  usuarios AS u ON (u.idusuario = pac.id_usuario)
-      WHERE (p.idpsi = ? AND ag.status = 'pendentes') ");
+      WHERE (p.id_usuario = ? AND ag.status = 'pendentes') ");
     $sql->bindValue(1, $id);
     $sql->execute();  
 
@@ -216,6 +218,7 @@ class Appointment extends Model {
     $dados = $sql->fetch(\PDO::FETCH_ASSOC);
     return $dados;
   }
+
   public function minhasConsultasCanceladas($info) {
     include '../connnect.php';;
 
@@ -225,7 +228,7 @@ class Appointment extends Model {
     FROM agendamentos AS ag INNER JOIN psi AS p ON (ag.id_psi = p.idpsi) 
         INNER JOIN pacientes AS pac ON (pac.idpaciente = ag.id_paciente)
             INNER JOIN  usuarios AS u ON (u.idusuario = pac.id_usuario)
-      WHERE (p.id_usuario = ? AND ag.status = 'cancelados') ");
+      WHERE (p.id_usuario= ? AND ag.status = 'cancelados') ");
     $sql->bindValue(1, $id);
     $sql->execute();  
 
@@ -234,6 +237,7 @@ class Appointment extends Model {
     return $dados;
   }
 
+  
   public function meusUltimosPacientes($info) { 
     require '../connnect.php';
 
@@ -243,7 +247,7 @@ class Appointment extends Model {
     FROM usuarios AS u INNER JOIN pacientes AS p ON (u.idusuario = p.id_usuario)
                        INNER JOIN agendamentos AS a ON (a.id_paciente = p.idpaciente) 
                        INNER JOIN psi AS ps ON (ps.idpsi = a.id_psi) 
-                        where ps.idpsi = :idlogado ORDER BY idagendamentos DESC");
+                        where ps.id_usuario = :idlogado ORDER BY idagendamentos DESC");
 
     $sql->bindValue(':idlogado', $info['idusuario']);
     $sql->execute();

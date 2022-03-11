@@ -98,8 +98,17 @@ $info = $usuario->dadosLogado();
                   <?php echo $consulta['nome']; ?>
                 </td>
                 <td><?php echo $consulta['inicio']; ?></td>
-                <td class="pendente"><?php echo $consulta['status']?> </td>
-                <td class="pendente"><div class="ball"></div></td>
+                <?php 
+                if($consulta['status'] == 'pendente') {
+                 echo "<td class='pendente'>".$consulta['status']."</td>
+                  <td class='pendente'><div class='ball'></div></td>
+                  ";
+                } else if ($consulta['status'] == 'confirmados') {
+                  echo "<td class='confirmado'>".$consulta['status']."</td>
+                  <td class='confirmado'><div class='ball'></div></td>
+                  ";
+                }
+                ?>
               </tr>
                 <?php endforeach; ?>
 

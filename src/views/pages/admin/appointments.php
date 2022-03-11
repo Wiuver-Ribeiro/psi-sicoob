@@ -74,20 +74,21 @@ $info = $usuario->logado();
         eventClick: function(info) {
           info.jsEvent.preventDefault();
           $('#visualizar #idagenda').text(info.event.id);
-          $('#visualizar #paciente').text(info.event.paciente);
-          $('#visualizar #psicologo').text(info.event.psicologo);
+          $('#visualizar #pac').text(info.event.paciente);         
+          $('#visualizar #pac').text(info.event.extendedProps.pac);
+          $('#visualizar #psi').text(info.event.extendedProps.psi);
           $('#visualizar #title').text(info.event.title);
-          $('#visualizar #start').text(info.event.start.toLocaleString());
-          $('#visualizar #end').text(info.event.end.toLocaleString());
+          $('#visualizar #start').text(info.event.started.toLocaleString());
+          $('#visualizar #end').text(info.event.started.toLocaleString());
           $('#visualizar #status').text(info.event.status);
-          $('#visualizar #description').text(info.event.description);
+          $('#visualizar #description').text(info.event.extendedProps.descricao);
           $('#visualizar').modal('show');
         },
 
         select: function(info) {
           $('#marcar_consulta').modal('show');
           $('#inicio').val(info.start.toLocaleString());
-          $('#fim').val(info.end.toLocaleString());
+          $('#fim').val(info.start.toLocaleString());
         },
 
 
@@ -130,9 +131,9 @@ $info = $usuario->logado();
             <dt class="col-sm-3">ID Consulta</dt>
             <dd class="col-sm-9" id="idagenda"></dd>
             <dt class="col-sm-3">Paciente</dt>
-            <dd class="col-sm-9" id="paciente"></dd>
+            <dd class="col-sm-9 pt-2 pb-2 bg-light bg-gradient" id="pac"></dd>
             <dt class="col-sm-3">Psicólogo</dt>
-            <dd class="col-sm-9" id="psicologo"></dd>
+            <dd class="col-sm-9 pt-2 pb-2 bg-light bg-gradient" id="psi"></dd>
             <dt class="col-sm-3">Consulta:</dt>
             <dd class="col-sm-9" id="title"></dd>
             <dt class="col-sm-3">Início da Consulta:</dt>
@@ -142,8 +143,8 @@ $info = $usuario->logado();
             <dt class="col-sm-3">Status da Consulta:</dt>
             <dd class="col-sm-9" id="status"></dd>
             <dt class="col-sm-3">Descrição:</dt>
-            <dd class="col-sm-8" id="description">
-              <textarea readonly class="form-control" name="descricao" cols="30" rows="10">
+            <dd class="col-sm-8" >
+              <textarea readonly class="form-control" id="description" name="descricao" cols="30" rows="10">
               </textarea>
             </dd>
           </dl>
@@ -206,17 +207,6 @@ $info = $usuario->logado();
 
               </div>
             </div>
-            <!-- <div class="form-group mb20" style="margin-bottom: 10px;">
-              <label for="first-name">Fim da consulta:</label>
-              <div class="row">
-                <div class="col">
-                <input class="form-control" type="date" id="fim" name="fim_data">
-                </div>
-                <div class="col">
-                <input class="form-control" type="time" id="fim" name="fim_hora">
-                </div>
-              </div>
-            </div> -->
 
             <div class="form-group mb20">
               <label for="first-name">Detalhamento da consulta:</label>

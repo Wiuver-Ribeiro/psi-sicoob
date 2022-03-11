@@ -1,35 +1,6 @@
 <?php
  require __DIR__.'../../../../../connnect.php';
 
-// $date = new DateTime();
-// echo $date->format('d-m-Y H:i:s');
-// die();
-
-// $sql = $pdo->prepare("SELECT id, title, start, end, color, status FROM consultas");
-// $sql->execute();
-
-
-// $eventos = array();
-
-// while($dados  = $sql->fetch(\PDO::FETCH_ASSOC)) {
-//   $id = $dados['id'];
-//   $title = $dados['title'];
-//   $start = $dados['start'];
-//   $end = $dados['end'];
-//   $color = $dados['color'];
-//   $status = $dados['status'];
-
-//   $eventos[] = [
-//     'id' => $id,
-//     'title' => $title,
-//     'start' => $start,
-//     'end' => $end,
-//     'color' => $color,
-//     'status' => $status,
-//   ];
-
-// }
-
 $sql = $pdo->prepare(
   "SELECT 
     a.idagendamentos, 
@@ -55,24 +26,22 @@ while($dados  = $sql->fetch(\PDO::FETCH_ASSOC)) {
   $id = $dados['idagendamentos'];
   $title = $dados['title'];
   $psi = $dados['medico'];
-  $paciente = $dados['paciente'];
+  $pac = $dados['paciente'];
   $start = $dados['inicio'];
   $end = $dados['fim'];
   $status = $dados['status'];
-  $description = $dados['descricao'];
+  $descricao = $dados['descricao'];
 
   $eventos[] = [
     'id' => $id,
     'title' => $title,
-    'psicologo' => $psi,
-    'paciente' => $paciente,
+    'psi' => $psi,
+    'pac' => $pac,
     'start' => $start,
     'end' => $end,
     'status' => $status,
-    'descricao' => $description
+    'descricao' => $descricao
   ];
 
 }
-
-
 echo json_encode($eventos);
