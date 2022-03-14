@@ -10,6 +10,8 @@ use \src\models\Appointment;
 clASs AppointmentController extends Controller {
   public function index() {
     $usuario = new User();
+    $info = $usuario->dadosLogado();
+
     $psi = new Doctor();
     $paciente = new Patient();
 
@@ -18,11 +20,20 @@ clASs AppointmentController extends Controller {
 
     if(!$usuario->logado ()) {
       $this->redirect('/signin');
+    } else if ($info['tipo'] == 'admin') {
+      $this->render('/admin/appointments', [
+        "psi" => $todosPSI,
+        "paciente" => $todosPaciente,
+      ]);
+    } else {
+      $this->render('/signin');
     }
-    $this->render('/admin/appointments', [
-      "psi" => $todosPSI,
-      "paciente" => $todosPaciente,
-    ]);
+
+
+    // $this->render('/admin/appointments', [
+    //   "psi" => $todosPSI,
+    //   "paciente" => $todosPaciente,
+    // ]);
 
   }
 

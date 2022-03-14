@@ -52,8 +52,11 @@ $info = $usuario->logado();
     $_SESSION['sucesso'] = '';
   }
   ?>
+  <!-- RENDERIZAÇÃO DA CALENDÁRIO -->
 
   <div id='calendar'></div>
+  <div id='calendarUser'></div>
+
 
   <!-- Modal Visualizar -->
   <div class="modal fade" id="visualizar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

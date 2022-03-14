@@ -1,65 +1,68 @@
-//FULL CALLENDAR
 document.addEventListener('DOMContentLoaded', function () {
-  var calendarEl = document.getElementById('calendar');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-
-    locale: 'pt-br',
-    initialView: 'dayGridMonth',
-    editable: true,
-    selectable: true,
-    dayMaxEvents: true,
-    buttonText: {
-      prev: 'Anterior',
-      next: 'Próximo',
-      today: 'Hoje',
-      month: 'Mês',
-      week: 'Semana',
-      day: 'Dia',
-      list: 'Lista',
-    },
-
-    //Buscando dados do banco de dados
-    events: {
-      url: 'http://localhost/psi-sicoob/src/views/pages/admin/eventos.php',
-      method: 'POST',
-    },
-
-    eventClick: function (info) {
-      info.jsEvent.preventDefault();
-      $('#visualizar #idagenda').text(info.event.id);
-      $('#visualizar #pac').text(info.event.paciente);
-      $('#visualizar #pac').text(info.event.extendedProps.pac);
-      $('#visualizar #psi').text(info.event.extendedProps.psi);
-      $('#visualizar #title').text(info.event.title);
-      $('#visualizar #start').text(info.event.start.toLocaleString());
-      $('#visualizar #end').text(info.event.end.toLocaleString());
-      $('#visualizar #status').text(info.event.extendedProps.status);
-      $('#visualizar #description').text(info.event.extendedProps.descricao);
-      $('#visualizar').modal('show');
-    },
-
-    select: function (info) {
-      // console.log(stardDate);
-
-      // $("#marcar_consulta #dataInicioA").val(stardDate.start.toLocaleDateString('pt-BR', {timeZone: 'UTC'}));
-      $("#marcar_consulta #inicio").val(info.start.toLocaleString());
-      $("#marcar_consulta #fim").val(info.start.toLocaleString());
-      // $("#marcar_consulta #dataFimA").val(info.end.toLocaleDateString('pt-BR', {timeZone: 'UTC'}));
-
-
-
-      $('#marcar_consulta').modal('show');
-
-    },
-
-
-
-  });
-
-  calendar.render();
-  calendar.updateSize()
+// function getCalendar(profile, div) {
+    // var calendarEl = document.getElementById('calendar');
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+  
+      locale: 'pt-br',
+      initialView: 'dayGridMonth',
+      editable: true,
+      selectable: true,
+      dayMaxEvents: true,
+      buttonText: {
+        prev: 'Anterior',
+        next: 'Próximo',
+        today: 'Hoje',
+        month: 'Mês',
+        week: 'Semana',
+        day: 'Dia',
+        list: 'Lista',
+      },
+  
+      //Buscando dados do banco de dados
+      events: {
+        url: 'http://localhost/psi-sicoob/src/views/pages/admin/eventos.php',
+        method: 'POST',
+      },
+  
+      eventClick: function (info) {
+        info.jsEvent.preventDefault();
+        $('#visualizar #idagenda').text(info.event.id);
+        $('#visualizar #pac').text(info.event.paciente);
+        $('#visualizar #pac').text(info.event.extendedProps.pac);
+        $('#visualizar #psi').text(info.event.extendedProps.psi);
+        $('#visualizar #title').text(info.event.title);
+        $('#visualizar #start').text(info.event.start.toLocaleString());
+        $('#visualizar #end').text(info.event.end.toLocaleString());
+        $('#visualizar #status').text(info.event.extendedProps.status);
+        $('#visualizar #description').text(info.event.extendedProps.descricao);
+        $('#visualizar').modal('show');
+      },
+     
+      select: function (info) {
+        // if(profile == "user") {
+        //   alert("Você não é administrador!");
+        // } else {
+          $("#marcar_consulta #inicio").val(info.start.toLocaleString());
+          $("#marcar_consulta #fim").val(info.start.toLocaleString());
+          $('#marcar_consulta').modal('show');
+        // }
+      },
+  
+    });
+  
+    calendar.render();
+    calendar.updateSize()
+    
+    // if(document.querySelector('#calendarUser')) {
+    //   getCalendar('user', '#calendarUser')
+    // } else {
+    //   getCalendar('admin', '#calendar');
+    // }
+  // }
 });
 
+//FULL CALLENDAR
 
 
 //Mascara para o campo data e hora
@@ -94,5 +97,3 @@ function DataHora(evento, objeto) {
     event.returnValue = false;
   }
 }
-
-
