@@ -1,4 +1,5 @@
 <?php
+
 use \src\models\USer;
 
 $usuario = new User();
@@ -45,11 +46,11 @@ $info = $usuario->logado();
 
   <!-- SESSÕES -->
   <?php
-    if(isset($_SESSION['sucesso'])) {
-      echo $_SESSION['sucesso'];
-      unset($_SESSION['sucesso']);
-      $_SESSION['sucesso'] = '';
-    }
+  if (isset($_SESSION['sucesso'])) {
+    echo $_SESSION['sucesso'];
+    unset($_SESSION['sucesso']);
+    $_SESSION['sucesso'] = '';
+  }
   ?>
 
   <div id='calendar'></div>
@@ -79,11 +80,13 @@ $info = $usuario->logado();
             <dd class="col-sm-9" id="end"></dd>
             <dt class="col-sm-3">Status da Consulta:</dt>
             <!-- <dd class="col-sm-9" id="status"></dd> -->
-            <select name="status" id="status">
-              <option></option>
-            </select>
+            <dd class="col-sm-9" id="status">
+              <select class="col-sm-3 form-control" name="status">
+                <option id="status"></option>
+              </select>
+            </dd>
             <dt class="col-sm-3">Descrição:</dt>
-            <dd class="col-sm-8" >
+            <dd class="col-sm-8">
               <textarea readonly class="form-control" id="description" name="descricao" cols="30" rows="10">
               </textarea>
             </dd>
@@ -133,20 +136,37 @@ $info = $usuario->logado();
               </select>
             </div>
 
-            <div class="form-group mb20" style="margin-bottom: 10px;">
-              <div class="row">
-                <div class="col">
-                  <label for="first-name">Início da consulta:</label>
-                  <input class="form-control col3" type="text" id="inicio" name="inicio" onkeypress="DataHora(event,this)">
+            <!-- DATA E HORA INICIAL -->
+            <div class="row">
+              <label class="col-lg-12 col-form-label" for="first-name">Início da consulta:</label>
+              <div class="col-lg-12">
+                <div class="input-group mb-3">
+                  <input autocomplete="off" aria-describedby="basic-addon1" class="form-control col3" type="text" id="inicio" name="inicio" onkeypress="DataHora(event,this)">
+                  <span class="input-group-text" id="basic-addon1">
+                    <i class="fa fa-calendar"></i>
+                  </span>
+                  <span class="input-group-text" id="basic-addon1">
+                    <i class="fa fa-clock"></i>
+                  </span>
                 </div>
-
-                <div class="col">
-                  <label for="first-name">Fim da consulta:</label>
-                  <input class="form-control col3" type="text" id="fim" name="final" onkeypress="DataHora(event,this)">
-                </div>
-
               </div>
             </div>
+            <!--DATA E HORA FINAL  -->
+            <div class="row">
+              <label class="col-lg-12 col-form-label" for="first-name">Fim da consulta:</label>
+              <div class="col-lg-12">
+                <div class="input-group mb-3">
+                  <input autocomplete="off" aria-describedby="basic-addon1" class="form-control col3" type="text" id="fim" name="fim" onkeypress="DataHora(event,this)">
+                  <span class="input-group-text" id="basic-addon1">
+                    <i class="fa fa-calendar"></i>
+                  </span>
+                  <span class="input-group-text" id="basic-addon1">
+                    <i class="fa fa-clock"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+
 
             <div class="form-group mb20">
               <label for="first-name">Detalhamento da consulta:</label>

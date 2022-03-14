@@ -92,18 +92,22 @@ class Appointment extends Model {
 
   public function converterData($data_inicio, $data_final) {
     $data_hora = array();
+
     //Convertendo a data e hora atual para formato americano, para cadastrar no banco de dados
     $dataInicio = str_replace('/', '-', $data_inicio);
     $dataHoraInicioConv = date('Y-m-d H:i:s', strtotime($dataInicio));
+    // $dataHoraInicioConv = date('Y-m-d', strtotime($dataInicio));
 
     $dataFinal = str_replace('/', '-', $data_final);
     $dataHoraFinalConv = date('Y-m-d H:i:s', strtotime($dataFinal));
+    // $dataHoraFinalConv = date('Y-m-d', strtotime($dataFinal));
 
     $data_hora = [
       "dataInicio" => $dataHoraInicioConv,
       "dataFinal" => $dataHoraFinalConv,
     ];
     return $data_hora;
+
   }
 
 
@@ -128,12 +132,17 @@ class Appointment extends Model {
   public function marcarConsulta() {
     require '../connnect.php';
 
+    // var_dump($_POST); die();
+
     $titulo = $_POST['titulo'];
     $inicio = $_POST['inicio'];
-    $final = $_POST['final'];
+    $final = $_POST['fim'];
+
     $psi = $_POST['psi'];
     $paciente = $_POST['paciente'];
     $descricao = $_POST['descricao'];
+
+    
     
     $data_horaConv = $this->converterData($inicio, $final);
    
@@ -143,13 +152,14 @@ class Appointment extends Model {
       $sql = $pdo->prepare("INSERT INTO 
         agendamentos 
           (title, id_psi, id_paciente, inicio, fim, status, descricao) 
-            VALUES (:titulo, :psi,:paciente, :inicio,:fim,'pendentes',:descricao)");
+            VALUES (:titulo, :psi,:paciente, :inicio, :fim,'pendentes',:descricao)");
 
       $sql->bindParam(':titulo', $titulo);
       $sql->bindParam(':psi', $psi);
       $sql->bindParam(':paciente', $paciente);
       $sql->bindParam(':inicio', $data_horaConv['dataInicio']);
       $sql->bindParam(':fim', $data_horaConv['dataFinal']);
+    
       $sql->bindParam(':descricao', $descricao);
       $sql->execute();
 

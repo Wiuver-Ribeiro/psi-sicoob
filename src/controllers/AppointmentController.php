@@ -28,7 +28,8 @@ clASs AppointmentController extends Controller {
 
   public function createAppointment() {
     $agendamento = new Appointment();
-    $agendamento->cadAStrarAgendamento();
+    // $agendamento->cadAStrarAgendamento();
+    $agendamento->marcarConsulta();
   }
 
   public function logout() {

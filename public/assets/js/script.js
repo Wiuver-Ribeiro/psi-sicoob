@@ -1,56 +1,64 @@
 //FULL CALLENDAR
-document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
+document.addEventListener('DOMContentLoaded', function () {
+  var calendarEl = document.getElementById('calendar');
+  var calendar = new FullCalendar.Calendar(calendarEl, {
 
-      locale: 'pt-br',
-      initialView: 'dayGridMonth',
-      editable: true,
-      selectable: true,
-      dayMaxEvents: true,
-      buttonText: {
-        prev: 'Anterior',
-        next: 'Próximo',
-        today: 'Hoje',
-        month: 'Mês',
-        week: 'Semana',
-        day: 'Dia',
-        list: 'Lista',
-      },
+    locale: 'pt-br',
+    initialView: 'dayGridMonth',
+    editable: true,
+    selectable: true,
+    dayMaxEvents: true,
+    buttonText: {
+      prev: 'Anterior',
+      next: 'Próximo',
+      today: 'Hoje',
+      month: 'Mês',
+      week: 'Semana',
+      day: 'Dia',
+      list: 'Lista',
+    },
 
-      //Buscando dados do banco de dados
-      events: {
-        url: 'http://localhost/psi-sicoob/src/views/pages/admin/eventos.php',
-        method: 'POST',
-      },
+    //Buscando dados do banco de dados
+    events: {
+      url: 'http://localhost/psi-sicoob/src/views/pages/admin/eventos.php',
+      method: 'POST',
+    },
 
-      eventClick: function(info) {
-        info.jsEvent.preventDefault();
-        $('#visualizar #idagenda').text(info.event.id);
-        $('#visualizar #pac').text(info.event.paciente);         
-        $('#visualizar #pac').text(info.event.extendedProps.pac);
-        $('#visualizar #psi').text(info.event.extendedProps.psi);
-        $('#visualizar #title').text(info.event.title);
-        $('#visualizar #start').text(info.event.started.toLocaleString());
-        $('#visualizar #end').text(info.event.started.toLocaleString());
-        $('#visualizar #status').text(info.event.status);
-        $('#visualizar #description').text(info.event.extendedProps.descricao);
-        $('#visualizar').modal('show');
-      },
+    eventClick: function (info) {
+      info.jsEvent.preventDefault();
+      $('#visualizar #idagenda').text(info.event.id);
+      $('#visualizar #pac').text(info.event.paciente);
+      $('#visualizar #pac').text(info.event.extendedProps.pac);
+      $('#visualizar #psi').text(info.event.extendedProps.psi);
+      $('#visualizar #title').text(info.event.title);
+      $('#visualizar #start').text(info.event.start.toLocaleString());
+      $('#visualizar #end').text(info.event.end.toLocaleString());
+      $('#visualizar #status').text(info.event.extendedProps.status);
+      $('#visualizar #description').text(info.event.extendedProps.descricao);
+      $('#visualizar').modal('show');
+    },
 
-      select: function(info) {
-        $('#marcar_consulta').modal('show');
-        $('#inicio').val(info.start.toLocaleString());
-        $('#fim').val(info.start.toLocaleString());
-      },
+    select: function (info) {
+      // console.log(stardDate);
+
+      // $("#marcar_consulta #dataInicioA").val(stardDate.start.toLocaleDateString('pt-BR', {timeZone: 'UTC'}));
+      $("#marcar_consulta #inicio").val(info.start.toLocaleString());
+      $("#marcar_consulta #fim").val(info.start.toLocaleString());
+      // $("#marcar_consulta #dataFimA").val(info.end.toLocaleDateString('pt-BR', {timeZone: 'UTC'}));
 
 
 
-    });
+      $('#marcar_consulta').modal('show');
 
-    calendar.render();
-    calendar.updateSize()
+    },
+
+
+
   });
+
+  calendar.render();
+  calendar.updateSize()
+});
 
 
 
@@ -59,7 +67,7 @@ function DataHora(evento, objeto) {
   var keypress = (window.event) ? event.keyCode : evento.which;
   campo = eval(objeto);
   if (campo.value == '00/00/0000 00:00:00') {
-      campo.value = "";
+    campo.value = "";
   }
 
   caracteres = '0123456789';
@@ -72,18 +80,18 @@ function DataHora(evento, objeto) {
   conjunto4 = 13;
   conjunto5 = 16;
   if ((caracteres.search(String.fromCharCode(keypress)) != -1) && campo.value.length < (19)) {
-      if (campo.value.length == conjunto1)
-          campo.value = campo.value + separacao1;
-      else if (campo.value.length == conjunto2)
-          campo.value = campo.value + separacao1;
-      else if (campo.value.length == conjunto3)
-          campo.value = campo.value + separacao2;
-      else if (campo.value.length == conjunto4)
-          campo.value = campo.value + separacao3;
-      else if (campo.value.length == conjunto5)
-          campo.value = campo.value + separacao3;
+    if (campo.value.length == conjunto1)
+      campo.value = campo.value + separacao1;
+    else if (campo.value.length == conjunto2)
+      campo.value = campo.value + separacao1;
+    else if (campo.value.length == conjunto3)
+      campo.value = campo.value + separacao2;
+    else if (campo.value.length == conjunto4)
+      campo.value = campo.value + separacao3;
+    else if (campo.value.length == conjunto5)
+      campo.value = campo.value + separacao3;
   } else {
-      event.returnValue = false;
+    event.returnValue = false;
   }
 }
 
