@@ -1,7 +1,8 @@
+function getCalendar(profile, div) {
 document.addEventListener('DOMContentLoaded', function () {
 // function getCalendar(profile, div) {
     // var calendarEl = document.getElementById('calendar');
-    var calendarEl = document.getElementById('calendar');
+    var calendarEl = document.getElementById(div);
     var calendar = new FullCalendar.Calendar(calendarEl, {
   
       locale: 'pt-br',
@@ -54,16 +55,24 @@ document.addEventListener('DOMContentLoaded', function () {
     calendar.render();
     calendar.updateSize()
     
-    // if(document.querySelector('#calendarUser')) {
-    //   getCalendar('user', '#calendarUser')
-    // } else {
-    //   getCalendar('admin', '#calendar');
-    // }
-  // }
-});
+    
+  });
+} //Fechamento da função getCalendar()
+
+
 
 //FULL CALLENDAR
+// function getCalendar(profile, div) {
+//   console.log(profile+" "+div);
+// }
+    if(document.querySelector('#calendarUser')) {
+      getCalendar('user', '#calendarUser')
+    } else {
+      getCalendar('admin', '#calendar');
+    }
+  
 
+// getCalendar('admin', '#calendar');
 
 //Mascara para o campo data e hora
 function DataHora(evento, objeto) {
