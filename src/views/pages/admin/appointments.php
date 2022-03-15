@@ -59,7 +59,7 @@ $infoData = $usuario->dadosLogado();
       echo "<script> renderCalendar('admin');</script>";
      echo " <div id='calendar'></div>";
     } else {
-      echo "<script> renderCalendar('user');</script>";
+      echo "<script> renderCalendar('user',{$infoData['idusuario']});</script>";
       echo " <div id='calendarUser'></div>";
 
     }
@@ -182,13 +182,14 @@ $infoData = $usuario->dadosLogado();
 
             <div class="row mb-3">
               <div class="col-lg-12">
-                <select name="" id="" class="form-control">
-                  <option>Quanto tempo deseja:</option>
-                  <option value="30">+ 30 Minutos</option>
-                  <option value="1">+ 01:30 Hora e Meia</option>
+                <label for="first-name">Quanto tempo deseja de atendimento:</label>
+                <select name="horasAtendimento" id="first-name" class="form-control">
+                  <option value="1">1h</option>
+                  <option value="2">2h</option>
+                  <option value="3">3h</option>
                 </select>
               </div>
-            </div>
+            
 
 
             <div class="form-group mb20">

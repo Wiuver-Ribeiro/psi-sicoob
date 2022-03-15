@@ -12,11 +12,15 @@ clASs AppointmentController extends Controller {
     $usuario = new User();
     $info = $usuario->dadosLogado();
 
+
     $psi = new Doctor();
     $paciente = new Patient();
+    $agendamento = new Appointment();
 
     $todosPaciente = $paciente->todosPacientes();
     $todosPSI = $psi->todosPsicologos();
+
+    // $minhasConsultas = $agendamento->minhasConsultas($info);
 
     if(!$usuario->logado ()) {
       $this->redirect('/signin');
@@ -29,6 +33,7 @@ clASs AppointmentController extends Controller {
       $this->render('/admin/appointments', [
         "psi" => $todosPSI,
         "paciente" => $todosPaciente,
+        
       ]);
     }
 

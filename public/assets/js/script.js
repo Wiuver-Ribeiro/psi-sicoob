@@ -1,9 +1,16 @@
-function renderCalendar(profile) {
+function renderCalendar(profile, id) {
+  // alert(id);
   document.addEventListener('DOMContentLoaded', function () {
+    //Verifica qual o perfil de usuário que está logado.
     if(profile == 'admin') {
       var calendarEl = document.getElementById('calendar');
+      var URL = 'http://localhost/psi-sicoob/src/views/pages/admin/eventos.php/'
+      var metodo = 'POST';
+
     } else if (profile == 'user'){
       var calendarEl = document.getElementById('calendarUser');
+      var URL = `http://localhost/psi-sicoob/src/views/pages/eventos.php?id=${id}`
+      var metodo = 'GET';
     }
   
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -14,14 +21,11 @@ function renderCalendar(profile) {
       headerToolbar: {
         left: 'prev,next, today',
         center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+        right: 'timeGridWeek,timeGridDay,listWeek'
       },
   
       buttonText: {
-        prev: 'Anterior',
-        next: 'Próximo',
         today: 'Hoje',
-        month: 'Mês',
         week: 'Semana',
         day: 'Dia',
         list: 'Lista',
@@ -34,8 +38,9 @@ function renderCalendar(profile) {
       dayMaxEvents: true, 
   
       events: {
-        url: 'http://localhost/psi-sicoob/src/views/pages/admin/eventos.php',
-        method: 'POST',
+        // url: 'http://localhost/psi-sicoob/src/views/pages/admin/eventos.php',
+        url: URL,
+        method: metodo,
       },
       
       //Método para visualizar
@@ -57,6 +62,9 @@ function renderCalendar(profile) {
          
                select: function (info) {
                  if(profile == 'admin') {
+                  //  if(info.view.type == "dayGridMonth") {
+                  // }
+                  // calendar.changeView('timeGrid');
                    $("#marcar_consulta #inicio").val(info.start.toLocaleString());
                    $("#marcar_consulta #fim").val(info.end.toLocaleString());
                    $('#marcar_consulta').modal('show');
