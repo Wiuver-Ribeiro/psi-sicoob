@@ -25,6 +25,31 @@ body {
   /* background-color: red; */
 }
 
+/* CALENDAR USER */
+
+#calendarUser {
+  width: calc(100% - 270px);
+  max-width: 1070px;
+  margin-top:2rem;
+  margin-bottom:2rem;
+  margin-left:350px;
+  font-family: "Poppins",sans-serif;
+}
+#calendarUser .fc-daygrid-day-frame .fc-scrollgrid-sync-inner {
+  padding:10px;
+}
+
+#calendarUser h2 {
+  text-transform:capitalize;
+}
+
+#calendarUser table thead  a, 
+#calendarUser table tbody  a {
+  text-decoration: none;
+  color: #000;
+  /* background-color: red; */
+}
+
 ul, ol{
   padding-left:0rem !important;
 }

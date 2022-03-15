@@ -4,7 +4,7 @@ use \src\models\USer;
 
 $usuario = new User();
 $info = $usuario->logado();
-
+$infoData = $usuario->dadosLogado();
 ?>
 
 <!DOCTYPE html>
@@ -54,8 +54,18 @@ $info = $usuario->logado();
   ?>
   <!-- RENDERIZAÇÃO DA CALENDÁRIO -->
 
-  <div id='calendar'></div>
-  <div id='calendarUser'></div>
+  <?php 
+    if($infoData['tipo'] == 'admin') {
+      echo "<script> renderCalendar('admin');</script>";
+     echo " <div id='calendar'></div>";
+    } else {
+      echo "<script> renderCalendar('user');</script>";
+      echo " <div id='calendarUser'></div>";
+
+    }
+  ?>
+
+
 
 
   <!-- Modal Visualizar -->
@@ -167,6 +177,16 @@ $info = $usuario->logado();
                     <i class="fa fa-clock"></i>
                   </span>
                 </div>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-lg-12">
+                <select name="" id="" class="form-control">
+                  <option>Quanto tempo deseja:</option>
+                  <option value="30">+ 30 Minutos</option>
+                  <option value="1">+ 01:30 Hora e Meia</option>
+                </select>
               </div>
             </div>
 

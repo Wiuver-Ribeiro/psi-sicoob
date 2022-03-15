@@ -20,13 +20,16 @@ clASs AppointmentController extends Controller {
 
     if(!$usuario->logado ()) {
       $this->redirect('/signin');
-    } else if ($info['tipo'] == 'admin') {
+    } else if ($usuario->logado() && $info['tipo'] == 'admin') {
       $this->render('/admin/appointments', [
         "psi" => $todosPSI,
         "paciente" => $todosPaciente,
       ]);
-    } else {
-      $this->render('/signin');
+    } else if($usuario->logado() && $info['tipo'] == 'psi'){
+      $this->render('/admin/appointments', [
+        "psi" => $todosPSI,
+        "paciente" => $todosPaciente,
+      ]);
     }
 
 
