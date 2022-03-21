@@ -1,30 +1,160 @@
 * {
-  margin: 0; 
-  padding: 0; 
-  box-sizing: border-box;
-   font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
-  body {
-   background: #F1F9FF;
-  }
 
-  .active {
+body {
+    background: #F1F9FF;
+}
+
+.active {
     background-color: green;
-  }
+}
 
-  ol, ul {
+ol,
+ul {
     padding-left: 0rem !important;
     padding-right: 0rem !important;
-  }
+}
 
-  .alert {
-    position:absolute;
+.alert {
+    position: absolute;
     top: 12%;
-    left:56%;
-  }
+    left: 56%;
+}
 
-  .alert.alert-danger {
-    position:absolute;
+.alert.alert-danger {
+    position: absolute;
     top: 15%;
-    left:50%;
-  }
+    left: 50%;
+}
+
+
+/* media queries */
+
+@media only screen and (min-width: 2560px) {
+    body {
+        font-size: 98.5% !important;
+    }
+    .content-appointment {
+        justify-content: space-evenly !important;
+        margin-top: 2rem;
+    }
+    .appointment-info {
+        width: 570px !important;
+        height: 200px !important;
+        align-items: center;
+    }
+    main .main-container {
+        height: 100vh;
+    }
+    .table-content {
+        max-width: 2000px !important;
+    }
+    /* Calendário */
+    #calendar {
+        max-width: 2150px !important;
+    }
+    .content-psi {
+        height: auto;
+    }
+    .grid-doctors .doctor-box {
+        height: 180px;
+    }
+    .main-container {
+        height: 100vh;
+    }
+    /* LOGIN */
+    .container {
+        width: 100%;
+        max-width: 70% !important;
+        height: 70% !important;
+    }
+    .box-image img {
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
+@media only screen and (min-width:1440px) {
+    main .main-container {
+        height: 100% !important;
+    }
+    main .content-appointment {
+        width: 100% !important;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+    main .content-appointment .appointment-info {
+        width: 350px !important;
+    }
+    .table-content {
+        width: 100%;
+        max-width: 1100px !important;
+    }
+    .default {
+        height: 100vh !important;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .container-header {
+        grid-template-columns: 4fr 1fr !important;
+        padding: 0 1rem;
+    }
+    .container-header .menu {
+        justify-content: space-between;
+        display: none !important;
+    }
+    .doctor img {
+        display: none;
+    }
+    main #principal {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        grid-template-columns: 1fr;
+        font-size: 75% !important;
+        text-align: center;
+    }
+    main #sobre h1 {
+        font-size: 2rem;
+    }
+    main #sobre img {
+        width: 90% !important;
+        height: 90% !important;
+    }
+    main .box-icones .box-icones-info img {
+        width: 100px!important;
+        height: 50% !important;
+    }
+    main section#servicos {
+        height: 100% !important;
+    }
+    main section .grid-items {
+        grid-template-rows: 3fr !important;
+        grid-template-areas: "doctor-img doctor-img doctor-img" "doctor-img doctor-img doctor-img" "pediatria doctor-img oftalmologista" "doctor-img doctor-img doctor-img" "doctor-img doctor-img doctor-img" "cardiologia doctor-img ortopedia" !important;
+    }
+    main section#servicos .informacoes-principais {
+        padding: 0 2rem;
+    }
+    main section#psi {
+        width: 100% !important;
+        max-width: 90% !important;
+    }
+    main section#psi h1 {
+        font-size: 2rem !important;
+    }
+    main section .grid-psi {
+        grid-template-columns: 1fr 1fr !important;
+        width: 100% !important;
+    }
+    main section .grid-psi .grid-psi-info img {
+        width: 70% !important;
+        height: 70% !important;
+        border-radius: 5% !important;
+        object-fit: cover !important;
+    }
+}

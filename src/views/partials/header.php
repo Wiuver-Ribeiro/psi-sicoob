@@ -19,7 +19,7 @@
     <div class="container-header">
       <div class="logo">
        <img src="<?php echo $base . '/assets/icons/logo-sicoob.png' ?>" alt="Logo PSI-Sicoob Centro-sul" width="30px" style="object-fit:contain">
-       Psi-Sicoob Centro-sul
+       <span>Psi-Sicoob Centro-sul</span>
        <!-- <i class="fas fa-bars"></i> -->
       </div>
       <nav class="menu">

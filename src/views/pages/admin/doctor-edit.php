@@ -35,7 +35,7 @@
             <!-- <div class="box-doctor"> -->
               <!-- </div> -->
               <img src="<?php echo $base.'/assets/icons/'.$psicologo['avatar']; ?>"  alt="" width="190px" height="190px" style="border-radius:50%">
-              <form action="<?php echo $base.'/doctors/edit/'.$psicologo['idusuario']; ?>" method="POST">
+              <form action="<?php echo $base.'/doctors/edit/'.$psicologo['idpsi']; ?>" method="POST">
  
              <div class="field-input">
              <input  class="form-control" type="file" name="avatar" >
