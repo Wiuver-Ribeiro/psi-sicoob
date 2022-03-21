@@ -7,12 +7,15 @@ class Doctor extends Model {
   //psicólogos
   public function todosPsicologos() {
     require '../connnect.php';
-
+    //Pega todos os dados
     $sql = $pdo->prepare("SELECT p.idpsi, u.nome, u.avatar, p.crp, p.especialidade
                   FROM usuarios as u INNER JOIN psi as p ON (u.idusuario = p.id_usuario) ");
     $sql->execute();
 
-    $dados  = $sql->fetchAll();
+    $dados  = $sql->fetchAll(\PDO::FETCH_ASSOC);
+    // echo "<pre>";
+    // print_r($dados);
+    // die();
     return $dados;
   }
 
@@ -57,12 +60,17 @@ class Doctor extends Model {
 
   public function busquePsicologoPorID($id) {
     require '../connnect.php';
+
+  
+
     $sql = $pdo->prepare("SELECT * FROM usuarios as u 
-      INNER JOIN psi as p ON (u.idusuario = p.id_usuario) WHERE id_usuario = :id");
+      INNER JOIN psi as p ON (u.idusuario = p.id_usuario) WHERE p.idpsi = :id");
+      // p.id_usario
     $sql->bindParam(':id',$id['id']);
     $sql->execute();
 
     $dados = $sql->fetch(\PDO::FETCH_ASSOC);
+    // print_r($dados); die();
     return $dados;
   }
 
@@ -76,7 +84,7 @@ class Doctor extends Model {
 
     if(empty($avatar)) {
       $sql = $pdo->prepare("UPDATE usuarios as u INNER JOIN  psi as p ON (u.idusuario = p.id_usuario)
-      SET u.nome = :nome, u.email =  :email, p.crp = :crp, p.especialidade = :especialidade, u.editado_em = now(), p.editado_em = now() WHERE idusuario = :idusuario");
+      SET u.nome = :nome, u.email =  :email, p.crp = :crp, p.especialidade = :especialidade, u.editado_em = now(), p.editado_em = now() WHERE psi.id_usuario = :idusuario");
       $sql->bindValue(':nome',$nome);
       $sql->bindValue(':email',$email);
       $sql->bindValue(':crp',$crp);

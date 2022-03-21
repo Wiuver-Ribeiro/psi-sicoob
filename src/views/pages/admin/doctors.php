@@ -4,6 +4,8 @@ use \src\models\USer;
 
 $usuario = new User();
 $info = $usuario->dadosLogado();
+// echo "<pre>";
+// print_r($psicologo); die();
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +50,7 @@ $info = $usuario->dadosLogado();
           <div class="grid-doctors">
           <!-- onclick="location.href='http://localhost/psi-sicoob/public/doctors/edit/ -->
             <?php foreach ($psicologo as $psicologos) : ?>
-              <div class="doctor-box" onclick="location.href='http://localhost/psi-sicoob/public/doctors/edit/<?php echo $psicologos['idusuario']; ?>'">
+              <div class="doctor-box" onclick="location.href='http://localhost/psi-sicoob/public/doctors/edit/<?php echo $psicologos['idpsi']; ?>'">
                 <img src="<?php echo $base . '/assets/icons/' . $psicologos['avatar']  ?>" alt="Avatar">
                 <div class="doctor-info">
                   <span> <?php echo $psicologos['nome']; ?></span>

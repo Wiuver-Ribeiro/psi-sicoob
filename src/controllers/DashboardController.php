@@ -22,6 +22,7 @@ class DashboardController extends Controller {
     $minhasConsultasPendentes = $agendamento->minhasConsultasPendentes($info);
     $minhasConsultasCanceladas = $agendamento->minhasConsultasCanceladas($info);
     $meusUltimosPacientes = $agendamento->meusUltimosPacientes($info);
+    
   if(!$usuario->logado ()) {
     $this->redirect('/signin');
 

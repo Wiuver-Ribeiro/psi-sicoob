@@ -32,6 +32,8 @@ class DoctorController extends Controller {
   }
 
   public function editDoctor($id) {
+
+  
         
     $usuario = new User();
     
@@ -41,6 +43,7 @@ class DoctorController extends Controller {
 
     $psicologo = new Doctor();
    $editPsicologo =  $psicologo->busquePsicologoPorID($id);
+  //  print_r($editPsicologo); die();
 
     $this->render('/admin/doctor-edit', [
       "psicologo" => $editPsicologo,
