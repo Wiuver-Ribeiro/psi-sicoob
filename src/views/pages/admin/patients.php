@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<?php
-  // print_r($todosPacientes); die();
-?>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +17,17 @@
 <body>
   <?php $render('navbar'); ?>
   <?php $render('sidebar'); ?>
+
+  <?php
+  // SESSÕES
+
+  if(isset($_SESSION['email'])) {
+    echo $_SESSION['email'];
+    unset($_SESSION['email']);
+    $_SESSION['email'] = '';
+  }
+  ?>
+
   <main class="main-container">
     <!-- <div class="main-container"> -->
       <div class="container-psi">
@@ -50,7 +58,7 @@
                   </td>
                   <td><?php echo $paciente['nome']; ?></td>
                   <td><?php echo $paciente['email']; ?></td>
-                  <td><a href='<?php echo $base."/patients/edit/".$paciente['idusuario'];?>'><i class="fas fa-user-edit"></i></a></td>
+                  <td><a href='<?php echo $base."/patients/edit/".$paciente['idpaciente'];?>'><i class="fas fa-user-edit"></i></a></td>
                 </tr>
                 <?php endforeach; ?>
               </tbody>

@@ -33,7 +33,7 @@
             <!-- <div class="box-doctor"> -->
               <img src="<?php echo $base.'/assets/icons/'.$paciente['avatar'];?>" alt="" width="190px" height="190px" style="border-radius:50%">
             <!-- </div> -->
-            <form action="<?php echo $base.'/patients/edit/'.$paciente['idusuario'];?>" method="POST">
+            <form action="<?php echo $base.'/patients/edit/'.$paciente['idpaciente'];?>" method="POST">
               <div class="field-input">
                 <label for="#avatar" style="color:#ccc;">Selecione um Avatar</label>
                 <input type="file" id="avatar"  name="avatar" accept="image/png, image/jpeg, image/jpg"   multiple>

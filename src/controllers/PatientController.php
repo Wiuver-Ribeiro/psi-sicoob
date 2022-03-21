@@ -48,6 +48,8 @@ class PatientController extends Controller {
   public function editarPaciente($id) {
     $paciente = new Patient();
     $editPaciente = $paciente->editarPaciente($id);
+    // print_r($editPaciente);
+    // die();
 
     if($editPaciente) {
       $this->redirect('/patients');

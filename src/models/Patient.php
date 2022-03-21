@@ -59,8 +59,11 @@ class Patient extends Model {
 
   public function busquePacientePorID($id) {
     require '../connnect.php';
-    $sql = $pdo->prepare("SELECT idusuario, nome, email, avatar FROM usuarios WHERE tipo ='paciente' AND idusuario = :id");
-    $sql->bindValue(':id', $id['id']);
+    $sql = $pdo->prepare("
+    SELECT p.idpaciente, nome, email, avatar 
+      FROM usuarios as u 
+          inner join pacientes as p on (u.idusuario = p.id_usuario) WHERE p.idpaciente = :idpaciente");
+    $sql->bindValue(':idpaciente', $id['id']);
     $sql->execute();
 
     $dados = $sql->fetch(\PDO::FETCH_ASSOC);
@@ -72,27 +75,32 @@ class Patient extends Model {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $avatar = $_POST['avatar'];
+    // echo "editando registro {$id['id']}"; die();
 
     if(empty($avatar)) {
-      $sql = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email, editado_em = now()
-        WHERE idusuario = :id");
+      $sql = $pdo->prepare("UPDATE usuarios AS u INNER JOIN pacientes AS p ON (u.idusuario = p.id_usuario)
+      SET u.nome = :nome, u.email = :email, p.editado_em = now() WHERE p.idpaciente = :id");
       $sql->bindValue(':nome', $nome);
       $sql->bindValue(':email', $email);
       $sql->bindValue(':id', $id['id']);
       $sql->execute();
+      
+    $_SESSION['email'] = "<div class='alert alert-danger' role='alert'> Usuário alterado com sucesso! </div>";
+    return true;
     }else {
-      $sql = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email, avatar = :avatar, editado_em = now()
-        WHERE idusuario = :id");
+      $sql = $pdo->prepare("UPDATE usuarios AS u INNER JOIN pacientes AS p ON (u.idusuario = p.id_usuario)
+        SET u.nome = :nome, u.email = :email, u.avatar = :avatar, p.editado_em = now() WHERE p.idpaciente = :id");
       $sql->bindValue(':nome', $nome);
       $sql->bindValue(':email', $email);
       $sql->bindValue(':avatar', $avatar);
       $sql->bindValue(':id', $id['id']);
       $sql->execute();
+      
+    $_SESSION['email'] = "<div class='alert alert-danger' role='alert'> Usuário alterado com sucesso! </div>";
+    return true;
     }
 
 
-    $_SESSION['email'] = "<div class='alert alert-danger' role='alert'> Usuário cadastrado com sucesso! </div>";
-    return true;
   }
 
   public function deletarPaciente() {
