@@ -104,4 +104,8 @@ clASs AppointmentController extends Controller {
       $this->redirect('/appointments');
     }
   }
+
+  public function editAppointment() {
+    echo "Editando detalhes da consulta...";
+  }
 }

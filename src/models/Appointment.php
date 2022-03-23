@@ -172,7 +172,6 @@ class Appointment extends Model {
   public function minhasConsultas($info) {
     require '../connnect.php';
 
-    // print_r($info['idusuario']); die();
     $sql = $pdo->prepare("SELECT 
     u.nome, 
     u.avatar, 
@@ -187,6 +186,10 @@ class Appointment extends Model {
     $sql->execute();
 
     $dados = $sql->fetchAll(\PDO::FETCH_ASSOC);
+    // $this->
+    // echo "<pre>";
+    // print_r($dados[0]['inicio']);
+    // die();
     return $dados;
 
   }
@@ -267,4 +270,8 @@ class Appointment extends Model {
     return $dados;
   }
 
+
+  public function editarConsulta() {
+    echo "Editando consulta...";
+  }
 }

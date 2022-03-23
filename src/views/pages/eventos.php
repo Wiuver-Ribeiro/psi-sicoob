@@ -19,7 +19,7 @@ $sql = $pdo->prepare(
         INNER JOIN  pacientes as pac ON (a.id_paciente = pac.idpaciente)
         INNER JOIN  usuarios as u1 ON (u1.idusuario = pac.id_usuario)
         INNER JOIN  psi as psi ON(a.id_psi = psi.idpsi)
-        INNER JOIN  usuarios as u2 ON (psi.id_usuario = u2.idusuario) WHERE a.status = 'pendentes' AND u2.idusuario = $id "
+        INNER JOIN  usuarios as u2 ON (psi.id_usuario = u2.idusuario) WHERE a.status = 'pendentes' AND  u2.idusuario = $id "
 );
 $sql->execute();
 // print_r($sql->fetch(\PDO::FETCH_ASSOC));

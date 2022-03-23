@@ -1,3 +1,16 @@
+tbody, td, tfoot, th, thead, tr {
+  background: #eee;
+}
+
+.fc .fc-timegrid-now-indicator-line {
+  border-style: solid;
+  border-color: #EEEEEE;
+}
+
+
+  .fc .fc-timegrid-now-indicator-arrow {
+    border-color: none;
+}
 
 #calendar {
   width: calc(100% - 270px);
@@ -6,6 +19,8 @@
   margin-bottom:2rem;
   margin-left:350px;
   font-family: "Poppins",sans-serif;
+  color: #fff;
+  border-radius: 8px;
   
 }
 #calendar .fc-daygrid-day-frame .fc-scrollgrid-sync-inner {
@@ -21,7 +36,11 @@
 #calendar table tbody  a {
   text-decoration: none;
   color: #000;
-  /* background-color: red; */
+}
+#calendarUser table thead  a, 
+#calendarUser table tbody  a {
+  text-decoration: none;
+  color: #000;
 }
 
 /* CALENDAR USER */
@@ -33,6 +52,7 @@
   margin-bottom:2rem;
   margin-left:350px;
   font-family: "Poppins",sans-serif;
+  color:#FFF;
 }
 #calendarUser .fc-daygrid-day-frame .fc-scrollgrid-sync-inner {
   padding:10px;

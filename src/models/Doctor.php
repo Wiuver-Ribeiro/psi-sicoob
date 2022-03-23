@@ -13,9 +13,7 @@ class Doctor extends Model {
     $sql->execute();
 
     $dados  = $sql->fetchAll(\PDO::FETCH_ASSOC);
-    // echo "<pre>";
-    // print_r($dados);
-    // die();
+
     return $dados;
   }
 
@@ -61,16 +59,13 @@ class Doctor extends Model {
   public function busquePsicologoPorID($id) {
     require '../connnect.php';
 
-  
-
     $sql = $pdo->prepare("SELECT * FROM usuarios as u 
       INNER JOIN psi as p ON (u.idusuario = p.id_usuario) WHERE p.idpsi = :id");
-      // p.id_usario
     $sql->bindParam(':id',$id['id']);
     $sql->execute();
 
     $dados = $sql->fetch(\PDO::FETCH_ASSOC);
-    // print_r($dados); die();
+    
     return $dados;
   }
 

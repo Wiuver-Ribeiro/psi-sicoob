@@ -55,6 +55,7 @@ function renderCalendar(profile, id) {
            $('#visualizar #end').text(info.event.end.toLocaleString());
            $('#visualizar #status').text(info.event.extendedProps.status);
            $('#visualizar #description').text(info.event.extendedProps.descricao);
+           $('#visualizar #description').val(info.event.extendedProps.descricao);
            $('#visualizar').modal('show');
          },
   
@@ -62,12 +63,11 @@ function renderCalendar(profile, id) {
          
                select: function (info) {
                  if(profile == 'admin') {
-                  //  if(info.view.type == "dayGridMonth") {
-                  // }
-                  // calendar.changeView('timeGrid');
                    $("#marcar_consulta #inicio").val(info.start.toLocaleString());
                    $("#marcar_consulta #fim").val(info.end.toLocaleString());
                    $('#marcar_consulta').modal('show');
+                 } else {
+                   alert("Você não pode marcar consultas!");
                  }
         },
     });

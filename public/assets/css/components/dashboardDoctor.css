@@ -1,3 +1,17 @@
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #b5b5b5;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(32,32,36);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #e1e1e1;  /* creates padding around scroll thumb */
+}
+
 main .main-container {
   display:grid;
   grid-template-columns: 1fr;
@@ -71,8 +85,12 @@ main .content-appointment .appointment-info .appointment-scheduled > span:last-c
     background: #131212;
     border:1px solid #29292e;
     border-radius: 8px;
-    overflow: hidden;
+    
+
+    overflow-y: scroll;
+
   }
+
 
 .container .leftside {
   width: 100%;
@@ -102,7 +120,15 @@ main .content-appointment .appointment-info .appointment-scheduled > span:last-c
 .container .leftside table {
   display: grid;
   padding: 20px 25px;
+  position: relative;
 
+}
+
+.container .leftside .title {
+  position: sticky;
+  top: 0;
+  z-index: 99;  
+  background-color: black;
 }
 .container .leftside table  thead tr,
   .container .leftside table  tbody tr {
@@ -111,12 +137,15 @@ main .content-appointment .appointment-info .appointment-scheduled > span:last-c
     justify-content:space-between;
     align-items: center;
     padding: 5px;
+    z-index: 1;
 }
 
 .container .leftside table  thead tr{
   width: 100%;
   color: #888;
   border-bottom: 1px solid #29292e;
+  /* position: fixed;
+  top: 0; */
 }
 
 .container .leftside table  tbody  tr {
@@ -124,7 +153,6 @@ main .content-appointment .appointment-info .appointment-scheduled > span:last-c
   margin: 10px 0;
   cursor: pointer;
 }
-
 /* Redimensionamento da imagem do avatar */
 .container .leftside table tbody tr td img{
   width: 40px;
@@ -192,4 +220,19 @@ main .content-appointment .appointment-info .appointment-scheduled > span:last-c
 
 .container .rightside .patient-container h6 {
   color: #888;
+}
+
+/* SPAN - TOTAL DE CONSULTAS */
+
+.container .leftside table tbody {
+  position: relative !important;
+}
+.consulta-total {
+  top: 80%;
+  left: 38%;
+  position:absolute;
+  background-color: rgb(32,32,36);
+  padding: 15px 20px;
+  border-radius: 5px;
+  color: #FFF;
 }

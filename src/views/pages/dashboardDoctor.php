@@ -8,7 +8,7 @@ use \src\models\Appointment;
 
 $usuario = new User();
 $info = $usuario->dadosLogado();
- $agendamento = new Appointment();
+$agendamento = new Appointment();
 ?>
 
 <head>
@@ -29,17 +29,8 @@ $info = $usuario->dadosLogado();
 
 
   <?php $render('navbar'); ?>
-  <?php $render('sidebar'); 
-  // echo "<pre>";
-  // var_dump([
-  //   'Pendentes:' => $pendentes['pendentes'],
-  //   'Marcados:' => $marcados['marcados'],
-  //   'Cancelados:' => $cancelados['cancelados'],
-  // ]);
-  // die();
+  <?php $render('sidebar');
 
-  // echo "<pre>";
-  //  var_dump($ultimosPacientes); die();
   ?>
   <main>
     <div class="main-container">
@@ -79,7 +70,7 @@ $info = $usuario->dadosLogado();
       <div class="container">
         <div class="leftside">
           <div class="title">
-          <h5>Próximos Atendimentos</h5>
+            <h5>Próximos Atendimentos</h5>
           </div>
           <table width="100%" cellspacing="0">
             <thead>
@@ -91,46 +82,54 @@ $info = $usuario->dadosLogado();
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($consultas as $consulta): ?>
-              <tr onclick="location.href=''">
-                <td class="overflow-word ">
-                  <img src="<?php echo $base."/assets/icons/".$consulta['avatar'];?>" alt="Avatar">
-                  <?php echo $consulta['nome']; ?>
-                </td>
-                <td><?php echo $consulta['inicio']; ?></td>
-                <?php 
-                if($consulta['status'] == 'pendente') {
-                 echo "<td class='pendente'>".$consulta['status']."</td>
-                  <td class='pendente'><div class='ball'></div></td>
-                  ";
-                } else if ($consulta['status'] == 'confirmados') {
-                  echo "<td class='confirmado'>".$consulta['status']."</td>
-                  <td class='confirmado'><div class='ball'></div></td>
-                  ";
-                }
-                ?>
-              </tr>
-                <?php endforeach; ?>
+  <?php
+
+  if(count($consultas) == 0) {
+     echo "<span class='consulta-total'>Sem consultas neste momentos</span>";
+  } else {
+
+  
+   foreach ($consultas as $consulta) : ?>
+    <tr onclick="location.href=''">
+      <td class="overflow-word ">
+        <img src="<?php echo $base . "/assets/icons/" . $consulta['avatar']; ?>" alt="Avatar">
+        <?php echo $consulta['nome']; ?>
+      </td>
+      <td><?php echo $consulta['inicio']; ?></td>
+      <?php
+      if ($consulta['status'] == 'pendentes') {
+        echo "<td class='pendente'>" . $consulta['status'] . "</td>
+      <td class='pendente'><div class='ball'></div></td>
+      ";
+      } else if ($consulta['status'] == 'confirmados') {
+        echo "<td class='confirmado'>" . $consulta['status'] . "</td>
+      <td class='confirmado'><div class='ball'></div></td>
+      ";
+      }
+      ?>
+    </tr>
+  <?php endforeach;} ?>
+  
 
             </tbody>
           </table>
         </div>
         <div class="rightside">
           <div class="title">
-          <h5>Últimas Consultas</h5>
+            <h5>Últimas Consultas</h5>
           </div>
           <div style="border-left:none;" class="title">
             <h6 style="color: #888">Paciente</h6>
-            <?php foreach ($ultimosPacientes as $pacientes): ?>
+            <?php foreach ($ultimosPacientes as $pacientes) : ?>
               <div class="patient-container">
-                <img src="<?php echo $base.'/assets/icons/'.$pacientes['avatar']; ?>" alt="Avatar">
+                <img src="<?php echo $base . '/assets/icons/' . $pacientes['avatar']; ?>" alt="Avatar">
                 <h6><?php echo $pacientes['nome']; ?></h6>
               </div>
-              <?php endforeach; ?>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>
-    <!--main-container-->
+      <!--main-container-->
   </main>
 </body>
 

@@ -77,6 +77,7 @@ $infoData = $usuario->dadosLogado();
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <form action="<?php echo $base."";?>">
           <dl class="row">
 
             <dt class="col-sm-3">ID Consulta</dt>
@@ -100,7 +101,7 @@ $infoData = $usuario->dadosLogado();
             </dd>
             <dt class="col-sm-3">Descrição:</dt>
             <dd class="col-sm-8">
-              <textarea readonly class="form-control" id="description" name="descricao" cols="30" rows="10">
+              <textarea class="form-control" id="description" name="descricao" cols="30" rows="10">
               </textarea>
             </dd>
           </dl>
@@ -121,6 +122,7 @@ $infoData = $usuario->dadosLogado();
             ?>
 
           </div>
+          </form>
         </div>
       </div>
     </div>
@@ -191,7 +193,8 @@ $infoData = $usuario->dadosLogado();
                   </div>
                 </div>
               </div>
-
+              <!-- Em análise adição de mais horas -->
+<!-- 
               <div class="row mb-3">
                 <div class="col-lg-12">
                   <label for="first-name">Quanto tempo deseja de atendimento:</label>
@@ -200,13 +203,13 @@ $infoData = $usuario->dadosLogado();
                     <option value="2">2h</option>
                     <option value="3">3h</option>
                   </select>
-                </div>
+                </div> -->
 
 
 
                 <div class="form-group mb20">
                   <label for="first-name">Detalhamento da consulta:</label>
-                  <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="5"></textarea>
+                  <textarea class="form-control" name="descricao"  id="descricao" cols="30" rows="5"></textarea>
                 </div>
 
               </div>
