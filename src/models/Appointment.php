@@ -271,7 +271,16 @@ class Appointment extends Model {
   }
 
 
-  public function editarConsulta() {
-    echo "Editando consulta...";
+  public function editarConsulta($id) {
+    require '../connnect.php';
+
+    $descricao = $_GET['descricao'];
+  
+    $sql = $pdo->prepare("UPDATE agendamentos SET descricao = ?, editado_em = now() WHERE idagendamentos = ?");
+    $sql->bindValue(1, $descricao);
+    $sql->bindValue(2, $id['id']);
+    $sql->execute();
+
+    return true;
   }
 }

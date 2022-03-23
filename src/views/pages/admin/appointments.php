@@ -56,6 +56,7 @@ $infoData = $usuario->dadosLogado();
     caso contrário ele só consegue visualizar os detalhes da consulta.
    -->
   <?php
+ 
   if ($infoData['tipo'] == 'admin') {
     echo "<script> renderCalendar('admin');</script>";
     echo " <div id='calendar'></div>";
@@ -77,51 +78,62 @@ $infoData = $usuario->dadosLogado();
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="<?php echo $base."";?>">
-          <dl class="row">
+          <form id="ideditar" >
+            <dl class="row">
 
-            <dt class="col-sm-3">ID Consulta</dt>
-            <dd class="col-sm-9" id="idagenda"></dd>
-            <dt class="col-sm-3">Paciente</dt>
-            <dd class="col-sm-9 pt-2 pb-2 bg-light bg-gradient" id="pac"></dd>
-            <dt class="col-sm-3">Psicólogo</dt>
-            <dd class="col-sm-9 pt-2 pb-2 bg-light bg-gradient" id="psi"></dd>
-            <dt class="col-sm-3">Consulta:</dt>
-            <dd class="col-sm-9" id="title"></dd>
-            <dt class="col-sm-3">Início da Consulta:</dt>
-            <dd class="col-sm-9" id="start"></dd>
-            <dt class="col-sm-3">Fim da Consulta:</dt>
-            <dd class="col-sm-9" id="end"></dd>
-            <dt class="col-sm-3">Status da Consulta:</dt>
-            <!-- <dd class="col-sm-9" id="status"></dd> -->
-            <dd class="col-sm-9" id="status">
-              <select class="col-sm-3 form-control" name="status">
-                <option id="status"></option>
-              </select>
-            </dd>
-            <dt class="col-sm-3">Descrição:</dt>
-            <dd class="col-sm-8">
-              <textarea class="form-control" id="description" name="descricao" cols="30" rows="10">
-              </textarea>
-            </dd>
-          </dl>
-          <div class=" d-flex column justify-content-between">
-            <button type='button' class='btn btn-danger' data-bs-dismiss='modal' id='close-modal'>Fechar</button>
-           
-           <!-- 
+              <dt class="col-sm-3">ID Consulta</dt>
+              <dd class="col-sm-9" id="idagenda"></dd>
+              <dt class="col-sm-3">Paciente</dt>
+              <dd class="col-sm-9 pt-2 pb-2 bg-light bg-gradient" id="pac"></dd>
+              <dt class="col-sm-3">Psicólogo</dt>
+              <dd class="col-sm-9 pt-2 pb-2 bg-light bg-gradient" id="psi"></dd>
+              <dt class="col-sm-3">Consulta:</dt>
+              <dd class="col-sm-9" id="title" name="title"></dd>
+              <dt class="col-sm-3">Início da Consulta:</dt>
+              <dd class="col-sm-9" id="start"></dd>
+              <dt class="col-sm-3">Fim da Consulta:</dt>
+              <dd class="col-sm-9" id="end"></dd>
+              <dt class="col-sm-3">Status da Consulta:</dt>
+              <!-- <dd class="col-sm-9" id="status"></dd> -->
+              <dd class="col-sm-9" >
+                <select class="col-sm-3 form-control" name="status">
+                  <option></option>
+                  <option>Confirmada</option>
+                  <option>Finalizada</option>
+                  <option>Marcada</option>
+                </select>
+              </dd>
+              <dt class="col-sm-3">Descrição:</dt>
+              <dd class="col-sm-8">
+                <!--  -->
+                <?php
+                if ($infoData['tipo'] == 'admin') {
+                  echo "<textarea class='form-control' id='description' name='descricao' cols='30' rows='10'>
+                </textarea>";
+                } else {
+                  echo "<textarea readonly class='form-control' id='description' name='descricao' cols='30' rows='10'>
+                </textarea>";
+                }
+                ?>
+              </dd>
+            </dl>
+            <div class=" d-flex column justify-content-between">
+              <button type='button' class='btn btn-danger' data-bs-dismiss='modal' id='close-modal'>Fechar</button>
+
+              <!-- 
              Se o tipo for administrador, ele consegue alterar os dados da consulta
             -->
-           <?php
-            if ($infoData['tipo'] == 'admin') {
-              echo "
-          <button class='btn btn-success'>Salvar Alterações</button>
+              <?php
+              if ($infoData['tipo'] == 'admin') {
+                echo "
+          <button type='submit' class='btn btn-success'>Salvar Alterações</button>
         </div>";
-            } else {
-              echo "";
-            }
-            ?>
+              } else {
+                echo "";
+              }
+              ?>
 
-          </div>
+            </div>
           </form>
         </div>
       </div>
@@ -194,7 +206,7 @@ $infoData = $usuario->dadosLogado();
                 </div>
               </div>
               <!-- Em análise adição de mais horas -->
-<!-- 
+              <!-- 
               <div class="row mb-3">
                 <div class="col-lg-12">
                   <label for="first-name">Quanto tempo deseja de atendimento:</label>
@@ -207,23 +219,23 @@ $infoData = $usuario->dadosLogado();
 
 
 
-                <div class="form-group mb20">
-                  <label for="first-name">Detalhamento da consulta:</label>
-                  <textarea class="form-control" name="descricao"  id="descricao" cols="30" rows="5"></textarea>
-                </div>
-
+              <div class="form-group mb20">
+                <label for="first-name">Detalhamento da consulta:</label>
+                <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="5"></textarea>
               </div>
 
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="submi" class="btn btn-success">Agendar Consulta</button>
-              </div>
-            </form>
           </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="submi" class="btn btn-success">Agendar Consulta</button>
+          </div>
+          </form>
         </div>
       </div>
+    </div>
 
-      <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>
 
 </body>
 

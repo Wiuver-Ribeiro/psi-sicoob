@@ -105,7 +105,17 @@ clASs AppointmentController extends Controller {
     }
   }
 
-  public function editAppointment() {
-    echo "Editando detalhes da consulta...";
+  public function editAppointment($id) {
+    require '../connnect.php';
+    $agendamento = new Appointment();
+    $agendamentoEditar = $agendamento->editarConsulta($id);
+
+    if($agendamentoEditar ) {
+      $_SESSION['sucesso'] =  "<div clASs='alert alert-success' role='alert' style='position:absolute; left:50%;top:30%;z-index:999;'>Consulta alterada com sucesso!</div>";
+      $this->redirect('/appointments');
+    } else {
+      $_SESSION['sucesso'] =  "<div clASs='alert alert-danger' role='alert' style='position:absolute; left:50%;top:20%;z-index:999;'>Erro ao editar detalhes da consulta!</div>";
+      $this->redirect('/appointments');
+    }
   }
 }

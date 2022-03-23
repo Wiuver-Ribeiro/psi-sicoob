@@ -47,7 +47,12 @@ function renderCalendar(profile, id) {
              eventClick: function (info) {
            info.jsEvent.preventDefault();
            $('#visualizar #idagenda').text(info.event.id);
-           $('#visualizar #pac').text(info.event.paciente);
+         
+          //  $('#visualizar #ideditar').text(info.event.id);
+          
+        document.getElementById('ideditar').action = 'http://localhost/psi-sicoob/public/appointments/edit/'+ info.event.id;;
+          
+        $('#visualizar #pac').text(info.event.paciente);
            $('#visualizar #pac').text(info.event.extendedProps.pac);
            $('#visualizar #psi').text(info.event.extendedProps.psi);
            $('#visualizar #title').text(info.event.title);
@@ -55,7 +60,6 @@ function renderCalendar(profile, id) {
            $('#visualizar #end').text(info.event.end.toLocaleString());
            $('#visualizar #status').text(info.event.extendedProps.status);
            $('#visualizar #description').text(info.event.extendedProps.descricao);
-           $('#visualizar #description').val(info.event.extendedProps.descricao);
            $('#visualizar').modal('show');
          },
   
