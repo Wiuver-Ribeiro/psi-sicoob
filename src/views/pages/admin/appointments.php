@@ -56,7 +56,7 @@ $infoData = $usuario->dadosLogado();
     caso contrário ele só consegue visualizar os detalhes da consulta.
    -->
   <?php
- 
+
   if ($infoData['tipo'] == 'admin') {
     echo "<script> renderCalendar('admin');</script>";
     echo " <div id='calendar'></div>";
@@ -78,7 +78,7 @@ $infoData = $usuario->dadosLogado();
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="ideditar" >
+          <form id="ideditar">
             <dl class="row">
 
               <dt class="col-sm-3">ID Consulta</dt>
@@ -87,35 +87,40 @@ $infoData = $usuario->dadosLogado();
               <dd class="col-sm-9 pt-2 pb-2 bg-light bg-gradient" id="pac"></dd>
               <dt class="col-sm-3">Psicólogo</dt>
               <dd class="col-sm-9 pt-2 pb-2 bg-light bg-gradient" id="psi"></dd>
-              <dt class="col-sm-3">Consulta:</dt>
-              <dd class="col-sm-9" id="title" name="title"></dd>
-              <dt class="col-sm-3">Início da Consulta:</dt>
-              <dd class="col-sm-9" id="start"></dd>
-              <dt class="col-sm-3">Fim da Consulta:</dt>
-              <dd class="col-sm-9" id="end"></dd>
-              <dt class="col-sm-3">Status da Consulta:</dt>
-              <!-- <dd class="col-sm-9" id="status"></dd> -->
-              <dd class="col-sm-9" >
-                <select class="col-sm-3 form-control" name="status">
-                  <option></option>
-                  <option>Confirmada</option>
-                  <option>Finalizada</option>
-                  <option>Marcada</option>
-                </select>
-              </dd>
-              <dt class="col-sm-3">Descrição:</dt>
-              <dd class="col-sm-8">
-                <!--  -->
-                <?php
-                if ($infoData['tipo'] == 'admin') {
-                  echo "<textarea class='form-control' id='description' name='descricao' cols='30' rows='10'>
+              
+              <div class="mb-3 row">
+                <label for="title" class="col-sm-3 col-form-label"><b>Título:</b></label>
+                <div class="col-sm-9">
+                  <input type="text" id="title" class="form-control">
+                </div>
+
+                <dt class="col-sm-3">Início da Consulta:</dt>
+                <dd class="col-sm-9" id="start"></dd>
+                <dt class="col-sm-3">Fim da Consulta:</dt>
+                <dd class="col-sm-9" id="end"></dd>
+                <dt class="col-sm-3">Status da Consulta:</dt>
+                <!-- <dd class="col-sm-9" id="status"></dd> -->
+                <dd class="col-sm-9">
+                  <select class="col-sm-3 form-select" name="status">
+                    <option id="status"></option>
+                    <option value="confirmados">Confirmada</option>
+                    <option value="encerrados">Finalizada</option>
+                    <option value="marcados">Marcada</option>
+                  </select>
+                </dd>
+                <dt class="col-sm-3">Descrição:</dt>
+                <dd class="col-sm-8">
+                  <!--  -->
+                  <?php
+                  if ($infoData['tipo'] == 'admin') {
+                    echo "<textarea class='form-control' id='description' name='descricao' cols='30' rows='10'>
                 </textarea>";
-                } else {
-                  echo "<textarea readonly class='form-control' id='description' name='descricao' cols='30' rows='10'>
+                  } else {
+                    echo "<textarea readonly class='form-control' id='description' name='descricao' cols='30' rows='10'>
                 </textarea>";
-                }
-                ?>
-              </dd>
+                  }
+                  ?>
+                </dd>
             </dl>
             <div class=" d-flex column justify-content-between">
               <button type='button' class='btn btn-danger' data-bs-dismiss='modal' id='close-modal'>Fechar</button>
