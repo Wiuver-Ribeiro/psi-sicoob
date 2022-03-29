@@ -52,7 +52,7 @@ $info = $usuario->dadosLogado();
   <div class="container bg-dark">
     <div class="row justify-content-evenly align-items-center mt-5">
 
-      <div class="col-sm-3 col-md-2 col-lg-3 bg-secondary rounded p-4">
+      <div class="col-sm-3 col-md col-lg-3 bg-secondary rounded p-4">
         <div class="row justify-content-between">
           <div class="col">
             <img class="img-fluid" style="max-width: 60%" src="<?php echo $base . '/assets/icons/calendar-day-solid.svg'; ?>" alt="">
@@ -65,7 +65,7 @@ $info = $usuario->dadosLogado();
         </div>
       </div>
       <!--coluna 01 -->
-      <div class="col-sm-3 col-md-2 col-lg-3 bg-success rounded p-4">
+      <div class="col-sm-3 col-md col-lg-3 bg-success rounded p-4">
         <div class="row justify-content-between">
           <div class="col">
             <img class="img-fluid " style="max-width: 70%;" src="<?php echo $base . '/assets/icons/calendar-check-solid.svg'; ?>" alt="">
@@ -77,7 +77,7 @@ $info = $usuario->dadosLogado();
         </div>
       </div>
       <!--coluna 01 -->
-      <div class="col-sm-3 col-md-2 col-lg-3 bg-danger rounded p-4">
+      <div class="col-sm-3 col-md col-lg-3 bg-danger rounded p-4">
         <div class="row justify-content-between">
           <div class="col">
             <img class="img-fluid" style="max-width: 70%" src="<?php echo $base . '/assets/icons/clock-solid.svg'; ?>" alt="">
