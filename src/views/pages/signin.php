@@ -36,7 +36,7 @@
       <img style="max-width:100%" src="<?php echo $base . '/assets/pictures/calendar.png'; ?>" alt="">
     </div>
     <div class="col row justify-content-center align-items-center" style="background-color:#fff;">
-      <form action="">
+      <form method="POST" action="<?php echo $base.'/signin';?>">
 
         <h1 class="text-center ">Login</h1>
 
@@ -51,7 +51,7 @@
 
         <button class="btn btn-success ">Login</button>
           <div class="row text-center mt-3">
-          <span>Não possui conta ? <a href="" class="text-dark"><strong>Registre-se</strong></a> </span> 
+          <span>Não possui conta ? <a href="<?php echo $base.'/signup';?>" class="text-dark"><strong>Registre-se</strong></a> </span> 
           </div>
       </form>
     </div>
