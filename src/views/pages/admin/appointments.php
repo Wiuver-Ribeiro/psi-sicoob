@@ -104,7 +104,7 @@ $infoData = $usuario->dadosLogado();
                   <select class="col-sm-3 form-select" name="status">
                     <option id="status"></option>
                     <option value="confirmados">Confirmada</option>
-                    <option value="encerrados">Finalizada</option>
+                    <option value="encerrados">Consulta  finalizada</option>
                     <option value="marcados">Marcada</option>
                   </select>
                 </dd>

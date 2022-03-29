@@ -8,60 +8,77 @@
   <link rel="shortcut icon" href="<?php echo $base . '/assets/icons/scs.ico'; ?>" type="image/x-icon" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/reset.css' ?>" />
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/signup.css' ?>" />
-  <title>PSI | Registrar</title>
+  <title>PSI | Login</title>
 </head>
+<style>
+  body {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh !important;
+  }
+
+  .container {
+    width: 100% !important;
+    max-width: 800px;
+    padding: 0 !important;
+    margin: 0 auto;
+  }
+
+  .background-img {
+    background: linear-gradient(-135deg, #1de9b6 0%, #1dc4e9 100%) !important;
+  }
+</style>
 
 <body>
-  <main>
-    <div class="container">
-
-      <div class="box-image">
-        <img src="<?php echo $base . '/assets/pictures/doctors3.png'; ?>" alt="" width="400px" height="400px">
-      </div>
-      <div class="box-form">
-        <h1>Registrar</h1>
-        <!-- SESSÕES -->
-        <?php 
-          if(isset($_SESSION['email'])) {
-            echo $_SESSION['email'];
-            unset($_SESSION['email']);
-          }
-        ?>
-        <form method="POST" action="<?php echo $base.'/signup';?>">
-        
-          <div class="form-group">
-            <label for="avatar">Enviar avatar</label>
-            <input type="file" name="avatar" id="avatar" placeholder="Avatar" autocomplete="off">
-          </div>
-          <div class="form-group">
-            <input type="text" name="nome" placeholder="Nome" autocomplete="off">
-          </div>
-          <div class="form-group">
-            <input type="text" name="email" placeholder="E-mail" autocomplete="off">
-          </div>
-          <div class="form-group">
-            <input type="password" name="senha" placeholder="Senha" autocomplete="off">
-          </div>
-          <div class="form-group">
-            <input type="password" name="confirmSenha" placeholder="Confirmar senha" autocomplete="off">
-          </div>
-
-            <div class="form-group">
-            <button type="submit">Registrar</button>
-          </div>
-          <div class="form-group">
-            <span>
-              já tem uma conta? Faça
-              <a href="<?php echo $base.'/signin';?>">Login</a>
-            </span>
-          </div>
-        </form>
-      </div>
+  <div class="container border rounded row  ">
+    <div class="col background-img">
+      <img style="max-width:100%" src="<?php echo $base . '/assets/pictures/doctors3.png'; ?>" alt="">
     </div>
-  </main>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <div class="col row justify-content-center align-items-center" style="background-color:#fff;">
+      <form method="POST" action="<?php echo $base . '/signin'; ?>">
 
+        <h1 class="text-center h2 mt-3">Registre-se</h1>
+
+        <?php
+        if (isset($_SESSION['erro'])) {
+          echo $_SESSION['erro'];
+          unset($_SESSION['erro']);
+        }
+        if (isset($_SESSION['restrita'])) {
+          echo $_SESSION['restrita'];
+          $_SESSION['restrita'] = '';
+          unset($_SESSION['restrita']);
+        }
+        ?>
+
+
+        <div class="form-floating mb-3">
+          <input type="file" class="form-control form-control-sm" id="floatingInput" name="avatar" autocomplete="off" placeholder="name@example.com">
+          <label for="floatingInput">Avatar</label>
+        </div>
+        <div class="form-floating  mb-3">
+          <input type="text" class="form-control form-control-sm" id="floatingInput" name="nome" autocomplete="off" placeholder="name@example.com">
+          <label for="floatingInput">Nome Completo</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control form-control-sm" id="floatingInput" name="email" autocomplete="off" placeholder="name@example.com">
+          <label for="floatingInput">E-mail</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control form-control-sm" id="floatingInput" name="senha" autocomplete="off" placeholder="name@example.com">
+          <label for="floatingInput">Senha</label>
+        </div>
+
+        <button type="submit" class="btn btn-success form-control ">Registrar</button>
+        <div class="row text-center mt-3 mb-3">
+          <span>Já tem uma conta? Faça <a href="<?php echo $base . '/signin'; ?>" class="text-dark"><strong>Login</strong></a> </span>
+        </div>
+      </form>
+    </div>
+
+  </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </html>
