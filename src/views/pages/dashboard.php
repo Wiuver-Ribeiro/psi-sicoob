@@ -59,8 +59,8 @@ $info = $usuario->dadosLogado();
 
           </div>
           <div class="row col text-right">
+            <span class="text-light fs-2"><?php echo $pendentes['pendentes']; ?></span>
             <span class="text-light fs-4">Próximos</span>
-            <span class="text-light fs-4">20</span>
           </div>
         </div>
       </div>
@@ -70,9 +70,9 @@ $info = $usuario->dadosLogado();
           <div class="col">
             <img class="img-fluid " style="max-width: 70%;" src="<?php echo $base . '/assets/icons/calendar-check-solid.svg'; ?>" alt="">
           </div>
-          <div class="row col text-right">
+          <div class="row col ">
+            <span class="text-light fs-2"><?php echo $marcados['marcados']; ?></span>
             <span class="text-light fs-4">Confirmados</span>
-            <span class="text-light fs-4">20</span>
           </div>
         </div>
       </div>
@@ -83,8 +83,8 @@ $info = $usuario->dadosLogado();
             <img class="img-fluid" style="max-width: 70%" src="<?php echo $base . '/assets/icons/clock-solid.svg'; ?>" alt="">
           </div>
           <div class="row col text-right">
+            <span class="text-light fs-2"><?php echo $cancelados['cancelados']; ?></span>
             <span class="text-light fs-4">Cancelados</span>
-            <span class="text-light fs-4">20</span>
           </div>
         </div>
       </div>
@@ -106,8 +106,10 @@ $info = $usuario->dadosLogado();
 
         <tbody>
           <?php
+
           if (empty($agendamento)) {
-            echo "<span class='sem-consulta'>Sem consultas pendentes no momento!</span>";
+
+            echo " <div class='alert alert-secondary' role='alert' style='position:absolute; top:60%; left:45%;'>Sem consultas pendentes no momento!</div>";
           } else {
             foreach ($agendamento as $agendamentos) : ?>
               <tr>

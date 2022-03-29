@@ -24,18 +24,7 @@
       <div class="box-form">
          
                        <!-- SESSÕES -->
-        <?php 
-          if(isset($_SESSION['erro'])) {
-            echo $_SESSION['erro'];
-            unset($_SESSION['erro']);
-          }
-          if(isset($_SESSION['restrita'])) {
-            echo $_SESSION['restrita'];
-            $_SESSION['restrita'] = '';
-            unset($_SESSION['restrita']);
-          } 
-        ?>
-        
+
 
         <h1>Login</h1>
 

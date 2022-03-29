@@ -36,23 +36,36 @@
       <img style="max-width:100%" src="<?php echo $base . '/assets/pictures/calendar.png'; ?>" alt="">
     </div>
     <div class="col row justify-content-center align-items-center" style="background-color:#fff;">
-      <form method="POST" action="<?php echo $base.'/signin';?>">
+      <form method="POST" action="<?php echo $base . '/signin'; ?>">
 
         <h1 class="text-center ">Login</h1>
 
+        <?php
+        if (isset($_SESSION['erro'])) {
+          echo $_SESSION['erro'];
+          unset($_SESSION['erro']);
+        }
+        if (isset($_SESSION['restrita'])) {
+          echo $_SESSION['restrita'];
+          $_SESSION['restrita'] = '';
+          unset($_SESSION['restrita']);
+        }
+        ?>
+
+
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input type="email" class="form-control" id="floatingInput" name="email" autocomplete="off" placeholder="name@example.com">
           <label for="floatingInput">E-mail</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="password" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input type="password" class="form-control" id="floatingInput" name="senha" autocomplete="off" placeholder="name@example.com">
           <label for="floatingInput">Senha</label>
         </div>
 
-        <button class="btn btn-success ">Login</button>
-          <div class="row text-center mt-3">
-          <span>Não possui conta ? <a href="<?php echo $base.'/signup';?>" class="text-dark"><strong>Registre-se</strong></a> </span> 
-          </div>
+        <button type="submit" class="btn btn-success form-control ">Login</button>
+        <div class="row text-center mt-3">
+          <span>Não possui conta ? <a href="<?php echo $base . '/signup'; ?>" class="text-dark"><strong>Registre-se</strong></a> </span>
+        </div>
       </form>
     </div>
 
