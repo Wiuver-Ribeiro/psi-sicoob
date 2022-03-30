@@ -118,4 +118,11 @@ clASs AppointmentController extends Controller {
       $this->redirect('/appointments');
     }
   }
+
+  public function finishAppointment() {
+    require '../connnect.php';
+    $agendamento = new Appointment();
+    $agendamento->encerrarConsulta();
+
+  }
 }

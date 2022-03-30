@@ -87,7 +87,7 @@ $infoData = $usuario->dadosLogado();
               <dd class="col-sm-9 pt-2 pb-2 bg-light bg-gradient" id="pac"></dd>
               <dt class="col-sm-3">Psicólogo</dt>
               <dd class="col-sm-9 pt-2 pb-2 bg-light bg-gradient" id="psi"></dd>
-              
+
               <div class="mb-3 row">
                 <label for="title" class="col-sm-3 col-form-label"><b>Título:</b></label>
                 <div class="col-sm-9">
@@ -104,7 +104,7 @@ $infoData = $usuario->dadosLogado();
                   <select class="col-sm-3 form-select" name="status">
                     <option id="status"></option>
                     <option value="confirmados">Confirmada</option>
-                    <option value="encerrados">Consulta  finalizada</option>
+                    <option value="encerrados">Consulta finalizada</option>
                     <option value="marcados">Marcada</option>
                   </select>
                 </dd>

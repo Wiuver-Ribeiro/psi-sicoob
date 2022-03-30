@@ -14,7 +14,7 @@ class Appointment extends Model {
         INNER JOIN  pacientes as pac ON (a.id_paciente = pac.idpaciente)
         INNER JOIN  usuarios as u1 ON (u1.idusuario = pac.id_usuario)
         INNER JOIN  psi as psi ON(a.id_psi = psi.idpsi)
-        INNER JOIN  usuarios as u2 ON (psi.id_usuario = u2.idusuario) where  a.status = 'pendentes' ");
+        INNER JOIN  usuarios as u2 ON (psi.id_usuario = u2.idusuario) where  a.status = 'pendentes' AND a.status = 'confirmados' ");
     $sql->execute();
 
     $dados = $sql->fetchAll(\PDO::FETCH_ASSOC);
@@ -176,7 +176,8 @@ class Appointment extends Model {
     u.nome, 
     u.avatar, 
     a.inicio, 
-    a.status
+    a.status,
+    a.idagendamentos
     FROM usuarios AS u INNER JOIN pacientes AS p ON (u.idusuario = p.id_usuario)
                        INNER JOIN agendamentos AS a ON (a.id_paciente = p.idpaciente) 
                        INNER JOIN psi AS ps ON (ps.idpsi = a.id_psi) 
@@ -282,5 +283,9 @@ class Appointment extends Model {
     $sql->execute();
 
     return true;
+  }
+
+  public function encerrarConsulta() {
+    echo "encerrando consulta.";
   }
 }

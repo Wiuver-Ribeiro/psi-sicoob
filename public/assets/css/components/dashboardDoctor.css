@@ -200,6 +200,7 @@ main .content-appointment .appointment-info .appointment-scheduled > span:last-c
   height: 10px;
   border-radius: 50%;
   background-color: #f00;
+  margin-left: 1rem !important;
 }
 
 

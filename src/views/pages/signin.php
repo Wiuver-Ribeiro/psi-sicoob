@@ -54,11 +54,11 @@
 
 
         <div class="form-floating mb-3">
-          <input type="email" class="form-control form-control-sm" id="floatingInput" name="email" autocomplete="off" placeholder="name@example.com">
+          <input style="height:50px;" type="email" class="form-control form-control-sm" id="floatingInput" name="email" autocomplete="off" placeholder="name@example.com">
           <label for="floatingInput">E-mail</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="password" class="form-control form-control-sm" id="floatingInput" name="senha" autocomplete="off" placeholder="name@example.com">
+          <input style="height:50px;" type="password" class="form-control form-control-sm" id="floatingInput" name="senha" autocomplete="off" placeholder="name@example.com">
           <label for="floatingInput">Senha</label>
         </div>
 

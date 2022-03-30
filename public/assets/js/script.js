@@ -79,3 +79,4 @@ function renderCalendar(profile, id) {
     calendar.render();
   })
 }
+

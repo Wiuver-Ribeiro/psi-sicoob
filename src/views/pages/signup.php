@@ -54,19 +54,19 @@
 
 
         <div class="form-floating mb-3">
-          <input type="file" class="form-control form-control-sm" id="floatingInput" name="avatar" autocomplete="off" placeholder="name@example.com">
+          <input style="height:50px;" type="file" class="form-control form-control-sm" id="floatingInput" name="avatar" autocomplete="off" placeholder="name@example.com">
           <label for="floatingInput">Avatar</label>
         </div>
         <div class="form-floating  mb-3">
-          <input type="text" class="form-control form-control-sm" id="floatingInput" name="nome" autocomplete="off" placeholder="name@example.com">
+          <input style="height:50px;" type="text" class="form-control form-control-sm" id="floatingInput" name="nome" autocomplete="off" placeholder="name@example.com">
           <label for="floatingInput">Nome Completo</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="email" class="form-control form-control-sm" id="floatingInput" name="email" autocomplete="off" placeholder="name@example.com">
+          <input style="height:50px;" type="email" class="form-control form-control-sm" id="floatingInput" name="email" autocomplete="off" placeholder="name@example.com">
           <label for="floatingInput">E-mail</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="password" class="form-control form-control-sm" id="floatingInput" name="senha" autocomplete="off" placeholder="name@example.com">
+          <input style="height:50px;" type="password" class="form-control form-control-sm" id="floatingInput" name="senha" autocomplete="off" placeholder="name@example.com">
           <label for="floatingInput">Senha</label>
         </div>
 
