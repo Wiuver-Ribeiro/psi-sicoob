@@ -59,6 +59,7 @@
           <div class="col d-flex justify-content-center align-items-center">
             <img class="img-fluid bg-primary rounded-circle border border-secondary" src="<?php echo $base . '/assets/icons/default.png'; ?>" alt="Avatar default" style="width:15%">
           </div>
+          <form  action="<?php echo $base.'/admins/create';?>" method="POST">
           <div class="row mb-3">
             <label for="avatar">Selecione um Avatar:</label>
             <input type="file" class="form-control " id="avatar" name="avatar" placeholder="">
@@ -78,6 +79,7 @@
           <div class="row">
             <button class="btn btn-success">Cadastrar</button>
           </div>
+          </form>
         </div>
 
         <!--div-column-->
