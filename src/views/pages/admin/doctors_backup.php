@@ -4,8 +4,7 @@ use \src\models\USer;
 
 $usuario = new User();
 $info = $usuario->dadosLogado();
-// echo "<pre>";
-// print_r($psicologo); die();
+
 ?>
 
 <!DOCTYPE html>
@@ -29,48 +28,47 @@ $info = $usuario->dadosLogado();
   <script src="<?php echo $base . '/assets/js/script.js'; ?>"></script>
 
   <title>PSI | Psicólogos </title>
-  <style>
-    .container {
-      height: 100vh;
-      width: calc(100% - 270px);
-      margin-left: 270px;
-      overflow: hidden;
-    }
-
-    img {
-      width: 80px;
-      object-fit: contain !important;
-    }
-  </style>
 </head>
 
 <body>
   <?php $render('navbar'); ?>
   <?php $render('sidebar'); ?>
 
-  <main class="container p-5 bg-dark">
-    <h2 class="text-light mb-4">Psicólogos</h2>
-    <div class="container-fluid rounded p-4" style="background: #151419">
-      <div class="column d-flex justify-content-between">
-        <h4 class="text-light">Todos os médicos:</h4>
-        <?php echo ($info['tipo'] == "admin") ? " <a class='btn btn-primary' href='" . $base . "/doctors/create'><i class='fas fa-user-plus'></i></a>" : "" ?>
-      </div>
-      <hr class="text-light">
+  <main>
+    <div class="main-container">
+      <section class="default">
+        <h3 style="text-align:left">Psicólogos</h3>
+        <div class="content-psi">
+          <div class="content-psi-header">
+            <h4 style="font-weight:500">Todos os psicólogos</h4>
 
-      <div class="row justify-content-between mb-2 p-3">
-        <?php foreach ($psicologo as $psicologos) : ?>
-          <div class="col-5 bg-dark mr-3 mb-4 p-3 d-flex justify-content-between align-items-center rounded">
-            <img class="img-fluid rounded-circle" src="<?php echo $base . '/assets/icons/' . $psicologos['avatar']  ?>" alt="">
-            <div class="row">
-              <span class="text-light text-center fs-5"> <?php echo $psicologos['nome']; ?></span>
-              <span class="text-light text-center fs-6">CRP: <?php echo $psicologos['crp']; ?></span>
-              <span class="text-light text-center fs-6">Especialidade:<?php echo $psicologos['especialidade']; ?></span>
-            </div>
+            <?php echo ($info['tipo'] == "admin") ? "<button>
+              <a href='" . $base . "/doctors/create' style='color:blue;'><i class='fas fa-user-plus'></i></a>
+            </button>" : "" ?>
           </div>
-        <?php endforeach; ?>
-      </div>
-      <!--row-pai-->
+          <div class="grid-doctors">
+          <!-- onclick="location.href='http://localhost/psi-sicoob/public/doctors/edit/ -->
+            <?php foreach ($psicologo as $psicologos) : ?>
+              <div class="doctor-box" onclick="location.href='http://localhost/psi-sicoob/public/doctors/edit/<?php echo $psicologos['idpsi']; ?>'">
+                <img src="<?php echo $base . '/assets/icons/' . $psicologos['avatar']  ?>" alt="Avatar">
+                <div class="doctor-info">
+                  <span> <?php echo $psicologos['nome']; ?></span>
+                  <span style="color:#888;">CRP: <?php echo $psicologos['crp']; ?></span>
+                  <span><?php echo $psicologos['especialidade']; ?></span>
+                </div>
+              </div>
+              <!---doctor-box-->
+            <?php endforeach; ?>
+            <!--endforeach-->
+          </div>
+          <!---grid-doctors-->
+        </div>
+        <!---content-psi--->
+      </section>
+    </div>
+    <!--main-container-->
   </main>
+
 
 
   <script src="<?php echo $base . '/assets/js/personalizado.js'; ?>"></script>
