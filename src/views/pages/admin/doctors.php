@@ -59,9 +59,9 @@ $info = $usuario->dadosLogado();
 
       <div class="row justify-content-between mb-2 p-3">
         <?php foreach ($psicologo as $psicologos) : ?>
-          <div class="col-5 bg-dark mr-3 mb-4 p-3 d-flex justify-content-between align-items-center rounded">
-            <img class="img-fluid rounded-circle" src="<?php echo $base . '/assets/icons/' . $psicologos['avatar']  ?>" alt="">
-            <div class="row">
+          <div class="hover-md col-lg-5 col-md-7 cols-m-1 bg-dark mr-3 mb-4 p-3 d-flex justify-content-between align-items-center rounded shadow-sm">
+            <img class="img-fluid rounded-circle " src="<?php echo $base . '/assets/icons/' . $psicologos['avatar']  ?>" alt="">
+            <div class="row ">
               <span class="text-light text-center fs-5"> <?php echo $psicologos['nome']; ?></span>
               <span class="text-light text-center fs-6">CRP: <?php echo $psicologos['crp']; ?></span>
               <span class="text-light text-center fs-6">Especialidade:<?php echo $psicologos['especialidade']; ?></span>
