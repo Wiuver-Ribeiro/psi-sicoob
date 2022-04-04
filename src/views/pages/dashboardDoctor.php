@@ -42,18 +42,23 @@ $agendamento = new Appointment();
     }
 
     $(document).ready(function() {
-      $(document).on("click", function() {
-        var idConsulta = $(this).attr('id');
-        alert(idConsulta);
-        // if (idConsulta !== "") {
-        //   var dados = {
-        //     idConsulta: idConsulta,
-        //   };
-        //   $.post('eventos.php', dados, function(retorna) {
 
-        //   });
-        // }
-      })
+      $('#btn-encerrar').click(function() {
+        $('#encerrar').modal('show'); //  abre a modal
+        alert();
+
+        var change_id = $(this).attr("id");
+        $.ajax({
+          url: "eventos.php",
+          method: "post",
+          data: {
+            change_id: change_id
+          },
+          success: function(data) {
+            $('#change_detail').html(data);
+          }
+        });
+      });
     });
   </script>
 </head>
@@ -142,7 +147,7 @@ $agendamento = new Appointment();
                     }
                     ?>
                     <td class='pendente'>
-                      <button onclick="getIdConsulta(<?php echo $consulta['idagendamentos']; ?>)" id="<?php echo $consulta['idagendamentos']?>" class='btn btn-success' data-bs-toggle='modal' data-bs-target='#encerrar'>Encerrar</button>
+                      <button id="btn-encerrar" onclick="getIdConsulta(<?php echo $consulta['idagendamentos']; ?>)" class='btn btn-success'>Encerrar</button>
                     </td>
                     <!-- data-bs-toggle='modal' data-bs-target='#encerrar' -->
 
@@ -182,7 +187,7 @@ $agendamento = new Appointment();
           <h5 class="modal-title" id="exampleModalLabel">Parecer da consulta:</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body p-2">
+        <div class="modal-body p-2" id="#change_detail">
           <form id="formEncerrar" method="POST">
             <div class="column">
               <div class="col mb-2">
