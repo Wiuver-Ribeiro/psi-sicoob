@@ -32,6 +32,18 @@ $info = $usuario->dadosLogado();
       margin-left: 270px;
       overflow: hidden;
     }
+    @media only screen and (min-width:750px) {
+      #alerta {
+        font-size: 12px  !important;
+        width: 100% !important;
+      }
+    }
+    @media only screen and (min-width:600px) {
+      #alerta {
+        font-size: 10px  !important;
+        width: 100% !important;
+      }
+    }
   </style>
 
 </head>
@@ -123,7 +135,7 @@ $info = $usuario->dadosLogado();
                   </a>
                 </td>
                 <td>
-                  <a href="<?php echo $base . '/appointments/cancel/' . $agendamentos['idagendamento']; ?>" class="confirm" title='Cancelar Consulta'>
+                  <a  href="<?php echo $base . '/appointments/cancel/' . $agendamentos['idagendamento']; ?>" class="confirm col-sm-2" title='Cancelar Consulta'>
                     <i style="color:#f00;" class='fas fa-ban fa-2x'></i>
                   </a>
                 </td>

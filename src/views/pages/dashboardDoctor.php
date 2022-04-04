@@ -21,8 +21,41 @@ $agendamento = new Appointment();
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/dashboardDoctor.css'; ?>">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <title>PSI | Dashboard Doutor</title>
+
+  <script>
+    const getIdConsulta = (idConsulta) => {
+      //Pega valor do action
+      const actionForm = document.querySelector('#formEncerrar');
+      const pacienteForm = document.querySelector('#pacienteForm');
+
+      //Pega o valor do campo paciente da tabela
+      const paciente = document.querySelectorAll('#paciente');
+
+
+
+      console.log(actionForm.action + `${idConsulta}`);
+      //Seta a url do form, passando o id do agendamento a ser finalizado.
+      actionForm.action = "http://localhost/psi-sicoob/public/appointments/finish/" + idConsulta
+    }
+
+    $(document).ready(function() {
+      $(document).on("click", function() {
+        var idConsulta = $(this).attr('id');
+        alert(idConsulta);
+        // if (idConsulta !== "") {
+        //   var dados = {
+        //     idConsulta: idConsulta,
+        //   };
+        //   $.post('eventos.php', dados, function(retorna) {
+
+        //   });
+        // }
+      })
+    });
+  </script>
 </head>
 
 <body>
@@ -30,9 +63,6 @@ $agendamento = new Appointment();
 
   <?php $render('navbar'); ?>
   <?php $render('sidebar');
-  // echo "<pre>";
-  // print_r($consultas); die();
-
   ?>
   <main>
     <div class="main-container">
@@ -86,14 +116,17 @@ $agendamento = new Appointment();
             <tbody>
               <?php
 
+
               if (count($consultas) == 0) {
                 echo "<span class='consulta-total'>Sem consultas neste momentos</span>";
               } else {
                 foreach ($consultas as $consulta) : ?>
                   <tr>
+                    <input id="consultaEncerrar" type="hidden" value="<?php echo $consulta['idagendamentos']; ?>">
                     <td class="overflow-word ">
                       <img src="<?php echo $base . "/assets/icons/" . $consulta['avatar']; ?>" alt="Avatar">
                       <?php echo $consulta['nome']; ?>
+                      <input type="hidden" id="paciente" value="<?php echo $consulta['nome']; ?>">
                     </td>
                     <td><?php echo $consulta['inicio']; ?></td>
 
@@ -109,9 +142,9 @@ $agendamento = new Appointment();
                     }
                     ?>
                     <td class='pendente'>
-                      <a href="<?php echo $base . '/appointment/finish'; ?>" class='btn btn-success' data-bs-toggle='modal' data-bs-target='#encerrar'>Encerrar</a>
+                      <button onclick="getIdConsulta(<?php echo $consulta['idagendamentos']; ?>)" id="<?php echo $consulta['idagendamentos']?>" class='btn btn-success' data-bs-toggle='modal' data-bs-target='#encerrar'>Encerrar</button>
                     </td>
-
+                    <!-- data-bs-toggle='modal' data-bs-target='#encerrar' -->
 
                   </tr>
               <?php endforeach;
@@ -150,11 +183,11 @@ $agendamento = new Appointment();
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body p-2">
-          <form method="POST" action="<?php echo $base .'/appointments/finish';?>">
+          <form id="formEncerrar" method="POST">
             <div class="column">
               <div class="col mb-2">
                 <label for="paciente">Paciente:</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" id="pacienteForm">
               </div>
               <div class="col mb-2">
                 <label for="psi">Psicólogo:</label>
@@ -180,7 +213,7 @@ $agendamento = new Appointment();
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
-          <button type="submit" class="btn btn-success">Encerrar</button>
+          <button href="<?php echo $base . '/appointments/finish/15'; ?>" type="submit" class="btn btn-success">Encerrar</button>
         </div>
         </form>
       </div>

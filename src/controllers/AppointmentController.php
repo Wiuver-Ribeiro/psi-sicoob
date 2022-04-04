@@ -119,10 +119,10 @@ clASs AppointmentController extends Controller {
     }
   }
 
-  public function finishAppointment() {
+  public function finishAppointment($id) {
     require '../connnect.php';
     $agendamento = new Appointment();
-    $agendamento->encerrarConsulta();
+    $agendamento->encerrarConsulta($id);
 
   }
 }

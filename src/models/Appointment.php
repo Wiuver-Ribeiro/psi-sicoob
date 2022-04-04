@@ -285,7 +285,7 @@ class Appointment extends Model {
     return true;
   }
 
-  public function encerrarConsulta() {
-    echo "encerrando consulta.";
+  public function encerrarConsulta($id) {
+    echo "encerrando consulta de ID: ";
   }
 }

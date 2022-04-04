@@ -63,4 +63,4 @@ $router->get('/appointments/edit/{id}', 'AppointmentController@editAppointment')
 $router->get('/appointments/search/{usuario}', 'AppointmentController@searchUsers');
 $router->post('/appointments/register', 'AppointmentController@registerAppointment');
 
-$router->post('/appointments/finish', 'AppointmentController@finishAppointment');
+$router->post('/appointments/finish/{id}', 'AppointmentController@finishAppointment');
