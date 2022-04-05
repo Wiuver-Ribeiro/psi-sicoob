@@ -26,40 +26,37 @@ $agendamento = new Appointment();
   <title>PSI | Dashboard Doutor</title>
 
   <script>
-    const getIdConsulta = (idConsulta) => {
-      //Pega valor do action
-      const actionForm = document.querySelector('#formEncerrar');
-      const pacienteForm = document.querySelector('#pacienteForm');
-
-      //Pega o valor do campo paciente da tabela
-      const paciente = document.querySelectorAll('#paciente');
+    // Função para setar a URL do formulário
 
 
 
-      console.log(actionForm.action + `${idConsulta}`);
-      //Seta a url do form, passando o id do agendamento a ser finalizado.
-      actionForm.action = "http://localhost/psi-sicoob/public/appointments/finish/" + idConsulta
-    }
+    //Pega o valor do campo paciente da tabela
+
+
+    //Seta a url do form, passando o id do agendamento a ser finalizado.
+
 
     $(document).ready(function() {
+      $(document).on('click', '.view_data', function() {
+        const actionForm = document.querySelector('#formEncerrar');
+        const consultaId = $(this).attr("id");
 
-      $('#btn-encerrar').click(function() {
-        $('#encerrar').modal('show'); //  abre a modal
-        alert();
+        
+        actionForm.action = "http://localhost/psi-sicoob/public/appointments/finish/" + consultaId
+       
+        var consulta_id = $(this).attr("id");
+        if (consulta_id !== "") {
+          var dados = {
+            consulta_id: consulta_id,
+          };
+          $.post('http://localhost/psi-sicoob/src/views/pages/visualizar.php', dados, function(retorna) {
+            $('#visu_consulta').html(retorna);
+            $('#encerrar').modal('show');
 
-        var change_id = $(this).attr("id");
-        $.ajax({
-          url: "eventos.php",
-          method: "post",
-          data: {
-            change_id: change_id
-          },
-          success: function(data) {
-            $('#change_detail').html(data);
-          }
-        });
-      });
-    });
+          });
+        }
+      })
+    })
   </script>
 </head>
 
@@ -127,7 +124,7 @@ $agendamento = new Appointment();
               } else {
                 foreach ($consultas as $consulta) : ?>
                   <tr>
-                    <input id="consultaEncerrar" type="hidden" value="<?php echo $consulta['idagendamentos']; ?>">
+
                     <td class="overflow-word ">
                       <img src="<?php echo $base . "/assets/icons/" . $consulta['avatar']; ?>" alt="Avatar">
                       <?php echo $consulta['nome']; ?>
@@ -147,7 +144,7 @@ $agendamento = new Appointment();
                     }
                     ?>
                     <td class='pendente'>
-                      <button id="btn-encerrar" onclick="getIdConsulta(<?php echo $consulta['idagendamentos']; ?>)" class='btn btn-success'>Encerrar</button>
+                      <button id="<?php echo $consulta['idagendamentos']; ?>" class='btn btn-success view_data'>Encerrar</button>
                     </td>
                     <!-- data-bs-toggle='modal' data-bs-target='#encerrar' -->
 
@@ -190,25 +187,14 @@ $agendamento = new Appointment();
         <div class="modal-body p-2" id="#change_detail">
           <form id="formEncerrar" method="POST">
             <div class="column">
-              <div class="col mb-2">
-                <label for="paciente">Paciente:</label>
-                <input type="text" class="form-control" id="pacienteForm">
-              </div>
-              <div class="col mb-2">
-                <label for="psi">Psicólogo:</label>
-                <input type="text" class="form-control">
-              </div>
-              <div class="col mb-2">
-                <label for="descricao">Descrição do Paciente:</label>
-                <textarea type="text" class="form-control"></textarea>
-              </div>
+              <span id="visu_consulta"></span>
               <div class="col mb-2">
                 <label for="descricao">Aparecer do Psicólogo:</label>
-                <textarea type="text" class="form-control" rows="4" cols="50" placeholder="Descreva um parecer sobre a consulta..."></textarea>
+                <textarea type="text" class="form-control" name="parecer" rows="4" cols="50" placeholder="Descreva um parecer sobre a consulta..."></textarea>
               </div>
               <div class="col mb-2">
                 <label for="descricao">Status da Consulta:</label>
-                <select name="" id="" class="form-control">
+                <select name="status" id="" class="form-control">
                   <option>Finalizar</option>
                   <option>Remarcar</option>
                 </select>

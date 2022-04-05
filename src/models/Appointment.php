@@ -286,6 +286,6 @@ class Appointment extends Model {
   }
 
   public function encerrarConsulta($id) {
-    echo "encerrando consulta de ID:{$id['id']} ";
+    print_r($_POST);
   }
 }
