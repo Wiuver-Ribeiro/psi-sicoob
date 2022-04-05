@@ -122,7 +122,14 @@ clASs AppointmentController extends Controller {
   public function finishAppointment($id) {
     require '../connnect.php';
     $agendamento = new Appointment();
-    $agendamento->encerrarConsulta($id);
+    $encerramento = $agendamento->encerrarConsulta($id);
+  
+    if($encerramento) {
+      $this->redirect('/dashboard');
+      $_SESSION['sucesso'] = "<div class='alert alert-success' role='alert'>Consulta encerrada com sucesso!</div>";
+    } else {
+      $_SESSION['sucesso'] = "<div class='alert alert-danger'>Erro ao encerrar consulta!</div>";
+    }
 
   }
 }

@@ -8,6 +8,7 @@ $sql = $pdo->prepare(
     a.idagendamentos, 
     u1.nome as 'paciente', 
     u2.nome as 'medico', 
+    psi.especialidade,
     a.status,
     a.descricao as 'descricao'
       FROM agendamentos as a 
@@ -26,7 +27,7 @@ $resultado .= "<input type='text' class='form-control' name='paciente'  readonly
 $resultado .= "</div>";
 $resultado .= "<div class='col mb-2'>";
 $resultado .= "<label for='psi'>Psicólogo:</label>";
-$resultado .= "<input type='text' class='form-control'  name='psi' readonly value='".$dados['medico']."'>";
+$resultado .= "<input type='text' class='form-control'  name='psi' readonly value='".$dados['medico'] ." | ".$dados['especialidade']."'>";
 $resultado .= "</div>";
 $resultado .= "<div class='col mb-2'>";
 $resultado .= "<label for='descricao'>Descrição do Paciente:</label>";

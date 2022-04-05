@@ -41,9 +41,9 @@ $agendamento = new Appointment();
         const actionForm = document.querySelector('#formEncerrar');
         const consultaId = $(this).attr("id");
 
-        
+
         actionForm.action = "http://localhost/psi-sicoob/public/appointments/finish/" + consultaId
-       
+
         var consulta_id = $(this).attr("id");
         if (consulta_id !== "") {
           var dados = {
@@ -69,6 +69,15 @@ $agendamento = new Appointment();
   <main>
     <div class="main-container">
       <!-- SESSÕES -->
+
+      <?php
+      if ($_SESSION['sucesso']) {
+        echo  $_SESSION['sucesso'];
+        unset($_SESSION['sucesso']);
+        $_SESSION['sucesso'] = "";
+      }
+
+      ?>
 
 
       <div class="content-appointment">
@@ -194,9 +203,9 @@ $agendamento = new Appointment();
               </div>
               <div class="col mb-2">
                 <label for="descricao">Status da Consulta:</label>
-                <select name="status" id="" class="form-control">
-                  <option>Finalizar</option>
-                  <option>Remarcar</option>
+                <select name="status" id="status" class="form-control">
+                  <option value="finalizada">Finalizar</option>
+                  <option value="remarcar">Remarcar</option>
                 </select>
               </div>
             </div>

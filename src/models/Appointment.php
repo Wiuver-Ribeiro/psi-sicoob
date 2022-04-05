@@ -286,6 +286,24 @@ class Appointment extends Model {
   }
 
   public function encerrarConsulta($id) {
-    print_r($_POST);
+    require '../connnect.php';
+    echo $id['id']; die();
+
+    $parecer = $_POST['parecer'];
+    $status  = $_POST['status'];
+
+    var_dump([
+      "parecer:" => $parecer,
+      "status:" => $status
+    ])
+
+    $sql = $pdo->prepare("UPDATE agendamentos SET parecer = ?, status = ? WHERE idagendamentos = ?");
+    $sql->bindValue(1,$parecer);
+    $sql->bindValue(2,$status);
+    $sql->bindValue(3, $id['id']);
+    $sql->execute();
+    return true;
+
+
   }
 }
