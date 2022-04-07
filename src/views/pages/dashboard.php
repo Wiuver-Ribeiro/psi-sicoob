@@ -59,6 +59,8 @@ $info = $usuario->dadosLogado();
     unset($_SESSION['sucesso']);
     $_SESSION['sucesso']  = '';
   }
+  // echo "<pre>";
+  // print_r($agendamento); die();
   ?>
 
   <div class="container bg-dark">

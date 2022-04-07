@@ -71,10 +71,10 @@ $agendamento = new Appointment();
       <!-- SESSÕES -->
 
       <?php
-      if ($_SESSION['sucesso']) {
+      if (isset($_SESSION['sucesso'])) {
         echo  $_SESSION['sucesso'];
-        unset($_SESSION['sucesso']);
         $_SESSION['sucesso'] = "";
+        unset($_SESSION['sucesso']);
       }
 
       ?>
