@@ -125,10 +125,12 @@ clASs AppointmentController extends Controller {
     $encerramento = $agendamento->encerrarConsulta($id);
   
     if($encerramento) {
-      $this->redirect('/dashboard');
       $_SESSION['sucesso'] = "<div class='alert alert-success' role='alert'>Consulta encerrada com sucesso!</div>";
+      $this->redirect('/dashboard');
     } else {
       $_SESSION['sucesso'] = "<div class='alert alert-danger'>Erro ao encerrar consulta!</div>";
+      $this->redirect('/dashboard');
+
     }
 
   }

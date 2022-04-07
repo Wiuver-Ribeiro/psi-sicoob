@@ -257,7 +257,7 @@ class Appointment extends Model
     FROM agendamentos AS ag INNER JOIN psi AS p ON (ag.id_psi = p.idpsi) 
         INNER JOIN pacientes AS pac ON (pac.idpaciente = ag.id_paciente)
             INNER JOIN  usuarios AS u ON (u.idusuario = pac.id_usuario)
-      WHERE (p.id_usuario= ? AND ag.status = 'cancelados') ");
+      WHERE (p.id_usuario= ? AND ag.status = 'finalizada' OR ag.status = 'cancelados') ");
     $sql->bindValue(1, $id);
     $sql->execute();
 
