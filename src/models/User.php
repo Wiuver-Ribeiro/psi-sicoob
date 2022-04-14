@@ -163,4 +163,14 @@ class User extends Model {
     }
   }
 
+  public function listAllUsers() {
+    require '../connnect.php';
+
+    $sql = $pdo->prepare("SELECT idusuario, nome, email, avatar FROM usuarios");
+    $sql->execute();
+
+    $dados = $sql->fetchAll(\PDO::FETCH_ASSOC);
+    return $dados;
+  }
+
 }

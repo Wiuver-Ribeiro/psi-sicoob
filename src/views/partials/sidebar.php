@@ -24,7 +24,7 @@ $info = $usuario->dadosLogado();
       
       <?php echo ($info['tipo'] == 'admin') ? "<li class='tab'><a title='Pacientes' class='link-menu' href='".$base."/patients '><i class='fas fa-user-alt' style='color:#8DC9E8; margin-right:1rem;'></i>Pacientes</a></li>" : "" ?>
      
-      <?php echo ($info['tipo'] == 'admin') ? "<li class='tab'><a title='Usuários' class='link-menu' href=' ".$base."/allusers'><i class='fas fa-user-friends' style='color:#4863f7; margin-right:1rem;'></i>Todos Usuários</a></li>" : "" ?>
+      <?php echo ($info['tipo'] == 'admin') ? "<li class='tab'><a title='Usuários' class='link-menu' href=' ".$base."/users'><i class='fas fa-user-friends' style='color:#4863f7; margin-right:1rem;'></i>Todos Usuários</a></li>" : "" ?>
       <?php echo ($info['tipo'] == 'admin') ? "<li class='tab'><a title='Admnistradores' class='link-menu' href=' ".$base."/admins'><i class='fas fa-lock' style='color:#F4C22B; margin-right:1rem;'></i>Administradores</a></li>" : "" ?>
       
     

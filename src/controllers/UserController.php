@@ -140,4 +140,12 @@ class UserController extends Controller {
     }
   }
 
+  public function listAllUsers() {
+    $usuario = new User();
+    $usuarios = $usuario->listAllUsers();
+    $this->render('/admin/users',[
+      "usuario" => $usuarios,
+    ]);
+  }
+
 }

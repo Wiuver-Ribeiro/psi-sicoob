@@ -18,26 +18,21 @@
 
 <body>
   <?php $render('navbar'); ?>
-  <?php $render('sidebar'); ?>
+  <?php $render('sidebar'); 
+
+  ?>
 
   <?php
   // SESSÕES
 
-  if (isset($_SESSION['email'])) {
-    echo $_SESSION['email'];
-    unset($_SESSION['email']);
-    $_SESSION['email'] = '';
-  }
+
   ?>
 
   <main class="main-container">
     <!-- <div class="main-container"> -->
     <div class="container-psi">
       <div class="container-psi-header">
-        <h2>Todos os Pacientes</h2>
-        <a href="<?php echo $base . '/patients/create'; ?>" title="Adicionar novo Paciente">
-          <i class="fas fa-user-plus"></i>
-        </a>
+        <h2>Todos os Usuários</h2>
       </div>
       <!--container-psi-header-->
       <div class="box-container-search">
@@ -45,7 +40,7 @@
         
         <div class="table-responsive  row">
 
-        <input class="form-control mb-3" type="search" placeholder="Busque algum paciente">
+        <input class="form-control mb-3" type="search" placeholder="Busque algum usuário">
 
         <table class="table table-hover table-striped table-bordered rounded table-dark  justify-content-center align-items-center">
           <thead class="thead-dark">
@@ -58,14 +53,14 @@
           </thead>
 
           <tbody>
-            <?php foreach ($todosPacientes as $paciente) : ?>
+            <?php foreach ($usuario as $usuarios) : ?>
               <tr>
                 <td>
-                  <img class="img-fluid" style="width:50px; height:50px; border-radius:50%; object-fit:cover" src="<?php echo $base . '/assets/icons/' . $paciente['avatar']; ?>" alt="">
+                  <img class="img-fluid" style="width:50px; height:50px; border-radius:50%; object-fit:cover" src="<?php echo $base . '/assets/icons/' . $usuarios['avatar']; ?>" alt="">
                 </td>
-                <td><?php echo $paciente['nome']; ?></td>
-                <td><?php echo $paciente['email']; ?></td>
-                <td><a class="btn btn-warning" href='<?php echo $base . "/patients/edit/" . $paciente['idpaciente']; ?>'><i class="fas fa-user-edit text-light"></i></a></td>
+                <td><?php echo $usuarios['nome']; ?></td>
+                <td><?php echo $usuarios['email']; ?></td>
+                <td><a class="btn btn-warning" href='<?php echo $base . "/patients/edit/" . $usuarios['idusuario']; ?>'><i class="fas fa-user-edit text-light"></i></a></td>
               </tr>
             <?php endforeach; ?>
           </tbody>

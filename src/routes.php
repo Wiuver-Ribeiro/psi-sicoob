@@ -47,6 +47,8 @@ $router->post('/admins/edit/{id}', 'UserController@editarAdministrador');
 
 
 $router->get('/config', 'UserController@config');
+$router->get('/users', 'UserController@listAllUsers');
+
 
 $router->post('/signin', 'UserController@login');
 $router->post('/signup', 'UserController@register');
