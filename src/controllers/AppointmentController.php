@@ -130,6 +130,7 @@ clASs AppointmentController extends Controller {
     } else {
       $_SESSION['sucesso'] = "<div class='alert alert-danger'>Erro ao encerrar consulta!</div>";
       $this->redirect('/dashboard');
+      //dasd
 
     }
 
