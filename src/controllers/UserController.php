@@ -148,4 +148,9 @@ class UserController extends Controller {
     ]);
   }
 
+  public function editUser($id) {
+    $usuario = new User();
+    $usuario->editarUsuario($id);
+  }
+
 }

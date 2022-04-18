@@ -91,23 +91,13 @@ $infoData = $usuario->dadosLogado();
               <div class="mb-3 row">
                 <label for="title" class="col-sm-3 col-form-label"><b>Título:</b></label>
                 <div class="col-sm-9">
-                  <input type="text" id="title" class="form-control">
+                  <input type="text" id="title" class="form-control" readonly>
                 </div>
 
                 <dt class="col-sm-3">Início da Consulta:</dt>
                 <dd class="col-sm-9" id="start"></dd>
                 <dt class="col-sm-3">Fim da Consulta:</dt>
                 <dd class="col-sm-9" id="end"></dd>
-                <dt class="col-sm-3">Status da Consulta:</dt>
-                <!-- <dd class="col-sm-9" id="status"></dd> -->
-                <dd class="col-sm-9">
-                  <select class="col-sm-3 form-select" name="status">
-                    <option id="status"></option>
-                    <option value="confirmados">Confirmada</option>
-                    <option value="encerrados">Consulta finalizada</option>
-                    <option value="marcados">Marcada</option>
-                  </select>
-                </dd>
                 <dt class="col-sm-3">Descrição:</dt>
                 <dd class="col-sm-8">
                   <!--  -->
@@ -238,6 +228,7 @@ $infoData = $usuario->dadosLogado();
           </form>
         </div>
       </div>
+
     </div>
 
     <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>

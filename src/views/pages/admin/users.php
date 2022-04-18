@@ -12,22 +12,42 @@
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/patients.css'; ?>">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-  <title>PSI | Paciente</title>
+
+  <title>PSI | Usuários</title>
+  <script>
+    $(document).ready(function() {
+      $(document).on('click', '.view_data', function() {
+        const actionForm = document.querySelector('#formEncerrar');
+
+        var user_id = $(this).attr("id");
+
+
+
+        actionForm.action = "http://localhost/psi-sicoob/public/users/" + user_id
+
+
+        if (user_id !== "") {
+          var dados = {
+            user_id: user_id,
+          };
+          $.post('http://localhost/psi-sicoob/src/views/pages/admin/visualizar.php', dados, function(retorna) {
+            $('#view_user').html(retorna);
+            $('#encerrar').modal('show');
+
+          });
+        }
+      })
+    })
+  </script>
 </head>
 
 <body>
   <?php $render('navbar'); ?>
-  <?php $render('sidebar'); 
+  <?php $render('sidebar');
 
   ?>
-
-  <?php
-  // SESSÕES
-
-
-  ?>
-
   <main class="main-container">
     <!-- <div class="main-container"> -->
     <div class="container-psi">
@@ -36,9 +56,9 @@
       </div>
       <!--container-psi-header-->
       <div class="box-container-search">
-        </div>
-        
-        <div class="table-responsive  row">
+      </div>
+
+      <div class="table-responsive  row">
 
         <input class="form-control mb-3" type="search" placeholder="Busque algum usuário">
 
@@ -60,7 +80,7 @@
                 </td>
                 <td><?php echo $usuarios['nome']; ?></td>
                 <td><?php echo $usuarios['email']; ?></td>
-                <td><a class="btn btn-warning" href='<?php echo $base . "/patients/edit/" . $usuarios['idusuario']; ?>'><i class="fas fa-user-edit text-light"></i></a></td>
+                <td><button id="<?php echo $usuarios['idusuario']; ?>" class="btn btn-warning view_data"><i class="fas fa-user-edit text-light"></i></button></td>
               </tr>
             <?php endforeach; ?>
           </tbody>
@@ -74,6 +94,33 @@
     </div>
     <!--main-container -- -->
   </main>
+
+
+  <div class="modal fade" id="encerrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar usuário:</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-2" id="#change_detail">
+          <form id="formEncerrar" method="POST">
+            <div class="column">
+              <span id="view_user"></span>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+          <button  type="submit" class="btn btn-success">Alterar</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <script src="<?php echo $base . '/assets/js/personalizado.js'; ?>"></script>
 

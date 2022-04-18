@@ -173,4 +173,8 @@ class User extends Model {
     return $dados;
   }
 
+  public function editarUsuario($id) {
+    print_r($_POST); die();
+  }
+
 }
