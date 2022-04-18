@@ -174,7 +174,18 @@ class User extends Model {
   }
 
   public function editarUsuario($id) {
-    print_r($_POST); die();
+    require '../connnect.php';
+
+    $nome = filter_input(INPUT_POST,'nome',FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL);
+    $senha = filter_input(INPUT_POST,'senha',FILTER_SANITIZE_STRING);
+
+    $sql = $pdo->prepare("UPDATE usuarios SET nome = ?, email = ?, senha = ? WHERE idusuario = ?");
+    $sql->bindParam(1, $nome);
+    $sql->bindParam(2, $email); 
+    $sql->bindParam(3, $senha);
+
+    $sql->execute();
   }
 
 }
