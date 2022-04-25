@@ -25,18 +25,13 @@ class DoctorController extends Controller {
     $psicologo = new Doctor();
     // $psi = $psicologo->registrarPsicologo();
    if($psicologo->registrarPsicologo()) {
-     $_SESSION['sucesso'] = "<div class='alert alert-success' role='alert'>Pscólogo alterado com sucesso!</div>";
      $this->redirect('/doctors');
    } else {
-     $_SESSION['falha'] = "<div class='alert alert-danger'>Erro ao alterar dados do Psicólogo!</div>";
      $this->redirect('/doctors/create');
    }
   }
 
-  public function editDoctor($id) {
-
-  
-        
+  public function editDoctor($id) { 
     $usuario = new User();
     
     if(!$usuario->logado ()) {
@@ -45,7 +40,6 @@ class DoctorController extends Controller {
 
     $psicologo = new Doctor();
    $editPsicologo =  $psicologo->busquePsicologoPorID($id);
-  //  print_r($editPsicologo); die();
 
     $this->render('/admin/doctor-edit', [
       "psicologo" => $editPsicologo,

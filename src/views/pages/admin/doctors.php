@@ -48,6 +48,9 @@ $info = $usuario->dadosLogado();
   <?php $render('navbar'); ?>
   <?php $render('sidebar'); ?>
 
+
+  <main class="container p-5 bg-dark">
+
   <?php
   if (isset($_SESSION['sucesso'])) {
     echo $_SESSION['sucesso'];
@@ -59,7 +62,6 @@ $info = $usuario->dadosLogado();
   }
   ?>
 
-  <main class="container p-5 bg-dark">
     <h2 class="text-light mb-4">Psicólogos</h2>
     <div class="container-fluid rounded p-4" style="background: #151419">
       <div class="column d-flex justify-content-between">

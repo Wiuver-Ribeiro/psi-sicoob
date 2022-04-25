@@ -31,7 +31,7 @@ class Doctor extends Model {
     $avatarNovo = (empty($_POST['avatar'])) ? 'default.png' : $_POST['avatar'];
 
     if($usuario->verificaLogin($email)) {
-      $_SESSION['email'] = "<div class='alert alert-danger' role='alert'> Usuário com esse <b>e-mail</b> já cadastrado!</div>";
+      $_SESSION['falha'] = "<div class='alert alert-danger' role='alert'> Usuário com esse <b>e-mail</b> já cadastrado!</div>";
       return false;
     } else {
       
@@ -50,7 +50,7 @@ class Doctor extends Model {
       $sql2->bindValue(':especialidade', $especialidade);
       $sql2->execute();
 
-      $_SESSION['sucesso'] = "<div class='alert alert-success' role='alert'> Usuário cadastrado com sucesso!</div>";
+     $_SESSION['sucesso'] = "<div class='alert alert-success' role='alert'>Pscólogo cadastrado com sucesso!</div>";
       return true;
       
     }
@@ -86,7 +86,7 @@ class Doctor extends Model {
       $sql->bindValue(':especialidade',$especialidade);
       $sql->bindValue(':idusuario',$id['id']);
       $sql->execute();
-      $_SESSION['email'] = "<div class='alert alert-success' role='alert'> Usuário alterado com sucesso! </div>";
+      $_SESSION['sucesso'] = "<div style='position:absolute; left:50%;' class='alert alert-success' role='alert'>Psícologo alterado com sucesso! </div>";
       return true;
     } else {
       $sql = $pdo->prepare("UPDATE usuarios as u INNER JOIN  psi as p ON (u.idusuario = p.id_usuario)
@@ -101,9 +101,11 @@ class Doctor extends Model {
       $sql->bindValue(':idusuario', $id['id']);
       $sql->execute();
       
-    $_SESSION['email'] = "<div class='alert alert-success' role='alert'> Usuário alterado com sucesso! </div>";
+    $_SESSION['sucesso'] = "<div style='position:absolute; left: 35%;' class='alert alert-success' role='alert'> Psícologo alterado com sucesso! </div>";
     return true;
     }
+    $_SESSION['falha'] = "<div style='position:absolute; left:35%;' class='alert alert-success' role='alert'> Erro ao alterar dados do psicólogo! </div>";
+    return false;
   }
 
 }
