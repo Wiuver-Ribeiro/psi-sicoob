@@ -1,13 +1,15 @@
-main .main-container {
+.main-container {
   display: grid;
   width: calc(100% - 270px);
   margin-left:270px;
   background: #0A0906;
+  height: 100vh !important;
 }
 
 .default {
   max-width:1070px;
   margin: 0 auto;
+  height: 100vh;
 }
 
 .default h3 {

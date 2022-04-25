@@ -65,7 +65,7 @@
                 </td>
                 <td><?php echo $paciente['nome']; ?></td>
                 <td><?php echo $paciente['email']; ?></td>
-                <td><a class="btn btn-warning" href='<?php echo $base . "/patients/edit/" . $paciente['idpaciente']; ?>'><i class="fas fa-user-edit text-light"></i></a></td>
+                <td><a class="btn btn-warning" href='<?php echo $base . "/patients/edit/" . $paciente['idpaciente']; ?>'><i class="fas fa-pencil-edit text-light"></i></a></td>
               </tr>
             <?php endforeach; ?>
           </tbody>

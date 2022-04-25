@@ -48,18 +48,29 @@ $info = $usuario->dadosLogado();
   <?php $render('navbar'); ?>
   <?php $render('sidebar'); ?>
 
+  <?php
+  if (isset($_SESSION['sucesso'])) {
+    echo $_SESSION['sucesso'];
+    $_SESSION['sucesso'] = '';
+  }
+  if (isset($_SESSION['falha'])) {
+    echo $_SESSION['falha'];
+    $_SESSION['falha'] = '';
+  }
+  ?>
+
   <main class="container p-5 bg-dark">
     <h2 class="text-light mb-4">Psicólogos</h2>
     <div class="container-fluid rounded p-4" style="background: #151419">
       <div class="column d-flex justify-content-between">
-        <h4 class="text-light">Todos os médicos:</h4>
+        <h4 class="text-light">Todos os Psicólogos:</h4>
         <?php echo ($info['tipo'] == "admin") ? " <a class='btn btn-primary' href='" . $base . "/doctors/create'><i class='fas fa-user-plus'></i></a>" : "" ?>
       </div>
       <hr class="text-light">
 
       <div class="row justify-content-between mb-2 p-3">
         <?php foreach ($psicologo as $psicologos) : ?>
-          <div class="hover-md col-lg-5 col-md-7 cols-m-1 bg-dark mr-3 mb-4 p-3 d-flex justify-content-between align-items-center rounded shadow-sm">
+          <div style="cursor:pointer" title="Editar Psicologo" class="hover col-lg-5 col-md-7 cols-m-1 bg-dark mr-3 mb-4 p-3 d-flex justify-content-between align-items-center rounded shadow-sm" onclick="location.href='http://localhost/psi-sicoob/public/doctors/edit/<?php echo $psicologos['idpsi']; ?>'">
             <img class="img-fluid rounded-circle " src="<?php echo $base . '/assets/icons/' . $psicologos['avatar']  ?>" alt="">
             <div class="row ">
               <span class="text-light text-center fs-5"> <?php echo $psicologos['nome']; ?></span>

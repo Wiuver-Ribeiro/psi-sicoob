@@ -38,7 +38,7 @@ class Doctor extends Model {
       $sql1 = $pdo->prepare("INSERT INTO usuarios (nome, email, senha, avatar,tipo, criado_em) VALUES (:nome,:email,:senha, :avatar,'psi', now())");
       $sql1->bindValue(':nome', $nome);
       $sql1->bindValue(':email', $email);
-      $sql1->bindValue(':senha', $senha);
+      $sql1->bindValue(':senha', md5($senha));
       $sql1->bindValue(':avatar', $avatarNovo);
       $sql1->execute();
 
@@ -50,7 +50,7 @@ class Doctor extends Model {
       $sql2->bindValue(':especialidade', $especialidade);
       $sql2->execute();
 
-      $_SESSION['email'] = "<div class='alert alert-success' role='alert'> Usuário cadastrado com sucesso!</div>";
+      $_SESSION['sucesso'] = "<div class='alert alert-success' role='alert'> Usuário cadastrado com sucesso!</div>";
       return true;
       
     }

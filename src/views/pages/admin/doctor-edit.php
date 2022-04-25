@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -19,62 +19,87 @@
 </head>
 
 <body>
-  <?php $render('navbar'); ?>
-  <?php $render('sidebar'); ?>
-  <main>
+  <style>
+    .container {
+      width: calc(100% - 270px);
+      margin-left: 270px;
+      overflow: hidden;
 
-  <!-- SESSÕES -->
-    <div class="main-container">
-      <section class="default">
-        <h3 style="text-align:left">Psicólogos</h3>
-        <div class="content-psi">
-          <div class="content-psi-header">
-          <h4 style="font-weight:500">Editar  Psicólogo</h4>
+    }
+
+    label {
+      color: #fff;
+    }
+
+    /* 
+    Cores:
+    INPUT: #202024
+    
+    */
+    input {
+      background-color: #202024 !important;
+      border: none !important;
+      color: #fff !important;
+    }
+  </style>
+  </head>
+
+  <body>
+    <?php $render('navbar'); ?>
+    <?php $render('sidebar'); ?>
+
+
+    <!-- SESSÕES -->
+
+    <main class="container p-5 bg-dark">
+
+      <h2 class="text-light mb-4">Psicólogo</h2>
+      <div class="container-fluid rounded p-4" style="background: #151419">
+        <h3 class="text-light">Editar Psicólogo:</h3>
+        <hr class="text-light">
+
+        <div class="column">
+          <div class="col d-flex justify-content-center align-items-center">
+            <img class="img-fluid bg-primary rounded-circle border border-secondary" src="<?php echo $base . '/assets/icons/' . $psicologo['avatar']; ?>" alt="Avatar default" style="width:15%">
           </div>
-        <div class="grid-doctors _create">  
-            <!-- <div class="box-doctor"> -->
-              <!-- </div> -->
-              <img src="<?php echo $base.'/assets/icons/'.$psicologo['avatar']; ?>"  alt="" width="190px" height="190px" style="border-radius:50%">
-              <form action="<?php echo $base.'/doctors/edit/'.$psicologo['idpsi']; ?>" method="POST">
- 
-             <div class="field-input">
-             <input  class="form-control" type="file" name="avatar" >
-             </div>
-              <div class="field-input">
-                <input type="text" placeholder="Nome" autocomplete="off" name="nome" value="<?php echo $psicologo['nome'] ?>">
-              </div>
-              <div class="field-input">
-                <input type="email" placeholder="E-mail" autocomplete="off" name="email" value="<?php echo $psicologo['email'] ?>">
-              </div>
-              <!-- <div class="field-input">
-                <input type="password" placeholder="Senha" autocomplete="off" name="senha" value="<?php echo $psicologo['senha'] ?>">
-              </div> -->
-              <div class="field-input">
-                <input type="text" onkeypress="$(this).mask('00/000.000')" placeholder="CRP: " autocomplete="off" name="crp" value="<?php echo $psicologo['crp'] ?>">
-              </div>
-              <div class="field-input">
-                <input type="text" placeholder="Especialização" autocomplete="off" name="especialidade" value="<?php echo $psicologo['especialidade'] ?>"> 
-              </div>
-              <div class="field-input action">
-                <a href="<?php echo $base.'/doctos/edit/'.$psicologo['idusuario']; ?>" id="deletar">Excluir psicólogo</a>
-                <button id="editar" type="submit">Editar Psicólogo</button>
-              </div>
-            </form>
-        </div> <!---grid-doctors-->
-        </div> <!---content-psi--->
-      </section>
-    </div>
-    <!--main-container-->
-  </main>
+          <form action="<?php echo $base . '/doctors/edit/' . $psicologo['idpsi']; ?>" method="POST">
+            <div class="row mb-3">
+              <label for="avatar">Selecione um Avatar:</label>
+              <input type="file" class="form-control " id="avatar" name="avatar" placeholder="">
+            </div>
+            <div class="row mb-3">
+              <label for="nome">Nome:</label>
+              <input type="text" class="form-control " id="nome" name="nome" placeholder="Nome Completo" autocomplete="off" value="<?php echo $psicologo['nome'] ?>">
+            </div>
+            <div class="row mb-3">
+              <label for="email">E-mail:</label>
+              <input type="email" class="form-control " id="email" name="email" placeholder="E-mail" autocomplete="off" value="<?php echo $psicologo['email'] ?>">
+            </div>
+            <div class="row mb-3">
+              <label for="celulara">CRP:</label>
+              <input type="text" class="form-control " id="celular" onkeypress="$(this).mask('00/000.000')" name="crp" placeholder="CRP:" autocomplete="off" value="<?php echo $psicologo['crp'] ?>">
+            </div>
+            <div class="row mb-3">
+              <label for="celulara">Especialização:</label>
+              <input class="form-control" type="text" placeholder="Especialização" autocomplete="off" name="especialidade" value="<?php echo $psicologo['especialidade'] ?>">
+
+            </div>
+            <div class="column">
+              <a class="btn btn-danger" href="<?php echo $base . '/doctos/edit/' . $psicologo['idusuario']; ?>">Excluir Psicologo</a>
+              <button class="btn btn-success">Editar Psicólogo</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
 
 
-
-</body>
+  </body>
 
 </html>
-<script src="<?php echo $base;?>/assets/js/script.s"></script>
+<script src="<?php echo $base; ?>/assets/js/script.s"></script>
 <script src="<?php echo $base . '/assets/js/personalizado.js'; ?>"></script>
 
-<script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>   
+<script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
 
 <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>

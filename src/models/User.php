@@ -184,6 +184,7 @@ class User extends Model {
     $sql->bindParam(1, $nome);
     $sql->bindParam(2, $email); 
     $sql->bindParam(3, $senha);
+    $sql->bindParam(4, $id['id']);
 
     $sql->execute();
   }
