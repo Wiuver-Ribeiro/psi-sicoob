@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
+<?php echo $base; ?>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,8 +12,26 @@
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/patients.css'; ?>">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
 
   <title>PSI | Paciente</title>
+
+  <script>
+    $(function() {
+      $('#pesquisa').keyup(function() {
+        var pesquisa = $(this).val();
+        if (pesquisa !== "") {
+          var dados = {
+            palavra: pesquisa,
+          }
+          $.post('http://localhost/psi-sicoob/src/views/pages/admin/pesquisa.php', dados, function(retorna) {
+            $('.table').html(retorna);
+          });
+        };
+      });
+    });
+  </script>
 </head>
 
 <body>
@@ -41,11 +59,11 @@
       </div>
       <!--container-psi-header-->
       <div class="box-container-search">
-        </div>
-        
-        <div class="table-responsive  row">
+      </div>
 
-        <input class="form-control mb-3" type="search" placeholder="Busque algum paciente">
+      <div class="table-responsive  row">
+
+        <input class="form-control mb-3" id="pesquisa" placeholder="Busque algum paciente">
 
         <table class="table table-hover table-striped table-bordered rounded table-dark  justify-content-center align-items-center">
           <thead class="thead-dark">

@@ -24,7 +24,7 @@ ul {
 .alert {
     position: absolute;
     top: 12%;
-    left: 56%;
+    left: 50%;
 }
 
 .alert.alert-danger {

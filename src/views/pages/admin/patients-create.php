@@ -59,29 +59,29 @@
           <div class="col d-flex justify-content-center align-items-center">
             <img class="img-fluid bg-primary rounded-circle border border-secondary" src="<?php echo $base . '/assets/icons/default.png'; ?>" alt="Avatar default" style="width:15%">
           </div>
-          <form  action="<?php echo $base.'/admins/create';?>" method="POST">
+          <form  action="<?php echo $base.'/patients/create';?>" method="POST">
           <div class="row mb-3">
             <label for="avatar">Selecione um Avatar:</label>
-            <input type="file" class="form-control " id="avatar" name="avatar" placeholder="">
+            <input type="file" class="form-control " id="avatar" name="avatar" placeholder=""autocomplete="off">
           </div>
           <div class="row mb-3">
             <label for="nome">Nome:</label>
-            <input type="text" class="form-control " id="nome" name="avatar" placeholder="Nome Completo">
+            <input type="text" class="form-control " id="nome" name="nome" placeholder="Nome Completo"autocomplete="off">
           </div>
           <div class="row mb-3">
             <label for="email">E-mail:</label>
-            <input type="email" class="form-control " id="email" name="avatar" placeholder="E-mail">
+            <input type="email" class="form-control " id="email" name="email" placeholder="E-mail"autocomplete="off">
           </div>
           <div class="row mb-3">
             <label for="senha">Senha:</label>
-            <input type="password" class="form-control " id="senha" name="avatar" placeholder="Senha">
+            <input type="password" class="form-control " id="senha" name="senha" placeholder="Senha"autocomplete="off">
           </div>
           <div class="row mb-3">
             <label for="celulara">Celular:</label>
-            <input type="text" class="form-control " id="celular"  onkeypress="$(this).mask('(00) 0 0000-0000')" name="avatar" placeholder="(**) * *****-***">
+            <input type="text" class="form-control " id="celular"  onkeypress="$(this).mask('(00) 0 0000-0000')" name="telefone" placeholder="(**) * *****-***" autocomplete="off">
           </div>
           <div class="row">
-            <button class="btn btn-success">Cadastrar</button>
+            <button class="btn btn-success">Cadastrar Paciente</button>
           </div>
           </form>
         </div>
