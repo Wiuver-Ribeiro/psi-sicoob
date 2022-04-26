@@ -141,7 +141,7 @@ $agendamento = new Appointment();
                       </td>";
                     } else if ($consulta['status'] == 'confirmados') {
                       echo "<td class='confirmado'>
-                      <div class='ball' style='text-align: center'></div>
+                      <div class='ball' style='text-align:center'></div>
                     </td>";
                     }
                     ?>

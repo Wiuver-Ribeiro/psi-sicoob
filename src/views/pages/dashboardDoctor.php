@@ -115,7 +115,7 @@ $agendamento = new Appointment();
       </div>
       <!--coluna 01 -->
 
-      <div class="row mt-5 justify-content-evenly align-items-center">
+      <div class="row mt-5 justify-content-evenly ">
         <div class="col-md col-lg-7 bg-dark pt-2 pb-2 rounded">
           <h1 class="h5 text-light">Próximos Atendimentos</h1>
           <div class="table-responsive">
@@ -158,14 +158,57 @@ $agendamento = new Appointment();
             </table>
           </div>
         </div>
-        <div class="col-md col-lg-3 bg-warning">rightside</div>
+        <div class="col-md col-lg-3 bg-dark pt-2 pb-2 rounded">
+          <h1 class="h5 text-light border p-2">Úlitmas consultas</h1>
+          <?php foreach ($ultimosPacientes as $pacientes) : ?>
+
+            <div class="row mb-2">
+              <div class="col">
+                <img class="img-fluid rounded-circle" style="max-width:40px" src="<?php echo $base . '/assets/icons/' . $pacientes['avatar']; ?>" alt="Avatar">
+                <span class="text-light text-right"><?php echo $pacientes['nome']; ?></span>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
       </div>
 
     </div> <!-- div principal-->
 
 
 
+    <div class="modal fade" id="encerrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Parecer da consulta:</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-2" id="#change_detail">
+            <form id="formEncerrar" method="POST">
+              <div class="column">
+                <span id="visu_consulta"></span>
+                <div class="col mb-2">
+                  <label for="descricao">Aparecer do Psicólogo:</label>
+                  <textarea type="text" class="form-control" name="parecer" rows="4" cols="50" placeholder="Descreva um parecer sobre a consulta..."></textarea>
+                </div>
+                <div class="col mb-2">
+                  <label for="descricao">Status da Consulta:</label>
+                  <select name="status" id="status" class="form-control">
+                    <option value="finalizada">Finalizar</option>
+                    <option value="remarcar">Remarcar</option>
+                  </select>
+                </div>
+              </div>
 
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+            <button href="<?php echo $base . '/appointments/finish/15'; ?>" type="submit" class="btn btn-success">Encerrar</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
 </body>
 
 </html>
