@@ -18,7 +18,7 @@ if ($sql->rowCount() > 0) {
     </td>
     <td>" . $usuario['nome'] . "</td>
     <td>" . $usuario['email'] . "</td>
-    <td><a class='btn btn-warning' href='http://localhost/psi-sicoob/public/'><i class='fas fa-pencil-edit text-light'></i></a></td>
+    <td><a style='background: #ffca2c;' class='btn btn-warning' href='http://localhost/psi-sicoob/public/'><i class='fas fa-user-edit text-light'></i></a></td>
   </tr>";
   }
 } else {
