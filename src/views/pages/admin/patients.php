@@ -63,7 +63,7 @@
 
       <div class="table-responsive  row">
 
-        <input class="form-control mb-3" id="pesquisa" placeholder="Busque algum paciente">
+        <input class="form-control mb-3" id="pesquisa" placeholder="Busque algum paciente" autocomplete="off">
 
         <table class="table table-hover table-striped table-bordered rounded table-dark  justify-content-center align-items-center">
           <thead class="thead-dark">

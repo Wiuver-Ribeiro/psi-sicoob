@@ -4,15 +4,9 @@ require __DIR__ . '../../../../../connnect.php';
 
 $pesquisa = filter_input(INPUT_POST, 'palavra');
 
-$sql = $pdo->prepare("SELECT * FROM usuarios WHERE nome LIKE '%$pesquisa%' AND tipo = 'paciente'");
+$sql = $pdo->prepare("SELECT * FROM usuarios WHERE nome LIKE '%$pesquisa%'");
 
 $sql->execute();
-
-// $dados = $sql->fetch(\PDO::FETCH_ASSOC);
-
-// print_r($dados);
-// die();
-
 
 
 if ($sql->rowCount() > 0) {
@@ -30,3 +24,5 @@ if ($sql->rowCount() > 0) {
 } else {
   echo "Nenhum usuário encontrado...";
 }
+?>
+<script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>

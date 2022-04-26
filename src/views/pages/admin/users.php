@@ -23,11 +23,7 @@
 
         var user_id = $(this).attr("id");
 
-
-
         actionForm.action = "http://localhost/psi-sicoob/public/users/" + user_id
-
-
         if (user_id !== "") {
           var dados = {
             user_id: user_id,
@@ -40,6 +36,21 @@
         }
       })
     })
+
+    //Pesquisa em tempo real
+    $(function() {
+      $('#pesquisa').keyup(function() {
+        var pesquisa = $(this).val();
+        if (pesquisa !== "") {
+          var dados = {
+            palavra: pesquisa,
+          }
+          $.post('http://localhost/psi-sicoob/src/views/pages/admin/pesquisa_user.php', dados, function(retorna) {
+            $('.table').html(retorna);
+          });
+        };
+      });
+    });
   </script>
 </head>
 
@@ -60,7 +71,7 @@
 
       <div class="table-responsive  row">
 
-        <input class="form-control mb-3" type="search" placeholder="Busque algum usuário">
+        <input id="pesquisa" class="form-control mb-3" type="search" placeholder="Busque algum usuário">
 
         <table class="table table-hover table-striped table-bordered rounded table-dark  justify-content-center align-items-center">
           <thead class="thead-dark">
