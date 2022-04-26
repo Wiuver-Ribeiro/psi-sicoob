@@ -166,7 +166,7 @@ class User extends Model {
   public function listAllUsers() {
     require '../connnect.php';
 
-    $sql = $pdo->prepare("SELECT idusuario, nome, email, avatar FROM usuarios");
+    $sql = $pdo->prepare("SELECT idusuario, nome, email,tipo, avatar FROM usuarios");
     $sql->execute();
 
     $dados = $sql->fetchAll(\PDO::FETCH_ASSOC);
@@ -191,5 +191,14 @@ class User extends Model {
     return true;
   }
   
+  public function deletarUsuario($id) {
+    require '../connnect.php';
+    
+    $sql = $pdo->prepare("DELETE FROM usuarios WHERE idusuario = :id");
+    $sql->bindValue(':id', $id['id']);
+    $sql->execute();
+    $_SESSION['sucesso'] = "<div class='alert alert-success' role='alert'>Usuário deletado com sucesso!</div>";
+    return true;
+  }
 
 }

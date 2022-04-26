@@ -18,6 +18,7 @@ if ($sql->rowCount() > 0) {
     </td>
     <td>" . $usuario['nome'] . "</td>
     <td>" . $usuario['email'] . "</td>
+    <td>" . $usuario['tipo'] . "</td>
     <td><a style='background: #ffca2c;' class='btn btn-warning' href='http://localhost/psi-sicoob/public/'><i class='fas fa-user-edit text-light'></i></a></td>
   </tr>";
   }

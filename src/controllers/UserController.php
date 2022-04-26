@@ -156,5 +156,14 @@ class UserController extends Controller {
       $this->redirect('/users');
     }
   }
+  public function deleteUser($id) {
+    $usuario = new User();
+    $usuario->deletarUsuario($id);
+    if($usuario->deletarUsuario($id)) {
+      $this->redirect('/users');
+    } else {
+      $this->redirect('/users');
+    }
+  }
 
 }
