@@ -19,7 +19,8 @@ if ($sql->rowCount() > 0) {
     <td>" . $usuario['nome'] . "</td>
     <td>" . $usuario['email'] . "</td>
     <td>" . $usuario['tipo'] . "</td>
-    <td><a style='background: #ffca2c;' class='btn btn-warning' href='http://localhost/psi-sicoob/public/'><i class='fas fa-user-edit text-light'></i></a></td>
+    <td><button style='background: #ffca2c;' class='btn btn-warning view_data' id=' ".$usuario['idusuario']."' class='btn btn-warning view_data'><i class='fas fa-user-edit text-light'></i></button></td>
+    <td><button style='background: #bb2d3b;' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#confirm-delete' id='".$usuario['idusuario']."' class='btn btn-danger delete_user'><i class='fas fa-user-edit text-light'></i></button></td>
   </tr>";
   }
 } else {
