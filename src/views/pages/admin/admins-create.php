@@ -66,15 +66,15 @@
           </div>
           <div class="row mb-3">
             <label for="nome">Nome:</label>
-            <input type="text" class="form-control " id="nome" name="avatar" placeholder="Nome Completo">
+            <input type="text" class="form-control " id="nome" name="nome" placeholder="Nome Completo">
           </div>
           <div class="row mb-3">
             <label for="nome">E-mail:</label>
-            <input type="email" class="form-control " id="email" name="avatar" placeholder="E-mail">
+            <input type="email" class="form-control " id="email" name="email" placeholder="E-mail">
           </div>
           <div class="row mb-3">
             <label for="nome">Senha:</label>
-            <input type="password" class="form-control " id="email" name="avatar" placeholder="Senha">
+            <input type="password" class="form-control " id="email" name="senha" placeholder="Senha">
           </div>
           <div class="row">
             <button class="btn btn-success">Cadastrar</button>

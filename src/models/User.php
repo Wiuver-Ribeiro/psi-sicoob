@@ -124,7 +124,7 @@ class User extends Model {
     $sql->bindParam(':avatar',$avatar);
     $sql->execute();
 
-    $_SESSION['email'] = "<div class='alert alert-success' role='alert'> Administrador cadastrado!</div>";
+    $_SESSION['email'] = "<div class='alert alert-success' role='alert'> Administrador cadastrado com sucesso!</div>";
     return true;
   }
 
