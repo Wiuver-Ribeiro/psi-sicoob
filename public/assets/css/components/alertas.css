@@ -1,0 +1,39 @@
+/* status [confirmado, pendente, cancelado */
+/* Pendente [gambiarra] */
+.container .leftside table tbody tr td.pendente {
+  color: #ffa500;
+}
+
+/* Pendente [gambiarra]  */
+.container .leftside table tbody tr td.pendente > div.ball {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffa500;
+}
+
+/* Confirmado [gambiarra] */
+.container .leftside table tbody tr td.confirmado {
+  color: #00ff00;
+}
+
+/* Confirmado [gambiarra] */
+table tbody tr td.confirmado > div.ball {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #00ff00;
+}
+/* Cancelado [gambiarra] */
+table tbody tr td.cancelado {
+  color: #f00;
+}
+
+/* Cancelado [gambiarra] */
+ table tbody tr td.cancelado > div.ball {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #f00;
+  margin-left: 1rem !important;
+}
