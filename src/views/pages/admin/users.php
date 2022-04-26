@@ -23,7 +23,6 @@
 
         var user_id = $(this).attr("id");
 
-        actionForm.action = "http://localhost/psi-sicoob/public/users/" + user_id
         if (user_id !== "") {
           var dados = {
             user_id: user_id,
@@ -31,6 +30,7 @@
           $.post('http://localhost/psi-sicoob/src/views/pages/admin/visualizar.php', dados, function(retorna) {
             $('#view_user').html(retorna);
             $('#encerrar').modal('show');
+            actionForm.action = "http://localhost/psi-sicoob/public/users/edit/" + user_id
 
           });
         }
@@ -60,6 +60,10 @@
 
   ?>
   <main class="main-container">
+    <?php if (isset($_SESSION['sucesso'])) {
+      echo $_SESSION['sucesso'];
+      $_SESSION['sucesso'] = '';
+    } ?>
     <!-- <div class="main-container"> -->
     <div class="container-psi">
       <div class="container-psi-header">
@@ -123,7 +127,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
-          <button  type="submit" class="btn btn-success">Alterar</button>
+          <button type="submit" class="btn btn-success">Alterar</button>
         </div>
         </form>
       </div>

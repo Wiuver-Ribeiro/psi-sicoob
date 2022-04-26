@@ -150,7 +150,11 @@ class UserController extends Controller {
 
   public function editUser($id) {
     $usuario = new User();
-    $usuario->editarUsuario($id);
+    if($usuario->editarUsuario($id)) {
+      $this->redirect('/users');
+    } else {
+      $this->redirect('/users');
+    }
   }
 
 }

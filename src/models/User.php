@@ -183,10 +183,13 @@ class User extends Model {
     $sql = $pdo->prepare("UPDATE usuarios SET nome = ?, email = ?, senha = ? WHERE idusuario = ?");
     $sql->bindParam(1, $nome);
     $sql->bindParam(2, $email); 
-    $sql->bindParam(3, $senha);
+    $sql->bindParam(3, md5($senha));
     $sql->bindParam(4, $id['id']);
 
     $sql->execute();
+    $_SESSION['sucesso'] = "<div class='alert alert-success' role='aler'>Usuário alterado com sucesso!</div>";
+    return true;
   }
+  
 
 }
