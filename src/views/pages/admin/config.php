@@ -62,15 +62,15 @@
           </div>
           <div class="row mb-3">
             <label for="nome">Nome:</label>
-            <input type="text" class="form-control " id="nome" name="avatar" placeholder="Nome Completo" value="<?php echo $usuarioLogado['nome']; ?>">
+            <input type="text" class="form-control " id="nome" name="nome" placeholder="Nome Completo" value="<?php echo $usuarioLogado['nome']; ?>">
           </div>
           <div class="row mb-3">
             <label for="email">E-mail:</label>
-            <input type="email" class="form-control " id="email" name="avatar" placeholder="E-mail" value="<?php echo $usuarioLogado['email']; ?>">
+            <input type="email" class="form-control " id="email" name="email" placeholder="E-mail" value="<?php echo $usuarioLogado['email']; ?>">
           </div>
           <div class="row mb-3">
             <label for="senha">Senha:</label>
-            <input type="password" class="form-control " id="senha" name="avatar" placeholder="Senha" value="<?php echo $usuarioLogado['senha']; ?>">
+            <input type="password" class="form-control " id="senha" name="senha" placeholder="Senha" value="<?php echo $usuarioLogado['senha']; ?>">
           </div>
           <div class="row">
             <button class="btn btn-success">Enviar</button>
