@@ -26,7 +26,7 @@
             palavra: pesquisa,
           }
           $.post('http://localhost/psi-sicoob/src/views/pages/admin/pesquisa.php', dados, function(retorna) {
-            $('.table').html(retorna);
+            $('.table2').html(retorna);
           });
         };
       });
@@ -75,7 +75,7 @@
             </tr>
           </thead>
 
-          <tbody>
+          <tbody class="table2">
             <?php foreach ($todosPacientes as $paciente) : ?>
               <tr>
                 <td>
