@@ -125,7 +125,7 @@ $agendamento = new Appointment();
                 echo "<span class='consulta-total'>Sem consultas neste momentos</span>";
               } else {
                 foreach ($consultas as $consulta) : ?>
-                  <tr  class="text-center">
+                  <tr class="text-center">
 
                     <td class="overflow-word ">
                       <img src="<?php echo $base . "/assets/icons/" . $consulta['avatar']; ?>" alt="Avatar">
@@ -148,7 +148,6 @@ $agendamento = new Appointment();
                     <td class='pendente'>
                       <button id="<?php echo $consulta['idagendamentos']; ?>" class='btn btn-success view_data'>Encerrar</button>
                     </td>
-                    <!-- data-bs-toggle='modal' data-bs-target='#encerrar' -->
 
                   </tr>
               <?php endforeach;

@@ -71,7 +71,7 @@ $agendamento = new Appointment();
   <div class="container">
     <?php
     if (isset($_SESSION['sucesso'])) {
-      echo $_session['sucesso'];
+      echo $_SESSION['sucesso'];
       $_SESSION['sucesso'] = '';
     }
     ?>
@@ -159,7 +159,7 @@ $agendamento = new Appointment();
           </div>
         </div>
         <div class="col-md col-lg-3 bg-dark pt-2 pb-2 rounded">
-          <h1 class="h5 text-light border p-2">Úlitmas consultas</h1>
+          <h1 class="h5 text-light  p-2">Úlitmas consultas</h1>
           <?php foreach ($ultimosPacientes as $pacientes) : ?>
 
             <div class="row mb-2">

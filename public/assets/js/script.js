@@ -38,7 +38,7 @@ function renderCalendar(profile, id) {
       dayMaxEvents: true, 
   
       events: {
-        // url: 'http://localhost/psi-sicoob/src/views/pages/admin/eventos.php',
+        url: 'http://localhost/psi-sicoob/src/views/pages/admin/eventos.php',
         url: URL,
         method: metodo,
       },

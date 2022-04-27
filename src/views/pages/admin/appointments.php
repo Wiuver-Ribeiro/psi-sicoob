@@ -200,21 +200,7 @@ $infoData = $usuario->dadosLogado();
                   </div>
                 </div>
               </div>
-              <!-- Em análise adição de mais horas -->
-              <!-- 
-              <div class="row mb-3">
-                <div class="col-lg-12">
-                  <label for="first-name">Quanto tempo deseja de atendimento:</label>
-                  <select name="horasAtendimento" id="first-name" class="form-control">
-                    <option value="1">1h</option>
-                    <option value="2">2h</option>
-                    <option value="3">3h</option>
-                  </select>
-                </div> -->
-
-
-
-              <div class="form-group mb20">
+               <div class="form-group mb20">
                 <label for="first-name">Detalhamento da consulta:</label>
                 <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="5"></textarea>
               </div>
