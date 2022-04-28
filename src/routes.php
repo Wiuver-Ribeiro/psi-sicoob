@@ -1,4 +1,5 @@
 <?php
+
 use core\Router;
 
 $router = new Router();
@@ -9,7 +10,6 @@ $router->get('/signin', "HomeController@signin");
 $router->get('/signup', "HomeController@signup");
 
 //AuthController
-
 $router->post('/doctors/create', 'AuthController@create');
 
 
@@ -30,14 +30,11 @@ $router->post('/patients/create', 'PatientController@createPatient');
 $router->get('/patients/edit/{id}', 'PatientController@editPaciente');
 $router->post('/patients/edit/{id}', 'PatientController@editarPaciente');
 $router->post('/patients/delete/{id}', 'PatientController@deletarPaciente');
-
 $router->get('/patients/create', 'UserController@createPatient');
 
 //USerController
 $router->get('/admins', 'UserController@admins');
 $router->get('/doctors/create', 'UserController@createDoctor');
-
-
 $router->get('/admins/create', 'UserController@createAdmin');
 $router->post('/admins/create', 'UserController@registerAdministrador');
 $router->get('/admins/edit/{id}', 'UserController@editAdmin');
@@ -66,5 +63,4 @@ $router->get('/appointments/confirm/{id}', 'AppointmentController@confirmAppoint
 $router->get('/appointments/edit/{id}', 'AppointmentController@editAppointment');
 $router->get('/appointments/search/{usuario}', 'AppointmentController@searchUsers');
 $router->post('/appointments/register', 'AppointmentController@registerAppointment');
-
 $router->post('/appointments/finish/{id}', 'AppointmentController@finishAppointment');
