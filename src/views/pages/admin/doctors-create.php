@@ -57,7 +57,7 @@
             <input type="email" class="form-control " id="email" name="email" placeholder="E-mail" autocomplete="off">
           </div>
           <div class="row mb-3">
-            <label for="senha">Senha:</label>
+            <label class="text-light" for="senha">Senha:</label>
             <input type="password" class="form-control " id="senha" name="senha" placeholder="Senha" autocomplete="off">
           </div>
           <div class="row mb-3">

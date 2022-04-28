@@ -1098,6 +1098,7 @@ A VERTICAL event
 .fc .fc-timegrid-axis-cushion,
   .fc .fc-timegrid-slot-label-cushion {
     padding: 0 4px;
+    color: #000;
   }
 .fc {
 
