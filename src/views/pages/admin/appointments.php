@@ -199,7 +199,7 @@ $infoData = $usuario->dadosLogado();
                   </div>
                 </div>
               </div>
-               <div class="form-group mb20">
+              <div class="form-group mb20">
                 <label for="first-name">Detalhamento da consulta:</label>
                 <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="5"></textarea>
               </div>

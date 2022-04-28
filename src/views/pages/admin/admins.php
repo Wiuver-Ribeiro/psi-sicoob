@@ -1,5 +1,13 @@
+<?php
+
+use \src\models\USer;
+
+$usuario = new User();
+$info = $usuario->dadosLogado();
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -9,22 +17,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/reset.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/admins.css'; ?>">
   <style>
     .container {
-      height: 100vh;
-      width: calc(100% - 270px);
-      margin-left: 270px;
-      overflow: hidden;
+      width: calc(100% - 250px);
+      margin-left: 250px;
     }
 
     img {
       width: 80px;
       object-fit: contain !important;
     }
+
     .hover {
       cursor: pointer !important;
     }
@@ -34,24 +37,17 @@
 
 <body>
   <?php
-
-  use \src\models\USer;
-
-  $usuario = new User();
-  $info = $usuario->dadosLogado();
-
-  $render('navbar'); ?>
-  <?php $render('sidebar');
+  $render('navbar');
+  $render('sidebar');
   //SESSÕES
   if (isset($_SESSION['email'])) {
     echo $_SESSION['email'];
     unset($_SESSION['email']);
     $_SESSION['email'] = '';
   }
-
   ?>
 
-  <main class="container p-5 bg-dark">
+  <div class="container pt-5 bg-dark">
     <h2 class="text-light mb-4">Administradores:</h2>
     <div class="container-fluid rounded p-4" style="background: #151419">
       <div class="column d-flex justify-content-between">
@@ -62,7 +58,7 @@
 
       <div class="row justify-content-between mb-2 p-3">
         <?php foreach ($administradores as $administrador) : ?>
-          <div class="hover col-lg-5 col-md-7 cols-m-1 bg-dark mr-3 mb-4 p-3 d-flex justify-content-between align-items-center rounded shadow-sm" onclick="location.href='http://localhost/psi-sicoob/public/admins/edit/<?php echo $administrador['idusuario'];?>'">
+          <div class="hover col-lg-5 col-md-7 cols-m-1 bg-dark mr-3 mb-4 p-3 d-flex justify-content-between align-items-center rounded shadow-sm" onclick="location.href='http://localhost/psi-sicoob/public/admins/edit/<?php echo $administrador['idusuario']; ?>'">
             <img class="img-fluid rounded-circle " src="<?php echo $base . '/assets/icons/' . $administrador['avatar']; ?>" alt="">
             <div class="row ">
               <span class="text-light text-center fs-5"><?php echo $administrador['nome']; ?></span>

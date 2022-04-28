@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <?php echo $base; ?>
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +12,7 @@
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/patients.css'; ?>">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+  
 
   <title>PSI | Paciente</title>
 
@@ -32,13 +31,6 @@
       });
     });
   </script>
-  <style>
-    .container {
-      width: calc(100vw - 300px);
-      height: 100vh;
-      margin-left: 260px;
-    }
-  </style>
 </head>
 
 <body>
@@ -55,48 +47,49 @@
   }
   ?>
 
-  <div class="container pt-5">
-    <div class="row">
-      <div class="col-11">
-        <h2 class="text-light">Todos os Pacientes</h2>
-      </div>
-      <div class="col">
-
-        <a class="btn btn-primary" href="<?php echo $base . '/patients/create'; ?>" title="Adicionar novo Paciente">
+  <main class="main-container">
+    <!-- <div class="main-container"> -->
+    <div class="container-psi">
+      <div class="container-psi-header">
+        <h2>Todos os Pacientes</h2>
+        <a href="<?php echo $base . '/patients/create'; ?>" title="Adicionar novo Paciente">
           <i class="fas fa-user-plus"></i>
         </a>
       </div>
-    </div>
-    <div class="table-responsive  row">
+      <!--container-psi-header-->
+      <div class="box-container-search">
+      </div>
 
-      <input class="form-control mb-3" id="pesquisa" placeholder="Busque algum paciente" autocomplete="off">
+      <div class="table-responsive  row">
 
-      <table class="table table-hover table-striped table-bordered rounded table-dark  justify-content-center align-items-center">
-        <thead class="thead-dark">
-          <tr>
-            <th>Avatar</th>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>Editar</th>
-          </tr>
-        </thead>
+        <input class="form-control mb-3" id="pesquisa" placeholder="Busque algum paciente" autocomplete="off">
 
-        <tbody class="table2">
-          <?php foreach ($todosPacientes as $paciente) : ?>
+        <table class="table table-hover table-striped table-bordered rounded table-dark  justify-content-center align-items-center">
+          <thead class="thead-dark">
             <tr>
-              <td>
-                <img class="img-fluid" style="width:50px; height:50px; border-radius:50%; object-fit:cover" src="<?php echo $base . '/assets/icons/' . $paciente['avatar']; ?>" alt="">
-              </td>
-              <td><?php echo $paciente['nome']; ?></td>
-              <td><?php echo $paciente['email']; ?></td>
-              <td><a class="btn btn-warning" href='<?php echo $base . "/patients/edit/" . $paciente['idpaciente']; ?>'><i class="fas fa-pencil-edit text-light"></i></a></td>
+              <th>Avatar</th>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Editar</th>
             </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-    </div>
+          </thead>
 
-    <!-- INCLUSÃO DO CODIGO AQUI -->
+          <tbody class="table2">
+            <?php foreach ($todosPacientes as $paciente) : ?>
+              <tr>
+                <td>
+                  <img class="img-fluid" style="width:50px; height:50px; border-radius:50%; object-fit:cover" src="<?php echo $base . '/assets/icons/' . $paciente['avatar']; ?>" alt="">
+                </td>
+                <td><?php echo $paciente['nome']; ?></td>
+                <td><?php echo $paciente['email']; ?></td>
+                <td><a class="btn btn-warning" href='<?php echo $base . "/patients/edit/" . $paciente['idpaciente']; ?>'><i class="fas fa-pencil-edit text-light"></i></a></td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- INCLUSÃO DO CODIGO AQUI -->
 
     </div>
     <!--content-psi-->

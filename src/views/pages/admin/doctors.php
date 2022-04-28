@@ -28,10 +28,9 @@ $info = $usuario->dadosLogado();
   <style>
     .container {
       width: calc(100vw - 250px);
-      height: 100vh;
       margin-left: 250px;
+      height:auto;
     }
-
     img {
       width: 80px;
       object-fit: contain !important;
@@ -54,7 +53,7 @@ $info = $usuario->dadosLogado();
   }
   ?>
 
-  <main class="container mt-5 bg-dark" >
+  <div class="container pt-5  bg-dark" >
     <h2 class="text-light mb-4">Psicólogos</h2>
     <div class="container-fluid rounded p-4" style="background: #151419">
       <div class="column d-flex justify-content-between">

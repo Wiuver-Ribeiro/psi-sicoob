@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
 
 use \src\models\USer;
@@ -9,6 +6,8 @@ $usuario = new User();
 $info = $usuario->dadosLogado();
 
 ?>
+<!DOCTYPE html>
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -16,20 +15,15 @@ $info = $usuario->dadosLogado();
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="shortcut icon" href="<?php echo $base . '/assets/icons/scs.ico'; ?>" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/reset.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/dashboard.css'; ?>">
-
   <title>PSI | Dashboard</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <script src="<?php echo $base . '/assets/js/script.js'; ?>"></script>
   <style>
     .container {
-      height: 100vh;
       width: calc(100% - 250px);
       margin-left: 250px;
+
     }
   </style>
 </head>
@@ -86,7 +80,7 @@ $info = $usuario->dadosLogado();
           </div>
         </div>
       </div>
-      <!--coluna 01 -->
+
     </div>
 
     <div class="table-responsive">
