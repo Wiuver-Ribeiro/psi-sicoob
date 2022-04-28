@@ -28,5 +28,4 @@ $resultado .= "<div class='col mb-2'>";
 $resultado .= "<label for='psi'>Senha:</label>";
 $resultado .= "<input type='password' class='form-control'  name='senha'  value='" . $dados['senha'] . "'>";
 $resultado .= "</div>";
-
 echo $resultado;

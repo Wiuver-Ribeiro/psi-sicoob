@@ -7,12 +7,9 @@
   <link rel="shortcut icon" href="<?php echo $base . '/assets/icons/scs.ico'; ?>" type="image/x-icon" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/reset.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/doctor-create.css'; ?>">
+    <title>PSI | Doctors </title>
+  <link rel="stylesheet" href="<?php echo $base . '/assets/css/bootstrap.min.css' ?>">
 
-  <title>PSI | Doctors </title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -23,8 +20,7 @@
     .container {
       width: calc(100% - 270px);
       margin-left: 270px;
-      overflow: hidden;
-
+ 
     }
 
     label {
@@ -51,7 +47,7 @@
 
     <!-- SESSÕES -->
 
-    <main class="container p-5 bg-dark">
+    <div class="container p-5 bg-dark">
 
       <h2 class="text-light mb-4">Psicólogo</h2>
       <div class="container-fluid rounded p-4" style="background: #151419">
@@ -85,13 +81,13 @@
 
             </div>
             <div class="column">
-              <a class="btn btn-danger" href="<?php echo $base . '/doctos/edit/' . $psicologo['idusuario']; ?>">Excluir Psicologo</a>
+              <a class="btn btn-danger" href="<?php echo $base . '/doctos/edit/' . $psicologo['idusuario']; ?>">Excluir Psicólogo</a>
               <button class="btn btn-success">Editar Psicólogo</button>
             </div>
           </form>
         </div>
       </div>
-    </main>
+    </div>
 
 
   </body>

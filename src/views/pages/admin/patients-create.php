@@ -23,15 +23,7 @@
       margin-left: 270px;
       overflow: hidden;
     }
-    label {
-      color: #fff;
-    }
-    /* 
-    Cores:
-    INPUT: #202024
-    
-    */
-    input {
+     input {
       background-color: #202024 !important;
       border: none !important;
       color: #fff !important;
@@ -42,14 +34,14 @@
 <body>
   <?php $render('navbar'); ?>
   <?php $render('sidebar'); ?>
- <main class="container p-5 bg-dark">
-    <?php
+  <?php
       if(isset($_SESSION['email'])) {
         echo $_SESSION['email'];
         $_SESSION['email'] = '';
         unset($_SESSION['email']);
       }
-    ?>
+      ?>
+      <div class="container p-5 bg-dark">
       <h2 class="text-light mb-4">Paciente</h2>
       <div class="container-fluid rounded p-4" style="background: #151419">
         <h3 class="text-light">Novo Paciente</h3>
@@ -61,23 +53,23 @@
           </div>
           <form  action="<?php echo $base.'/patients/create';?>" method="POST">
           <div class="row mb-3">
-            <label for="avatar">Selecione um Avatar:</label>
+            <label class="text-light" for="avatar">Selecione um Avatar:</label>
             <input type="file" class="form-control " id="avatar" name="avatar" placeholder=""autocomplete="off">
           </div>
           <div class="row mb-3">
-            <label for="nome">Nome:</label>
+            <label class="text-light" for="nome">Nome:</label>
             <input type="text" class="form-control " id="nome" name="nome" placeholder="Nome Completo"autocomplete="off">
           </div>
           <div class="row mb-3">
-            <label for="email">E-mail:</label>
+            <label class="text-light" for="email">E-mail:</label>
             <input type="email" class="form-control " id="email" name="email" placeholder="E-mail"autocomplete="off">
           </div>
           <div class="row mb-3">
-            <label for="senha">Senha:</label>
+            <label class="text-light" for="senha">Senha:</label>
             <input type="password" class="form-control " id="senha" name="senha" placeholder="Senha"autocomplete="off">
           </div>
           <div class="row mb-3">
-            <label for="celulara">Celular:</label>
+            <label class="text-light" for="celulara">Celular:</label>
             <input type="text" class="form-control " id="celular"  onkeypress="$(this).mask('(00) 0 0000-0000')" name="telefone" placeholder="(**) * *****-***" autocomplete="off">
           </div>
           <div class="row">
@@ -88,7 +80,7 @@
 
         <!--div-column-->
       </div>
-    </main>
+    </div>
 </body>
 
 </html>
