@@ -28,24 +28,10 @@ $info = $usuario->dadosLogado();
   <style>
     .container {
       height: 100vh;
-      width: calc(100% - 270px);
-      margin-left: 270px;
-      overflow: hidden;
-    }
-    @media only screen and (min-width:750px) {
-      #alerta {
-        font-size: 12px  !important;
-        width: 100% !important;
-      }
-    }
-    @media only screen and (min-width:600px) {
-      #alerta {
-        font-size: 10px  !important;
-        width: 100% !important;
-      }
+      width: calc(100% - 250px);
+      margin-left: 250px;
     }
   </style>
-
 </head>
 
 <body>
@@ -59,12 +45,10 @@ $info = $usuario->dadosLogado();
     unset($_SESSION['sucesso']);
     $_SESSION['sucesso']  = '';
   }
-  // echo "<pre>";
-  // print_r($agendamento); die();
   ?>
 
   <div class="container bg-dark">
-    <div class="row justify-content-evenly align-items-center mt-5">
+    <div class="row justify-content-evenly align-items-center pt-5">
 
       <div class="col-sm-3 col-md col-lg-3 bg-secondary rounded p-4">
         <div class="row justify-content-between">
@@ -137,7 +121,7 @@ $info = $usuario->dadosLogado();
                   </a>
                 </td>
                 <td>
-                  <a  href="<?php echo $base . '/appointments/cancel/' . $agendamentos['idagendamento']; ?>" class="confirm col-sm-2" title='Cancelar Consulta'>
+                  <a href="<?php echo $base . '/appointments/cancel/' . $agendamentos['idagendamento']; ?>" class="confirm col-sm-2" title='Cancelar Consulta'>
                     <i style="color:#f00;" class='fas fa-ban fa-2x'></i>
                   </a>
                 </td>

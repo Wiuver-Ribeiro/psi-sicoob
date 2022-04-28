@@ -17,10 +17,6 @@ $info = $usuario->dadosLogado();
   <link rel="shortcut icon" href="<?php echo $base . '/assets/icons/scs.ico'; ?>" type="image/x-icon" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/reset.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/doctors.css'; ?>">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
@@ -31,10 +27,9 @@ $info = $usuario->dadosLogado();
   <title>PSI | Psicólogos </title>
   <style>
     .container {
+      width: calc(100vw - 250px);
       height: 100vh;
-      width: calc(100% - 270px);
-      margin-left: 270px;
-      overflow: hidden;
+      margin-left: 250px;
     }
 
     img {
@@ -45,13 +40,10 @@ $info = $usuario->dadosLogado();
 </head>
 
 <body>
-  <?php $render('navbar'); ?>
-  <?php $render('sidebar'); ?>
-
-
-  <main class="container p-5 bg-dark">
-
   <?php
+  $render('navbar');
+  $render('sidebar');
+
   if (isset($_SESSION['sucesso'])) {
     echo $_SESSION['sucesso'];
     $_SESSION['sucesso'] = '';
@@ -62,6 +54,7 @@ $info = $usuario->dadosLogado();
   }
   ?>
 
+  <main class="container mt-5 bg-dark" >
     <h2 class="text-light mb-4">Psicólogos</h2>
     <div class="container-fluid rounded p-4" style="background: #151419">
       <div class="column d-flex justify-content-between">
@@ -84,11 +77,11 @@ $info = $usuario->dadosLogado();
       </div>
       <!--row-pai-->
   </main>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <script src="<?php echo $base . '/assets/js/personalizado.js'; ?>"></script>
-
-  <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="<?php echo $base . '/assets/js/personalizado.js'; ?>"></script>
+
+<script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>
 
 </html>

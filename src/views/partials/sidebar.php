@@ -56,7 +56,7 @@ $info = $usuario->dadosLogado();
 
 
   <main>
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark row" style="width: 100%; height:100vh;">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark row" style="width: 250px; height:100vh;">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <img src="<?php echo $base . '/assets/icons/icon_app.png'; ?>" class="img-fluid" style="width:50px; padding-right:10px; object-fit:cover;" alt="Logo">
         <span class="fs-6">Sicoob Centro-sul</span>

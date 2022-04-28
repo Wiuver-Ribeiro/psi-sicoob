@@ -13,11 +13,11 @@ tbody, td, tfoot, th, thead, tr {
 }
 
 #calendar {
-  width: calc(100% - 270px);
-  max-width: 1070px;
+  width: calc(100% - 250px);
+  max-width: 1200px;
   margin-top:2rem;
   margin-bottom:2rem;
-  margin-left:350px;
+  margin-left:260px;
   font-family: "Poppins",sans-serif;
   color: #fff;
   border-radius: 8px;

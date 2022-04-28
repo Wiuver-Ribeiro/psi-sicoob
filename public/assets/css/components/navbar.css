@@ -3,13 +3,11 @@ body {
 }
 
 nav {
-  /* position:fixed;
-  top: 0;
-  right: 0; */
-  width: calc(100% - 240px);
+
+  width: calc(100% - 250px);
   
   height:80px;
-  margin-left: 240px;
+  margin-left: 250px;
   background:#0A0906;
 
   display: flex;

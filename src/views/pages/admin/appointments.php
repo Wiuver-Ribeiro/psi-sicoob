@@ -19,7 +19,6 @@ $infoData = $usuario->dadosLogado();
 
   <title>PSI | Agendamentos</title>
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/reset.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/dashboard.css'; ?>">
   <link href="<?php echo $base . '/assets/css/lib/main.css'; ?>" rel='stylesheet' />

@@ -2,9 +2,9 @@ main .main-container {
   display:grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 3fr;
-  width: calc(100% - 270px);
+  width: calc(100% - 250px);
   /* height: 100vh; */
-  margin-left:270px;
+  margin-left:250px;
   background: #0A0906;
 }
 
