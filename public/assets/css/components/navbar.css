@@ -6,10 +6,10 @@ nav {
   /* position:fixed;
   top: 0;
   right: 0; */
-  width: calc(100% - 270px);
+  width: calc(100% - 240px);
   
   height:80px;
-  margin-left: 270px;
+  margin-left: 240px;
   background:#0A0906;
 
   display: flex;

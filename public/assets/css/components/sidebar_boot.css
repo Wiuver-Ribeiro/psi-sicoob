@@ -92,3 +92,15 @@ body {
   .fw-semibold { font-weight: 600; }
   .lh-tight { line-height: 1.25; }
   
+  main ul li {
+    cursor: pointer;    
+  }
+
+  main ul li:hover {
+    transition: all 0.2s ease-in-out;
+    background-color: #131212;
+  }
+
+  main ul li a i{
+    width: 30px;
+  }
