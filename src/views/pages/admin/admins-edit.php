@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -7,70 +7,67 @@
   <link rel="shortcut icon" href="<?php echo $base . '/assets/icons/scs.ico'; ?>" type="image/x-icon" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/reset.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/sidebar.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/navbar.css'; ?>">
-  <link rel="stylesheet" href="<?php echo $base . '/assets/css/components/admin-create.css'; ?>">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/bootstrap.min.css' ?>">
-
-  <title>PSI | Administradores </title>
+  
+  <title>PSI | Administrador </title>
+  <style>
+    .container {
+      width: calc(100vw - 300px);
+      margin-left: 250px;
+    }
+  
+    input {
+      background-color: #202024 !important;
+      border: none !important;
+      color: #fff !important;
+    }
+  </style>
 </head>
 
 <body>
   <?php $render('navbar'); ?>
   <?php $render('sidebar'); ?>
-  <!-- SESSÕES -->
 
-  <main>
-  <?php 
-    if (isset($_SESSION['email'])) { 
-        echo $_SESSION['email'];
-        $_SESSION['email'] = '';
-        unset($_SESSION['email']);
-    }
-  ?>
-    <div class="main-container">
-      <section class="default">
-        <h3 style="text-align:left">Administrador</h3>
-        <div class="content-psi">
-          <div class="content-psi-header">
-          <h4 style="font-weight:500">Editar Administrador</h4>
+  <div class="container pt-5 bg-dark">
+    <h2 class="text-light mb-4">Editar Administrador</h2>
+    <div class="container-fluid rounded p-4" style="background: #151419">
+      <h3 class="text-light"><?php echo $administrador['nome'];?></h3>
+      <hr class="text-light">
+
+      <div class="column">
+        <div class="col d-flex justify-content-center align-items-center">
+          <img class="img-fluid bg-primary rounded-circle border border-secondary" src="<?php echo $base.'/assets/icons/'.$administrador['avatar']; ?>" alt="Avatar default" style="width:15%">
+        </div>
+        <form action="<?php echo $base.'/admins/edit/'.$administrador['idusuario'];?>" method="POST">
+          <div class="row mb-3">
+            <label class="text-light" for="avatar">Selecione um Avatar:</label>
+            <input type="file" class="form-control " id="avatar" name="avatar" placeholder="">
           </div>
-        <div class="grid-doctors _create">  
-            <!-- <div class="box-doctor"> -->
-              <img src="<?php echo $base.'/assets/icons/'.$administrador['avatar']; ?>" alt="" width="190px" height="190px" style="border-radius:50%">
-            <!-- </div> -->
-            <form action="<?php echo $base.'/admins/edit/'.$administrador['idusuario'];?>" method="POST">
-              <div class="field-input">
-                <label for="#avatar" style="color:#ccc;">Selecione um Avatar</label>
-                <input type="file" id="avatar"  name="avatar" accept="image/png, image/jpeg, image/jpg"  value="<?php echo $administrador['avatar'];?>" multiple>
-              </div>
-              <div class="field-input">
-                <input type="text" name="nome" placeholder="Nome" value="<?php echo $administrador['nome'];?>" autocomplete="off">
-              </div>
-              <div class="field-input">
-                <input type="email" name="email" placeholder="E-mail" value="<?php echo $administrador['email'];?>" autocomplete="off">
-              </div>
-              <div class="field-input _action">
-                <a href="<?php echo $base;?>" id="deletar">Excluir Administrador</a>
-                <button type="submit" id="editar" >Editar Administrador</button>
-              </div>
-            </form>
-        </div> <!---grid-doctors-->
-        </div> <!---content-psi--->
-      </section>
+          <div class="row mb-3">
+            <label class="text-light" for="nome">Nome:</label>
+            <input type="text" class="form-control " id="nome" name="nome" autocomplete="off" placeholder="Nome Completo" value="<?php echo $administrador['nome'];?>">
+          </div>
+          <div class="row mb-3">
+            <label class="text-light" for="email">E-mail:</label>
+            <input type="email" class="form-control " id="email" name="email" autocomplete="off" placeholder="E-mail" value="<?php echo $administrador['email'];?>">
+          </div>
+
+          <div class="row">
+            <!-- <button class="btn btn-outline-danger">Excluir</button> -->
+            <button class="btn btn-success">Atualizar</button>
+          </div>
+        </form>
+      </div>
+
+      <!--div-column-->
     </div>
-    <!--main-container-->
-  </main>
-
-
-
+  </d>
 </body>
+<script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
 
-</html>
-<script src="<?php echo $base;?>/assets/js/script.s"></script>
+<script src="<?php echo $base; ?>/assets/js/script.s"></script>
 <script src="<?php echo $base . '/assets/js/personalizado.js'; ?>"></script>
 
 <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</html>

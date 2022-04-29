@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -8,57 +8,63 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/bootstrap.min.css' ?>">
-
-  <title>PSI | Paciente </title>
+  
+  <title>PSI | Configuração </title>
+  <style>
+    .container {
+      width: calc(100vw - 300px);
+      margin-left: 250px;
+    }
+  
+    input {
+      background-color: #202024 !important;
+      border: none !important;
+      color: #fff !important;
+    }
+  </style>
 </head>
 
 <body>
   <?php $render('navbar'); ?>
   <?php $render('sidebar'); ?>
-  <!-- SESSÕES -->
 
-  <main>
-    <div class="main-container">
-      <section class="default">
-        <h3 style="text-align:left">Paciente</h3>
-        <div class="content-psi">
-          <div class="content-psi-header">
-          <h4 style="font-weight:500">Editar Paciente</h4>
+  <div class="container pt-5 bg-dark">
+    <h2 class="text-light mb-4">Editar Paciente</h2>
+    <div class="container-fluid rounded p-4" style="background: #151419">
+      <h3 class="text-light"><?php echo $paciente['nome'];?></h3>
+      <hr class="text-light">
+
+      <div class="column">
+        <div class="col d-flex justify-content-center align-items-center">
+          <img class="img-fluid bg-primary rounded-circle border border-secondary" src="<?php echo $base.'/assets/icons/'.$paciente['avatar'];?>" alt="Avatar default" style="width:15%">
+        </div>
+        <form action="<?php echo $base.'/patients/edit/'.$paciente['idpaciente'];?>" method="POST">
+          <div class="row mb-3">
+            <label class="text-light" for="avatar">Selecione um Avatar:</label>
+            <input type="file" class="form-control " id="avatar" name="avatar" placeholder="">
           </div>
-        <div class="grid-doctors _create">  
-            <!-- <div class="box-doctor"> -->
-              <img src="<?php echo $base.'/assets/icons/'.$paciente['avatar'];?>" alt="" width="190px" height="190px" style="border-radius:50%">
-            <!-- </div> -->
-            <form action="<?php echo $base.'/patients/edit/'.$paciente['idpaciente'];?>" method="POST">
-              <div class="field-input">
-                <label for="#avatar" style="color:#ccc;">Selecione um Avatar</label>
-                <input type="file" id="avatar"  name="avatar" accept="image/png, image/jpeg, image/jpg"   multiple>
-              </div>
-              <div class="field-input">
-                <input type="text" name="nome" placeholder="Nome"  value="<?php echo $paciente['nome'];?>" autocomplete="off">
-              </div>
-              <div class="field-input">
-                <input type="email" name="email" placeholder="E-mail"  value="<?php echo $paciente['email'];?>" autocomplete="off">
-              </div>
-              <div class="field-input _action">
-                <a href="<?php echo $base;?>" id="deletar">Excluir Paciente</a>
-                <button type="submit" id="editar" >Editar Paciente</button>
-              </div>
-            </form>
-        </div> <!---grid-doctors-->
-        </div> <!---content-psi--->
-      </section>
+          <div class="row mb-3">
+            <label class="text-light" for="nome">Nome:</label>
+            <input type="text" class="form-control " id="nome" name="nome" placeholder="Nome Completo" value="<?php echo $paciente['nome'];?>">
+          </div>
+          <div class="row mb-3">
+            <label class="text-light" for="email">E-mail:</label>
+            <input type="email" class="form-control " id="email" name="email" placeholder="E-mail" value="<?php echo $paciente['email'];?>">
+          </div>
+          <div class="row">
+            <button class="btn btn-success">Atualizar</button>
+          </div>
+        </form>
+      </div>
+
+      <!--div-column-->
     </div>
-    <!--main-container-->
-  </main>
-
-
-
+  </d>
 </body>
 
-</html>
-<script src="<?php echo $base;?>/assets/js/script.s"></script>
+<script src="<?php echo $base; ?>/assets/js/script.s"></script>
 <script src="<?php echo $base . '/assets/js/personalizado.js'; ?>"></script>
 
 <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</html>

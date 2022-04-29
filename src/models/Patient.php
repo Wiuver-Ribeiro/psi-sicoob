@@ -110,7 +110,7 @@ class Patient extends Model
       $sql->bindValue(':id', $id['id']);
       $sql->execute();
 
-      $_SESSION['email'] = "<div class='alert alert-success' role='alert'> Paciente alterado com sucesso! </div>";
+      $_SESSION['email'] = "<div style='position:absolute; left: 48%;' class='alert alert-success' role='alert'> Paciente alterado com sucesso! </div>";
       return true;
     } else {
       $sql = $pdo->prepare("UPDATE usuarios AS u INNER JOIN pacientes AS p ON (u.idusuario = p.id_usuario)
@@ -121,7 +121,7 @@ class Patient extends Model
       $sql->bindValue(':id', $id['id']);
       $sql->execute();
 
-      $_SESSION['email'] = "<div class='alert alert-success' role='alert'>Paciente alterado com sucesso! </div>";
+      $_SESSION['email'] = "<div style='position:absolute; left: 48%;' class='alert alert-success' role='alert'>Paciente alterado com sucesso! </div>";
       return true;
     }
   }
