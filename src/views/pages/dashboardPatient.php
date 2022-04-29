@@ -117,13 +117,19 @@ $agendamento = new Appointment();
           <div class="table-responsive">
             <table class="table table-striped table-bordered table-hover bg-light">
               <thead class="rounded thead-dark">
-                <th>Paciente</th>
+                <th>Psicólogo</th>
                 <th>Data</th>
                 <th>Status</th>
                 <th>Encerrar</th>
               </thead>
-              <tbody class="text-light">
-
+              <tbody class="text-dark">
+                <?php foreach ($ultimosPsicologos as $psicologo) : ?>
+                  
+                  <tr>
+                    <td><?php echo $psicologo['nome']; ?></td>
+                    <td><?php echo $psicologo['nome']; ?></td>
+                  </tr>
+                <?php endforeach; ?>
             </table>
           </div>
         </div>
