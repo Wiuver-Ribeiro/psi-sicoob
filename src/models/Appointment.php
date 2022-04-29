@@ -287,6 +287,26 @@ class Appointment extends Model
     return $dados;
   }
 
+  public function meusUltimosPsicologos($info)
+  {
+    require '../connnect.php';
+
+    $sql = $pdo->prepare("SELECT 
+    u.nome, 
+    u.avatar
+    FROM usuarios AS u INNER JOIN psi AS p ON (u.idusuario = p.id_usuario)
+                       INNER JOIN agendamentos AS a ON (a.id_psi = p.idpsi) 
+                       INNER JOIN pacientes AS ps ON (ps.idpaciente = a.id_paciente) 
+                        where ps.id_usuario = :idlogado ORDER BY idagendamentos DESC");
+
+    $sql->bindValue(':idlogado', $info['idusuario']);
+    $sql->execute();
+
+    $dados = $sql->fetchAll(\PDO::FETCH_ASSOC);
+
+    return $dados;
+  }
+
 
   public function editarConsulta($id)
   {

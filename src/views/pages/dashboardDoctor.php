@@ -164,7 +164,7 @@ $agendamento = new Appointment();
 
             <div class="row mb-2">
               <div class="col">
-                <img class="img-fluid rounded-circle" style="max-width:40px" src="<?php echo $base . '/assets/icons/' . $pacientes['avatar']; ?>" alt="Avatar">
+                <img class="img-fluid rounded-circle" style="width:45px; height:45px; object-fit:cover" src="<?php echo $base . '/assets/icons/' . $pacientes['avatar']; ?>" alt="Avatar">
                 <span class="text-light text-right"><?php echo $pacientes['nome']; ?></span>
               </div>
             </div>

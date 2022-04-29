@@ -22,6 +22,7 @@ class DashboardController extends Controller {
     $minhasConsultasPendentes = $agendamento->minhasConsultasPendentes($info);
     $minhasConsultasCanceladas = $agendamento->minhasConsultasCanceladas($info);
     $meusUltimosPacientes = $agendamento->meusUltimosPacientes($info);
+    $meusUltimosPsicologos = $agendamento->meusUltimosPsicologos($info);
     
   if(!$usuario->logado ()) {
     $this->redirect('/signin');
@@ -51,6 +52,8 @@ class DashboardController extends Controller {
       "pendentes" =>  $pendentes,
       "marcados" => $marcados,
       "cancelados" => $cancelados,
+      "ultimosPsicologos" => $meusUltimosPsicologos,
+
       "info" => $info,
     ]);
   }

@@ -45,7 +45,7 @@ class Patient extends Model
                                           VALUES  (:nome, :email, :senha, :avatar) ");
       $sql1->bindValue(':nome', $nome);
       $sql1->bindValue(':email', $email);
-      $sql1->bindValue(':senha', $senha);
+      $sql1->bindValue(':senha', md5($senha));
       $sql1->bindValue(':avatar', "default.png");
       $sql1->execute();
 
@@ -64,7 +64,7 @@ class Patient extends Model
             VALUES  (:nome, :email, :senha, :avatar) ");
       $sql1->bindValue(':nome', $nome);
       $sql1->bindValue(':email', $email);
-      $sql1->bindValue(':senha', $senha);
+      $sql1->bindValue(':senha', md5($senha));
       $sql1->bindValue(':avatar', $avatar);
       $sql1->execute();
 
