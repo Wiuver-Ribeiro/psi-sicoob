@@ -1,4 +1,5 @@
 <?php
+
 namespace src\controllers;
 
 use \core\Controller;
@@ -7,8 +8,10 @@ use \src\models\Doctor;
 use \src\models\Patient;
 use \src\models\Appointment;
 
-clASs AppointmentController extends Controller {
-  public function index() {
+class AppointmentController extends Controller
+{
+  public function index()
+  {
     $usuario = new User();
     $info = $usuario->dadosLogado();
 
@@ -22,18 +25,18 @@ clASs AppointmentController extends Controller {
 
     // $minhasConsultas = $agendamento->minhasConsultas($info);
 
-    if(!$usuario->logado ()) {
+    if (!$usuario->logado()) {
       $this->redirect('/signin');
     } else if ($usuario->logado() && $info['tipo'] == 'admin') {
       $this->render('/admin/appointments', [
         "psi" => $todosPSI,
         "paciente" => $todosPaciente,
       ]);
-    } else if($usuario->logado() && $info['tipo'] == 'psi'){
+    } else if ($usuario->logado() && $info['tipo'] == 'psi') {
       $this->render('/admin/appointments', [
         "psi" => $todosPSI,
         "paciente" => $todosPaciente,
-        
+
       ]);
     }
 
@@ -45,54 +48,58 @@ clASs AppointmentController extends Controller {
 
   }
 
-  public function createAppointment() {
+  public function createAppointment()
+  {
     $agendamento = new Appointment();
     // $agendamento->cadAStrarAgendamento();
     $agendamento->marcarConsulta();
   }
 
-  public function logout() {
+  public function logout()
+  {
     $this->redirect('/signin');
   }
 
-  public function cancelAppointment($id) {
+  public function cancelAppointment($id)
+  {
     $agendamento = new Appointment();
     $editAgendamento = $agendamento->cancelarAgendamento($id);
 
-    if($editAgendamento) {
+    if ($editAgendamento) {
       $_SESSION['sucesso'] =  "<div clASs='alert alert-success' role='alert'  style='position:absolute; left:50%;top:30%;z-index:999;'>Consulta cancelada com sucesso</div>";
       $this->redirect('/dashboard');
-
     } else {
       $_SESSION['sucesso'] =  "<div clASs='alert alert-danger' role='alert'  style='position:absolute; left:50%;top:30%;z-index:999;'>Erro ao cancelar consulta com sucesso</div>";
       $this->redirect('/dashboard');
     }
   }
-  public function confirmAppointment($id) {
-    
+  public function confirmAppointment($id)
+  {
+
     $agendamento = new Appointment();
     $editAgendamento = $agendamento->confirmarAgendamento($id);
 
-    if($editAgendamento) {
+    if ($editAgendamento) {
       $_SESSION['sucesso'] =  "<div clASs='alert alert-success' role='alert' style='position:absolute; left:50%;top:30%;z-index:999;'>Consulta confirmada com sucesso</div>";
       $this->redirect('/dashboard');
-
     } else {
       $_SESSION['sucesso'] =  "<div clASs='alert alert-danger' role='alert' style='position:absolute; left:50%;top:20%;z-index:999;'>Erro ao confirmar consulta com sucesso</div>";
       $this->redirect('/dashboard');
     }
   }
 
-  public function searchUsers() {
+  public function searchUsers()
+  {
     $agendamento = new Appointment();
     $agendamento->buscarAgendamentosPorNome();
     $this->redirect('/dashboard');
   }
 
-  public function registerAppointment() {
+  public function registerAppointment()
+  {
     $agendamento = new Appointment();
     $cadAStraAgendamento = $agendamento->marcarConsulta();
-    if($cadAStraAgendamento) {
+    if ($cadAStraAgendamento) {
       $_SESSION['sucesso'] = "<div clASs='alert alert-success' role='alert' style='left: 49%;
     position: absolute;
     top: 15%;'>Consulta marcada com sucesso!</div>";
@@ -105,12 +112,13 @@ clASs AppointmentController extends Controller {
     }
   }
 
-  public function editAppointment($id) {
+  public function editAppointment($id)
+  {
     require '../connnect.php';
     $agendamento = new Appointment();
     $agendamentoEditar = $agendamento->editarConsulta($id);
 
-    if($agendamentoEditar ) {
+    if ($agendamentoEditar) {
       $_SESSION['sucesso'] =  "<div clASs='alert alert-success' role='alert' style='position:absolute; left:50%;top:30%;z-index:999;'>Consulta alterada com sucesso!</div>";
       $this->redirect('/appointments');
     } else {
@@ -119,12 +127,13 @@ clASs AppointmentController extends Controller {
     }
   }
 
-  public function finishAppointment($id) {
+  public function finishAppointment($id)
+  {
     require '../connnect.php';
     $agendamento = new Appointment();
     $encerramento = $agendamento->encerrarConsulta($id);
-  
-    if($encerramento) {
+
+    if ($encerramento) {
       $_SESSION['sucesso'] = "<div class='alert alert-success' role='alert' style='position: absolute;left: 50%;'>Consulta encerrada com sucesso!</div>";
       $this->redirect('/dashboard');
     } else {
@@ -133,6 +142,5 @@ clASs AppointmentController extends Controller {
       //dasd
 
     }
-
   }
 }
