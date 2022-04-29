@@ -84,7 +84,7 @@ $info = $usuario->dadosLogado();
           </a>
         </li>" : "" ?>
 
-        <?php echo ($info['tipo'] == 'admin' || $info['tipo'] == "paciente") ?
+        <?php echo ($info['tipo'] == 'admin') ?
           "<li>
           <a href='" . $base . "/patients' class='nav-link text-white'>
           <i class='fas fa-user-alt' style='color:#8DC9E8; '></i>
@@ -93,7 +93,7 @@ $info = $usuario->dadosLogado();
           </a>
         </li>" : "" ?>
 
-        <?php echo ($info['tipo'] == 'admin' || $info['tipo'] == "paciente") ?
+        <?php echo ($info['tipo'] == 'admin') ?
           "<li>
           <a href='" . $base . "/users' class='nav-link text-white'>
           <i class='fas fa-user-friends' style='color:#4863f7; '></i>
@@ -102,7 +102,7 @@ $info = $usuario->dadosLogado();
           </a>
         </li>" : "" ?>
 
-<?php echo ($info['tipo'] == 'admin' || $info['tipo'] == "paciente") ?
+<?php echo ($info['tipo'] == 'admin') ?
           "<li>
           <a href='" . $base . "/admins' class='nav-link text-white'>
           <i class='fas fa-lock' style='color:#F4C22B;'></i>

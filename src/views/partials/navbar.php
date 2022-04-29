@@ -32,10 +32,10 @@ $info = $usuario->dadosLogado();
             </button>
             <ul class="dropdown-menu text-light" aria-labelledby="dropdownMenu2">
               <div class="row">
-                <div class="col">
-                  <img src="<?php echo $base . '/assets/icons/' . $info['avatar']; ?>" alt="" width="40px" height="40px">
+                <div class="col-4">
+                  <img class="img-fluid rounded-circle" src="<?php echo $base . '/assets/icons/' . $info['avatar']; ?>" alt=""  style="width:45px; height:45px; object-fit:cover">
                 </div>
-                <div class="col"><span class="text-dark"><?php echo $info['nome']; ?></span></div>
+                <div class="col-8"><span class="text-dark"><?php echo $info['nome']; ?></span></div>
               </div>
               <li><a href="<?php echo $base . '/appointments'; ?>" class="dropdown-item">
                   <i style="padding-right:8px" class="fas fa-calendar fa-sm"></i>
