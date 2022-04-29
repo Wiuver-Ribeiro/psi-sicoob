@@ -133,7 +133,7 @@ $agendamento = new Appointment();
                 } else {
                   foreach ($consultas as $consulta) :  ?>
                     <tr class="text-light">
-                      <td><img src="<?php echo $base . "/assets/icons/" . $consulta['avatar']; ?>" alt="Avatar" class="img-fluid rounded-circle" style="width:50px"></td>
+                      <td><img style="width:45px; height:45px; object-fit:cover" src="<?php echo $base . "/assets/icons/" . $consulta['avatar']; ?>" alt="Avatar" class="img-fluid rounded-circle" style="width:50px"></td>
                       <td><?php echo $consulta['nome']; ?></td>
                       <?php
                       if ($consulta['status'] == 'pendentes') {

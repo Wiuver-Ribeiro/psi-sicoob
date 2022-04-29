@@ -102,7 +102,7 @@ $info = $usuario->dadosLogado();
           </a>
         </li>" : "" ?>
 
-<?php echo ($info['tipo'] == 'admin') ?
+        <?php echo ($info['tipo'] == 'admin') ?
           "<li>
           <a href='" . $base . "/admins' class='nav-link text-white'>
           <i class='fas fa-lock' style='color:#F4C22B;'></i>
@@ -112,13 +112,13 @@ $info = $usuario->dadosLogado();
           </a>
         </li>" : "" ?>
         <li>
-          <a href="<?php echo $base.'/config';?>" class="nav-link text-white">
+          <a href="<?php echo $base . '/config'; ?>" class="nav-link text-white">
             <i class="fas fa-cog" style="color:#4DC6FA; " style="color:#1CA9F5; "></i>
             Configuração
           </a>
         </li>
         <li>
-          <a href="<?php echo $base.'/logout';?>" class="nav-link text-white">
+          <a href="<?php echo $base . '/logout'; ?>" class="nav-link text-white">
             <i class="fas fa-power-off" style="color:#FF6D8F; "></i>
             Logout
           </a>
@@ -128,7 +128,7 @@ $info = $usuario->dadosLogado();
       <div class="dropdown">
         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
           <img src="<?php echo $base . '/assets/icons/' . $info['avatar']; ?>" alt="" width="32" height="32" class="rounded-circle me-2">
-          <strong><?php echo $info['nome']; ?></strong>
+          <strong class="text-wrap"><?php echo $info['nome']; ?></strong>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
           <li><a class="dropdown-item" href="<?php echo $base . '/appointments'; ?>">
