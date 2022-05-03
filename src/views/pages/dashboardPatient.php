@@ -120,14 +120,16 @@ $agendamento = new Appointment();
                 <th>Psicólogo</th>
                 <th>Data</th>
                 <th>Status</th>
-                <th>Encerrar</th>
+                <th>Cancelar</th>
               </thead>
               <tbody class="text-dark">
-                <?php foreach ($ultimosPsicologos as $psicologo) : ?>
+                <?php foreach ($ultimosPsicologos as $psicologo) : 
+                  print_r($psicologo);?>
                   
                   <tr>
                     <td><?php echo $psicologo['nome']; ?></td>
                     <td><?php echo $psicologo['nome']; ?></td>
+                    <td><?php echo $psicologo['status']; ?></td>
                   </tr>
                 <?php endforeach; ?>
             </table>
