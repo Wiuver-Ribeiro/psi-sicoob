@@ -3,7 +3,7 @@
 namespace src\models;
 
 
-class User 
+class User
 {
 
   public function dadosLogado()
