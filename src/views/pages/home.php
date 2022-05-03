@@ -15,7 +15,7 @@
 
 <body>
 
-  <nav class="col-sm navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="col-sm navbar navbar-expand-lg navbar-light bg-light" style="position:fixed; top:0; left: 0; right: 0">
     <div class="container-fluid">
       <div class="col-lg-5 col-sm">
         <a class="navbar-brand" href="#">
@@ -47,8 +47,8 @@
         </div>
       </div>
       <div class="col-2 col-sm" id="menu_button">
-        <a class="btn btn-primary btn-lg" href="<?php echo $base.'/signin';?>">Entrar</a>
-        <a class="btn btn-outline-secondary" href="<?php echo $base.'/signup';?>">Registrar</a>
+        <a class="btn btn-primary btn-lg" href="<?php echo $base . '/signin'; ?>">Entrar</a>
+        <a class="btn btn-outline-secondary" href="<?php echo $base . '/signup'; ?>">Registrar</a>
       </div>
     </div>
   </nav>
@@ -58,7 +58,7 @@
         <h3>Estamos aqui pra você!</h3>
         <h1>Melhores Psicólogos</h1>
         <p>Aqui na PSI- Sicoob Centro-sul você encontra os melhores. Psicólogos da região, com uma atendimento diferenciado e um agendamento muito fácil</p>
-        <a class="btn btn-primary btn-lg" href="<?php echo $base;?>/signin">Agendar sua consulta</a>
+        <a class="btn btn-primary btn-lg" href="<?php echo $base; ?>/signin">Agendar sua consulta</a>
       </div>
       <div class="col" id="segunda_div">
         <img class="img-fluid" style="max-width:100%; object-fit:cover" src="<?php echo $base . '/assets/pictures/doctors1.png'; ?>" alt="Grupo de Psicólogo">
