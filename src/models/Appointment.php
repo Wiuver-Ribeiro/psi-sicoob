@@ -49,7 +49,7 @@ class Appointment extends Model
   public function agendamentosCancelados()
   {
     include '../connnect.php';;
-    $sql = $pdo->prepare("SELECT COUNT(*) as 'cancelados', status FROM agendamentos WHERE status = 'cancelados' ORDER BY status");
+    $sql = $pdo->prepare("SELECT COUNT(*) as 'cancelados', status FROM agendamentos WHERE status = 'finalizada' ORDER BY status");
     $sql->execute();
 
     $dados = $sql->fetch(\PDO::FETCH_ASSOC);
@@ -257,7 +257,7 @@ class Appointment extends Model
     FROM agendamentos AS ag INNER JOIN psi AS p ON (ag.id_psi = p.idpsi) 
         INNER JOIN pacientes AS pac ON (pac.idpaciente = ag.id_paciente)
             INNER JOIN  usuarios AS u ON (u.idusuario = pac.id_usuario)
-      WHERE (p.id_usuario= ? AND ag.status = 'finalizada' OR ag.status = 'cancelados') ");
+      WHERE (p.id_usuario= ? AND ag.status = 'finalizada' OR ag.status = 'finalizada') ");
     $sql->bindValue(1, $id);
     $sql->execute();
 

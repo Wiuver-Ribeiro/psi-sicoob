@@ -75,7 +75,7 @@ $info = $usuario->dadosLogado();
           </div>
           <div class="row col text-right">
             <span class="text-light fs-2"><?php echo $cancelados['cancelados']; ?></span>
-            <span class="text-light fs-4">Cancelados</span>
+            <span class="text-light fs-4">Terminados</span>
           </div>
         </div>
       </div>
