@@ -14,7 +14,7 @@
     </div>
 
     <div class="doctor">
-      <img src="<?php echo $base . '/assets/pictures/doctors1.png'; ?>" alt="Wallpaper Doctors" width="600px" height="600px">
+      <img class="img-fluid" src="<?php echo $base . '/assets/pictures/doctors1.png'; ?>" alt="Wallpaper Doctors" width="600px" height="600px">
     </div>
   </section>
   <!--Info-->

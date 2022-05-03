@@ -1,0 +1,55 @@
+@media (max-width: 768px) {
+    #centro_primeira {
+        text-align: center;
+    }
+    #primeira_parte #segunda_div {
+        display: none;
+    }
+
+    #centralizado {
+        text-align: center;
+    }
+    #menu_button {
+    display: none;
+    }
+}
+
+@media (max-width: 425px) {
+    #centro_primeira {
+        text-align: center;
+    }
+    #primeira_parte #segunda_div {
+        display: none;
+    }
+
+    #centralizado {
+        text-align: center;
+    }
+    #menu_button {
+        display: none;
+        }
+
+        .sobre_nos {
+            display:flex !important;
+            flex-direction: column !important;
+        }
+
+}
+
+@media (max-width: 425px) {
+    .img-icone {
+        display: flex !important;
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+    .img-icone img{
+        width: 25px  !important;
+    }
+    .img-icone .column-sl {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-bottom: 10px;
+    text-align: center !important;
+    }
+}
