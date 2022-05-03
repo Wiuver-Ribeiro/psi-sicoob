@@ -2,10 +2,9 @@
 
 namespace src\models;
 
-use \core\Model;
 use \src\models\User;
 
-class Patient extends Model
+class Patient
 {
 
   public function todosPacientes()

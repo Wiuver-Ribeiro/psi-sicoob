@@ -2,14 +2,8 @@
 
 namespace src\models;
 
-use \core\Model;
 
-// setlocale(LC_ALL, "pt_BR", "pt_BR.utf-8", "portuguese");
-// $hora = date('H:i:s');
-// $dia = date("Y-m-d");
-// $data = $dia."".$hora;
-
-class User extends Model
+class User 
 {
 
   public function dadosLogado()

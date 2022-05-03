@@ -2,12 +2,9 @@
 
 namespace src\models;
 
-use \core\Model;
 
-class Appointment extends Model
+class Appointment 
 {
-
-
 
   public function todosAgendamentos()
   {

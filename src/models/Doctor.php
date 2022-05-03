@@ -1,9 +1,8 @@
 <?php
 namespace src\models;
-use \core\Model;
 use \src\models\User;
 
-class Doctor extends Model {
+class Doctor {
   //psicólogos
   public function todosPsicologos() {
     require '../connnect.php';
