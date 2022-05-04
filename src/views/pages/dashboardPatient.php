@@ -5,6 +5,7 @@
 
 use \src\models\USer;
 use \src\models\Appointment;
+
 $date = new \DateTime();
 // print_r($date->format('Y-m-d'));
 // die();
@@ -26,7 +27,7 @@ $agendamento = new Appointment();
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-  <title>PSI | Dashboard Doutor</title>
+  <title>PSI | Dashboard Paciente</title>
 
   <script>
     // Função para setar a URL do formulário
@@ -56,7 +57,7 @@ $agendamento = new Appointment();
   </script>
   <style>
     .container {
-      /* height: 100vh; */
+
       width: calc(100% - 270px);
       margin-left: 270px;
     }
@@ -68,8 +69,6 @@ $agendamento = new Appointment();
   <?php $render('navbar'); ?>
   <?php $render('sidebar');
 
-  // print_r($ultimosPsicologos);
-  // die();
   ?>
 
   <div class="container">
@@ -125,15 +124,21 @@ $agendamento = new Appointment();
                 <th>Cancelar</th>
               </thead>
               <tbody class="text-dark">
-                <?php foreach ($ultimosPsicologos as $psicologo) : 
-                  print_r($psicologo);?>
-                  
+                <?php foreach ($ultimosPsicologos as $psicologo) :
+                  print_r($psicologo); ?>
+
                   <tr>
                     <td><?php echo $psicologo['nome']; ?></td>
                     <td><?php echo $psicologo['inicio']; ?></td>
-                    <td><?php echo $psicologo['status']; ?></td>
+                    <?php
+                    if ($psicologo['status'] == 'confirmado') {
+                      echo "<td class='text-success'>" . $psicologo['status'] . "</td>";
+                    } else if ($psicologo['status'] == 'pendente') {
+                      echo "<td class='text-warning' style='font-weight:bold;'>" . $psicologo['status'] . "</td>";
+                    }
+                    ?>
                   </tr>
-                <?php endforeach; ?> 
+                <?php endforeach; ?>
             </table>
           </div>
         </div>
@@ -149,6 +154,9 @@ $agendamento = new Appointment();
               </div>
             </div>
           <?php endforeach; ?>
+          <div class="col d-flex justify-content-center align-items-center">
+            <a class="btn btn-primary" href="<?php echo $base.'/appointments';?>">Agendar Consulta  <i class="fa fa-plus"></i></a>
+          </div>
         </div>
       </div>
 

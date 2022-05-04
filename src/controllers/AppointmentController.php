@@ -39,13 +39,6 @@ class AppointmentController extends Controller
 
       ]);
     }
-
-
-    // $this->render('/admin/appointments', [
-    //   "psi" => $todosPSI,
-    //   "paciente" => $todosPaciente,
-    // ]);
-
   }
 
   public function createAppointment()
