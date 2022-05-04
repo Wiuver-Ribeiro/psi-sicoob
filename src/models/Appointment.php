@@ -296,7 +296,7 @@ class Appointment
     FROM usuarios AS u INNER JOIN psi AS p ON (u.idusuario = p.id_usuario)
                        INNER JOIN agendamentos AS a ON (a.id_psi = p.idpsi) 
                        INNER JOIN pacientes AS ps ON (ps.idpaciente = a.id_paciente) 
-                        where ps.id_usuario = :idlogado  AND a.status != 'finalizada' ORDER BY idagendamentos DESC");
+                        where ps.id_usuario = :idlogado  AND a.status != 'finalizada' AND a.status != 'cancelado' ORDER BY idagendamentos DESC");
 
     $sql->bindValue(':idlogado', $info['idusuario']);
     $sql->execute();

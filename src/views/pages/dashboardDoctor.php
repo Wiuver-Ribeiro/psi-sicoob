@@ -128,7 +128,7 @@ $agendamento = new Appointment();
               </thead>
               <tbody class="text-light">
                 <?php
-                if ($consultas == 0) {
+                if (count($consultas) == 0) {
                   echo "<div class='alert alert-success'>SEM CONSULTAS PENDENTES NO MOMENTO.</div>";
                 } else {
                   foreach ($consultas as $consulta) :  ?>

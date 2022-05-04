@@ -67,7 +67,7 @@ function renderCalendar(profile, id) {
 
       select: function (info) {
         
-        if (profile == 'admin' || profile === 'paciente') {
+        if (profile == 'admin' || profile == 'paciente') {
           
           $("#marcar_consulta #inicio").val(info.start.toLocaleString());
           $("#marcar_consulta #fim").val(info.end.toLocaleString());

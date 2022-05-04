@@ -54,10 +54,10 @@ $infoData = $usuario->dadosLogado();
   <?php
 
   if ($infoData['tipo'] == 'paciente') {
-    echo "<script> renderCalendar('paciente');</script>";
+    echo '<script> renderCalendar("paciente");</script>';
     echo " <div id='calendar'></div>";
   } else if ($infoData['tipo'] == 'admin') {
-    echo "<script> renderCalendar('admin');</script>";
+    echo '<script> renderCalendar("admin");</script>';
     echo " <div id='calendar'></div>";
   } else {
     echo "<script> renderCalendar('user',{$infoData['idusuario']});</script>";
