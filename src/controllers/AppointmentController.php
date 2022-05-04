@@ -32,7 +32,7 @@ class AppointmentController extends Controller
         "psi" => $todosPSI,
         "paciente" => $todosPaciente,
       ]);
-    } else if ($usuario->logado() && $info['tipo'] == 'psi') {
+    } else if ($usuario->logado() && $info['tipo'] == 'psi' || $info['tipo'] == 'paciente') {
       $this->render('/admin/appointments', [
         "psi" => $todosPSI,
         "paciente" => $todosPaciente,

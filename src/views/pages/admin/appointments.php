@@ -5,6 +5,7 @@ use \src\models\USer;
 $usuario = new User();
 $info = $usuario->logado();
 $infoData = $usuario->dadosLogado();
+
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +56,9 @@ $infoData = $usuario->dadosLogado();
 
   if ($infoData['tipo'] == 'admin') {
     echo "<script> renderCalendar('admin');</script>";
+    echo " <div id='calendar'></div>";
+  } elseif ($infoData['tipo'] == 'paciente') {
+    echo "<script> renderCalendar('paciente');</script>";
     echo " <div id='calendar'></div>";
   } else {
     echo "<script> renderCalendar('user',{$infoData['idusuario']});</script>";

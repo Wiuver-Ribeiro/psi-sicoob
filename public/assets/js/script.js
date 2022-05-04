@@ -2,7 +2,7 @@ function renderCalendar(profile, id) {
   // alert(id);
   document.addEventListener('DOMContentLoaded', function () {
     //Verifica qual o perfil de usuário que está logado.
-    if (profile == 'admin') {
+    if (profile == 'admin' || profile == 'paciente') {
       var calendarEl = document.getElementById('calendar');
       var URL = 'http://localhost/psi-sicoob/src/views/pages/admin/eventos.php/'
       var metodo = 'POST';
@@ -66,7 +66,7 @@ function renderCalendar(profile, id) {
       //Método para cadastrar consulta
 
       select: function (info) {
-        if (profile == 'admin') {
+        if (profile == 'admin' || profile == 'paciente') {
           $("#marcar_consulta #inicio").val(info.start.toLocaleString());
           $("#marcar_consulta #fim").val(info.end.toLocaleString());
           $('#marcar_consulta').modal('show');

@@ -109,7 +109,7 @@ $agendamento = new Appointment();
           </div>
           <div class="row col text-right">
             <span class="text-light fs-2"><?php echo $cancelados['cancelados']; ?></span>
-            <span class="text-light fs-4">Cancelados</span>
+            <span class="text-light fs-4">Terminados</span>
           </div>
         </div>
       </div>
@@ -136,11 +136,11 @@ $agendamento = new Appointment();
                       <td><img style="width:45px; height:45px; object-fit:cover" src="<?php echo $base . "/assets/icons/" . $consulta['avatar']; ?>" alt="Avatar" class="img-fluid rounded-circle" style="width:50px"></td>
                       <td><?php echo $consulta['nome']; ?></td>
                       <?php
-                      if ($consulta['status'] == 'pendentes') {
+                      if ($consulta['status'] == 'pendente') {
                         echo "<td class='pendente'>
                           <div class='ball' style='text-align: center'></div>
                         </td>";
-                      } else if ($consulta['status'] == 'confirmados') {
+                      } else if ($consulta['status'] == 'confirmado') {
                         echo "<td class='confirmado'>
                         <div class='ball' style='text-align: center'></div>
                       </td>";

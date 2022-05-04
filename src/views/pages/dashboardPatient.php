@@ -5,7 +5,9 @@
 
 use \src\models\USer;
 use \src\models\Appointment;
-
+$date = new \DateTime();
+// print_r($date->format('Y-m-d'));
+// die();
 $usuario = new User();
 $info = $usuario->dadosLogado();
 $agendamento = new Appointment();
@@ -105,7 +107,7 @@ $agendamento = new Appointment();
           </div>
           <div class="row col text-right">
             <span class="text-light fs-2"><?php echo $cancelados['cancelados']; ?></span>
-            <span class="text-light fs-4">Cancelados</span>
+            <span class="text-light fs-4">Terminados</span>
           </div>
         </div>
       </div>
@@ -128,10 +130,10 @@ $agendamento = new Appointment();
                   
                   <tr>
                     <td><?php echo $psicologo['nome']; ?></td>
-                    <td><?php echo $psicologo['nome']; ?></td>
+                    <td><?php echo $psicologo['inicio']; ?></td>
                     <td><?php echo $psicologo['status']; ?></td>
                   </tr>
-                <?php endforeach; ?>
+                <?php endforeach; ?> 
             </table>
           </div>
         </div>

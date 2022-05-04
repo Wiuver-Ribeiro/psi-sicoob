@@ -3,7 +3,7 @@
 namespace src\models;
 
 
-class Appointment 
+class Appointment
 {
 
   public function todosAgendamentos()
@@ -15,7 +15,7 @@ class Appointment
         INNER JOIN  pacientes as pac ON (a.id_paciente = pac.idpaciente)
         INNER JOIN  usuarios as u1 ON (u1.idusuario = pac.id_usuario)
         INNER JOIN  psi as psi ON(a.id_psi = psi.idpsi)
-        INNER JOIN  usuarios as u2 ON (psi.id_usuario = u2.idusuario) where  a.status = 'pendentes' ");
+        INNER JOIN  usuarios as u2 ON (psi.id_usuario = u2.idusuario) where  a.status = 'pendente' ");
     $sql->execute();
 
     $dados = $sql->fetchAll(\PDO::FETCH_ASSOC);
@@ -26,7 +26,7 @@ class Appointment
   public function agendamentosPendentes()
   {
     include '../connnect.php';;
-    $sql = $pdo->prepare("SELECT COUNT(*) as 'pendentes', status FROM agendamentos WHERE status = 'pendentes' ORDER BY status");
+    $sql = $pdo->prepare("SELECT COUNT(*) as 'pendentes', status FROM agendamentos WHERE status = 'pendente' ORDER BY status");
     $sql->execute();
 
     $dados = $sql->fetch(\PDO::FETCH_ASSOC);
@@ -36,7 +36,7 @@ class Appointment
   public function agendamentosMarcados()
   {
     include '../connnect.php';;
-    $sql = $pdo->prepare("SELECT COUNT(*) as 'marcados', status FROM agendamentos WHERE status = 'confirmados' ORDER BY status");
+    $sql = $pdo->prepare("SELECT COUNT(*) as 'marcados', status FROM agendamentos WHERE status = 'confirmado' ORDER BY status");
     $sql->execute();
 
     $dados = $sql->fetch(\PDO::FETCH_ASSOC);
@@ -68,7 +68,7 @@ class Appointment
   {
     require '../connnect.php';
     $sql = $pdo->prepare("UPDATE agendamentos SET status = ? WHERE idagendamentos = ?");
-    $sql->bindValue(1, 'confirmados');
+    $sql->bindValue(1, 'confirmado');
     $sql->bindValue(2, $id['id']);
     $sql->execute();
     return true;
@@ -162,7 +162,7 @@ class Appointment
       $sql = $pdo->prepare("INSERT INTO 
         agendamentos 
           (title, id_psi, id_paciente, inicio, fim, status, descricao) 
-            VALUES (:titulo, :psi,:paciente, :inicio, :fim,'pendentes',:descricao)");
+            VALUES (:titulo, :psi,:paciente, :inicio, :fim,'pendente',:descricao)");
 
       $sql->bindParam(':titulo', $titulo);
       $sql->bindParam(':psi', $psi);
@@ -191,7 +191,7 @@ class Appointment
     FROM usuarios AS u INNER JOIN pacientes AS p ON (u.idusuario = p.id_usuario)
                        INNER JOIN agendamentos AS a ON (a.id_paciente = p.idpaciente) 
                        INNER JOIN psi AS ps ON (ps.idpsi = a.id_psi) 
-                        where a.status = 'confirmados' AND ps.id_usuario = :idlogado ");
+                        where a.status = 'confirmado' AND ps.id_usuario = :idlogado ");
 
     $sql->bindValue(':idlogado', $info['idusuario']);
     $sql->execute();
@@ -215,7 +215,7 @@ class Appointment
     FROM agendamentos AS ag INNER JOIN psi AS p ON (ag.id_psi = p.idpsi) 
         INNER JOIN pacientes AS pac ON (pac.idpaciente = ag.id_paciente)
             INNER JOIN  usuarios AS u ON (u.idusuario = pac.id_usuario)
-      WHERE (p.id_usuario = ? AND ag.status = 'confirmados') ");
+      WHERE (p.id_usuario = ? AND ag.status = 'confirmado') ");
     $sql->bindValue(1, $id);
     $sql->execute();
 
@@ -235,7 +235,7 @@ class Appointment
     FROM agendamentos AS ag INNER JOIN psi AS p ON (ag.id_psi = p.idpsi) 
         INNER JOIN pacientes AS pac ON (pac.idpaciente = ag.id_paciente)
             INNER JOIN  usuarios AS u ON (u.idusuario = pac.id_usuario)
-      WHERE (p.id_usuario = ? AND ag.status = 'pendentes') ");
+      WHERE (p.id_usuario = ? AND ag.status = 'pendente') ");
     $sql->bindValue(1, $id);
     $sql->execute();
 
@@ -290,11 +290,13 @@ class Appointment
 
     $sql = $pdo->prepare("SELECT 
     u.nome, 
-    u.avatar
+    u.avatar,
+    a.inicio,
+    a.status
     FROM usuarios AS u INNER JOIN psi AS p ON (u.idusuario = p.id_usuario)
                        INNER JOIN agendamentos AS a ON (a.id_psi = p.idpsi) 
                        INNER JOIN pacientes AS ps ON (ps.idpaciente = a.id_paciente) 
-                        where ps.id_usuario = :idlogado ORDER BY idagendamentos DESC");
+                        where ps.id_usuario = :idlogado  AND a.status != 'finalizada' ORDER BY idagendamentos DESC");
 
     $sql->bindValue(':idlogado', $info['idusuario']);
     $sql->execute();
@@ -333,13 +335,13 @@ class Appointment
     // ]);
     // die();
     /*
-UPDATE `agendamentos` SET `parecer` = 'Testando fechamento' WHERE `agendamentos`.`idagendamentos` = 60;
-*/
-    $sql = $pdo->prepare("UPDATE agendamentos SET parecer = ?, status = ? WHERE idagendamentos = ?");
-    $sql->bindValue(1, $parecer);
-    $sql->bindValue(2, $status);
-    $sql->bindValue(3, $id['id']);
-    $sql->execute();
-    return true;
-  }
+    UPDATE `agendamentos` SET `parecer` = 'Testando fechamento' WHERE `agendamentos`.`idagendamentos` = 60;
+    */
+      $sql = $pdo->prepare("UPDATE agendamentos SET parecer = ?, status = ? WHERE idagendamentos = ?");
+      $sql->bindValue(1, $parecer);
+      $sql->bindValue(2, $status);
+      $sql->bindValue(3, $id['id']);
+      $sql->execute();
+      return true;
+    }
 }
