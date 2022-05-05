@@ -48,14 +48,18 @@ $infoData = $usuario->dadosLogado();
   <!-- RENDERIZAÇÃO DA CALENDÁRIO -->
 
   <!-- 
-    Se o tipo de usuário logado for administrador, ele consegue marcar/editar uma nova consulta
+    Se o tipo de usuário logado for administrador OU paciente, ele consegue marcar/editar uma nova consulta
     caso contrário ele só consegue visualizar os detalhes da consulta.
    -->
   <?php
 
   if ($infoData['tipo'] == 'paciente') {
-    echo '<script> renderCalendar("paciente");</script>';
-    echo " <div id='calendar'></div>";
+  ?>
+    <script>
+      renderCalendar("paciente");
+    </script>
+    <div id='calendar'></div>
+  <?php
   } else if ($infoData['tipo'] == 'admin') {
     echo '<script> renderCalendar("admin");</script>';
     echo " <div id='calendar'></div>";
@@ -132,23 +136,25 @@ $infoData = $usuario->dadosLogado();
         </div>
       </div>
     </div>
+  </div>
 
 
-    <!-- MODAL PARA MARCAR AS CONSULTAS -->
-    <div class="modal" id="marcar_consulta" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Marcar Consulta</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form action="<?php echo $base . '/appointments/register'; ?>" method="POST">
-              <div class="form-group" style="margin-bottom:10px">
-                <label for="fisrt-name">Assunto:</label>
-                <input class="form-control" type="text" name="titulo" autocomplete="off">
-              </div>
-
+  <!-- MODAL PARA MARCAR AS CONSULTAS -->
+  <div class="modal" id="marcar" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Marcar Consulta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="<?php echo $base . '/appointments/register'; ?>" method="POST">
+            <div class="form-group" style="margin-bottom:10px">
+              <label for="fisrt-name">Assunto:</label>
+              <input class="form-control" type="text" name="titulo" autocomplete="off">
+            </div>
+            <!-- Mostra a escolha dos pacientes somente se o usuário for do tipo administrador -->
+            <?php if ($infoData['tipo'] == 'admin') : ?>
               <div class="form-group mb20" style="margin-bottom: 10px;">
                 <label for="first-name">Paciente:</label>
                 <select class="form-control" name="paciente" id="">
@@ -158,65 +164,80 @@ $infoData = $usuario->dadosLogado();
                   <?php endforeach; ?>
                 </select>
               </div>
+            <?php endif; ?>
+            <?php if ($infoData['tipo'] == 'paciente') : ?>
               <div class="form-group mb20" style="margin-bottom: 10px;">
-                <label for="first-name">Psicólogo:</label>
-
-                <select class="form-control" name="psi" id="">
-                  <option selected>Escolha um Psicólogo:</option>
-                  <?php foreach ($psi as $psicologo) : ?>
-                    <option value="<?php echo $psicologo['idpsi']; ?>"><?php echo "{$psicologo['nome']} | <b>{$psicologo['especialidade']}</b>"; ?></option>
+                <label for="first-name">Paciente:</label>
+                <select readonly class="form-control" name="paciente" id="">
+                  <?php foreach ($paciente as $pacientes) :
+                    if ($pacientes['nome'] = $infoData['nome']) {
+                      echo "<option  selected value='" . $pacientes['idpaciente'] . ">" . $pacientes['nome'] . "</option>";
+                    }
+                  ?>
                   <?php endforeach; ?>
                 </select>
               </div>
+            <?php endif; ?>
+            <!--Fim do IF sobre verificar o perfil que está logado -->
+            <div class="form-group mb20" style="margin-bottom: 10px;">
+              <label for="first-name">Psicólogo:</label>
 
-              <!-- DATA E HORA INICIAL -->
-              <div class="row">
-                <label class="col-lg-12 col-form-label" for="first-name">Início da consulta:</label>
-                <div class="col-lg-12">
-                  <div class="input-group mb-3">
-                    <input autocomplete="off" aria-describedby="basic-addon1" class="form-control col3" type="text" id="inicio" name="inicio" onkeypress="DataHora(event,this)">
-                    <span class="input-group-text" id="basic-addon1">
-                      <i class="fa fa-calendar"></i>
-                    </span>
-                    <span class="input-group-text" id="basic-addon1">
-                      <i class="fa fa-clock"></i>
-                    </span>
-                  </div>
+              <select class="form-control" name="psi" id="">
+                <option selected>Escolha um Psicólogo:</option>
+                <?php foreach ($psi as $psicologo) : ?>
+                  <option value="<?php echo $psicologo['idpsi']; ?>"><?php echo "{$psicologo['nome']} | <b>{$psicologo['especialidade']}</b>"; ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+
+            <!-- DATA E HORA INICIAL -->
+            <div class="row">
+              <label class="col-lg-12 col-form-label" for="first-name">Início da consulta:</label>
+              <div class="col-lg-12">
+                <div class="input-group mb-3">
+                  <input autocomplete="off" aria-describedby="basic-addon1" class="form-control col3" type="text" id="inicio" name="inicio" onkeypress="DataHora(event,this)">
+                  <span class="input-group-text" id="basic-addon1">
+                    <i class="fa fa-calendar"></i>
+                  </span>
+                  <span class="input-group-text" id="basic-addon1">
+                    <i class="fa fa-clock"></i>
+                  </span>
                 </div>
               </div>
-              <!--DATA E HORA FINAL  -->
-              <div class="row">
-                <label class="col-lg-12 col-form-label" for="first-name">Fim da consulta:</label>
-                <div class="col-lg-12">
-                  <div class="input-group mb-3">
-                    <input autocomplete="off" aria-describedby="basic-addon1" class="form-control col3" type="text" id="fim" name="fim" onkeypress="DataHora(event,this)">
-                    <span class="input-group-text" id="basic-addon1">
-                      <i class="fa fa-calendar"></i>
-                    </span>
-                    <span class="input-group-text" id="basic-addon1">
-                      <i class="fa fa-clock"></i>
-                    </span>
-                  </div>
+            </div>
+            <!--DATA E HORA FINAL  -->
+            <div class="row">
+              <label class="col-lg-12 col-form-label" for="first-name">Fim da consulta:</label>
+              <div class="col-lg-12">
+                <div class="input-group mb-3">
+                  <input autocomplete="off" aria-describedby="basic-addon1" class="form-control col3" type="text" id="fim" name="fim" onkeypress="DataHora(event,this)">
+                  <span class="input-group-text" id="basic-addon1">
+                    <i class="fa fa-calendar"></i>
+                  </span>
+                  <span class="input-group-text" id="basic-addon1">
+                    <i class="fa fa-clock"></i>
+                  </span>
                 </div>
               </div>
-              <div class="form-group mb20">
-                <label for="first-name">Detalhamento da consulta:</label>
-                <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="5"></textarea>
-              </div>
+            </div>
+            <div class="form-group mb20">
+              <label for="first-name">Detalhamento da consulta:</label>
+              <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="5"></textarea>
+            </div>
 
-          </div>
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            <button type="submi" class="btn btn-success">Agendar Consulta</button>
-          </div>
-          </form>
         </div>
-      </div>
 
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="submi" class="btn btn-success">Agendar Consulta</button>
+        </div>
+        </form>
+      </div>
     </div>
 
-    <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>
+  </div>
+
+  <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>
 
 </body>
 

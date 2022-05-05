@@ -159,6 +159,7 @@ class Appointment
     if ($this->verificaConsulta($data_horaConv)) {
       return false;
     } else {
+      // var_dump($_POST); die();
       $sql = $pdo->prepare("INSERT INTO 
         agendamentos 
           (title, id_psi, id_paciente, inicio, fim, status, descricao) 
@@ -337,11 +338,12 @@ class Appointment
     /*
     UPDATE `agendamentos` SET `parecer` = 'Testando fechamento' WHERE `agendamentos`.`idagendamentos` = 60;
     */
-      $sql = $pdo->prepare("UPDATE agendamentos SET parecer = ?, status = ? WHERE idagendamentos = ?");
-      $sql->bindValue(1, $parecer);
-      $sql->bindValue(2, $status);
-      $sql->bindValue(3, $id['id']);
-      $sql->execute();
-      return true;
-    }
+
+    $sql = $pdo->prepare("UPDATE agendamentos SET parecer = ?, status = ? WHERE idagendamentos = ?");
+    $sql->bindValue(1, $parecer);
+    $sql->bindValue(2, $status);
+    $sql->bindValue(3, $id['id']);
+    $sql->execute();
+    return true;
+  }
 }

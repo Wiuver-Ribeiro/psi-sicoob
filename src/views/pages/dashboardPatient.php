@@ -12,6 +12,9 @@ $date = new \DateTime();
 $usuario = new User();
 $info = $usuario->dadosLogado();
 $agendamento = new Appointment();
+echo "<pre>";
+  print_r($ultimosPsicologos); die();
+
 ?>
 
 <head>

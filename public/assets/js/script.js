@@ -1,8 +1,8 @@
 function renderCalendar(profile, id) {
-  // alert(id);
   document.addEventListener('DOMContentLoaded', function () {
+    
     //Verifica qual o perfil de usuário que está logado.
-    if (profile == 'admin' || profile === 'paciente') {
+    if (profile == 'admin' || profile == 'paciente') {
       var calendarEl = document.getElementById('calendar');
       var URL = 'http://localhost/psi-sicoob/src/views/pages/admin/eventos.php/'
       var metodo = 'POST';
@@ -11,7 +11,7 @@ function renderCalendar(profile, id) {
       var calendarEl = document.getElementById('calendarUser');
       var URL = `http://localhost/psi-sicoob/src/views/pages/eventos.php?id=${id}`
       var metodo = 'GET';
-    }
+    } 
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
 
@@ -66,12 +66,11 @@ function renderCalendar(profile, id) {
       //Método para cadastrar consulta
 
       select: function (info) {
-        
+
         if (profile == 'admin' || profile == 'paciente') {
-          
-          $("#marcar_consulta #inicio").val(info.start.toLocaleString());
-          $("#marcar_consulta #fim").val(info.end.toLocaleString());
-          $('#marcar_consulta').modal('show');
+          $("#marcar #inicio").val(info.start.toLocaleString());
+          $("#marcar #fim").val(info.end.toLocaleString());
+          $('#marcar').modal('show');
         } else {
           alert("Você não pode marcar consultas!");
         }
