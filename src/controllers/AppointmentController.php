@@ -19,6 +19,7 @@ class AppointmentController extends Controller
     $psi = new Doctor();
     $paciente = new Patient();
     $agendamento = new Appointment();
+ 
 
     $todosPaciente = $paciente->todosPacientes();
     $todosPSI = $psi->todosPsicologos();
@@ -31,6 +32,7 @@ class AppointmentController extends Controller
       $this->render('/admin/appointments', [
         "psi" => $todosPSI,
         "paciente" => $todosPaciente,
+        "agendamento" => $agendamento,
       ]);
     } else if ($usuario->logado() && $info['tipo'] == 'psi' || $info['tipo'] == 'paciente') {
       $this->render('/admin/appointments', [
