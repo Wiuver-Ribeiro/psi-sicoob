@@ -17,7 +17,7 @@
 
   <nav class="col-sm navbar navbar-expand-lg navbar-light bg-light" style="position:fixed; top:0; left: 0; right: 0">
     <div class="container-fluid">
-      <div class="col-lg-5 col-sm">
+      <div class="col-lg-5 col-sm"  id="home">
         <a class="navbar-brand" href="#">
           <img class="img-fluid" style="width:45px; max-width:100%; object-fit:cover" src="<?php echo $base . '/assets/icons/logo-sicoob.png' ?>" alt="Logo PSI Sicoob Centro-Sul">
           <span id="hidden-logo">PSI-Sicoob Centro-sul</span>
@@ -52,7 +52,7 @@
       </div>
     </div>
   </nav>
-  <div class="container">
+  <div class="container" id="home">
     <div class="row mt-5 align-items-center" id="primeira_parte">
       <div class="col" id="centro_primeira">
         <h3>Estamos aqui pra você!</h3>
@@ -153,16 +153,12 @@
       </div>
     </section>
 
-    <div class="container bg-light rounded" id="psicologo">
+    <div class="container-fluid bg-light rounded" id="psicologo">
       <div class="row text-center mb-5">
         <h1 class="text-center mb-5 mt-5">Nossos Psicólogos</h1>
         <div class="col">
-          <img style="width:150px;" class="img-fluid rounded" src="<?php echo $base . '/assets/pictures/1.jpg'; ?> " alt=""> <br>
-          <p class="text-center">Dra Adriana Galvão</p>
-        </div>
-        <div class="col">
           <img style="width:150px;" class="img-fluid rounded" src="<?php echo $base . '/assets/pictures/2.jpg'; ?> " alt=""> <br>
-          <p class="text-center">Dra Adriana Galvão</p>
+          <p class="text-center">Dr Eduardo Alvarez</p>
         </div>
         <div class="col">
           <img style="width:150px;" class="img-fluid rounded" src="<?php echo $base . '/assets/pictures/3.jpg'; ?> " alt=""> <br>
@@ -170,21 +166,6 @@
         </div>
       </div>
       <!---->
-
-      <div class="row text-center">
-        <div class="col">
-          <img style="width:150px;" class="img-fluid rounded" src="<?php echo $base . '/assets/pictures/1.jpg'; ?> " alt=""> <br>
-          <p class="text-center">Dra Adriana Galvão</p>
-        </div>
-        <div class="col">
-          <img style="width:150px;" class="img-fluid rounded" src="<?php echo $base . '/assets/pictures/2.jpg'; ?> " alt=""> <br>
-          <p class="text-center">Dra Adriana Galvão</p>
-        </div>
-        <div class="col">
-          <img style="width:150px;" class="img-fluid rounded" src="<?php echo $base . '/assets/pictures/3.jpg'; ?> " alt=""> <br>
-          <p class="text-center">Dra Adriana Galvão</p>
-        </div>
-      </div>
     </div>
     <!-- feature_part start-->
     <footer class="bg-secondary mt-4 p-3 text-light">
