@@ -1,14 +1,16 @@
 <?php
 
 namespace src\models;
+global $pdo;
 
+ require '../connnect.php';
 
 class User
 {
-
+  
   public function dadosLogado()
   {
-    require '../connnect.php';
+    global $pdo;
     $sql = $pdo->prepare("SELECT * FROM usuarios WHERE idusuario = :id");
     $sql->bindParam(':id', $_SESSION['lgusuario']);
     $sql->execute();
@@ -19,7 +21,7 @@ class User
 
   public function todosAdministradores()
   {
-    require '../connnect.php';
+    global $pdo;
     $sql = $pdo->prepare("SELECT idusuario, nome, email, avatar FROM usuarios WHERE tipo = 'admin'");
     $sql->execute();
 
@@ -41,7 +43,7 @@ class User
 
   public function login()
   {
-    include '../connnect.php';
+    global $pdo;
     $email = $_POST['email'];
     $senha = md5($_POST['senha']);
 
@@ -66,7 +68,7 @@ class User
 
   public function verificaLogin($email)
   {
-    include '../connnect.php';
+    global $pdo;
 
     $sql = $pdo->prepare("SELECT email FROM usuarios WHERE email = :email ");
     $sql->bindParam(':email', $email);
@@ -80,14 +82,14 @@ class User
 
   public function register()
   {
-    include '../connnect.php';
+    global $pdo;
     $avatar = $_POST['avatar'];
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = md5($_POST['senha']);
 
     if ($this->verificaLogin($email)) {
-      require '../connnect.php';
+      global $pdo;
 
       $_SESSION['email'] = "<div  class='alert alert-danger' role='alert' style='position:absolute; top:10%; left:53%;'> Usuário com esse <b>e-mail</b> já cadastrado!</div>";
       return false;
@@ -108,7 +110,7 @@ class User
 
   public function registerAdministrador()
   {
-    require '../connnect.php';
+    global $pdo;
 
     $avatar = $_POST['avatar'];
     $nome = $_POST['nome'];
@@ -145,7 +147,7 @@ class User
 
   public function busqueAdministradorPorID($id)
   {
-    require '../connnect.php';
+    global $pdo;
     // var_dump($id); die();
     $sql = $pdo->prepare("SELECT idusuario, nome, email, avatar FROM  usuarios WHERE idusuario = :id ");
     $sql->bindParam(':id', $id['id']);
@@ -157,7 +159,7 @@ class User
 
   public function editarAdministrador($id)
   {
-    require '../connnect.php';
+    global $pdo;
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $avatar = $_POST['avatar'];
@@ -183,7 +185,7 @@ class User
 
   public function listAllUsers()
   {
-    require '../connnect.php';
+    global $pdo;
 
     $sql = $pdo->prepare("SELECT idusuario, nome, email,tipo, avatar FROM usuarios");
     $sql->execute();
@@ -194,7 +196,7 @@ class User
 
   public function editarUsuario($id)
   {
-    require '../connnect.php';
+    global $pdo;
 
     $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
@@ -213,7 +215,7 @@ class User
 
   public function deletarUsuario($id)
   {
-    require '../connnect.php';
+    global $pdo;
 
     $sql = $pdo->prepare("DELETE FROM usuarios WHERE idusuario = :id");
     $sql->bindValue(':id', $id['id']);

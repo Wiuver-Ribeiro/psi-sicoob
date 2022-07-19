@@ -14,9 +14,10 @@ $infoData = $usuario->dadosLogado();
   <meta charset='utf-8' />
   <link rel="shortcut icon" href="<?php echo $base . '/assets/icons/scs.ico'; ?>" type="image/x-icon" />
 
-  <script src="<?php echo $base . '/assets/js/script.js'; ?>"></script>
-
+  
   <title>PSI | Agendamentos</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="<?php echo $base . '/assets/js/script.js'; ?>"></script>
 
   <link href="<?php echo $base . '/assets/css/lib/main.css'; ?>" rel='stylesheet' />
   <link href="<?php echo $base . '/assets/css/lib/appointments.min.css'; ?>" rel='stylesheet' />
@@ -27,8 +28,7 @@ $infoData = $usuario->dadosLogado();
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/bootstrap.min.css' ?>">
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> -->
 
 </head>
 
