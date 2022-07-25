@@ -2,10 +2,14 @@
 namespace src\models;
 use \src\models\User;
 
+global $pdo;
+require '../connnect.php';
+
 class Doctor {
+
   //psicólogos
   public function todosPsicologos() {
-    require '../connnect.php';
+    global $pdo;
     //Pega todos os dados
     $sql = $pdo->prepare("SELECT p.idpsi, u.nome, u.avatar, p.crp, p.especialidade
                   FROM usuarios as u INNER JOIN psi as p ON (u.idusuario = p.id_usuario) ");
@@ -17,7 +21,7 @@ class Doctor {
   }
 
   public function registrarPsicologo() {
-    require '../connnect.php';
+    global $pdo;
     $usuario = new User();
 
     $nome = $_POST['nome'];
@@ -58,7 +62,7 @@ class Doctor {
   }
 
   public function busquePsicologoPorID($id) {
-    require '../connnect.php';
+    global $pdo;
 
     $sql = $pdo->prepare("SELECT * FROM usuarios as u 
       INNER JOIN psi as p ON (u.idusuario = p.id_usuario) WHERE p.idpsi = :id");
@@ -71,7 +75,7 @@ class Doctor {
   }
 
   public function editarPsicologo($id) {
-    require '../connnect.php';
+    global $pdo;
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $crp = $_POST['crp'];
@@ -107,6 +111,21 @@ class Doctor {
     }
     $_SESSION['falha'] = "<div style='position:absolute; left:35%;' class='alert alert-success' role='alert'> Erro ao alterar dados do psicólogo! </div>";
     return false;
+  }
+
+  public function excluirPsicologo($id) {
+    global $pdo;
+
+    $sql = $pdo->prepare("SELECT * FROM usuarios WHERE idusuario = :idusuario");
+    $sql->bindValue(':idusuario', $id['id']);
+    $sql->execute();
+
+    if($sql->rowCount() > 0) {
+      echo "Possui registro com esse ID";
+    } else {
+      echo "Esse ID não existe";
+    }
+
   }
 
 }

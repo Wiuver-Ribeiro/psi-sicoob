@@ -22,6 +22,7 @@ $router->get('/doctors', 'DoctorController@index');
 $router->post('/doctors/create', 'DoctorController@createDoctor');
 $router->get('/doctors/edit/{id}', 'DoctorController@editDoctor');
 $router->post('/doctors/edit/{id}', 'DoctorController@editarDoctor');
+$router->get('/doctor/delete/{id}', 'DoctorController@deletarDoctor');
 
 
 //PatientController
