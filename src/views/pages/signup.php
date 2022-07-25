@@ -36,7 +36,7 @@
       <img style="max-width:100%" src="<?php echo $base . '/assets/pictures/doctors3.png'; ?>" alt="">
     </div>
     <div class="col row justify-content-center align-items-center" style="background-color:#fff;">
-      <form method="POST" action="<?php echo $base . '/signin'; ?>">
+      <form method="POST" action="<?php echo $base . '/signup'; ?>">
 
         <h1 class="text-center h2 mt-3">Registre-se</h1>
 
@@ -79,6 +79,5 @@
 
   </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </html>

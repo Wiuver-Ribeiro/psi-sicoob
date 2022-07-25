@@ -151,9 +151,7 @@ class UserController extends Controller {
   public function editUser($id) {
     $usuario = new User();
     if($usuario->editarUsuario($id)) {
-      $this->redirect('/users');
-    } else {
-      $this->redirect('/users');
+      $this->redirect('/config');
     }
   }
   public function deleteUser($id) {

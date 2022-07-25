@@ -28,8 +28,6 @@ $infoData = $usuario->dadosLogado();
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/bootstrap.min.css' ?>">
 
 
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> -->
-
 </head>
 
 <body>
@@ -53,7 +51,7 @@ $infoData = $usuario->dadosLogado();
    -->
   <?php
 
-  if ($infoData['tipo'] == 'paciente') {
+  if ($infoData['tipo'] == 'paciente' || $infoData['tipo'] == 'psi') {
   ?>
     <script>
       renderCalendar("paciente");

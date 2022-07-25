@@ -76,7 +76,7 @@ $info = $usuario->dadosLogado();
             Agendamentos
           </a>
         </li>
-        <?php echo ($info['tipo'] == 'admin' || $info['tipo'] == "paciente") ?
+        <?php echo ($info['tipo'] == 'admin') ?
           "<li>
           <a href='" . $base . "/doctors' class='nav-link text-white'>
           <i class='fas fa-user-friends' style='color:#9595DF; '></i>

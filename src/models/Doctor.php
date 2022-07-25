@@ -49,8 +49,10 @@ class Doctor {
       $sql2->bindValue(':especialidade', $especialidade);
       $sql2->execute();
 
-     $_SESSION['sucesso'] = "<div style='position:absolute' class='alert alert-success' role='alert'>Pscólogo cadastrado com sucesso!</div>";
-      return true;
+     $_SESSION['sucesso'] = "<div class='alert alert-success  alert-dismissible fade show' role='alert'>Psicólog cadastrado com sucesso!
+     <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+     </div>";
+     return true;
       
     }
   }

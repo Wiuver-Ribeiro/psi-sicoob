@@ -7,13 +7,9 @@ use \src\models\USer;
 use \src\models\Appointment;
 
 $date = new \DateTime();
-// print_r($date->format('Y-m-d'));
-// die();
 $usuario = new User();
 $info = $usuario->dadosLogado();
 $agendamento = new Appointment();
-echo "<pre>";
-  print_r($ultimosPsicologos); die();
 
 ?>
 
@@ -204,6 +200,5 @@ echo "<pre>";
 <script src="<?php echo $base . '/assets/js/script.js'; ?>"></script>
 <script src="<?php echo $base . '/assets/js/personalizado.js'; ?>"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha284-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>

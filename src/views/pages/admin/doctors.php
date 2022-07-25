@@ -20,20 +20,21 @@ $info = $usuario->dadosLogado();
   <script src="<?php echo $base . '/assets/js/script.js'; ?>"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/bootstrap.min.css' ?>">
-  
+
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-  
+
 
   <script src="<?php echo $base . '/assets/js/personalizado.js'; ?>"></script>
-  
+
   <script src="https://kit.fontawesome.com/dba7af9f9b.js" crossorigin="anonymous"></script>
   <title>PSI | Psicólogos </title>
   <style>
     .container {
       width: calc(100vw - 250px);
       margin-left: 250px;
-      height:auto;
+      height: auto;
     }
+
     img {
       width: 80px;
       object-fit: contain !important;
@@ -45,18 +46,20 @@ $info = $usuario->dadosLogado();
   <?php
   $render('navbar');
   $render('sidebar');
-
-  if (isset($_SESSION['sucesso'])) {
-    echo $_SESSION['sucesso'];
-    $_SESSION['sucesso'] = '';
-  }
-  if (isset($_SESSION['falha'])) {
-    echo $_SESSION['falha'];
-    $_SESSION['falha'] = '';
-  }
   ?>
 
-  <div class="container pt-5  bg-dark" >
+  <div class="container pt-5  bg-dark">
+    <?php
+
+    if (isset($_SESSION['sucesso'])) {
+      echo $_SESSION['sucesso'];
+      $_SESSION['sucesso'] = '';
+    }
+    if (isset($_SESSION['falha'])) {
+      echo $_SESSION['falha'];
+      $_SESSION['falha'] = '';
+    }
+    ?>
     <h2 class="text-light mb-4">Psicólogos</h2>
     <div class="container-fluid rounded p-4" style="background: #151419">
       <div class="column d-flex justify-content-between">
@@ -78,7 +81,7 @@ $info = $usuario->dadosLogado();
         <?php endforeach; ?>
       </div>
       <!--row-pai-->
-  </main>
+      </main>
 </body>
 
 

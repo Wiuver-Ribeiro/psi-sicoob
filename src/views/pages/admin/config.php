@@ -26,9 +26,17 @@
 
 <body>
   <?php $render('navbar'); ?>
-  <?php $render('sidebar'); ?>
+  <?php $render('sidebar'); 
+  
+  ?>
+
+
 
   <div class="container pt-5 bg-dark">
+  <?php if (isset($_SESSION['sucesso'])) {
+    echo $_SESSION['sucesso'];
+    $_SESSION['sucesso'] = '';
+  } ?>
     <h2 class="text-light mb-4">Configuração</h2>
     <div class="container-fluid rounded p-4" style="background: #151419">
       <h3 class="text-light"><?php echo $usuarioLogado['nome']; ?></h3>
@@ -38,7 +46,7 @@
         <div class="col d-flex justify-content-center align-items-center">
           <img style="width:160px; height:160px; object-fit:cover" class="img-fluid bg-primary rounded-circle border border-secondary" src="<?php echo $base . '/assets/icons/' . $usuarioLogado['avatar']; ?>" alt="Avatar default" style="width:15%">
         </div>
-        <form action="<?php echo $base . '/admins/create'; ?>" method="POST">
+        <form action="<?php echo $base . '/users/edit/'.$usuarioLogado['idusuario']; ?>" method="POST">
           <div class="row mb-3">
             <label class="text-light" for="avatar">Selecione um Avatar:</label>
             <input type="file" class="form-control " id="avatar" name="avatar" placeholder="">

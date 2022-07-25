@@ -209,7 +209,10 @@ class User
     $sql->bindParam(4, $id['id']);
 
     $sql->execute();
-    $_SESSION['sucesso'] = "<div class='alert alert-success' role='aler'>Usuário alterado com sucesso!</div>";
+    $_SESSION['sucesso'] = "<div class='alert alert-success  alert-dismissible fade show' role='alert'>Usuário alterado com sucesso!
+    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>";
+    
     return true;
   }
 
@@ -220,7 +223,14 @@ class User
     $sql = $pdo->prepare("DELETE FROM usuarios WHERE idusuario = :id");
     $sql->bindValue(':id', $id['id']);
     $sql->execute();
-    $_SESSION['sucesso'] = "<div class='alert alert-success' role='alert'>Usuário deletado com sucesso!</div>";
+    $_SESSION['sucesso'] = "<div class='alert alert-success  alert-dismissible fade show' role='alert'>Usuário deletado com sucesso!
+    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>";
+    
+  
+
+
+    
     return true;
   }
 }
