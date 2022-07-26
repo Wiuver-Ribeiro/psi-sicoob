@@ -53,7 +53,7 @@ class Doctor {
       $sql2->bindValue(':especialidade', $especialidade);
       $sql2->execute();
 
-     $_SESSION['sucesso'] = "<div class='alert alert-success  alert-dismissible fade show' role='alert'>Psicólog cadastrado com sucesso!
+     $_SESSION['sucesso'] = "<div class='alert alert-success  alert-dismissible fade show' role='alert'>Psicólogo cadastrado com sucesso!
      <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
      </div>";
      return true;
@@ -106,7 +106,9 @@ class Doctor {
       $sql->bindValue(':idusuario', $id['id']);
       $sql->execute();
       
-    $_SESSION['sucesso'] = "<div style='position:absolute; left: 35%;' class='alert alert-success' role='alert'> Psícologo alterado com sucesso! </div>";
+      $_SESSION['sucesso'] = "<div class='alert alert-success  alert-dismissible fade show' role='alert'>Psícologo atualizado com sucesso!
+      <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+      </div>";
     return true;
     }
     $_SESSION['falha'] = "<div style='position:absolute; left:35%;' class='alert alert-success' role='alert'> Erro ao alterar dados do psicólogo! </div>";
@@ -121,10 +123,14 @@ class Doctor {
     $sql->execute();
 
     if($sql->rowCount() > 0) {
-      echo "Possui registro com esse ID";
-    } else {
-      echo "Esse ID não existe";
-    }
+      $sql = $pdo->prepare("DELETE FROM usuarios  WHERE idusuario = :idusuario");
+      $sql->bindValue(':idusuario', $id['id']);
+      $sql->execute();
+      $_SESSION['sucesso'] = "<div class='alert alert-success  alert-dismissible fade show' role='alert'>Usuário deletado com sucesso!
+      <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+      </div>";
+      return true;
+    } return false;
 
   }
 

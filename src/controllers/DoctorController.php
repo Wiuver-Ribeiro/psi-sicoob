@@ -59,6 +59,10 @@ class DoctorController extends Controller {
 
   public function deletarDoctor($id) {
     $psicologo =  new Doctor();
-    $psicologo->excluirPsicologo($id);
+    if($psicologo->excluirPsicologo($id)) {
+      $this->redirect('/doctors');
+    } else {
+      $this->redirect("/doctors/edit");
+    }
   }
 }

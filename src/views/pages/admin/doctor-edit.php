@@ -81,8 +81,8 @@
 
             </div>
             <div class="column">
-              <a class="btn btn-danger" href="<?php echo $base . '/doctor/delete/' . $psicologo['idusuario']; ?>">Excluir Psicólogo</a>
-              <button class="btn btn-success">Editar Psicólogo</button>
+              <a class="btn btn-danger" href="<?php echo $base . '/doctor/delete/' . $psicologo['idusuario']; ?>">Excluir</a>
+              <button class="btn btn-success">Atualizar</button>
             </div>
           </form>
         </div>
