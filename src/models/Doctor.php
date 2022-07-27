@@ -91,8 +91,10 @@ class Doctor {
       $sql->bindValue(':especialidade',$especialidade);
       $sql->bindValue(':idusuario',$id['id']);
       $sql->execute();
-      $_SESSION['sucesso'] = "<div style='position:absolute; left:50%;' class='alert alert-success' role='alert'>Psícologo alterado com sucesso! </div>";
-      return true;
+      $_SESSION['sucesso'] = "<div class='alert alert-success  alert-dismissible fade show' role='alert'>Psícologo atualizado com sucesso!
+      <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+      </div>";
+    return true;
     } else {
       $sql = $pdo->prepare("UPDATE usuarios as u INNER JOIN  psi as p ON (u.idusuario = p.id_usuario)
       SET u.nome = :nome, u.email =  :email, p.crp = :crp, p.especialidade = :especialidade, u.avatar = :avatar, u.editado_em = now(), p.editado_em = now() WHERE p.idpsi = :idusuario
@@ -106,9 +108,10 @@ class Doctor {
       $sql->bindValue(':idusuario', $id['id']);
       $sql->execute();
       
-      $_SESSION['sucesso'] = "<div class='alert alert-success  alert-dismissible fade show' role='alert'>Psícologo atualizado com sucesso!
+      $_SESSION['sucesso'] = "<div  class='alert alert-success  alert-dismissible fade show' role='alert'>Psícologo atualizado com sucesso!
       <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
       </div>";
+   
     return true;
     }
     $_SESSION['falha'] = "<div style='position:absolute; left:35%;' class='alert alert-success' role='alert'> Erro ao alterar dados do psicólogo! </div>";

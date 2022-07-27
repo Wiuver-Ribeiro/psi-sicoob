@@ -4,8 +4,6 @@ use \src\models\USer;
 
 $usuario = new User();
 $info = $usuario->dadosLogado();
-// echo "<pre>";
-// print_r($psicologo); die();
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +17,7 @@ $info = $usuario->dadosLogado();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="<?php echo $base . '/assets/js/script.js'; ?>"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="<?php echo $base . '/assets/css/reset.css' ?>">
   <link rel="stylesheet" href="<?php echo $base . '/assets/css/bootstrap.min.css' ?>">
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
@@ -30,14 +29,9 @@ $info = $usuario->dadosLogado();
   <title>PSI | Psicólogos </title>
   <style>
     .container {
-      width: calc(100vw - 250px);
+      width: calc(100% - 250px);
       margin-left: 250px;
       height: auto;
-    }
-
-    img {
-      width: 80px;
-      object-fit: contain !important;
     }
   </style>
 </head>
@@ -48,18 +42,18 @@ $info = $usuario->dadosLogado();
   $render('sidebar');
   ?>
 
-  <div class="container pt-5  bg-dark">
-    <?php
+  <?php
 
-    if (isset($_SESSION['sucesso'])) {
-      echo $_SESSION['sucesso'];
-      $_SESSION['sucesso'] = '';
-    }
-    if (isset($_SESSION['falha'])) {
-      echo $_SESSION['falha'];
-      $_SESSION['falha'] = '';
-    }
-    ?>
+  if (isset($_SESSION['sucesso'])) {
+    echo $_SESSION['sucesso'];
+    $_SESSION['sucesso'] = '';
+  }
+  if (isset($_SESSION['falha'])) {
+    echo $_SESSION['falha'];
+    $_SESSION['falha'] = '';
+  }
+  ?>
+  <div class="container pt-5  bg-dark">
     <h2 class="text-light mb-4">Psicólogos</h2>
     <div class="container-fluid rounded p-4" style="background: #151419">
       <div class="column d-flex justify-content-between">
@@ -71,7 +65,7 @@ $info = $usuario->dadosLogado();
       <div class="row justify-content-between mb-2 p-3">
         <?php foreach ($psicologo as $psicologos) : ?>
           <div style="cursor:pointer" title="Editar Psicologo" class="hover col-lg-5 col-md-7 cols-m-1 bg-dark mr-3 mb-4 p-3 d-flex justify-content-between align-items-center rounded shadow-sm" onclick="location.href='http://localhost/psi-sicoob/public/doctors/edit/<?php echo $psicologos['idpsi']; ?>'">
-            <img class="img-fluid rounded-circle " src="<?php echo $base . '/assets/icons/' . $psicologos['avatar']  ?>" alt="">
+            <img style="width:80px; height:80px; object-fit:cover;" class="rounded-circle " src="<?php echo $base . '/assets/icons/' . $psicologos['avatar']  ?>" alt="">
             <div class="row ">
               <span class="text-light text-center fs-5"> <?php echo $psicologos['nome']; ?></span>
               <span class="text-light text-center fs-6">CRP: <?php echo $psicologos['crp']; ?></span>

@@ -1,13 +1,16 @@
-body {
-    background: #F1F9FF;
-    overflow-y: scroll;
-}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Fira Code', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
+
+body {
+    background: #F1F9FF;
+    overflow-y: scroll;
+}
+
+/* 
 
 .alert {
     position: absolute;
@@ -19,7 +22,7 @@ body {
     position: absolute;
     top: 15%;
     left: 50%;
-}
+} */
 
 
 

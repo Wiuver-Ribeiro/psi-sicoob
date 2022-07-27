@@ -56,7 +56,7 @@
 
         <div class="column">
           <div class="col d-flex justify-content-center align-items-center">
-            <img class="img-fluid bg-primary rounded-circle border border-secondary" src="<?php echo $base . '/assets/icons/' . $psicologo['avatar']; ?>" alt="Avatar default" style="width:15%">
+            <img  style="width:80px; height:80px; object-fit:cover;" class="img-fluid bg-primary rounded-circle border border-secondary" src="<?php echo $base . '/assets/icons/' . $psicologo['avatar']; ?>" alt="Avatar default" >
           </div>
           <form action="<?php echo $base . '/doctors/edit/' . $psicologo['idpsi']; ?>" method="POST">
             <div class="row mb-3">
