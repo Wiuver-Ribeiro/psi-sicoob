@@ -61,7 +61,7 @@ class User
       exit;
     }
     $_SESSION['erro'] = '<div class="alert alert-danger" role="alert">
-        E-mail ou senha incorretos. Por favor tente outra vez...
+        E-mail e/ou Senha incorretos!
       </div>';
     return false;
   }
@@ -226,11 +226,6 @@ class User
     $_SESSION['sucesso'] = "<div class='alert alert-success  alert-dismissible fade show' role='alert'>Usuário deletado com sucesso!
     <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
     </div>";
-    
-  
-
-
-    
     return true;
   }
 }

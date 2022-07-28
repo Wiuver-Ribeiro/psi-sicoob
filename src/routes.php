@@ -9,6 +9,14 @@ $router->get('/', 'HomeController@index');
 $router->get('/signin', "HomeController@signin");
 $router->get('/signup', "HomeController@signup");
 
+
+$router->post('/signin', 'UserController@login');
+$router->post('/signup', 'UserController@register');
+
+$router->get('/logout', 'UserController@logout');
+
+
+
 //AuthController
 $router->post('/doctors/create', 'AuthController@create');
 
@@ -49,11 +57,6 @@ $router->get('/users', 'UserController@listAllUsers');
 $router->post('/users/edit/{id}', 'UserController@editUser');
 $router->post('/users/delete/{id}', 'UserController@deleteUser');
 
-
-$router->post('/signin', 'UserController@login');
-$router->post('/signup', 'UserController@register');
-
-$router->get('/logout', 'UserController@logout');
 
 
 //AppointmentController

@@ -1,3 +1,14 @@
+<?php
+
+use \src\models\Doctor;
+
+$psicologo = new Doctor();
+$data = $psicologo->todosPsicologos();
+// echo "<pre>";
+// print_r($data); die();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -17,7 +28,7 @@
 
   <nav class="col-sm navbar navbar-expand-lg navbar-light bg-light" style="position:fixed; top:0; left: 0; right: 0">
     <div class="container-fluid">
-      <div class="col-lg-5 col-sm"  id="home">
+      <div class="col-lg-5 col-sm" id="home">
         <a class="navbar-brand" href="#">
           <img class="img-fluid" style="width:45px; max-width:100%; object-fit:cover" src="<?php echo $base . '/assets/icons/logo-sicoob.png' ?>" alt="Logo PSI Sicoob Centro-Sul">
           <span id="hidden-logo">PSI-Sicoob Centro-sul</span>
@@ -155,15 +166,14 @@
 
     <div class="container-fluid bg-light rounded" id="psicologo">
       <div class="row text-center mb-5">
-        <h1 class="text-center mb-5 mt-5">Nossos Psicólogos</h1>
-        <div class="col">
-          <img style="width:150px;" class="img-fluid rounded" src="<?php echo $base . '/assets/pictures/2.jpg'; ?> " alt=""> <br>
-          <p class="text-center">Dr Eduardo Alvarez</p>
-        </div>
-        <div class="col">
-          <img style="width:150px;" class="img-fluid rounded" src="<?php echo $base . '/assets/pictures/3.jpg'; ?> " alt=""> <br>
-          <p class="text-center">Dra Adriana Galvão</p>
-        </div>
+        <h1 class="text-center mb-5 mt-5">Conheça nosso Time</h1>
+        <?php foreach ($data as $psicologos) : ?>
+          <div class="col">
+            <img style="width:150px; height:150px; object-fit:cover" class="img-fluid rounded" src="<?php echo $base . '/assets/icons/'.$psicologos['avatar']; ?> " alt=""> <br>
+            <p class="text-center"><?php echo $psicologos['nome']; ?></p>
+          </div>
+        <?php endforeach; ?>
+
       </div>
       <!---->
     </div>
@@ -171,7 +181,7 @@
     <footer class="bg-secondary mt-4 p-3 text-light">
       <div class="row">
         <div class="col-10">
-          &copy; Copyright 2022 Todos direitos reservados.
+          &copy;2022 | Todos direitos reservados.
         </div>
         <div class="col">
           <a title="Sicoob Centro-Sul" href="https://www.sicoob.com.br/web/sicoobcentrosul" class="text-light">Sicoob Centro-sul</a>

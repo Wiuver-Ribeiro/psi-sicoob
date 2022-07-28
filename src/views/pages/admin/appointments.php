@@ -51,14 +51,14 @@ $infoData = $usuario->dadosLogado();
    -->
   <?php
 
-  if ($infoData['tipo'] == 'paciente' || $infoData['tipo'] == 'psi') {
+  if ($infoData['tipo'] == 'paciente') {
   ?>
     <script>
       renderCalendar("paciente");
     </script>
     <div id='calendar'></div>
   <?php
-  } else if ($infoData['tipo'] == 'admin') {
+  } else if ($infoData['tipo'] == 'admin' || $infoData['tipo'] == 'psi') {
     echo '<script> renderCalendar("admin");</script>';
     echo " <div id='calendar'></div>";
   } else {
@@ -103,7 +103,7 @@ $infoData = $usuario->dadosLogado();
                 <dd class="col-sm-8">
                   <!--  -->
                   <?php
-                  if ($infoData['tipo'] == 'admin') {
+                  if ($infoData['tipo'] == 'admin' ) {
                     echo "<textarea class='form-control' id='description' name='descricao' cols='30' rows='10'>
                 </textarea>";
                   } else {
