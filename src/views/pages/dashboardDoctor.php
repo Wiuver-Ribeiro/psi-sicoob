@@ -121,10 +121,11 @@ $agendamento = new Appointment();
         <div class="col-md col-lg-7 bg-dark pt-2 pb-2 rounded">
           <h1 class="h5 text-light">Próximos Atendimentos</h1>
           <div class="table-responsive">
-            <table class="table table-striped table-bordered table-hover bg-light">
-              <thead class="rounded thead-dark">
+            <table class="table table-striped table-bordered table-hover bg-dark">
+              <thead class="rounded thead-dark text-light">
                 <th>Paciente</th>
-                <th>Data</th>
+                <th>Nome</th>
+                <th>Data Inicio</th>
                 <th>Status</th>
                 <th>Encerrar</th>
               </thead>
@@ -133,10 +134,13 @@ $agendamento = new Appointment();
                 if ($consultas == 0) {
                   echo "<div class='alert alert-success'>SEM CONSULTAS PENDENTES NO MOMENTO.</div>";
                 } else {
-                  foreach ($consultas as $consulta) :  ?>
-                    <tr class="text-dark">
+                  foreach ($consultas as $consulta) :  
+                  $dataInicio = str_replace('-', '/',$consulta['inicio']);
+                  ?>
+                    <tr class="text-light">
                       <td><img style="width:45px; height:45px; object-fit:cover" src="<?php echo $base . "/assets/icons/" . $consulta['avatar']; ?>" alt="Avatar" class="img-fluid rounded-circle" style="width:50px"></td>
                       <td><?php echo $consulta['nome']; ?></td>
+                      <td><?php echo date('d/m/Y H:i:s', strtotime($dataInicio)); ?></td>
                       <?php
                       if ($consulta['status'] == 'pendente') {
                         echo "<td class='pendente'>

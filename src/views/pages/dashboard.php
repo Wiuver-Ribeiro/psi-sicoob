@@ -103,13 +103,14 @@ $info = $usuario->dadosLogado();
             echo " <div class='alert alert-secondary' role='alert' style='position:absolute; top:60%; left:45%;'>Sem consultas pendentes no momento!</div>";
           } else {
             foreach ($agendamento as $agendamentos) : 
-            // print_r($agendamento); die();
+            $dataInicio = str_replace('-', '/',$agendamentos['inicio']);
+            $dataFim = str_replace('-', '/',$agendamentos['fim']);
             ?>
               <tr>
                 <td><?php echo $agendamentos['Paciente']; ?></td>
                 <td><?php echo $agendamentos['Medico']; ?></td>
-                <td><?php echo $agendamentos['inicio']; ?></td>
-                <td><?php echo $agendamentos['fim']; ?></td>
+                <td><?php echo date('d/m/Y H:i:s', strtotime($dataInicio)); ?></td>
+                <td><?php echo date('d/m/Y H:i:s', strtotime($dataFim)); ?></td>
                 <td>
                   <a href="<?php echo $base . '/appointments/confirm/' . $agendamentos['idagendamento']; ?>" class="confirm" title='Confirmar Consulta'>
                     <i style="color:green;" class='fas fa-check fa-2x'></i>

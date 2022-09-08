@@ -125,7 +125,9 @@ $agendamento = new Appointment();
                 <th>Cancelar</th>
               </thead>
               <tbody class="text-dark">
-                <?php foreach ($ultimosPsicologos as $psicologo) : ?>
+                <?php foreach ($ultimosPsicologos as $psicologo) : 
+                  print_r($psicologo); die();
+                  ?>
                   <tr>
                     <td><?php echo $psicologo['nome']; ?></td>
                     <td><?php echo $psicologo['inicio']; ?></td>
