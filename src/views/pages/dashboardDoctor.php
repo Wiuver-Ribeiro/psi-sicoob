@@ -26,7 +26,9 @@ $agendamento = new Appointment();
 
   <title>PSI | Dashboard Doutor</title>
 
+
   <script>
+  
     // Função para setar a URL do formulário
     //Pega o valor do campo paciente da tabela
     //Seta a url do form, passando o id do agendamento a ser finalizado.

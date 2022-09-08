@@ -136,13 +136,18 @@ class Appointment
       return false;
     }
   }
-
+/**
+ * FUNÇÃO RESPONSÁVEL DE AGENDAR UMA CONSULTA NO SISTEMA 
+ * ! Erro ao tentar gravar consulta com perfil de acesso comum (Paciente)
+ */
 
   public function marcarConsulta()
   {
     require '../connnect.php';
 
-    // var_dump($_POST); die();
+    
+    // print_r($_POST); die();
+
 
     $titulo = $_POST['titulo'];
     $inicio = $_POST['inicio'];
@@ -152,14 +157,11 @@ class Appointment
     $paciente = $_POST['paciente'];
     $descricao = $_POST['descricao'];
 
-
-
     $data_horaConv = $this->converterData($inicio, $final);
 
     if ($this->verificaConsulta($data_horaConv)) {
       return false;
     } else {
-      // var_dump($_POST); die();
       $sql = $pdo->prepare("INSERT INTO 
         agendamentos 
           (title, id_psi, id_paciente, inicio, fim, status, descricao) 
@@ -182,6 +184,7 @@ class Appointment
   public function minhasConsultas($info)
   {
     require '../connnect.php';
+    // print_r($info['idusuario']); die();
 
     $sql = $pdo->prepare("SELECT 
     u.nome, 
@@ -198,10 +201,6 @@ class Appointment
     $sql->execute();
 
     $dados = $sql->fetchAll(\PDO::FETCH_ASSOC);
-    // $this->
-    // echo "<pre>";
-    // print_r($dados[0]['inicio']);
-    // die();
     return $dados;
   }
 

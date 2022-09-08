@@ -66,5 +66,7 @@ $router->get('/appointments/cancel/{id}', 'AppointmentController@cancelAppointme
 $router->get('/appointments/confirm/{id}', 'AppointmentController@confirmAppointment');
 $router->get('/appointments/edit/{id}', 'AppointmentController@editAppointment');
 $router->get('/appointments/search/{usuario}', 'AppointmentController@searchUsers');
-$router->post('/appointments/register', 'AppointmentController@registerAppointment');
 $router->post('/appointments/finish/{id}', 'AppointmentController@finishAppointment');
+
+//VERIFICAR O PQ NÃO ESTA SENDO ENVIADO O NOME DO PACIENTE CERTO!
+$router->post('/appointments/register', 'AppointmentController@registerAppointment');

@@ -9,6 +9,8 @@ use \src\models\Appointment;
 $date = new \DateTime();
 $usuario = new User();
 $info = $usuario->dadosLogado();
+// echo "<pre>";
+// print_r($info); die();
 $agendamento = new Appointment();
 
 ?>
@@ -188,6 +190,7 @@ $agendamento = new Appointment();
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button>
+            <!-- OBSERVAÇÃO NO ID PASSADO PARA FINALIZAR O CHAMADO. -->
             <button href="<?php echo $base . '/appointments/finish/15'; ?>" type="submit" class="btn btn-success">Encerrar</button>
           </div>
           </form>

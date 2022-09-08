@@ -102,7 +102,9 @@ $info = $usuario->dadosLogado();
 
             echo " <div class='alert alert-secondary' role='alert' style='position:absolute; top:60%; left:45%;'>Sem consultas pendentes no momento!</div>";
           } else {
-            foreach ($agendamento as $agendamentos) : ?>
+            foreach ($agendamento as $agendamentos) : 
+            // print_r($agendamento); die();
+            ?>
               <tr>
                 <td><?php echo $agendamentos['Paciente']; ?></td>
                 <td><?php echo $agendamentos['Medico']; ?></td>

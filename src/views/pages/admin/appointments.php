@@ -58,7 +58,7 @@ $infoData = $usuario->dadosLogado();
     </script>
     <div id='calendar'></div>
   <?php
-  } else if ($infoData['tipo'] == 'admin' || $infoData['tipo'] == 'psi') {
+  } else if ($infoData['tipo'] == 'admin' ) {
     echo '<script> renderCalendar("admin");</script>';
     echo " <div id='calendar'></div>";
   } else {
@@ -152,24 +152,15 @@ $infoData = $usuario->dadosLogado();
               <input class="form-control" type="text" name="titulo" autocomplete="off">
             </div>
             <!-- Mostra a escolha dos pacientes somente se o usuário for do tipo administrador -->
-            <?php if ($infoData['tipo'] == 'admin') : ?>
-              <div class="form-group mb20" style="margin-bottom: 10px;">
-                <label for="first-name">Paciente:</label>
-                <select class="form-control" name="paciente" id="">
-                  <option selected>Escolha um Paciente:</option>
-                  <?php foreach ($paciente as $pacientes) : ?>
-                    <option value="<?php echo $pacientes['idpaciente']; ?>"><?php echo $pacientes['nome']; ?></option>
-                  <?php endforeach; ?>
-                </select>
-              </div>
-            <?php endif; ?>
+
+            <!--if dando problema acima-->
             <?php if ($infoData['tipo'] == 'paciente') : ?>
               <div class="form-group mb20" style="margin-bottom: 10px;">
                 <label for="first-name">Paciente:</label>
                 <select readonly class="form-control" name="paciente" id="">
                   <?php foreach ($paciente as $pacientes) :
-                    if ($pacientes['nome'] = $infoData['nome']) {
-                      echo "<option  selected value='" . $pacientes['idpaciente'] . ">" . $pacientes['nome'] . "</option>";
+                    if ($pacientes['nome'] == $infoData['nome']) {
+                      echo "<option  selected value='" . $pacientes['idpaciente'] . "'>" . $pacientes['nome'] . "</option>";
                     }
                   ?>
                   <?php endforeach; ?>
@@ -181,7 +172,7 @@ $infoData = $usuario->dadosLogado();
               <label for="first-name">Psicólogo:</label>
 
               <select class="form-control" name="psi" id="">
-                <option selected>Escolha um Psicólogo:</option>
+                <option >Escolha um Psicólogo:</option>
                 <?php foreach ($psi as $psicologo) : ?>
                   <option value="<?php echo $psicologo['idpsi']; ?>"><?php echo "{$psicologo['nome']} | <b>{$psicologo['especialidade']}</b>"; ?></option>
                 <?php endforeach; ?>
@@ -227,9 +218,9 @@ $infoData = $usuario->dadosLogado();
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          <button type="submi" class="btn btn-success">Agendar Consulta</button>
+          <button type="submit" class="btn btn-success">Agendar Consulta</button>
         </div>
-        </form>
+        </form> <!--FECHAMENTO DO FORMULÁRIO PARA REALIZAR INCLUSÃO -->
       </div>
     </div>
 

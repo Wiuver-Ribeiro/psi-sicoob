@@ -12,3 +12,7 @@
 > <b>Psícologo </b>
 * Usuário: <b>admin</b>
 * Senha: <b>123456</b>
+
+==== Informações sobre o Sistema ====
+- O Psícologo não pode marcar consultas.
+- O Administrador marca as consultas dos pacientes.

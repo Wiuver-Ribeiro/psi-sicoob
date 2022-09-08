@@ -90,6 +90,12 @@ class AppointmentController extends Controller
     $this->redirect('/dashboard');
   }
 
+/**
+ * CONTROLLER RESPONSÁVEL 
+ *  EM REGISTRAR UMA NOVA CONSULTA
+ * ! Erro ao marcar consulta pelo usuário paciente ⚠
+ */
+
   public function registerAppointment()
   {
     $agendamento = new Appointment();
