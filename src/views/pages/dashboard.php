@@ -96,6 +96,7 @@ $info = $usuario->dadosLogado();
         </thead>
 
         <tbody>
+
           <?php
 
           if (empty($agendamento)) {

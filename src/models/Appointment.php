@@ -136,18 +136,14 @@ class Appointment
       return false;
     }
   }
-/**
- * FUNÇÃO RESPONSÁVEL DE AGENDAR UMA CONSULTA NO SISTEMA 
- * ! Erro ao tentar gravar consulta com perfil de acesso comum (Paciente)
- */
+  /**
+   * FUNÇÃO RESPONSÁVEL DE AGENDAR UMA CONSULTA NO SISTEMA 
+   * ! Erro ao tentar gravar consulta com perfil de acesso comum (Paciente)
+   */
 
   public function marcarConsulta()
   {
     require '../connnect.php';
-
-    
-    // print_r($_POST); die();
-
 
     $titulo = $_POST['titulo'];
     $inicio = $_POST['inicio'];
